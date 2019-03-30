@@ -71,6 +71,27 @@ Main projects: TP1 is a personal paper regarding neural networks and their capab
  
   - [Operating Systems](https://github.com/MikeDM16/Computer-Science-UMinho/tree/master/Licenciatura_BSc/2%C2%BA%20Ano/Sistemas%20Operativos "Operating Systems"):  Class exercises and scrips developed in pure C. Main project: A tool for secure backup using systems calls and methods. 
 
- 
+## Contributers
+
+### Momenter Team:
+
+* [Carlos Pereira](https://github.com/carlospereira1607) 
+* [Diana Lopes](https://github.com/DianaLopesCC) 
+* [Diogo Silva](https://github.com/diogols) 
+* [Rogério Moreira](https://github.com/rgllm) 
+* [Samuel Ferreira](https://github.com/munybt) 
+
+### Folks with whom I had the pleasure to work with 
+
+* [Nadine Oliveira](https://github.com/NadineOliveira)
+* [Catarina Cardoso](https://github.com/catarinacardoso96)
+* [Luciano Silva](https://github.com/luciano96)
+* [Esmeralda Fernandes](https://github.com/AnnieEm)
+* [Rui Leite](https://github.com/rcl1996)
+* [José Cunha](https://github.com/JoseCunha96)
+* [André Gonçalves](https://github.com/Simbs38)
+* [Ana Sofia](https://github.com/AnaSofiagm)
+
+
 [1]: https://ieeexplore.ieee.org/document/4336179 "Retinal Blood Vessel Segmentation Using Line Operators and Support Vector Classification"
 [2]: https://www.kaggle.com/trumedicines/1k-pharmaceutical-pill-image-dataset "1k Pharmaceutical Pill Image Dataset"
