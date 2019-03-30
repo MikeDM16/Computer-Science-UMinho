@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=x\ y
+comment0.target=void\ SetDimensoes(int,\ int)
+comment1.params=
+comment1.target=Ecran()
+comment2.params=cor
+comment2.target=Ecran(int)
+comment3.params=
+comment3.target=Ecran\ clone()
+comment4.params=x\ y
+comment4.target=Pixel\ getPixel(int,\ int)
+comment5.params=x\ y\ cor
+comment5.target=void\ mudaCor(int,\ int,\ int)
+comment6.params=x\ y
+comment6.target=int\ obterCor(int,\ int)
+comment7.params=o
+comment7.target=boolean\ equals(Ecran)
+comment8.params=
+comment8.target=java.lang.String\ toString()
+numComments=9

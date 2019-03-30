@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=
+comment0.target=double\ difTempo()
+comment1.params=
+comment1.target=java.util.GregorianCalendar\ getInicio()
+comment2.params=
+comment2.target=java.util.GregorianCalendar\ getfim()
+numComments=3

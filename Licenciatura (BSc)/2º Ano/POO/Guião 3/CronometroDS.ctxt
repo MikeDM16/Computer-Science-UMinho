@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=
+comment0.target=CronometroDS()
+comment1.params=
+comment1.target=void\ parar()
+comment2.params=time0\ time1
+comment2.target=java.lang.String\ difTime(java.util.GregorianCalendar,\ java.util.GregorianCalendar)
+comment3.params=
+comment3.target=java.lang.String\ primeiraParagem()
+comment4.params=
+comment4.target=java.lang.String\ segundaParagem()
+comment5.params=
+comment5.target=java.lang.String\ tempoSplit()
+numComments=6

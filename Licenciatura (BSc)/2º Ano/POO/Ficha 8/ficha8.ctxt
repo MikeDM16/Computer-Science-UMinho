@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=void\ funcaoExe1()
+comment1.params=entradas\ idade
+comment1.target=void\ funcaoExe2(int,\ int)
+comment2.params=N\ arr
+comment2.target=int\ funcaoExe3(int,\ int[])
+comment3.params=pal\ subPal
+comment3.target=void\ funcaoExe4(char[],\ char[])
+numComments=4

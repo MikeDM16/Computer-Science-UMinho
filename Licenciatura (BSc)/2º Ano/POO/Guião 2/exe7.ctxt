@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=n
+comment0.target=float[]\ vencimentosF(int)
+comment1.params=n
+comment1.target=java.lang.String[]\ cargosF(int)
+comment2.params=val\ pos
+comment2.target=float[]\ salarios(float[],\ java.lang.String[])
+comment3.params=arg
+comment3.target=void\ main(java.lang.String[])
+numComments=4

@@ -1,0 +1,22 @@
+#BlueJ class context
+comment0.params=
+comment0.target=ListaPaises()
+comment1.params=
+comment1.target=ListaPaises\ clone()
+comment2.params=
+comment2.target=java.util.ArrayList\ getLista()
+comment3.params=n\ c\ p
+comment3.target=void\ adicionar(java.lang.String,\ java.lang.String,\ double)
+comment4.params=
+comment4.target=int\ numPaises()
+comment5.params=c
+comment5.target=int\ numPaises(java.lang.String)
+comment6.params=nome
+comment6.target=FichaPais\ getFicha(java.lang.String)
+comment7.params=valor
+comment7.target=java.util.ArrayList\ nomesPaises(double)
+comment8.params=valor
+comment8.target=java.util.ArrayList\ nomesContinentes(double)
+comment9.params=c
+comment9.target=double\ somatorio(java.lang.String)
+numComments=10

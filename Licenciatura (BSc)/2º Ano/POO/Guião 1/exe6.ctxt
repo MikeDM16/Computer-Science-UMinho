@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.params=valor
+comment0.target=double\ fatorial(int)
+comment0.text=\ public\ static\ int\ fatorial(int\ n){\r\n\ \ \ \ \ \ \ \ if\ (n\=\=0){\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ 1;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ n*fatorial(n-1);\r\n}
+comment1.params=args
+comment1.target=void\ main(java.lang.String[])
+numComments=2

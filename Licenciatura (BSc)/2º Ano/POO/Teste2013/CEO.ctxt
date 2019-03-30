@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=e
+comment0.target=CEO(CEO)
+comment1.params=
+comment1.target=double\ getSalario()
+comment2.params=
+comment2.target=void\ salario()
+comment3.params=
+comment3.target=java.lang.String\ toString()
+comment4.params=
+comment4.target=CEO\ clone()
+numComments=5

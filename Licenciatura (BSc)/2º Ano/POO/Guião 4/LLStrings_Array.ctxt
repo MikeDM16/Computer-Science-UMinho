@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=LLStrings_Array()
+comment1.params=i
+comment1.target=LLStrings_Array(int)
+comment10.params=
+comment10.target=LLStrings_Array\ clone()
+comment2.params=
+comment2.target=int\ tamanho()
+comment3.params=
+comment3.target=boolean\ vazia()
+comment4.params=s
+comment4.target=void\ adicionar(java.lang.String)
+comment5.params=i
+comment5.target=java.lang.String\ get(int)
+comment6.params=i\ s
+comment6.target=void\ inserir(int,\ java.lang.String)
+comment7.params=
+comment7.target=void\ esvaziar()
+comment8.params=o
+comment8.target=boolean\ equals(LLStrings_Array)
+comment9.params=
+comment9.target=java.lang.String\ toString()
+numComments=11

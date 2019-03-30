@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=FichaPais()
+comment1.params=nome\ continente\ populacao
+comment1.target=FichaPais(java.lang.String,\ java.lang.String,\ double)
+comment2.params=
+comment2.target=FichaPais\ clone()
+comment3.params=
+comment3.target=java.lang.String\ getNome()
+comment4.params=
+comment4.target=java.lang.String\ getContinente()
+comment5.params=
+comment5.target=double\ getPopulacao()
+comment6.params=p
+comment6.target=void\ setPopulacao(double)
+comment7.params=n
+comment7.target=void\ setNome(java.lang.String)
+comment8.params=c
+comment8.target=void\ setcontinente(java.lang.String)
+numComments=9

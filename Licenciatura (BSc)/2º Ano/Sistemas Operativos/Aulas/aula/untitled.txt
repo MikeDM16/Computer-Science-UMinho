@@ -1,0 +1,30 @@
+Redirecionamento
+
+int dup(int fd)
+int dup2(int fd1, int fd2)
+
+Por omissao qualquer processo tem 3 descritores de ficheuros abertos
+0 - std imput
+1 - std output
+2 - std error
+
+por omissao, 1 e 2 apontam para o terminal(monitor); 0 aponta para o teclado
+
+um fopen retorna o valor do descritor para o ficheiro aberto. posicao 3 da tabela de descritores. 
+
+int fd2 = dup(fd) duplica o apontador para o descritor do ficheiro, colocando-o na posicao 4 (proxima disponivel/1ª entrada livre). 
+Ficando a apontar, no kernel, para o mesmo siio que o descritor 3.
+
+---\\---
+open("file.txt", O_WRONLY);
+close(1);
+dup(fd); 
+//vai colocar o novo descritor na posiçao 1. Portanto os fprintf vã00)o parar ao ficheiro. 
+
+"entrada.txt" O_RDONLY
+"saida .txt", OCREATE | OWRONLY | O_APPEND | O_TRUNC, 0666
+append --> continuar a partir do inicio. 
+
+!!! fechar os descritores no final !!!
+close(fd);
+

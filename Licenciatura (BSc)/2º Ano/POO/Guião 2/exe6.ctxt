@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=java.lang.String[]\ lerArrayStrings()
+comment1.params=arr
+comment1.target=void\ trocapalavra(java.lang.String[])
+comment2.params=arr
+comment2.target=void\ removerpalavra(java.lang.String[])
+comment3.params=arg
+comment3.target=void\ main(java.lang.String[])
+numComments=4

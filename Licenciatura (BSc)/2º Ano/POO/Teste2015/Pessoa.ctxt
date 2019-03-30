@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Pessoa()
+comment1.params=nome
+comment1.target=Pessoa(java.lang.String)
+comment2.params=p
+comment2.target=Pessoa(Pessoa)
+comment3.params=
+comment3.target=java.lang.String\ getNome()
+comment4.params=nome
+comment4.target=void\ setNome(java.lang.String)
+comment5.params=
+comment5.target=Pessoa\ clone()
+comment6.params=o
+comment6.target=boolean\ equals(java.lang.Object)
+numComments=7

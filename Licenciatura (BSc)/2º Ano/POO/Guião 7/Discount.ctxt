@@ -1,0 +1,25 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Discount()
+comment0.text=\r\n\ construtor\ vazio\r\n
+comment1.params=c
+comment1.target=Discount(Discount)
+comment1.text=\r\n\ Construtor\ por\ c\u00F3pia\r\n\ @param\ c\ \r\n
+comment2.params=codigo\ nome\ localidade\ precoQuarto\ nquartos\ ocupacao
+comment2.target=Discount(java.lang.String,\ java.lang.String,\ java.lang.String,\ double,\ int,\ double)
+comment2.text=\r\n\ Construtor\ por\ par\u00E2metro\r\n\ @param\ codigo\r\n\ @param\ nome\r\n\ @param\ localidade\r\n\ @param\ precoQuarto\r\n\ @param\ epocaAlta\ \r\n
+comment3.params=
+comment3.target=double\ precoQuarto()
+comment3.text=\r\n\ Calcula\ o\ pre\u00E7o\ de\ uma\ noite\ no\ hotel\r\n\ @return\ \r\n
+comment4.params=c
+comment4.target=void\ setOcupacao(double)
+comment5.params=
+comment5.target=double\ getOcupacao()
+comment6.params=
+comment6.target=Discount\ clone()
+comment7.params=obj
+comment7.target=boolean\ equals(java.lang.Object)
+comment8.params=
+comment8.target=java.lang.String\ toString()
+comment8.text=\r\n\ Retorna\ representa\u00E7\u00E3o\ textual\r\n\ @return\ \r\n
+numComments=9

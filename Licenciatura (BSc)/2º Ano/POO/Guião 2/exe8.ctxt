@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=n\ arr
+comment0.target=int\ elem(int,\ int[])
+comment1.params=
+comment1.target=void\ euromilhoes()
+comment2.params=args
+comment2.target=void\ main(java.lang.String[])
+numComments=3

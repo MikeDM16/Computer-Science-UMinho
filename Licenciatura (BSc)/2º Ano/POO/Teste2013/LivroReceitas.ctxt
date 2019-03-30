@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.params=nomeReceita
+comment0.target=double\ totalCalorias(java.lang.String)
+comment0.text=public\ double\ totalCalorias(String\ nomeReceita)\ throws\ ReceitaInexistenteException{\r\n\ \ \ \ \ \ \ \ try{\r\n\ \ \ \ \ \ \ \ \ \ \ \ this.receitas.get(nomeReceita).calorias();\r\n\ \ \ \ \ \ \ \ }catch\ (ReceitaInexistenteException\ e){\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ 0;\r\n\ \ \ \ \ \ \ \ }\r\n}
+comment1.params=
+comment1.target=java.util.Map\ receitasPorIngrediente()
+comment2.params=file\ calorias
+comment2.target=void\ gravaObj(java.lang.String,\ double)
+numComments=3

@@ -1,0 +1,24 @@
+#BlueJ class context
+comment0.params=
+comment0.target=MultimediaInterface()
+comment0.text=Construtores\ da\ classe
+comment1.params=nome
+comment1.target=MultimediaInterface(java.lang.String)
+comment2.params=
+comment2.target=void\ adicionaMultimedia()
+comment2.text=Adicionar\ um\ objeto\ Multim\u00E9dia
+comment3.params=
+comment3.target=void\ adicionaAlbum()
+comment4.params=
+comment4.target=void\ adicionaFilme()
+comment5.params=nome
+comment5.target=Multim\u00E9dia\ procuraMultimedia(java.lang.String)
+comment6.params=nome
+comment6.target=java.util.List\ listAtor(java.lang.String)
+comment7.params=file
+comment7.target=void\ gravaObj(java.lang.String)
+comment8.params=file
+comment8.target=MultimediaInterface\ leObje(java.lang.String)
+comment9.params=f\ ap
+comment9.target=void\ log(java.lang.String,\ boolean)
+numComments=10

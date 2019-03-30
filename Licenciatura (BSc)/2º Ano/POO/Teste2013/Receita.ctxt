@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=nome\ descricao\ produtos
+comment0.target=Receita(java.lang.String,\ java.lang.String,\ java.util.List)
+comment1.params=
+comment1.target=java.lang.String\ getNome()
+comment2.params=
+comment2.target=double\ calorias()
+comment3.params=
+comment3.target=java.util.Set\ getIngredientes()
+numComments=4
