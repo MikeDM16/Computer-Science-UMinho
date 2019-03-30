@@ -1,0 +1,9 @@
+-Registar informações sobre uma caderneta de cromos
+-Todo os cromos são de um determinado tipo. Esse tipo é caracterizada por uma descrição;
+-Os cromos são de vários jogadores e cada jogador só se encontra num cromo
+-Um jogador é caracterizado pelas suas descrições fisicas e pela equipa em que joga.
+-O jogador e a equipa de um dado jogador são de uma dada localidade. Uma localidade pode
+ter várias equipas ou jogadores residentes nelas;
+localidade pertence a um dado pais, que é feito de muitas localidades. Este pais pode servir
+para saber em que liga de futebol pertence a equipa ou o jogador do cromo. 
+-O jogador tem ainda uma determinada posicao no plantel da equipa. 

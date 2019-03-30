@@ -1,0 +1,14 @@
+-Saber informaçoes sobre cada tipo de pizza. Um pizza é caracterizada pela sua designação, 
+apresentaçao, preço e observações.
+-Cada pizza, no seu processo de confeçao utiliza várias metérias primas. Uma matéria prima
+deve ser caracterizada pela sua designação, referencia no sistema, unidade (stock?) o seu
+preço e observações.
+-Cada pizza tem vários processos (etapas) sequenciais até estar pronta. Estes processos
+devem ser caracterizados pela sua deisgnação, gestor e observações
+-Cada um destes processos de elaboração da pizza é feito por um gestor que é um funcionário.
+OS funcionáriods devem ter na BD o seu nome e função. 
+-Saber a produção anual de cada tipo de pizza,
+-Saber que maquina é usada num determinada processo da produçao de pizza. 
+-As maquinas devem ter um designação, custo/hora
+
+(...)

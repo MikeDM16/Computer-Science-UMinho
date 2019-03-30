@@ -1,0 +1,11 @@
+-Uma caderneta de cromos é compostas por cromos de diversos tipos;
+-Cada tipo de cromo, descrito pelo sua descrição, tem a si associados vários cromos;
+-Um cromo apresenta um tipo, jogador, página, descrição e data em que foi adquirido;
+-um cromo é referente a um jogador;
+-um jogador é caracterizado pelo seu nome, equipa, posicao, data nasimento, local nascimento, altura e peso;
+-Um jogador joga em apenas uma posição. Uma posição de jogo pode ser ocupada por vários jogadores.
+-Um jogador pertence apenas a uma equipa e uma equipa é composta por vários jogadores;
+-Um jogador e uma equipa têm uma localidade, e uma localidade pode ter nela associados
+vários jogadores ou equipas;
+-Várias localidades pertencem a um único país;
+(...)

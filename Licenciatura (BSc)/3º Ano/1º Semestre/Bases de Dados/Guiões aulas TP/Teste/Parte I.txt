@@ -1,0 +1,29 @@
+1) O administrador tem com funções definir as vistas e os privilégios de acesso para os
+futuros utilizadores da base de dados. 
+
+É o administrador que estrutura, conforme os requisitos, e cria as tabelas que irão compor
+a BD. 
+
+Deve ser tambem ele o unico com privilégios para remover tabelas ou apagar a propria base de
+dados. Deste modo, garantimos que os programados ou utilizadores da BD nao comentam o erro
+de apagar dados.
+
+2)O processo de normalização de dados são usados para garantir que nao existem dependencias
+parciais entre diferentes atributos nao chave de uma tabela, mantendo assim a consistencia
+dos dados, evitando anomalias das relações entre tabelas.
+A 1FN garante que todos os dados na BD são atomicos, isto é mantêm a sua unicidade de acordo 
+com o seu dominio. Por exemplo, nao pode haver "listas" numa mesma entrada de dados. 
+A 2FN exige que os dados verifiquem a 1FN e que numa tabela todas as dependencias funcionais
+sejam totais, isto é, todos os atributos nao chave dependem apenas do atributo chave. 
+
+1 forma normal
+As chaves candidatas permitem que nao hajam conjuntos de atributos repetidos e que descrevam 
+a mesma caracteristica. Alem disso, cada atributo contém apenas valores atómicos e não 
+existem tabelas nem atributos da mesma tabela com o mesmo nome. 
+
+2 forma normal
+Estar na 1 forma normal
+é necessário verificar que todos os atributos nao chave têm uma dependência funcional em
+relacao à chave primária e nao podem ter qualquer dependencia em relação a outro atributo
+nao chave. Nao podem haver dependencias funcionais parciais. SÒ DEPENDENCIAS FUNCIONAIS 
+TOTAIS. 
