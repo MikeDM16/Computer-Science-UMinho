@@ -1,13 +1,13 @@
 # Computer Science UMinho - Course material and main projects
 
-- ##Masteer Degree Years (MSc)
+## Masteer Degree Years (MSc)
 
- ### Main Projects
+### Main Projects
    - [*PEI: Momenter*](http://ss "Momenter"): Mobile app platform for advertsement and recommendation of any kind of social and cultural events. Main focus on the autonomous recomendation system, able to infeer the user social preferrences based on the behabiour and interaction with the platform. 
    
    - [*LEI: Phisicaly Based Photorealistic Cloud Rendering*](http://ss "Photorealistic Cloud Rendering"):  Implementing the state of the art \textit{FrostBite} realistic volume cloud rendering, target for real-time gaming scenatios. 
    
-  ###Inteligent Systems Specialization
+### Inteligent Systems Specialization
  
   - [Autonomous Systems](http://ss "Autonomous Systems"): Class exercises and tutorials. 
 Main projects: TP1 is a Robocode team. TP2 is a integration of PhidgetRFID, AdaFruit and IFTTT.
@@ -19,7 +19,7 @@ Main projects: TP1 is a personal paper regarding neural networks and their capab
 
   - [Data Mining](http://ss "Data Mining"): Class exercises and scrips developed under Weka framework. 
  
- ###Computer Graphics Specialization
+### Computer Graphics Specialization
   
    - [Lighting and visualization I](http://ss "Lighting and visualization I"): Class exercises and tutorials made in glsl. Main project: Implementation of non photorealistic shader filters.
    - [Lighting and visualization II](http://ss "Lighting and visualization II"):  Class exercises and scrips made in C++ and targeted for Embree builds. Phisical Based lighting techniques study.   Main project: Implementating image based lighting under Embree: performance analasys. 
@@ -29,12 +29,12 @@ Main projects: TP1 is a personal paper regarding neural networks and their capab
   -  [Technologies and Aplications](http://ss "Technologies and Aplications"): 
     - Medical Image: Detection and Segmentation of necrose regions over medical foot image records; Medicine drugs classification using convolutional neural networks, similar to the project proposed by the [1k Pharmaceutical Pill Image Dataset][2] Kraggle Challenge.  
 
-    - Cartography: Automatic Street Segmentation based on QGis Satelite Rasters and different sensor information. 
+   - Cartography: Automatic Street Segmentation based on QGis Satelite Rasters and different sensor information. 
   
   
- - ##**Bachelor Degree Years (BSc)**
+## **Bachelor Degree Years (BSc)**
 
- ### 3º Year: 
+### 3º Year: 
   - [Databases](http://ss "Databases"): Class exercises and scrips made in MySQL. Main project: modelling and building a database for a  train reservation company. Done both in MySQL and Neo4J.
  
   -  [Software Systems Development](http://ss "Software Systems Development"): Class scrips made in Java. Main project: Modelling and developing an app aimed to split bills.
@@ -53,7 +53,7 @@ Main projects: TP1 is a personal paper regarding neural networks and their capab
   
   -  [ Software Labs IV ](http://ss " Software Labs IV "): Semester main project: Modelling and developing an app for Restaurants recommendation, based on the user experience and preferences. 
   
-  ### 2º Year:
+### 2º Year:
   - [Object Oriented Programming](http://ss "Object Oriented Programming"):  Class exercises and scrips done in Java. Main project: real estate auction app. 
  
   - [Operating Systems](http://ss "Operating Systems"): Class exercises and scrips developed in pure C. Main project: A tool for secure backup using systems calls and methods. 
