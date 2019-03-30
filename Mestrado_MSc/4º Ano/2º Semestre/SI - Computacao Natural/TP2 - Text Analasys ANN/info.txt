@@ -1,0 +1,12 @@
+﻿- Várias linguagens : português, francês, inglês ...
+	-> 	Usar só posts em ingles perde demasiado informação do dataset.
+		Dado que em ingles existem dicionários <word, emoção> traduzir tudo para ingles
+	-> Traduzir tudo para ingles: Usar api google translate em python 
+	-> procurar dicionário para mapear palavra <-> nivel sentimento
+		Python tem um api que quantifica entre [0..1] o nivel de uma frase em ingles. Reaproveitar isto. 
+		
+- Alguns posts contêm apenas expressões do tipo #palavra
+	-> não é útil como material para extração de conhecimento
+	-> LIMPAR post com #palavras 
+	-> Expressão regular: #([a-zA-Z0-9]|[À-ÿ])*
+- Limpar hiperligações, porque não têm palavras nem info útil 

@@ -1,0 +1,7 @@
+#Robocode Robot Team
+#Mon Apr 09 16:12:12 WEST 2018
+team.version=1.0
+team.description=Seek & Destroy
+robocode.version=1.9.3.0
+team.author.name=
+team.members=SA.team.Seeker,SA.team.Destroyer,SA.team.Destroyer,SA.team.Destroyer,SA.team.Destroyer

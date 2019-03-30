@@ -1,0 +1,2 @@
+-i Debevec_IBL.obj
+ -vp 8.7 3.7 -2.15 -vi -0.45 0.75. 1.62 -vu 0 1 0 -fov 60

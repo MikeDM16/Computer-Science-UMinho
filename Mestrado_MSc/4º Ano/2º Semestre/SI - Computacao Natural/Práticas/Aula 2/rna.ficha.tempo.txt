@@ -1,0 +1,15 @@
+Aspecto	Temperatura	Humidade	Vento	Jogar
+Sol	29	85	Falso 	Não
+Sol	27	90	Verdadeiro	Não
+Nuvens	28	86	Falso 	Sim
+Chuva	21	96	Falso 	Sim
+Chuva	20	80	Falso 	Sim
+Chuva	18	70	Verdadeiro	Não
+Nuvens	17	65	Verdadeiro	Sim
+Sol	22	95	Falso 	Não
+Sol	20	70	Falso 	Sim
+Chuva	24	80	Falso 	Sim
+Sol	24	70	Verdadeiro	Sim
+Nuvens	22	90	Verdadeiro	Sim
+Nuvens	27	75	Falso 	Sim
+Chuva	22	91	Verdadeiro	Não

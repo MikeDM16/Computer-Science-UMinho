@@ -1,0 +1,3 @@
+score mnist
+
+Devem submeter um screenshot do melhor valor de acurracy obtido e respetivo grafico de loss, bem como a estrutura da rede e os hiperparametros utilizados (model.compile e model.fit).

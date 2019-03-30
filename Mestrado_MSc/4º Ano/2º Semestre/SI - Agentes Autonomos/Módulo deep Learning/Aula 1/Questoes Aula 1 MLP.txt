@@ -1,0 +1,26 @@
+[Aula 1 MLP]
+
+1 - Não, o exercício Aula_1_MLP não se enquadro no domínio de RNAs baseadas em Deep Learnings.
+	Por um lado, o modelo criado apresenta apenas três camadas intermédias, sendo assim um rede bastante simples.
+	As RNAs utilizadas em processos de Deep Learning distinguem-se pela sua arquitetura, onde se verifica um
+grande núimero de camadas (na ordem das dezenas) e uma maior compelexidades nas ligações entre os nodos, como forma 
+de modelar relações mais complexas nos dados. 
+
+	Por outro lado, a RNA utilizada neste exercicio é do tipo MultiLayer Perceptron, tendo as suas três camadas 
+de forma sequêncial. Em Deep Learning as camadas da RNA encontram-se organizadas sobre hierarquias, começando por 
+identificar caracteristicas mais simples e, a partir destas, identifica caracteristicas mais complexas. 
+
+2 - De uma forma geral a RNA utilizada está correta, no sentido em que, para os dados e parâmetros de treino
+utilizados, a rede foi capaz de realizar aprendizagem. 
+	Contudo, a obtenção de bons resultados com RNA está fortemente relacionado com o tunning dos seus parâmetros de treino.
+	Nesta prespetiva, os valores utilizados não são os mais indicados para treinar a rede. Esta conclusão é retirada após 
+observar os gráficos de evolução da função loss.
+
+	As alterações bruscas na função de avaliação (picos no gráfico) indicam que a função de loss não é apropriada
+para o cenário de aprendizagem que se procura generalizar com a RNA.
+	Como consequência, a alteração dos pesos de cada neuróinio é instável: numa iteração a alteração dos pesos 
+melhora a métrica de avaliação e, numa iteração seguinte, a mesma técnica de atualização dos pesos leva a resultados piores.
+
+	Uma possivel solução passa por experimentar outra métrica de avaliação, mais adequada ao contexto.
+	Cenário de treino com mais iterações ou dados podem tambem ajudar a melhorar o desempenho de classificação. 
+
