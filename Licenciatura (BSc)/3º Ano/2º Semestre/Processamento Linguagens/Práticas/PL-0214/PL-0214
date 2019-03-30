@@ -1,0 +1,127 @@
+    \(Questão 1)
+/*pesquisar por pedro*/
+grep -E 'pedro' pltesteER\ -\ anexo1.txt 
+/*pesquisar por Pedro ou pedro */
+grep -E '[Pp]edro' pltesteER\ -\ anexo1.txt 
+/*pesquisar por pedro ou daniela, começados por minuscula ou maiuscula*/
+grep -E '[Pp]edro|[Dd]aniela' pltesteER\ -\ anexo1.txt  
+grep -E '[Pp]edro|[Dd][Aa]niela' pltesteER\ -\ anexo1.txt 
+/*Procurar por pedro ou Pedro ou uma palavra começada por D|d e seguida de 1 ou mais caracteres contudos entre a-z e A-Z (sem digitos ou caracteres especiais*/
+grep -E '[Pp]edro|[Dd][a-zA-Z]+' "pltesteER - anexo1.txt" 
+/*Procurar por pedro ou Pedro ou uma palavra começada por D|d e seguida de o ou mais caracteres contudos entre a-z e A-Z (sem digitos ou caracteres especiais*/
+grep -E '[Pp]edro|[Dd][a-zA-Z]*' pltesteER\ -\ anexo1.txt 
+grep -E '[Dd][Aa]?[a-zA-Z]*' pltesteER\ -\ anexo1.txt
+
+    \(Questão 1.a)
+/*encontrar a palavra <HTML> ou </HTML>. A notaçao /? permite ter ou nao ter o caracter /
+    x? ter ou nao ter o caracter x 
+*/
+grep -E '</?HTML>' pltesteER\ -\ anexo1.txt
+grep -E '</?HTML>|</?html>' pltesteER\ -\ anexo1.txt
+grep -E '</[Hh][Tt][Mm][Ll]>' pltesteER\ -\ anexo1.txt  
+grep -E '</?HT[A-Z]+>|</?ht[a-z]+>' pltesteER\ -\ anexo1.txt
+/* opção -i = estar a palavra em maiuscula ou minuscula*/
+grep -E -i '</?html>' pltesteER\ -\ anexo1.txt
+
+    \(Questão 1.b)
+/*ter uma palavra ente < > (notaçao html) que tenha pelo menos um caracter minusculo ou maisculo*/
+grep -E '</[a-zA-Z]+>' pltesteER\ -\ anexo1.txt 
+grep -E '</?[a-zA-Z]+>' pltesteER\ -\ anexo1.txt 
+/*ter uma palavras entre < > que contenha qualquer tipo de caracter menos os contidos entre a-z
+        notação [^XYZ] = todos os caracteres menos o conjunto XYZ*/
+grep -E '</?[^a-z]+>' pltesteER\ -\ anexo1.txt 
+/*palavras entre < > com 0 ou mais caracteres maiusculos*/
+grep -E '</?[A-Z]*>' pltesteER\ -\ anexo1.txt 
+/* palavra entre < > que contenha todos os caracteres menos o > */
+grep -E '</?[^>]+>' pltesteER\ -\ anexo1.txt
+/*sort -u remove os repetidos*/
+cat processos\ -\ anexo4.txt | sort -u | wc
+
+/* opção -o lista só o elemento filtrado, sem lixo*/
+grep -E -o '<[^>]+>' pltesteER\ -\ anexo1.txt
+/* opção -c conta as ocorrencias unicas no grep*/
+grep -E -o -c '</?[^>]*>' pltesteER\ -\ anexo1.txt
+/* notaçao entre < > do ficheiro */
+grep -E -o -i '<[^>]*>' 'processos - anexo4b.xml'
+
+
+    \(Questão 1.c)
+/*considera ocorrencias da palavra no inicio da linha 
+        notacao ^palavra  sem os parenteses retos*/
+grep -E '^linha' "pltesteER - anexo1.txt"
+
+/*considera ocorrencias da palavra no meio ou fim da linha 
+        notacao .palavra */
+grep -E '.linha' "pltesteER - anexo1.txt"
+
+/* tudo o que nao tenha a palavra 'linha' no inicio da frase*/
+grep -E '[^^linha]' 'pltesteER - anexo1.txt'
+grep -E './' 'pltesteER - anexo1.txt'
+/* frases que começam por <A */
+grep -E '^<A' 'pltesteER - anexo1.txt'
+/*frases que terminam com A>*/
+grep -E '.(A>)' 'pltesteER - anexo1.txt'
+
+    \(Questão 1.d)
+/* frases terminadas com o algarismo 1*/
+grep -E '.(1)' 'pltesteER - anexo1.txt'
+/*frases terminadas por qualquer coisas que nao o algarismo 1*/
+grep -E '.[^1]' 'pltesteER - anexo1.txt'
+
+
+    \(Questão 1.e)
+/*selecionar numeros com pelo menos 2 algarismos*/
+grep -E '[0-9][0-9]+' 'pltesteER - anexo1.txt'
+/*Selecionar algarismos com pelo menos 1 digito */
+grep -E '[0-9][0-9]+' 'pltesteER - anexo1.txt'
+
+grep -E '[0-9]*' 'processos - anexo4b.xml' | sort
+grep -E '"[0-9]*"' 'processos - anexo4b.xml' | sort
+
+/*filtrar os numeros sem os caracteres " " */
+grep -E -o '"[0-9]*"' 'processos - anexo4b.xml' | grep -o '[0-9]*'
+
+/*opção -n lista a linha em que a palavra ocorre*/
+grep -E -n '"[0-9]*"' 'processos - anexo4b.xml'
+/* opção -b = byte offset*/
+grep -E -b -n '"[0-9]*"' 'processos - anexo4b.xml'
+/* pção -o fica só com o conteudo filtrado, sem texto irrelevante*/
+grep -E -o -b -n '"[0-9]*"' 'processos - anexo4b.xml'
+
+grep -E -o -b -n '"[0-9]*"' 'processos - anexo4b.xml'
+
+
+
+/* consideração extra */
+apropos .
+apropos . | wc
+apropos xml
+apropos . > f.txt
+cat f.txt
+$((3+2))
+
+apropos . | wc
+cat f.txt | wc
+
+apropos . | sed -r 's!(.*) - (.*)! <li> </b>\1</b> \2</li>!'
+apropos . | sed -r 's!(.*) - (.*)! <li> </b>\1</b> \2</li>!' > f.txt
+
+grep '' 'processos - anexo4b.xml'
+/* palavras com as combinaçoes possiveis entre p, r e o de 1 ou mais caracteres */ 
+grep '[pro]' 'processos - anexo4b.xml'
+/* combinações entre os caracteres da palavra processo*/
+grep '[processo]*' 'processos - anexo4b.xml' 
+
+/*numero de ocorrencias da palavra processo*/
+grep -E -c 'processo' "processos - anexo4b.xml"
+
+grep -E '[^a-zA-Z]*' 'processos - anexo4b.xml' | sort -u | uniq -c
+
+/*palavra processo no inicio de uma frase*/
+grep '^processo' "processos - anexo4b.xml"
+/* palavra processo no meio ou fim de uma frase*/
+grep '.processo' "processos - anexo4b.xml"
+
+grep '.[^\n]' 'processos - anexo4b.xml' 
+
+

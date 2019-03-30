@@ -1,0 +1,33 @@
+%option noyywrap yylineno
+
+%{
+	
+%}
+
+%%
+[-\,;\(\)\{\}=<>\&\*!+][\t \n]?    { return yytext[0];}
+
+[-]?[0-9]+			{ yylval.i = atoi(yytext);  return valor;	}
+
+"TIPO"				{ return TIPO;	 }
+
+(?i:while)          { return WHILE;	 }
+
+(?i:print)			{ return PRINT;  }
+
+(?i:read)			{ return READ;   }
+
+(?i:return)			{ return RETURN; }
+
+(?i:if)				{ return IF;     }
+
+(?i:else)			{ return ELSE;   }
+
+(?i:programa)		{ return PROGRAMA; }
+
+[a-z]            	{ yylval.c = yytext[0];  return variavel;   }
+
+\"[^"]*\"			{ yylval.s = strdup(yytext); return string; }
+
+.			        { }
+%%

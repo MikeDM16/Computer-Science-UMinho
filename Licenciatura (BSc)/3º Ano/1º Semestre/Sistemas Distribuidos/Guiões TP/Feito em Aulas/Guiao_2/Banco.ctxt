@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Banco()
+comment1.params=c\ q
+comment1.target=void\ credito(int,\ float)
+comment2.params=c\ q
+comment2.target=void\ debito(int,\ float)
+comment3.params=c
+comment3.target=float\ consulta(int)
+comment4.params=
+comment4.target=int\ getNContas()
+comment5.params=
+comment5.target=float\ getValorTotal()
+comment6.params=from\ to\ q
+comment6.target=void\ transferir(int,\ int,\ float)
+numComments=7

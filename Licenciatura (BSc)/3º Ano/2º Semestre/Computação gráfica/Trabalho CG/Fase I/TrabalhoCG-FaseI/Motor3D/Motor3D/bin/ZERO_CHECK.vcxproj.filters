@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\migue\OneDrive - Universidade do Minho\Licenciatura\3º Ano\2º Semestre\Computação gráfica\Trabalho CG\Fase I\TrabalhoCG-FaseI\Motor3D\Motor3D\bin\CMakeFiles\73aaf932a65cfee82a3de2ffbcb828f4\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{AA810645-55E8-3093-9E92-7D7341865D22}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

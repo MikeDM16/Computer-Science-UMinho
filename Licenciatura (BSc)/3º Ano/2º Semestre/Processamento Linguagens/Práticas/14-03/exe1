@@ -1,0 +1,4 @@
+# comentário
+x = x+1 # uma atribuição
+print "Os comentários levam # seguido de texto"
+print "2+2" # pregunta mais facil que "1+1"

@@ -1,0 +1,163 @@
+tcpdump: verbose output suppressed, use -v or -vv for full protocol decode
+listening on eth0, link-type EN10MB (Ethernet), capture size 65535 bytes
+12:40:44.421419 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:40:44.467874 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:40:54.417017 IP 10.0.2.1 > 224.0.0.22: igmp v3 report, 1 group record(s)
+12:40:54.421770 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:40:54.426034 IP6 fe80::200:ff:feaa:4 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+12:40:54.426381 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:40:56.164966 IP 10.0.2.1 > 224.0.0.22: igmp v3 report, 1 group record(s)
+12:41:00.204936 IP6 fe80::200:ff:feaa:4 > ff02::16: HBH ICMP6, multicast listener report v2, 1 group record(s), length 28
+12:41:04.424109 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:41:04.465295 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:41:14.425597 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:41:14.477295 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:41:24.425741 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:41:24.469705 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:41:33.143674 ARP, Request who-has 10.0.2.1 tell 10.0.2.10, length 28
+12:41:33.143781 ARP, Reply 10.0.2.1 is-at 00:00:00:aa:00:04, length 28
+12:41:33.143792 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 1, length 40
+12:41:33.143857 IP 10.0.2.1 > 10.0.2.10: ICMP time exceeded in-transit, length 68
+12:41:33.144124 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 2, length 40
+12:41:33.144175 IP 10.0.2.1 > 10.0.2.10: ICMP time exceeded in-transit, length 68
+12:41:33.144315 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 3, length 40
+12:41:33.144366 IP 10.0.2.1 > 10.0.2.10: ICMP time exceeded in-transit, length 68
+12:41:33.144600 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 4, length 40
+12:41:33.144746 IP 10.0.1.1 > 10.0.2.10: ICMP time exceeded in-transit, length 68
+12:41:33.145020 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 5, length 40
+12:41:33.145208 IP 10.0.1.1 > 10.0.2.10: ICMP time exceeded in-transit, length 68
+12:41:33.145384 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 6, length 40
+12:41:33.145483 IP 10.0.1.1 > 10.0.2.10: ICMP time exceeded in-transit, length 68
+12:41:33.145675 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 7, length 40
+12:41:33.145957 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 7, length 40
+12:41:33.146112 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 8, length 40
+12:41:33.146219 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 8, length 40
+12:41:33.146363 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 9, length 40
+12:41:33.146468 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 9, length 40
+12:41:33.146610 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 10, length 40
+12:41:33.146804 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 10, length 40
+12:41:33.147021 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 11, length 40
+12:41:33.147150 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 11, length 40
+12:41:33.147177 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 12, length 40
+12:41:33.147270 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 12, length 40
+12:41:33.147303 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 13, length 40
+12:41:33.147401 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 13, length 40
+12:41:33.147425 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 14, length 40
+12:41:33.147514 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 14, length 40
+12:41:33.147538 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 15, length 40
+12:41:33.147628 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 15, length 40
+12:41:33.147654 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 16, length 40
+12:41:33.147810 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 16, length 40
+12:41:33.149229 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 17, length 40
+12:41:33.149363 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 17, length 40
+12:41:33.149708 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 18, length 40
+12:41:33.149820 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 18, length 40
+12:41:33.150081 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 19, length 40
+12:41:33.150189 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 19, length 40
+12:41:33.150791 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 20, length 40
+12:41:33.150906 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 20, length 40
+12:41:33.151150 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 21, length 40
+12:41:33.151261 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 21, length 40
+12:41:33.151535 IP 10.0.2.10 > 10.0.0.10: ICMP echo request, id 40, seq 22, length 40
+12:41:33.151647 IP 10.0.0.10 > 10.0.2.10: ICMP echo reply, id 40, seq 22, length 40
+12:41:34.425845 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:41:34.458824 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:41:38.158055 ARP, Request who-has 10.0.2.10 tell 10.0.2.1, length 28
+12:41:38.158091 ARP, Reply 10.0.2.10 is-at 00:00:00:aa:00:05, length 28
+12:41:44.426028 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:41:44.452252 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:41:54.428594 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:41:54.487319 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:42:04.430574 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:42:04.479620 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:42:14.430739 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:42:14.492740 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:42:24.431612 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:42:24.488057 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:42:34.432590 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:42:34.465283 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:42:44.434718 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:42:44.497351 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:42:54.435246 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:42:54.500518 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:43:04.436489 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:43:04.470313 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:43:14.437023 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:43:14.506124 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:43:24.438360 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:43:24.546232 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:43:34.440887 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:43:34.550386 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:43:44.441495 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:43:44.564882 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:43:54.442807 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:43:54.621895 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:44:04.444508 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:44:04.589208 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:44:14.445447 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:44:14.571273 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:44:24.446180 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:44:24.550476 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:44:34.447658 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:44:34.592935 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:44:44.448006 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:44:44.605483 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:44:54.449855 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:44:54.622796 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:45:04.450445 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:45:04.584859 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:45:14.450866 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:45:14.580019 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+^[f12:45:24.452184 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:45:24.639324 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:45:34.452913 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:45:34.682656 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:45:44.453757 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:45:44.719008 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:45:54.455366 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:45:54.735988 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+
+
+12:46:04.456409 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:46:04.725275 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:46:14.457272 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:46:14.703494 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:46:24.458033 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:46:24.717820 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:46:34.459513 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:46:34.867929 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:46:44.459858 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:46:44.826868 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:46:54.460543 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:46:54.853222 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:47:04.462004 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:47:04.839574 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:47:14.463463 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:47:14.851646 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:47:24.465041 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:47:24.856922 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+
+12:47:34.465697 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:47:34.830784 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:47:44.465871 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:47:44.810825 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:47:54.466416 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:47:54.775478 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:48:04.466857 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:48:04.799885 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:48:14.473484 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:48:14.837826 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:48:24.473825 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:48:24.799284 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:48:34.474265 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:48:34.838231 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:48:44.474598 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:48:44.864500 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:48:54.477521 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:48:54.853863 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:49:04.478967 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:49:04.840949 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:49:14.479351 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+12:49:14.821164 IP6 fe80::200:ff:feaa:4 > ff02::5: OSPFv3, Hello, length 36
+12:49:24.481137 IP 10.0.2.1 > 224.0.0.5: OSPFv2, Hello, length 44
+

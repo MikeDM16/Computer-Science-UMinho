@@ -1,0 +1,13 @@
+PROGRAMA { 
+	TIPO x,y,z;
+	TIPO r;
+
+	x = 20;
+	y = 5;
+	z = 2;
+
+	r = x/y/z;
+
+	print "Resultados" 20 + 5; 
+
+}

@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.params=
+comment0.target=UMinhoBoleias()
+comment1.params=mail\ pass
+comment1.target=boolean\ registaUtilizador(java.lang.String,\ java.lang.String)
+comment2.params=mail\ pass
+comment2.target=boolean\ autenticar(java.lang.String,\ java.lang.String)
+comment3.params=email
+comment3.target=Utilizador\ getUser(java.lang.String)
+comment4.params=
+comment4.target=boolean\ existPassEspera()
+comment5.params=
+comment5.target=boolean\ existCondDisp()
+comment6.params=mail\ partida\ destino
+comment6.target=java.lang.String\ solicitarViagem(java.lang.String,\ Local,\ Local)
+comment7.params=mail\ actual\ matricula\ modelo\ custoUnitario
+comment7.target=java.lang.String\ disponivelViagem(java.lang.String,\ Local,\ java.lang.String,\ java.lang.String,\ double)
+comment8.params=username
+comment8.target=void\ logout(java.lang.String)
+numComments=9

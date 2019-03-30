@@ -1,0 +1,8 @@
+#BlueJ class context
+comment0.params=s
+comment0.target=Warehouse2.Produto\ get(java.lang.String)
+comment1.params=s\ q
+comment1.target=void\ suply(java.lang.String,\ int)
+comment2.params=a
+comment2.target=void\ consume(java.lang.String[])
+numComments=3

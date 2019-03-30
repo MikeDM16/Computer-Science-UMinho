@@ -1,0 +1,19 @@
+BEGIN		{ FS = "::";
+		  enc = "<html> <head> <meta charset = 'UTF-8'/><body>";
+	  	  fmt = "<li> <a href='%s'> %s </a></li>\n";
+		  evo = "http://natura.di.uminho.pt/~jj/ARQEvo/" }
+!prov[$1]	{ print enc "<h1>" $1 "</h1>" > $1".html" }
+		{ printf (fmt, evo $(NF-1), $3 " - " $2 "(" $(NF) ")") > $1".html";
+		  prov[$1]++ }
+		{ split(norm($5), a, /[;,] */);
+		  for (i in a) ins[a[i]] = ins[a[i]]"\n" sprintf(fmt, evo$(NF-1), $3) }
+END		{ print enc > "index.html";
+	  	  for (i in prov) printf(fmt, i".html", i) > "index.html";
+		  print "</body></html>" > "index.html";
+		  print enc > "instrumentos.html";
+		  for (i in ins) print i, ins[i] > "instrumentos.html"
+		  print "</body></htlm>" > "instrumentos.html" }
+
+function norm(str) {
+	return tolower(str);
+}

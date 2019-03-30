@@ -1,0 +1,16 @@
+PROGRAMA {
+	TIPO x, n, m;
+	TIPO i;
+	
+	i = 0;
+	n = 3;
+ 
+	while(i<n){
+		print "Insira um número:";
+		read x;
+		m = m * x;
+	}
+
+	print "O produtorio dos numeros inseridos foi: " m;
+
+}

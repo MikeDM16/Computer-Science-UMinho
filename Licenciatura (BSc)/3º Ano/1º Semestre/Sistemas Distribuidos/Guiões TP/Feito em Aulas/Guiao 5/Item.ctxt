@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=s\ n
+comment0.target=Item(java.lang.String,\ int)
+comment1.params=
+comment1.target=java.lang.String\ getNome()
+comment2.params=
+comment2.target=int\ getQuantidade()
+comment3.params=q
+comment3.target=void\ addQuantidade(int)
+comment4.params=
+comment4.target=void\ getLock()
+comment5.params=
+comment5.target=void\ getUnlock()
+numComments=6

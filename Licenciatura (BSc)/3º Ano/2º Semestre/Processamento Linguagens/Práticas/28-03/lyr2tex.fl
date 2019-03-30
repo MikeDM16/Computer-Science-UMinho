@@ -1,0 +1,49 @@
+%option noyywrap 
+%{
+void beginlatex(FILE* f);
+void endlatex(FILE* f);	
+%}
+%x META ABC POEMA
+
+%%
+   FILE* abc, * lyr = fopen("out.tex", "w");
+   char ttl[1024], abcfn[1024];
+   int n=0; 
+   beginlatex(lyr);
+
+<*>title:.* {BEGIN META; fprintf(lyr, "\\section(%s)\n", yytext+6); }
+<*>\<abc\> {BEGIN ABC; 
+			sprintf(abcfn, "n%d.abc", n++);
+			abc = fopen(abcfn, "w");
+			}
+
+<POEMA>[_$%] {}
+<POEMA>.  { fprintf(lyr, "%s", yytext); }
+<POEMA>\n  { fprintf(lyr, "\\\\\n"); }
+
+<META>\n{2,} {BEGIN POEMA; }
+<META>.|\n { }
+
+<ABC>.|\n { fprintf(abc, "%s", yytext); }
+<ABC>\<\/abc\> { BEGIN POEMA; fclose(abc); }
+
+<*><<EOF>>  {endlatex(lyr); return 0;}
+%%
+
+int main(int argc, char* argv[]){
+	if(argc==2) {
+		yyin = fopen(argv[1], "r");
+	}
+	yylex();
+	return 0;
+}
+
+void beginlatex(FILE* f){
+	fprintf(f, "%s", "\\documentclass{article}\n");
+	fprintf(f, "%s", "\\usepackage[utf8]{inputenc}\n");
+	fprintf(f, "%s", "\\begin{document}\n");	
+}
+
+void endlatex(FILE* f){
+	fprintf(f, "%s", "\\end{document}\n");	
+}

@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=modelo\ matricula
+comment0.target=Veiculo(java.lang.String,\ java.lang.String)
+comment1.params=
+comment1.target=java.lang.String\ getModelo()
+comment2.params=
+comment2.target=java.lang.String\ getMatricula()
+comment3.params=modelo
+comment3.target=void\ setModelo(java.lang.String)
+comment4.params=matricula
+comment4.target=void\ setMatricula(java.lang.String)
+numComments=5

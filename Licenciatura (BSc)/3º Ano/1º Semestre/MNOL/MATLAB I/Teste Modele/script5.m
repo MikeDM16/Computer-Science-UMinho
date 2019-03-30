@@ -1,0 +1,1 @@
+[p, npts] = quad('funcao5', 0, 10)

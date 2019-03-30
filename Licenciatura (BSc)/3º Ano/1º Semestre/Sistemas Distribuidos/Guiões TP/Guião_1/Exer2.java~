@@ -1,0 +1,18 @@
+
+/**
+ * Write a description of class Exer2 here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class Exer2
+{
+    private static Counter c;
+    
+    public Exer2(Counter c){ this.c = c; }
+    
+    public static void main(){
+        c = new Counter();
+        
+    }
+}

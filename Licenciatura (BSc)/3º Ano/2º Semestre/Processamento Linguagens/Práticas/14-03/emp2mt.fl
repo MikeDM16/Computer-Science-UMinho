@@ -1,0 +1,13 @@
+%option noyywrap
+
+%%
+ float n;
+[0-9]+ft   { sscanf(yytext, "%f", &n); printf("%0.2f metros", n/3); }
+%%
+int main(int argc, char* argv[]){
+	if( argc == 2){
+		yyin = fopen(argv[1], "r");
+	}
+	yylex();
+	return 0;
+}

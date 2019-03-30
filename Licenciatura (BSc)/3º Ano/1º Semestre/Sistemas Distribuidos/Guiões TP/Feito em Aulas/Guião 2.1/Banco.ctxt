@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Banco()
+comment1.params=
+comment1.target=int\ getNumeroContas()
+comment2.params=conta\ valor
+comment2.target=void\ adicionaV(int,\ int)
+comment3.params=conta\ valor
+comment3.target=void\ removeV(int,\ int)
+numComments=4

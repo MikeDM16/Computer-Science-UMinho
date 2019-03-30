@@ -1,0 +1,49 @@
+pushi 0
+pushi 0
+pushi 0
+ pushi 0
+pushi 0
+  start
+pushs"Lados de um quadrado"
+writes
+pushs"Insira o primeiro numero:"
+writes
+read
+atoi
+storeg1
+pushs"Insira o segundo numero:"
+writes
+read
+atoi
+storeg2
+pushs"Insira o terceiro numero:"
+writes
+read
+atoi
+storeg3
+pushs"Insira o quarto numero:"
+writes
+read
+atoi
+storeg4
+pushg 1
+pushg 2
+equal
+pushg 1
+pushg 3
+equal
+pushg 1
+pushg 4
+equal
+ 
+jz else_if_0
+pushs"Os lados sao de um quadrado."
+writes
+ 
+jump fim_if_0
+else_if_0: 
+pushs"Os lados nao sao de um quadrado."
+writes
+  
+fim_if_0:
+ stop

@@ -1,0 +1,6 @@
+#!/user/bin/gawk -f
+BEGIN { FS = "::";
+	fmt = "<li><a href = %s > %s </a></li>"}
+	{ printf {fmt, $(NF-1), $3} } > %1 ".html";
+	arr[%1]++;}
+END	{ for( i in arr) printf( fmt, i ".html", i) > "index.html"}

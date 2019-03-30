@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Warehouse()
+comment1.params=item\ quantity
+comment1.target=void\ suply(java.lang.String,\ int)
+numComments=2

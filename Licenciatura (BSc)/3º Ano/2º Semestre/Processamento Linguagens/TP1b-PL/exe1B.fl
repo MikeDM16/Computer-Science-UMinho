@@ -1,0 +1,110 @@
+%option noyywrap
+%option yylineno
+
+%{
+#include <stdio.h>
+#include <ctype.h>
+void guardaVerbo(char* verbo);
+void init();
+int getIndice(char c);
+int existeVerbo(char* c, int indice);
+void adicionaVerbo(char* c, int indice);
+void imprimeVerbos();
+void gereHtml();
+char** encontrados[26];
+%}
+
+
+VerboAux   (can|could|shall|should|would|may|might)
+Verbo      {VerboAux}('[a-zA-Z]+)?[ ][a-zA-Z]+  
+
+%%
+{Verbo}  { guardaVerbo(yytext); }
+<*>.|\n  { }
+%%
+
+void gereHtml(){
+	FILE* fVerbs = fopen("verbos.html", "w");
+	char* cabecIni = "<html> <head> <meta charset='UTF-8'/> </head> <body>";
+	char* cabecFim = "</body> </html>";
+	fprintf(fVerbs, "%s", cabecIni);
+	int i,j, ctrl;
+	for(i=0; i!=26; i++){
+		ctrl= 0;
+		for(j=0; encontrados[i][j]; j++){
+			char c = (char) 'A'+i;
+			if(ctrl == 0) { fprintf(fVerbs, "<h1> Verbos iniciados por %c </h1>", c); ctrl =1; }
+			fprintf(fVerbs, "<li> <a href=http://dictionary.cambridge.org/dictionary/english/%s>%s </a></li>", encontrados[i][j], encontrados[i][j]);
+		}
+	}
+
+	fprintf(fVerbs, "%s", cabecFim);
+	fclose(fVerbs);
+}
+
+int main(int argc, char* argv[]){
+	init();
+	
+	if(argc==2){
+		yyin = fopen(argv[1], "r");
+	}
+	yylex();
+
+	gereHtml();
+	
+	//imprimeVerbos();
+
+	return 0;
+}
+
+void init(){
+	//inicialização da estrutura de dados
+	for(int i= 0; i!=26; i++){
+		encontrados[i] = (char**)malloc(1024*sizeof(char**));
+	}
+}
+
+int getIndice(char c){
+	char aux = tolower(c); 	int r =  aux-97; return r;
+}
+
+int existeVerbo(char* verbo, int indice){
+	int i, r = 0;
+	for(i=0; encontrados[indice][i]!=NULL; i++){
+		if(strcmp(encontrados[indice][i], verbo) == 0){
+			r = 1;	break;
+		}
+	}
+	return r;
+}
+
+void adicionaVerbo(char* verbo, int indice){
+	int i;
+	if(encontrados[indice][0] ==NULL){
+		encontrados[indice][0] = (char*) malloc(sizeof(char*));
+		encontrados[indice][0] = strdup(verbo);
+	}
+	else{
+		for(i = 0; encontrados[indice][i]!=NULL; i++);
+		encontrados[indice][i] = (char*) malloc(sizeof(char*));
+		encontrados[indice][i] = strdup(verbo);
+	}
+
+}
+
+void imprimeVerbos(){
+	for(int i=0; i!=26; i++){
+		for(int j=0; encontrados[i][j]!=NULL; j++){
+			printf("Verbo encontrado[%d][%d]: %s \n",i,j, encontrados[i][j]);
+		}
+	}
+}
+
+void guardaVerbo(char* arg){
+	char* pal = strtok(arg, " ");
+	pal = strtok(NULL, " ");
+
+	int indice = getIndice(pal[0]);
+	int r = existeVerbo(pal, indice);
+	if(r == 0){ adicionaVerbo(pal, indice); }
+}

@@ -1,0 +1,29 @@
+PROGRAMA { 
+	TIPO x, y;
+	TIPO z, k;
+
+	print "Lados de um quadrado";
+	
+	print "Insira o primeiro numero:";
+	read x;
+	
+	print "Insira o segundo numero:";
+	read y;
+	
+	print "Insira o terceiro numero:";
+	read z;
+	
+	print "Insira o quarto numero:";
+	read k;
+
+	if(x == 3) {
+		print "Os lados sao de um quadrado.";
+		if(x > 3){
+			print "Ola mundo"; 
+		}
+	}
+	else {
+		print "Os lados nao sao de um quadrado.";
+	}
+
+}

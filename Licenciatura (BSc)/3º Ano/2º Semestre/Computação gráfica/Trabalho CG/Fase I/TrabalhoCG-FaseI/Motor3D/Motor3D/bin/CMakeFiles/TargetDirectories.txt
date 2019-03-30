@@ -1,0 +1,3 @@
+C:/Users/migue/OneDrive - Universidade do Minho/Licenciatura/3º Ano/2º Semestre/Computação gráfica/Trabalho CG/Fase I/TrabalhoCG-FaseI/Motor3D/Motor3D/bin/CMakeFiles/motor3D.dir
+C:/Users/migue/OneDrive - Universidade do Minho/Licenciatura/3º Ano/2º Semestre/Computação gráfica/Trabalho CG/Fase I/TrabalhoCG-FaseI/Motor3D/Motor3D/bin/CMakeFiles/ALL_BUILD.dir
+C:/Users/migue/OneDrive - Universidade do Minho/Licenciatura/3º Ano/2º Semestre/Computação gráfica/Trabalho CG/Fase I/TrabalhoCG-FaseI/Motor3D/Motor3D/bin/CMakeFiles/ZERO_CHECK.dir

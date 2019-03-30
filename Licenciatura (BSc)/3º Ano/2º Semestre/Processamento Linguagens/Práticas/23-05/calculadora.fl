@@ -1,0 +1,8 @@
+%option noyywrap yylineno
+%%
+[0-9]+(\.[0-9]+)?   	{ yylval.d =   atof(yytext); 
+							return  NUM; }
+[+\-*:/()\n\^]            { return yytext[0]; }
+[ \t]				   	{ }
+.      			    	{ yyerror("Caracter desconhecido"); }
+%%

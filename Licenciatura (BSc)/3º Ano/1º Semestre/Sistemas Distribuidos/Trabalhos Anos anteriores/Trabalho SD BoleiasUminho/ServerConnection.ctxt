@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.params=sock\ umb
+comment0.target=ServerConnection(java.net.Socket,\ UMinhoBoleias)
+comment1.params=
+comment1.target=void\ regista()
+comment2.params=
+comment2.target=void\ login()
+comment3.params=
+comment3.target=void\ solicita()
+comment4.params=
+comment4.target=void\ disponivel()
+comment5.params=
+comment5.target=void\ logout()
+comment6.params=
+comment6.target=void\ run()
+numComments=7

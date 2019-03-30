@@ -1,0 +1,3 @@
+C:/Users/migue/Desktop/3º Ano/2º Semestre/Computação gráfica/Projeto 10/Build/CMakeFiles/class9.dir
+C:/Users/migue/Desktop/3º Ano/2º Semestre/Computação gráfica/Projeto 10/Build/CMakeFiles/ALL_BUILD.dir
+C:/Users/migue/Desktop/3º Ano/2º Semestre/Computação gráfica/Projeto 10/Build/CMakeFiles/ZERO_CHECK.dir

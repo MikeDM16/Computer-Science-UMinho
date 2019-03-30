@@ -1,0 +1,21 @@
+PROGRAMA {
+	TIPO x, n, m;
+	TIPO i;
+	i = 1;
+
+	print "Insira o numero de inteiros a ler.";
+	read n;
+	print "Insira um numero:";
+	read m;
+ 
+	while(i<n){
+		print "Insira um novo numero:";
+		read x;
+		if(x > m){
+			m = x;
+		}
+	}
+
+	print "O maior valor lido foi " m;
+
+}

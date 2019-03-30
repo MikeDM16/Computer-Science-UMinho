@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.params=x\ y
+comment0.target=Local(int,\ int)
+comment1.params=s
+comment1.target=Local(java.lang.String)
+comment2.params=
+comment2.target=int\ getX()
+comment3.params=
+comment3.target=int\ getY()
+comment4.params=x
+comment4.target=void\ setX(int)
+comment5.params=y
+comment5.target=void\ setY(int)
+comment6.params=
+comment6.target=java.lang.String\ toString()
+comment7.params=l
+comment7.target=int\ distancia(Local)
+numComments=8

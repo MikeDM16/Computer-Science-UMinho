@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=out\ in
+comment0.target=Cliente(java.io.PrintWriter,\ java.io.BufferedReader)
+comment1.params=
+comment1.target=java.io.PrintWriter\ getPrintewriter()
+comment2.params=
+comment2.target=java.io.BufferedReader\ getBufferedReader()
+comment3.params=s
+comment3.target=void\ addSoma(int)
+comment4.params=
+comment4.target=int\ getSoma()
+comment5.params=
+comment5.target=float\ getMedia()
+numComments=6

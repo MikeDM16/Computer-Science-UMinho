@@ -1,0 +1,7 @@
+remCom: remCom.fl
+	flex remCom.fl
+	cc lex.yy.c -o remCom
+sms2pt: sms2pt.fl
+	flex sms2pt.fl
+	cc lex.yy.c -o sms2pt
+

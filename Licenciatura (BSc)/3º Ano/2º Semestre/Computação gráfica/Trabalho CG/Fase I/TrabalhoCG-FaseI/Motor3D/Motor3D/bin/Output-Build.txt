@@ -1,0 +1,14 @@
+﻿1>------ Build started: Project: motor3D, Configuration: Release Win32 ------
+1>  Motor3D.cpp
+1>C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(26): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+1>C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(27): warning C4996: 'strcat': This function or variable may be unsafe. Consider using strcat_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(90): note: see declaration of 'strcat'
+1>C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(42): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(119): note: see declaration of 'strcpy'
+1>C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(43): warning C4996: 'strtok': This function or variable may be unsafe. Consider using strtok_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+1>  C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\string.h(453): note: see declaration of 'strtok'
+1>C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(33): warning C4101: 'l3': unreferenced local variable
+1>C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(33): warning C4101: 'l2': unreferenced local variable
+1>  motor3D.vcxproj -> C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\bin\Release\motor3D.exe
+========== Build: 1 succeeded, 0 failed, 1 up-to-date, 0 skipped ==========

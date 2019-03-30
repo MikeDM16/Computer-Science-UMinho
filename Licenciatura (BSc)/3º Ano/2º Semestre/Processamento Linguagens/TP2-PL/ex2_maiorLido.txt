@@ -1,0 +1,44 @@
+pushi 0
+pushi 0
+pushi 0
+pushi 0
+ pushi 0
+  start
+x;pushi 1
+storeg 4
+ pushs"Insira o numero de inteiros a ler."
+writes
+read
+atoi
+storeg2
+pushs"Insira um numero:"
+writes
+read
+atoi
+storeg3
+cond_while_0:
+pushg 4
+pushg 2
+inf
+
+jz fim_while_0
+pushs"Insira um novo numero:"
+writes
+read
+atoi
+storeg1
+pushg 1
+pushg 3
+sup
+
+jz fim_if_0
+pushg 1
+storeg 3
+  
+fim_if_0:
+ 
+jump cond_while_0
+fim_while_0:
+pushs"O maior valor lido foi "
+writes
+ stop

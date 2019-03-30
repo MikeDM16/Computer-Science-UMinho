@@ -1,0 +1,774 @@
+<zuiprezi>
+  <version>7</version>
+  <zui-table>
+    <settings>
+      
+      <autoplay>
+        
+        <delay>4000</delay>
+        
+      </autoplay>
+      
+      <bounds x="-939410.6859670389" y="-626763.0670436338" width="1878821.3719340777" height="1253526.1340872676"/>
+      <aspectratio>off</aspectratio>
+      <languages>
+        <language>es</language>
+      </languages>
+      <mode type="normal"/>
+    </settings>
+    <object id="1" type="button" x="4037.903775154758" y="2229.2986861683053" r="0" s="1653.0517924338244" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1114.8586255000916</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="0" type="image" x="4.8220196932212814e-11" y="2.2324165246394826e-11" r="0" s="2935.6583936469965">
+      <source w="640" h="427">4629337222<url>4629337222.jpg</url></source>
+      <sourceUrl>tactile_internet.jpg</sourceUrl>
+    <resource><id>4629337222</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/c/2/d/2734b1c39510265d6ed85662ea7fb2cfa8a72.jpg</url></resource></object>
+    <object id="0_80004555" type="text" x="-76805.93868290435" y="-39830.74695335156" r="0" s="5918.641954547741" class="body">
+      <style fontFamily="custom-kgempireofdirt" font-family="KGEmpireofDirt"/>
+      <style fontFamily="custom-kgempireofdirt" font-family="KGEmpireofDirt"/>
+      <height>27.6328125</height>
+      <width>-103.5703125</width>
+      <p>
+        <text color="6557470"><![CDATA[Internet Tátil]]></text>
+      </p>
+    </object>
+    <object id="2_80004555" type="button" x="-80954.62025570711" y="-51127.93809221992" r="0" s="0.6203119723691268" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="3_80004555" type="text" x="-80954.56577415735" y="-51092.796002340896" r="0" s="1.7152313140513633" class="body">
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <height>87.48</height>
+      <width>439.944</width>
+      <p align="center">
+        <text color="6557470"><![CDATA[Um novo paradigma ]]></text>
+      </p>
+      <p align="center">
+        <text color="6557470"><![CDATA[de comunicação]]></text>
+      </p>
+      <p align="center">
+        <text color="6557470"><![CDATA[ por rede]]></text>
+      </p>
+    </object>
+    <object id="5_80004555" type="button" x="-366955.06154364476" y="-155987.93595461262" r="0" s="1.2533432296825129" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1282.7225130890051</w>
+        <h>596.5</h>
+      </size>
+    </object>
+    <object id="4_80004555" type="image" x="-366954.8910667721" y="-155987.78267819926" r="0" s="2.3579476467674465">
+      <source w="660" h="420">4632436130<url>4632436130.jpg</url></source>
+      <sourceUrl>20160411145357_660_420.jpg</sourceUrl>
+    <resource><id>4632436130</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/9/e/3/ad7b83fce3ef9834def5b1865389c3b695dae.jpg</url></resource></object>
+    <object id="10_80004555" type="button" x="-367341.104684557" y="-155809.56155382143" r="0" s="0.10201949246457799" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1282.7225130890051</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="6_80004555" type="image" x="-367333.7062247508" y="-155832.262568798" r="0" s="0.020545486750310538">
+      <source w="750" h="350">4632437688<url>4632437688.jpg</url></source>
+      <sourceUrl>Internet-Movel.jpg</sourceUrl>
+    <resource><id>4632437688</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/9/1/9368dd79a8fb703127baa2e699a22c983fa7c.jpg</url></resource></object>
+    <object id="7_80004555" type="image" x="-366258.5647158983" y="-156250.05837932214" r="-179.46560812886867" s="0.02868489162177605">
+      <source w="600" h="398">4632439554<url>4632439554.jpg</url></source>
+      <sourceUrl>touch_internet.jpg</sourceUrl>
+    <resource><id>4632439554</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/0/4/3ffcf62a7c2d6ab68c81abab3655082a247f7.jpg</url></resource></object>
+    <object id="8_80004555" type="image" x="289061.2938806047" y="-161785.37617222397" r="0" s="2.6339133183940078">
+      <source w="1366" h="768">4632443108<mask x="59" y="241" w="556" h="286"/>
+      <url>4632443108.png</url></source>
+      <sourceUrl>cirurgia.png</sourceUrl>
+    <resource><id>4632443108</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/1/e/a/960b23890d62720cf8ba0f35ec64be406f7db.png</url></resource></object>
+    <object id="9_80004555" type="button" x="-366954.82701327204" y="-155987.7494749334" r="0" s="1.4412397369815046" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1282.7225130890051</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="1_80004555" type="image" x="291286.4093258716" y="-161164.79492442854" r="0" s="4.555112612330288">
+      <source w="1366" h="768">4632498218<mask x="75" y="170" w="595" h="443"/>
+      <url>4632498218.png</url></source>
+      <sourceUrl>sfbf.png</sourceUrl>
+    <resource><id>4632498218</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/8/b/bfc410529f20c86239ce29f9be4f91344dee3.png</url></resource></object>
+    <object id="11_80004555" type="image" x="289076.7413943453" y="-160735.5963861447" r="0" s="1.1119691512462877">
+      <source w="1368" h="1042">4632501393<url>4632501393.gif</url></source>
+      <sourceUrl>mic20150200785.gif</sourceUrl>
+    <resource><id>4632501393</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/a/0/b/cc3fdecba0256583801541fd5bdcbe46b2f65.gif</url></resource></object>
+    <object id="14_80004555" type="button" x="-232567.16871009438" y="-52641.953115585784" r="0" s="0.2828302968274714" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>800</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="15_80004555" type="text" x="-232567.1514083958" y="-52635.315988424714" r="0" s="1.1072819395241018" class="body">
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <height>58.32</height>
+      <width>-159.936</width>
+      <p align="center">
+        <text color="6557470"><![CDATA[Desafios de ]]></text>
+      </p>
+      <p align="center">
+        <text color="6557470"><![CDATA[Implementação]]></text>
+      </p>
+    </object>
+    <object id="16_80004555" type="text" x="-52563.38427561178" y="-95026.19891142569" r="0" s="1264.2123440332837" class="body">
+      <height>29.16</height>
+      <width>0</width>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+    </object>
+    <object id="13_80004555" type="image" x="125374.34629256392" y="158976.5575806612" r="0" s="0.014601997596134883">
+      <source w="1920" h="1080">4632911973<mask x="971" y="265" w="925" h="549"/>
+      <url>4632911973.png</url></source>
+      <sourceUrl>yfj.png</sourceUrl>
+    <resource><id>4632911973</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/7/4/2/1c2fce5466ad9cf2e9a8bf20a96c191481a4c.png</url></resource></object>
+    <object id="12_80004555" type="text" x="125541.89568560508" y="158909.8570648308" r="0" s="27.437877300646786" class="body">
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <height>87.48</height>
+      <width>139.90712520543613</width>
+      <p align="center">
+        <text color="6557470"><![CDATA[Arquitetura   da ]]></text>
+      </p>
+      <p align="center">
+        <text color="6557470"><![CDATA[Internet Tátil]]></text>
+      </p>
+    </object>
+    <object id="17_80004555" type="image" x="229036.2465143184" y="154448.11851904486" r="0" s="1.1698030460398665">
+      <source w="1366" h="768">4632924982<mask x="215" y="268" w="432" h="297"/>
+      <url>4632924982.png</url></source>
+      <sourceUrl>rg.png</sourceUrl>
+    <resource><id>4632924982</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/5/b/4/1aa821f7f45cfdf6041334231109f213698e5.png</url></resource></object>
+    <object id="18_80004555" type="button" x="229035.609278142" y="154448.06618439138" r="0" s="0.9467719106835456" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1181.6720257234726</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="19_80004555" type="text" x="313305.64370050933" y="82509.4344771987" r="0" s="47.99795571890952" class="body">
+      <height>29.16</height>
+      <width>-191.184</width>
+      <p>
+        <text color="6557470"><![CDATA[Tempo de Latência]]></text>
+      </p>
+    </object>
+    <object id="25_80004555" type="button" x="314305.440832799" y="82806.34133287158" r="0" s="0.08974959082125024" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1183.875530410184</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="20_80004555" type="image" x="314305.440832799" y="82806.3167978924" r="0" s="0.13545217750387517">
+      <source w="1920" h="1080">4632928841<mask x="1295" y="513" w="434" h="163"/>
+      <url>4632928841.png</url></source>
+      <sourceUrl>sdggd.png</sourceUrl>
+    <resource><id>4632928841</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/e/8/0/f9088eeebc37542ebffe531e7da6c914c517e.png</url></resource></object>
+    <object id="21_80004555" type="text" x="460824.9017316388" y="-192881.3204980692" r="0" s="34.177732869593996" class="body">
+      <height>29.16</height>
+      <width>-185.11200000000002</width>
+      <p>
+        <text color="6557470"><![CDATA[Dispositivos Táteis]]></text>
+      </p>
+    </object>
+    <object id="23_80004555" type="text" x="486292.4598250783" y="272298.28994818265" r="0" s="8.373544553050529" class="body">
+      <style fontFamily="custom-comiczineot" font-family="ComicZineOT"/>
+      <style fontFamily="custom-comiczineot" font-family="ComicZineOT"/>
+      <height>28.8</height>
+      <width>-30.288</width>
+      <p>
+        <text><![CDATA[Fim]]></text>
+      </p>
+    </object>
+    <object id="24_80004555" type="button" x="290295.0254440081" y="-161125.68339835768" r="0" s="4.619441740084022" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1183.875530410184</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="29_80004555" type="button" x="460547.99995636166" y="-193129.39367278348" r="0" s="0.057770164603238874" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1183.875530410184</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="30_80004555" type="button" x="460547.4116321958" y="-193129.8349159077" r="0" s="0.057770164603238874" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1183.875530410184</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="26_80004555" type="image" x="460546.9213620579" y="-193121.81899915007" r="0" s="0.062150883514784254">
+      <source w="300" h="200">4636320390<url>4636320390.jpg</url></source>
+      <sourceUrl>robot-writer.jpg</sourceUrl>
+    <resource><id>4636320390</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/6/3/0/4e316438ae50e918dedb769bb05510910cdfc.jpg</url></resource></object>
+    <object id="28_80004555" type="image" x="460547.36260518216" y="-193136.4290492649" r="0" s="0.04038365539811071">
+      <source w="700" h="350">4636326587<url>4636326587.jpg</url></source>
+      <sourceUrl>373b097be63a3344c5d5a7753b7db8b8-700x350.jpg</sourceUrl>
+    <resource><id>4636326587</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/9/c/3/fa8261fc626cfc0f6667ce0bad18f2cf217dc.jpg</url></resource></object>
+    <object id="31_80004555" type="text" x="-492148.65173883934" y="217276.24907141324" r="0" s="25.26671872230717" class="body">
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <height>29.16</height>
+      <width>-290.56800000000004</width>
+      <p>
+        <text color="6557470"><![CDATA[Codecs para informação Tátil]]></text>
+      </p>
+    </object>
+    <object id="33_80004555" type="text" x="13447.991987632771" y="-254546.04255195142" r="0" s="8.110214792635212" class="body">
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <style fontFamily="custom-cabin" font-family="Cabin"/>
+      <height>58.32</height>
+      <width>-231.81599999999997</width>
+      <p>
+        <text color="6557470"><![CDATA[Características da Rede]]></text>
+      </p>
+      <p>
+        <text color="6557470"><![CDATA[]]></text>
+      </p>
+    </object>
+    <object id="6" type="button" x="122773.43932543218" y="158734.0922294958" r="0" s="0.0635557983251272" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1221.2814645308924</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="2" type="image" x="122774.43379800454" y="158731.7678053702" r="0" s="0.2075746457505927">
+      <source w="185" h="129" bt="37.05" bl="6.9">2818849537<url>2818849537.swf</url></source>
+      <sourceUrl>prezidark_laptop.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>2818849537</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/8/e/e/41110891c224e7e38c855a4d79bbb3306d9c6.swf</url></resource></object>
+    <object id="11" type="button" x="314648.0963523379" y="83201.59984782012" r="0" s="0.07147857274259929" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1221.2814645308924</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="10" type="image" x="314648.1036920893" y="83201.59525914927" r="0" s="0.2056754960606941">
+      <source w="185" h="121" bt="41.45" bl="7.15">2818942147<url>2818942147.swf</url></source>
+      <sourceUrl>prezidark_screen_2.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>2818942147</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/f/2/c7818f756db4951f0ccc0b002d9263819cabc.swf</url></resource></object>
+    <object id="17" type="button" x="462010.824486359" y="-191780.77947097245" r="0" s="0.07147857274259929" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1221.2814645308924</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="16" type="image" x="462010.82304031204" y="-191781.61310195227" r="0" s="0.17510372068298768">
+      <source w="185" h="134" bt="35.2" bl="7.65">2818956916<url>2818956916.swf</url></source>
+      <sourceUrl>prezidark_tablet.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>2818956916</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/9/6/a/9583316cc7ef9627775dc2fdfa9185dd0dfd6.swf</url></resource></object>
+    <object id="38_80004555" type="image" x="-490966.8495000932" y="215077.02273358882" r="0" s="0.34432892511213437">
+      <source w="188" h="138" bt="31.95" bl="6.1">2819228638<url>2819228638.swf</url></source>
+      <sourceUrl>prezilight_screen_projector.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>2819228638</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/c/2/7/2ec1e4d5255432f5191116cb6c5357f55a2a1.swf</url></resource></object>
+    <object id="39_80004555" type="image" x="-490943.70891100884" y="215091.63446296682" r="0" s="0.02057504769833892">
+      <source w="500" h="500">4636506307<url>4636506307.jpg</url></source>
+      <sourceUrl>technology-codec-img1-z.jpg</sourceUrl>
+    <resource><id>4636506307</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/7/a/3/c2abe4e548dad10e80c61c8722e5d36ecfc35.jpg</url></resource></object>
+    <object id="40_80004555" type="image" x="15706.46787136419" y="-254572.3013570939" r="0" s="0.575944559428425">
+      <source w="188" h="123" bt="39.7" bl="5.85">2819227825<url>2819227825.swf</url></source>
+      <sourceUrl>prezilight_screen_2.swf</sourceUrl>
+      <extra>
+        <fixed_avm1_pos>1</fixed_avm1_pos>
+      </extra>
+    <resource><id>2819227825</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/4/9/2/78a4570c652ecb41b9c81bf5e421f5bfc80d2.swf</url></resource></object>
+    <object id="41_80004555" type="button" x="15706.45908891787" y="-254572.29284036474" r="0" s="0.1426702952142194" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1193.9597315436242</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="42_80004555" type="button" x="-490966.55459975917" y="215078.0219311777" r="0" s="0.10296393833705877" class="invisible">
+      <type>invisible</type>
+      <size>
+        <w>1193.9597315436242</w>
+        <h>600</h>
+      </size>
+    </object>
+    <object id="22_80004555" type="image" x="122774.43809300306" y="158730.83855173056" r="0" s="0.04706400673235045">
+      <source w="442" h="399">4637282516<url>4637282516.JPG</url></source>
+      <sourceUrl>Capturar.JPG</sourceUrl>
+    <resource><id>4637282516</id><url>http://0103.static.prezi.com.s3.amazonaws.com/media/b/0/e/4e1200c3993be81661a85a84f7d03d2f09fac.JPG</url></resource></object>
+    <object id="27_80004555" type="text" x="314647.3309233962" y="83199.92309746172" r="0" s="0.08364057600499047" class="body">
+      <height>204.12</height>
+      <width>380.9131204303287</width>
+      <p>
+        <text color="3288169"><![CDATA[• Latência mínima possível]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+      <p>
+        <text color="3288169"><![CDATA[• Grande numero de utilizadores e aparelhos em simultâneo]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+      <p>
+        <text color="3288169"><![CDATA[• Latência em redes 4G vs redes 5G]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+    </object>
+    <object id="32_80004555" type="text" x="15707.606201685481" y="-254573.6429423749" r="0" s="0.19476983310612128" class="body">
+      <height>291.6</height>
+      <width>504.4571710163497</width>
+      <p>
+        <text color="1657497"><![CDATA[• Estabilidade da rede]]></text>
+      </p>
+      <p>
+        <text color="1657497"><![CDATA[]]></text>
+      </p>
+      <p>
+        <text color="1657497"><![CDATA[• Disponibilidade da rede, afetada por:]]></text>
+      </p>
+      <p indent="1">
+        <text color="1657497"><![CDATA[o Interferências]]></text>
+      </p>
+      <p indent="1">
+        <text color="1657497"><![CDATA[o Diminuição da potencia do sinal]]></text>
+      </p>
+      <p indent="1">
+        <text color="1657497"><![CDATA[o Falhas de equipamento ]]></text>
+      </p>
+      <p indent="1">
+        <text color="1657497"><![CDATA[]]></text>
+      </p>
+      <p>
+        <text color="1657497"><![CDATA[• Reestruturação na implementação dos protocolos de rede]]></text>
+      </p>
+      <p>
+        <text><![CDATA[]]></text>
+      </p>
+    </object>
+    <object id="34_80004555" type="text" x="-490964.8228901509" y="215076.10107290806" r="0" s="0.12444068410120394" class="body">
+      <height>204.12</height>
+      <width>448.5606499176919</width>
+      <p>
+        <text color="1657497"><![CDATA[• Codificação padrão em todos os dispositivos]]></text>
+      </p>
+      <p>
+        <text color="0"><![CDATA[]]></text>
+      </p>
+      <p>
+        <text color="1657497"><![CDATA[• Exploração dos limites da perceção humana]]></text>
+      </p>
+      <p>
+        <text color="0"><![CDATA[]]></text>
+      </p>
+      <p>
+        <text color="1657497"><![CDATA[• Evitar sobrecarga da rede]]></text>
+      </p>
+    </object>
+  </zui-table>
+  <path>
+    <s>
+      <eagle o="0"/>
+    </s>
+    <s>
+      <eagle o="0_80004555"/>
+    </s>
+    <s>
+      <eagle o="2_80004555"/>
+    </s>
+    <s>
+      <eagle o="9_80004555"/>
+    </s>
+    <s>
+      <eagle o="6_80004555"/>
+    </s>
+    <s>
+      <eagle o="7_80004555"/>
+    </s>
+    <s>
+      <eagle o="24_80004555"/>
+    </s>
+    <s>
+      <eagle o="14_80004555"/>
+    </s>
+    <s>
+      <eagle o="12_80004555"/>
+    </s>
+    <s>
+      <eagle o="13_80004555"/>
+    </s>
+    <s>
+      <eagle o="6"/>
+    </s>
+    <s>
+      <eagle o="18_80004555"/>
+    </s>
+    <s>
+      <eagle o="19_80004555"/>
+    </s>
+    <s>
+      <eagle o="25_80004555"/>
+    </s>
+    <s>
+      <eagle o="11"/>
+    </s>
+    <s>
+      <eagle o="21_80004555"/>
+    </s>
+    <s>
+      <eagle o="17"/>
+    </s>
+    <s>
+      <eagle o="30_80004555"/>
+    </s>
+    <s>
+      <eagle o="31_80004555"/>
+    </s>
+    <s>
+      <eagle o="42_80004555"/>
+    </s>
+    <s>
+      <eagle o="33_80004555"/>
+    </s>
+    <s>
+      <eagle o="41_80004555"/>
+    </s>
+    <s>
+      <eagle o="23_80004555"/>
+    </s>
+  </path>
+  <style type="text/css"><![CDATA[
+@font-face
+{
+	src: url('Cabin-Regular.keg');
+	fontFamily: body;
+	font-class: body;
+	font-style: normal;
+	font-weight: normal;
+	font-family: Cabin;
+}
+
+@font-face
+{
+	src: url('Cabin-Regular.keg');
+	fontFamily: custom-cabin;
+	font-class: custom-cabin;
+	font-style: normal;
+	font-weight: normal;
+	font-family: Cabin;
+}
+
+@font-face
+{
+	src: url('ComicZineOT-Regular.keg');
+	fontFamily: custom-comiczineot;
+	font-class: custom-comiczineot;
+	font-style: normal;
+	font-weight: normal;
+	font-family: ComicZineOT;
+}
+
+@font-face
+{
+	src: url('KGEmpireofDirt-Regular.keg');
+	fontFamily: custom-kgempireofdirt;
+	font-class: custom-kgempireofdirt;
+	font-style: normal;
+	font-weight: normal;
+	font-family: KGEmpireofDirt;
+}
+
+@font-face
+{
+	src: url('Cabin-Bold.keg');
+	fontFamily: head;
+	font-class: head;
+	font-style: normal;
+	font-weight: bold;
+	font-family: Cabin;
+}
+
+@font-face
+{
+	src: url('Cabin-BoldItalic.keg');
+	fontFamily: strong;
+	font-class: strong;
+	font-style: italic;
+	font-weight: bold;
+	font-family: Cabin;
+}
+
+@font-face
+{
+	src: url('Cabin-Italic.keg');
+	font-style: italic;
+	font-weight: normal;
+	font-family: Cabin;
+}
+
+.line1
+{
+	color: #737373;
+	gradEndColor: #737373;
+	gradStartColor: #737373;
+}
+
+.line2
+{
+	color: #595959;
+	gradEndColor: #595959;
+	gradStartColor: #595959;
+}
+
+.line3
+{
+	color: #fc6a4b;
+	gradEndColor: #fc6a4b;
+	gradStartColor: #fc6a4b;
+}
+
+.line4
+{
+	color: #333;
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+.line5
+{
+	color: #191919;
+	gradEndColor: #191919;
+	gradStartColor: #191919;
+}
+
+.poly1
+{
+	gradEndColor: #737373;
+	gradStartColor: #737373;
+}
+
+.poly2
+{
+	gradEndColor: #595959;
+	gradStartColor: #595959;
+}
+
+.poly3
+{
+	gradEndColor: #fc6a4b;
+	gradStartColor: #fc6a4b;
+}
+
+.poly4
+{
+	gradEndColor: #333;
+	gradStartColor: #333;
+}
+
+.poly5
+{
+	gradEndColor: #191919;
+	gradStartColor: #191919;
+}
+
+Background
+{
+	gradEnd: #222;
+	gradStart: #222;
+}
+
+Grid
+{
+	color: #595959;
+}
+
+ZArrow
+{
+	borderColor: #f6f6f6;
+	borderThickness: 1;
+	gradEndColor: #737373;
+	gradStartColor: #737373;
+	lockTintAlpha: 0;
+	thickness: 7;
+}
+
+ZCircle
+{
+	borderAlpha: 1;
+	borderColor: #f6f6f6;
+	borderThickness: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 0;
+	thickness: 100;
+}
+
+ZCurveLine
+{
+	color: #333;
+}
+
+ZFrame.bracket
+{
+	borderColor: #737373;
+	borderThickness: 0;
+	gradEndAlpha: .8;
+	gradEndColor: #737373;
+	gradStartAlpha: .8;
+	gradStartColor: #737373;
+	padding: 1.03;
+	radius: 10;
+	thickness: 8;
+}
+
+ZFrame.circle
+{
+	borderColor: #999;
+	borderThickness: 0;
+	gradEndAlpha: .8;
+	gradEndColor: #999;
+	gradStartAlpha: .8;
+	gradStartColor: #999;
+	padding: 1.03;
+	thickness: 8;
+}
+
+ZFrame.roundrect
+{
+	borderAlpha: 0.8;
+	borderColor: #737373;
+	borderThickness: 20;
+	gradEndAlpha: 0.8;
+	gradEndColor: #333;
+	gradStartAlpha: 0.8;
+	gradStartColor: #333;
+	padding: 1.03;
+	radius: 3;
+}
+
+ZLabel
+{
+	lockTintAlpha: 0.15;
+	padding: 1.2;
+}
+
+ZLabel.body
+{
+	color: #f6f6f6;
+	fontFamily: body;
+}
+
+ZLabel.body-background
+{
+	background-alpha: 0.9;
+	background-color: #404040;
+	background-padding: 5;
+}
+
+ZLabel.head
+{
+	color: #f6f6f6;
+	fontFamily: head;
+}
+
+ZLabel.head-background
+{
+	background-alpha: 0.9;
+	background-color: #404040;
+	background-padding: 5;
+}
+
+ZLabel.strong
+{
+	color: #f6f6f6;
+	fontFamily: strong;
+}
+
+ZLabel.strong-background
+{
+	background-alpha: 0.9;
+	background-color: #404040;
+	background-padding: 5;
+}
+
+ZLine
+{
+	borderColor: #f6f6f6;
+	borderThickness: 1;
+	color: #333;
+	lockTintAlpha: 0;
+}
+
+ZMarker
+{
+	alpha: 0.5;
+	color: #318bff;
+}
+
+ZPath
+{
+	alpha: 1;
+	color: #40abe6;
+	textColor: #fff;
+	thickness: 3;
+}
+
+ZPath Ball.base
+{
+	alpha: 1;
+	fillColor: #40abe6;
+	radius: 12;
+}
+
+ZPath Ball.mid
+{
+	alpha: .5;
+	fillColor: #40abe6;
+	radius: 8;
+}
+
+ZPoly
+{
+	borderAlpha: 1;
+	borderColor: #f6f6f6;
+	borderThickness: 1;
+	gradEndAlpha: 1;
+	gradStartAlpha: 1;
+	lockTintAlpha: 0;
+	radius: 30;
+}
+
+]]></style>
+  <hash>-59d83262</hash>
+<sync><oid>y_o4pjlv43ny</oid><title>internet-tatil</title><hash>-59d83262</hash></sync><config>PwBB69b9hgiF+1IG7w7I+LauDfnaWN00i67E96gAUh+CLyn/30Gf24txk7FVTwyYP1lEmP8vRppg0X/rx+NMlZqzdVby4Q78C0dFlBWhjrVtsrGrWB9WgqPaNkfqSfb1qfOYzJuf6AI0ZsLVkbHWvkt2U2G5ECJ28UR82aMCTWZSX2ZQJF3IBvgZi2PhgqHXqLCZyfHFaO7fZ5gbfKF5xV9d2D2B32Wx1I8Rro5U25anGO4qf+8VNXmpFXRZwmXzMQxdR+HdLmnoMEHvgCsQAzgKn7ZmPuc3ccAvQhIhhBuVNEdIbCWzwpS/uGHFaIZEO39YCwWd6jou1pKcXfUmSQ==</config></zuiprezi>

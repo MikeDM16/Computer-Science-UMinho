@@ -1,0 +1,49 @@
+> install.packages("neuralnet")
+
+> library("neuralnet")
+> ?neuralnet
+> ?`neuralnet-package`
+
+> trainset <- read.csv(("C:\\Users\\migue\\Desktop\\3º Ano\\2º Semestre\\Sistemas Representação Conhecimento Raciocínio\\Redes Neuronais\\Ficha11\\ficha11 normalizado.csv"), header=TRUE, sep=",", dec=".")
+> print(trainset)
+> head(trainset)
+
+> formulARNA <- Avaliacao ~ Vencimento + Habitacao + Automovel + Cartao
+
+criar a rede, usando a formula, os dados de treino e o tipo de rede (4 de entrada, 5 nodos secundarios e 1 de saida) e o erro de 0.1 
+creditnet <- neuralnet(formulARNA, trainset, hidden = c(5), threshold = 0.1)
+
+> creditnet$model.list
+
+ver topologia rede neuronal
+> plot(creditnet)
+
+conceção de crédito YY, é sim ou não, logo só é 0 ou 1
+ordenados eixo XX
+É maior a probabilidade de concecao de créditos a individuos com ordenados mais baixos, para este dataSet. 
+Quanto maior o ordenado, menor a probabilidade de ceder créditos
+Rede neuronal feita para determinar padroes de comportamentos/tendencias
+> plot(creditnet$covariate[,1], creditnet$response, type="l")
+> plot(creditnet$covariate[,1], creditnet$response, type="o")
+> plot(creditnet$covariate[,1], creditnet$response, type="p")
+
+
+Realizar test para fazer as questões/queries
+> test[1,] <- data.frame(Vencimento=0.4, Habitacao=0.2, Automovel = 0.4, cartao=0.1)
+> test[2,] <- data.frame(Vencimento=0.7, Habitacao=0.4, Automovel = 0.55, cartao=0.1)
+
+> print(test)
+creditnet.results <- compute(creditnet, test)
+> print(round(creditnet.results$net.result))
+  [,1]
+1    0
+2    1
+> 
+> print(round(creditnet.results$net.result, digits=1))
+> print(round(creditnet.results$net.result, digits=6))
+
+Testar a rede
+> test2 <- subset(trainset, select = c("Vencimento", "Habitacao", "Automovel", "Cartao"))
+> creditnet.results <- compute(creditnet, test2)
+> print(round(creditnet.results$net.result, digits = 0))
+

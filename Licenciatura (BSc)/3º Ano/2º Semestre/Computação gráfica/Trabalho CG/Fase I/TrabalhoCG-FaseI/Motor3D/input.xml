@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scene>
+	<diretoria dir="C:\Users\migue\OneDrive\Trabalho CG\Fase I\TrabalhoCG-FaseI\Gerador3d\ProjetoCG\"/>
+	<modelo file="plano.3d" />
+	<modelo file="caixa.3d" />
+	<modelo file="cilindro.3d" />
+	<modelo file="esfera.3d" />
+	<modelo file="cone.3d" />
+</scene>

@@ -1,0 +1,45 @@
+%option noyywrap
+%option yylineno
+
+%{
+void escreveFicheiro(char* arg);
+FILE* fout;
+%}
+ 
+
+%%
+
+won't    { escreveFicheiro("will not"); }
+'m       { escreveFicheiro(" am"); }
+'ll      { escreveFicheiro(" will"); }
+'re      { escreveFicheiro(" are"); }
+'ve      { escreveFicheiro(" have");}
+'em      { escreveFicheiro(" them"); }
+'t       { escreveFicheiro(" not"); }
+'d       { escreveFicheiro(" would"); }
+'n'      { escreveFicheiro("and"); }
+it's     { escreveFicheiro("it is"); }
+It's     { escreveFicheiro("It is");}
+she's    { escreveFicheiro("she is");}
+She's    { escreveFicheiro("She is");}
+he's     { escreveFicheiro("he is");}
+He's     { escreveFicheiro("He is");}
+
+<*>.|\n  { fprintf(fout, "%s", yytext); }
+%%
+
+int main(int argc, char* argv[]){
+	fout = fopen("out.txt", "w");
+	
+	if(argc==2){
+		yyin = fopen(argv[1], "r");
+	}
+	yylex();
+
+	fclose(fout);
+	return 0;
+}
+
+void escreveFicheiro(char* arg){
+	fprintf(fout, "%s", arg);
+}

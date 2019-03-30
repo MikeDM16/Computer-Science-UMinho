@@ -1,0 +1,38 @@
+%option noyywrap
+
+%{
+  void imprime_dicionario()
+  gboolean imprime_pair(gpointer k, gpointer v, gpointer g)
+  #include <glib.h>
+  #include <string.h>
+  GTree* dicionario
+%}
+
+%%
+   char pt[100], ing[100];    
+PT.*   { strcp(pt, yytext+3); }
+EN.*   { strcp(ing, ytext+3); }
+
+\n{2,}  { printf("ola\n"); g_tree_insert(dicionario, pt, ing); pt[0] = ing[0] = '\0'; }
+.|\n   { }
+%%
+
+int main (int argc, char* argv[]) {
+    dicionario = g_tree_new(strcmp);
+
+    if(argc == 2)
+      yyin = fopen(argv[1], "r");
+    yylex();
+    
+    imprime_dicionario();
+
+    return 0;
+}
+
+void imprime_dicionario(){
+    g_tree_foreach(dicionario, imprime_pair, NULL);
+}
+
+gboolean imprime_pair(gpointer key, gpointer value, gpointer d){
+  printf("%s: $s\n", key, value);
+}

@@ -1,0 +1,17 @@
+%option noyywrap
+TLF    (+[0-9]{3})?[0-9]{9}
+L      [a-z]|ú|é|ó|ç|à|á|â|ã|õ
+A      ([A-Z]|Sr|Sra|Dr|Dra)\.
+P      [A-Z]{L}+|{A}
+C      de|dos|das|da|do
+F      [?!.]|\n[ \t]*(-|—)
+%%
+{P}(\ {P}|\ {C}\ {P})*    { printf("{%s}", yytext); }
+{F}[ \t\n]+{P}             { ECHO; }
+%%
+int main(int argc, char* arv[]){
+	if(argc==2){
+		yyin = fopen(argv[1], "r");
+	yylex();
+	return 0;
+}

@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=saldo
+comment0.target=Conta(float)
+comment1.params=valor
+comment1.target=void\ adiciona(float)
+comment2.params=valor
+comment2.target=int\ retira(float)
+comment3.params=
+comment3.target=float\ getSaldo()
+comment4.params=
+comment4.target=void\ getLockConta()
+comment5.params=
+comment5.target=void\ getUnlockConta()
+numComments=6

@@ -1,0 +1,3 @@
+﻿  main.cpp
+c:\users\migue\desktop\3º ano\2º semestre\computação gráfica\projeto 4\main.cpp(72): warning C4700: uninitialized local variable 'vertexB' used
+  class4.vcxproj -> C:\Users\migue\Desktop\3º Ano\2º Semestre\Computação gráfica\Projeto 4\Bin\Release\class4.exe

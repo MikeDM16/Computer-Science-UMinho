@@ -1,0 +1,4 @@
+﻿  catmull-rom.cpp
+C:\Users\migue\Desktop\3º Ano\2º Semestre\Computação gráfica\Projeto 9\catmull-rom.cpp(104): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+C:\Users\migue\Desktop\3º Ano\2º Semestre\Computação gráfica\Projeto 9\catmull-rom.cpp(111): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+  class8.vcxproj -> C:\Users\migue\Desktop\3º Ano\2º Semestre\Computação gráfica\Projeto 9\Build\Debug\class8.exe

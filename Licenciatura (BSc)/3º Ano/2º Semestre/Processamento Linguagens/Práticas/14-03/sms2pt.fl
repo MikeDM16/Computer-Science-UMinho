@@ -1,0 +1,13 @@
+%option noyywrap
+
+%%
+lol  { printf("Muitas gargalhadas");}
+tb   { printf("tambem");}
+q    { printf("que");}
+bfs  { printf("Bom fim de semana");}
+[a-zA-Z]+ { ECHO; }
+%%
+int main(){
+	yylex();
+	return 0;
+}

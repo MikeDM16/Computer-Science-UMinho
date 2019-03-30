@@ -1,0 +1,63 @@
+/*saber diretoria de instalaçao do gawk*/
+which gawk 
+
+NF = number of field
+NR = number of registry
+RS = registry separator
+FS = field Separator
+
+
+/* Saber qual os dados no campo 2 'NF=2 stands for number of field =2*/
+gawk 'NF=2' "inscritos - anexo3.txt"
+/*Campos com number of field > 2 */
+gawk 'NF>2' "inscritos - anexo3.txt"
+
+/*Imprimir o campo i=3 depois de partir a linha pelo FS (field separator) de omissao*/
+gawk '{print($3)}' "inscritos - anexo3.txt" 
+
+/* verificando a conficão END (fim do ficheiro)
+    executa a oção print(NR) qwue imprime o numero de registo do ultimo registo
+equivalente ao word counter wc */
+gawk 'END {print(NR)}' inscritos\ -\ anexo3.txt 
+gawk 'END {print(NR)}' "arq-son - anexo2.txt" 
+
+wc "arq-son - anexo2.txt"
+
+/* devolve as linhas onde a palavra flauta ocorre*/
+gawk '/flauta/' "arq-son - anexo2.txt"
+gawk '/flauta/' "arq-son - anexo2.txt" | grep 'flauta'
+/* devolve as linhas onde a palavra flauta ocorra no segundo campo da linha
+    ~  é o simbolo de atribuição/"==" */
+gawk '$2 ~/flauta/' "arq-son - anexo2.txt" 
+gawk '$2 ~/os/' "arq-son - anexo2.txt" 
+
+/*considerando como field delimiter o ::, linhas em q no segundo campo existe a sequencia 'ais'*/
+gawk -F :: '$2 ~ /ais/' arq-son\ -\ anexo2.txt 
+gawk -F :: '$2 ~ /ais/' arq-son\ -\ anexo2.txt | grep 'ais'
+
+/*Imprime todas as linhas */
+gawk -F :: '{print($0)}' "arq-son - anexo2.txt" |wc
+/*imprime o campo 1 */
+gawk -F :: '{print($1)} $1 ~ /ais/' "arq-son - anexo2.txt" 
+/* imprime campo nf = 2 ....*/
+gawk -F :: '{print($0)}' "arq-son - anexo2.txt" |wc
+
+/*imprime o ultimo campo da linha*/
+gawk -F :: '{print($NF}' "arq-son - anexo2.txt" 
+
+/* imprimir as linhas com a palavra Madeira no campo 1*/
+gawk '$1 ~ /Madeira/' "arq-son - anexo2.txt" 
+/*imprimir o ultimo campos das linhas que têm Madeira como palavra do campo 1*/
+gawk '$1 ~ /Madeira/ {print($NF)}' arq-son\ -\ anexo2.txt 
+/* usando como delimitador o ::, imprime o ultimo campo da linha, cuja linha tem no campo 1 a palavra Madeira */
+gawk -F :: '$1 ~ /Madeira/ {print($NF)}' arq-son\ -\ anexo2.txt 
+
+/*para as linhas com Madeira no campo 1, imprime o tempo de cada linha e soma à variavél s o valor em minutos das musicas. No fim imprime s. */
+gawk -F :: '$1 ~ /Madeira/ {print($NF)}' arq-son\ -\ anexo2.txt 
+                    | gawk -F : 's += ($1*60 + $2); END {print(s/60) }'
+
+
+
+
+
+

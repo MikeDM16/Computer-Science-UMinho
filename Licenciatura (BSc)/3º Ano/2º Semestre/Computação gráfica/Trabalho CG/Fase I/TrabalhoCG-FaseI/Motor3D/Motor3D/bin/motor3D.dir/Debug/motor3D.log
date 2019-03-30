@@ -1,0 +1,5 @@
+﻿  Motor3D.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.10240.0\ucrt\stdlib.h(50): error C2381: 'exit': redefinition; '__declspec(noreturn)' or '[[noreturn]]' differs
+  C:\Users\migue\OneDrive\Trabalho CG\tollkits\glut\GL/glut.h(146): note: see declaration of 'exit'
+C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(66): error C2065: 'cout': undeclared identifier
+C:\Users\migue\OneDrive\Trabalho CG\Motor3D\Motor3D\Motor3D.cpp(66): error C2065: 'endl': undeclared identifier

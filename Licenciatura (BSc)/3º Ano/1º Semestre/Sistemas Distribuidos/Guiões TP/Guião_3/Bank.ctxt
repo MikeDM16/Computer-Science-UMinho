@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Bank()
+comment1.params=i
+comment1.target=int\ createAccount(float)
+comment2.params=id
+comment2.target=float\ closeaccount(int)
+comment3.params=from\ to\ value
+comment3.target=void\ transfer(int,\ int,\ float)
+comment4.params=accounts
+comment4.target=float\ totalBalance(int[])
+numComments=5

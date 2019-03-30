@@ -1,0 +1,9 @@
+%option noyywrap yylineno
+%%
+[1-6][-.]?[Ff]  { yylval.i =   atoi(yytext); return  DIA; }
+[0-9]+[Hh]?     { yylval.i =   atoi(yytext); return  HORA; }
+[a-zA-Z0-9]+    { yylval.s = strdup(yytext); return DISC; }
+[\n]+      	    { return yytext[0]; }
+[ \t]			{ }
+.               { yyerror("Caracter desconhecido"); }
+%%

@@ -1,0 +1,33 @@
+
+/**
+ * Write a description of class MainBuffer here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class MainBuffer
+{
+    public static void main(){
+        int i, nThread = 10;
+        int nPut = 10;
+        int nGet = 10;
+        BoundedBuffer b = new BoundedBuffer();
+        Thread[] tPut = new Thread[nPut];
+        Thread[] tGet = new Thread[nGet];
+        try{
+            for(i = 0; i!= nThread; i++){
+                tPut[i] = new Thread(new Put(b));
+                tGet[i] = new Thread(new Get(b));
+            }
+            for(i = 0; i!= nThread; i++){
+                tPut[i].start();
+                tGet[i].start();
+            }
+            for(i = 0; i!= nThread; i++){
+                tPut[i].join();
+                tGet[i].join();
+            }
+        }catch(InterruptedException e){}
+    }
+    
+}

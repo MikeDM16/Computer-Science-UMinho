@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=
+comment0.target=Somas()
+comment1.params=num
+comment1.target=int\ getSoma(int)
+comment2.params=cs\ soma
+comment2.target=ServidorEx1F07(java.net.Socket,\ Somas)
+comment3.params=
+comment3.target=void\ run()
+comment4.params=args
+comment4.target=void\ main(java.lang.String[])
+numComments=5

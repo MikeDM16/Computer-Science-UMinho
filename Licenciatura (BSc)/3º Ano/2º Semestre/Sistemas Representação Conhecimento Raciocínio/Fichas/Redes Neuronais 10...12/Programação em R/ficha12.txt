@@ -1,0 +1,27 @@
+o id do cliente nao é relevante
+o income*loan = LTI
+usar só a idade e o loan
+
+> dados <- read.csv(("C:\\Users\\migue\\Desktop\\3º Ano\\2º Semestre\\Sistemas Representação Conhecimento Raciocínio\\Redes Neuronais\\Ficha12\\creditset.csv"), header=TRUE, sep=",", dec=".")
+> head(dados)
+
+usar só parte dos dados para treinar a rede e os outros para perguntas
+Ter cuidado, porque a distribuição dos dados pode influenciar
+>treino <- dados[1:800, ]
+> teste <- dados[801:2000, ]
+
+
+> rncredito <- neuralnet(default10yr ~ LTI + age, treino, hidden = c(4), lifesign = "full", linear.output =  FALSE, threshold = 0.1)
+> plot(rncredito)
+> test.01 <- subset(teste, select = c("LTI", "age"))
+> rncredito.resultados <- compute(rncredito, test.01
+> resultados <- data.frame(atual = teste$default10yr, previsao = rncredito.resultados$net.result)
+
+devio padrao / root mean square error
+entre duas tipologias de rede distintas, é melhor aquela que tiver o rmse menor
+> rmse(c(teste$default10yr),c(resultados$previsao))
+[1] 0.05427807372
+
+
+Redes neuronais nao são para calculos de questões exatas.
+São utilizadas para aprender comportamentos/padroes e com isto fazer previsoes... 
