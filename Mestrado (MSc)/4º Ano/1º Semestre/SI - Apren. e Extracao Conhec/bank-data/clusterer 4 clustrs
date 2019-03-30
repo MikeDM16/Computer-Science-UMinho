@@ -1,0 +1,69 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.SimpleKMeans -init 0 -max-candidates 100 -periodic-pruning 10000 -min-density 2.0 -t1 -1.25 -t2 -1.0 -N 4 -A "weka.core.EuclideanDistance -R first-last" -I 500 -num-slots 1 -S 10
+Relation:     bank-data-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Discretize-B3-M-1.0-Rfirst-last
+Instances:    600
+Attributes:   11
+              age
+              sex
+              region
+              income
+              married
+              children
+              car
+              save_act
+              current_act
+              mortgage
+              pep
+Test mode:    evaluate on training data
+
+
+=== Clustering model (full training set) ===
+
+
+kMeans
+======
+
+Number of iterations: 3
+Within cluster sum of squared errors: 2233.0
+
+Initial starting points (random):
+
+Cluster 0: '\'(-inf-34.333333]\'',FEMALE,RURAL,'\'(-inf-24386.173333]\'',NO,3,NO,YES,YES,NO,NO
+Cluster 1: '\'(50.666667-inf)\'',FEMALE,RURAL,'\'(-inf-24386.173333]\'',YES,2,NO,YES,YES,NO,NO
+Cluster 2: '\'(50.666667-inf)\'',FEMALE,INNER_CITY,'\'(24386.173333-43758.136667]\'',YES,2,NO,NO,YES,NO,YES
+Cluster 3: '\'(34.333333-50.666667]\'',FEMALE,TOWN,'\'(24386.173333-43758.136667]\'',YES,0,NO,NO,YES,NO,NO
+
+Missing values globally replaced with mean/mode
+
+Final cluster centroids:
+                                                                                    Cluster#
+Attribute                                            Full Data                             0                             1                             2                             3
+                                                       (600.0)                       (224.0)                       (148.0)                       (109.0)                       (119.0)
+======================================================================================================================================================================================
+age                                    '(34.333333-50.666667]'            '(-inf-34.333333]'             '(50.666667-inf)'             '(50.666667-inf)'       '(34.333333-50.666667]'
+sex                                                     FEMALE                          MALE                        FEMALE                          MALE                        FEMALE
+region                                              INNER_CITY                    INNER_CITY                    INNER_CITY                    INNER_CITY                          TOWN
+income                                   '(-inf-24386.173333]'         '(-inf-24386.173333]'         '(-inf-24386.173333]' '(24386.173333-43758.136667]' '(24386.173333-43758.136667]'
+married                                                    YES                            NO                           YES                           YES                           YES
+children                                                     0                             0                             2                             0                             0
+car                                                         NO                            NO                           YES                           YES                           YES
+save_act                                                   YES                           YES                           YES                            NO                           YES
+current_act                                                YES                           YES                           YES                           YES                           YES
+mortgage                                                    NO                            NO                            NO                            NO                            NO
+pep                                                         NO                            NO                            NO                           YES                            NO
+
+
+
+
+Time taken to build model (full training data) : 0.01 seconds
+
+=== Model and evaluation on training set ===
+
+Clustered Instances
+
+0      224 ( 37%)
+1      148 ( 25%)
+2      109 ( 18%)
+3      119 ( 20%)
+

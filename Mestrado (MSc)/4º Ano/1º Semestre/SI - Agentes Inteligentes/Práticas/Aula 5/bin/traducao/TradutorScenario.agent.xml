@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<agent 	xmlns="http://jadex.sourceforge.net/jadex" 
+		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:schemaLocation="http://jadex.sourceforge.net/jadex-bdi
+							http://jadex.sourceforge.net/jadex-bdi-2.4.xsd"
+		name="TradutorScenario" package="traducao">
+
+	<imports>
+		<import>jadex.commons.*</import>
+		<import>jadex.bridge.fipa.*</import>
+		<import>jadex.bdi.runtime.*</import>
+	</imports>
+	
+	<beliefs>
+		<beliefset name="epwords" class="Tuple">
+			<fact>new Tuple("milk", "leite")</fact>
+			<fact>new Tuple("cow", "vaca")</fact>
+			<fact>new Tuple("cat", "gato")</fact>
+			<fact>new Tuple("dog", "cão")</fact>
+		</beliefset>
+		
+		<belief name="alarme" class="long" >
+			<fact>System.currentTimeMillis()</fact>
+		</belief>
+		
+		<belief name="timer" class="long" updaterate="10000">
+			<fact>System.currentTimeMillis()</fact>
+		</belief>
+		
+		<belief name="contador" class="int" argument="true">
+			<fact>0</fact>
+		</belief>
+	</beliefs>
+	
+	<expressions>
+		<expression name="query_epword" class="String">
+			select one wordpair.get(1)
+			from Tuple wordpair in $belifebase.epwords
+			where wordpair.get(0).equals($eword)
+			<!-- <parameter name="$eword" class="String"/> -->
+		</expression>
+	</expressions>
+	
+	<plans>
+		<!-- Plano para processar os pedidos de tradução -->
+		<plan name="traduzir_Eng_Pt">
+			<body class="EngTranslationPlan"/>
+			<waitqueue>
+				<messageevent ref="pedido_traducao"/>
+			</waitqueue>
+		</plan>
+		<!-- Plano para processar a adição de palavra -->
+		<plan name="adicionar">
+			<body class="AdicionaTraducao"/>
+			<waitqueue>
+				<messageevent ref="adicionar_traducao"/>
+			</waitqueue>
+		</plan>
+		<!-- Plano para notificar as traducoes -->
+		<plan name="informar">
+			<body class="Informacao"/>
+			<trigger>
+				<condition>
+					$beliefbase.alarme &lt;= $beliefbase.timer
+				</condition>
+			</trigger>
+		</plan>
+		
+	</plans>
+	
+	<events>
+		<!-- Receber Mensagens com pedidos de traducao -->
+		<messageevent name="pedido_traducao" direction="receive" type="fipa">
+			<parameter name="performative" class="String" direction="fixed">
+				<value>jadex.bridge.fipa.SFipa.REQUEST</value>
+			</parameter>
+			<!--  Forçar que o inicio da mensagem seja a palavra "traduzir" -->
+			<parameter name="content-start" class="String" direction="fixed">
+				<value>"traduzir"</value>
+			</parameter>
+		</messageevent>
+		
+		<!-- Receber Mensagens com pedido para adicionar novas traduções -->
+		<messageevent name="adicionar_traducao" direction="receive" type="fipa">
+			<parameter name="performative" class="String" direction="fixed">
+				<value>jadex.bridge.fipa.SFipa.REQUEST</value>
+			</parameter>
+			<!--  Forçar que o inicio da mensagem seja a palavra "traduzir" -->
+			<parameter name="content-start" class="String" direction="fixed">
+				<value>"adicionar"</value>
+			</parameter>
+		</messageevent>
+		
+		<!-- Enviar msgs de resposta com traduções -->
+		<messageevent name="inform" direction="send" type="fipa">
+			<parameter name="performative" class="String" direction ="fixed">
+				<value>SFipa.INFORM</value>
+			</parameter>
+		</messageevent>
+		
+		<!-- Enviar msgs de resposta sem traduções (erros, palavra desconhecida) -->
+		<messageevent name="failure" direction="send" type="fipa">
+			<parameter name="performative" class="String" direction ="fixed">
+				<value>SFipa.FAILURE</value>
+			</parameter>
+		</messageevent>
+	</events>
+
+	 <properties>
+             <property name="logging.useParentHandlers">true</property>
+             <property name="debugging">true</property>
+     </properties>
+         
+	<configurations>
+		<configuration name="sistemaTraducao">
+			<!-- Inicializar a base de conhecimento  -> beliefSET -->
+			<beliefs>
+				<initialbeliefset ref="epwords"/>
+			</beliefs>
+		
+			<!--  Inicializar os eventos -->
+			<events>
+				<initialmessageevent ref="pedido_traducao"/>
+				<initialmessageevent ref="adicionar_traducao"/>
+				<initialmessageevent ref="failure"/>
+				<initialmessageevent ref="inform"/>
+			</events>
+			
+			<!-- Inicializar os planos -->
+			<plans>
+				<initialplan ref="traduzir_Eng_Pt"/>
+				<initialplan ref="adicionar"/>	
+				<initialplan ref="informar"/>			
+			</plans>
+			
+		</configuration>
+	</configurations>
+
+</agent>

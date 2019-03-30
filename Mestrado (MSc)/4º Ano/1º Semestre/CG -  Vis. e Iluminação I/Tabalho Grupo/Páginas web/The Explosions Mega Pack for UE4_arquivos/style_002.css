@@ -1,0 +1,18 @@
+.iframe-container .play-icon {
+    background: url(./play-button.png);
+    display: block;
+    width: 260px;
+    height: 261px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -130px auto auto -130px;
+    opacity: 0.75;
+    cursor: pointer;
+}
+.iframe-container.active .play-icon {
+    display: none;
+}
+.iframe-sub {
+    background-size: 100%;
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" ?>
+<project name="Texture Model" >
+	<assets>
+		<scenes>
+			<scene name="Box" param="UNITIZE">
+				<file name="models/cube2.obj"/>
+			</scene>
+			<scene name="Sphere" param="UNITIZE">
+				<file name="models/Sphere.obj"/>
+			</scene>
+		</scenes>
+		
+		<viewports>
+			<viewport name="MainViewport">
+				<CLEAR_COLOR r="1.0" g="1.0" b="1.0" />
+			</viewport>
+		</viewports>
+		
+		<cameras>
+			<camera name="MainCamera" >
+				<viewport name="MainViewport" />
+				<TYPE value="PERSPECTIVE"/>
+				<POSITION x=0 y=0 z=3 />
+				<VIEW x=0 y=0 z=-1.0 />
+			</camera>
+		</cameras>
+		
+		<materialLibs>
+			<materialLib filename="textureModel.mlib" />
+		</materialLibs>
+	</assets>
+	
+	<pipelines>
+		<pipeline name="textures" default="true">
+			<pass class="default" name="texture" >
+				<scenes>
+					<scene name="Box" />
+				</scenes>
+				<camera name="MainCamera" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="textured" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+	</pipelines>
+</project>

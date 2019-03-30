@@ -1,0 +1,66 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.bayes.BayesNet -D -Q weka.classifiers.bayes.net.search.local.TAN -- -S BAYES -E weka.classifiers.bayes.net.estimate.SimpleEstimator -- -A 0.5
+Relation:     iris
+Instances:    150
+Attributes:   5
+              sepallength
+              sepalwidth
+              petallength
+              petalwidth
+              class
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+Bayes Network Classifier
+not using ADTree
+#attributes=5 #classindex=4
+Network structure (nodes followed by parents)
+sepallength(3): class 
+sepalwidth(3): class petalwidth 
+petallength(3): class sepallength 
+petalwidth(3): class petallength 
+class(3): 
+LogScore Bayes: -484.0749140715054
+LogScore BDeu: -653.8524681760015
+LogScore MDL: -654.6252712234647
+LogScore ENTROPY: -499.2955771064808
+LogScore AIC: -561.2955771064808
+
+
+Time taken to build model: 0 seconds
+
+=== Predictions on test set ===
+
+    inst#     actual  predicted error prediction
+        1        1:? 2:Iris-versicolor       0.534 
+        2        1:? 2:Iris-versicolor       0.534 
+        3        1:? 2:Iris-versicolor       0.534 
+        4        1:? 2:Iris-versicolor       0.534 
+        5        1:? 3:Iris-virginica       0.562 
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0 seconds
+
+=== Summary ===
+
+Total Number of Instances                0     
+Ignored Class Unknown Instances                  5     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,000    0,000    0,000      0,000    0,000      0,000    ?         ?         Iris-setosa
+                 0,000    0,000    0,000      0,000    0,000      0,000    ?         ?         Iris-versicolor
+                 0,000    0,000    0,000      0,000    0,000      0,000    ?         ?         Iris-virginica
+Weighted Avg.    NaN      NaN      NaN        NaN      NaN        NaN      NaN       NaN       
+
+=== Confusion Matrix ===
+
+ a b c   <-- classified as
+ 0 0 0 | a = Iris-setosa
+ 0 0 0 | b = Iris-versicolor
+ 0 0 0 | c = Iris-virginica
+

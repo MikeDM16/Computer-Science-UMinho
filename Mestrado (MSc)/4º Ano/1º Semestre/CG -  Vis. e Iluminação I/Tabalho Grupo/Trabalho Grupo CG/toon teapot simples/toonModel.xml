@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<project name="Toon" >
+	<assets>
+	
+		<scenes>
+			<scene name="Obj" param="UNITIZE">
+				<file name="models/geom.obj"/>
+			</scene>
+		</scenes>
+		
+		<viewports>
+			<viewport name="MainViewport">
+				<CLEAR_COLOR r="0.0" g="0.0" b="0.0" />
+			</viewport>
+		</viewports>
+		
+		<cameras>
+			<camera name="MainCamera" >
+				<viewport name="MainViewport" />
+				<POSITION x=0 y=0 z=3 />
+				<VIEW x=0 y=0 z=-1.0 />
+			</camera>
+		</cameras>
+		
+		<lights>
+			<light name="Sun">
+				<DIRECTION x=-2 y=-2 z=-2 />
+			</light>
+		</lights>
+		
+		<materialLibs>
+			<materialLib filename="toonModel.mlib" />
+		</materialLibs>
+		
+	</assets>
+	
+	<pipelines>
+	
+		<pipeline name="textures" >
+		
+			<pass class="default" name="toon" >
+				<scenes>
+					<scene name="Obj" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="tooned" toLibrary="Toon" />
+				</materialMaps>
+				
+			</pass>
+		</pipeline>
+		
+	</pipelines>
+</project>

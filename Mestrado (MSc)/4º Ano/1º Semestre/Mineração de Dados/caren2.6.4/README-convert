@@ -1,0 +1,309 @@
+
+README-convert
+
+30/1/2008
+(ver 1.3.2)
+
+
+This is a readme file for the convert module of the CAREN system.
+
+The aim of this module is to provide a simple yet efficient tool for discretizating numeric attributes in datasets.
+This program assumes datasets in CAREN like format i.e. first line represents attributes and a comman separator 
+is used among the dataset (including first line).
+The discretization processes always yield a .csv format file (default separator is  a semi-column ";"). The separator char
+is defined through the -s switch (default is space). The separator for the output file can be defined using switch -so.
+This tool can be used for other data mining programs apart from CAREN (any program that accepts .csv files).
+
+Use the following command for listing $convert$ options:
+
+> java convert -help
+
+
+The command format is:
+
+> convert inputfile outputfile [options]
+
+where "inputfile" is the dataset in caren like format and "outputfile" is the discretized dataset in .csv format.
+In [options], three types of information can be provided. First, the type of separator (-s switch).
+Second, the names of the attributes to be discretized (default is option -all) and finally, the type of 
+discretization to be performed on the specified numeric attributes.
+One can combine different settings for attributes. For instance, combine -all option with -N to apply 
+in all but the ones specified in the -N switch. The class attribute is always excluded from the discretization list (it
+does not require to be in the -N list).
+
+Several discretization methods are available in the $convert$ program. Only one method at a time can be used.
+That is, if one decides to apply a method  then all specified attributes will be transformed under this method.
+To use different method in different attributes one should performed several consecutive $convert$ runs. For instance:
+
+> java convert dataset t1 -AAtr1 -depth
+
+> java convert t1.csv t2 -Aatr2 -pki
+
+> java convert t2.csv t3 -Aatr3,Atr4,Atr5 -int0,3,12,16
+
+etc. The final result is the output file in the final run.
+
+
+
+This version of $convert$ contains the following unsupervised discretization methods:
+
+
+1) Step value amplitude (-dist). Generates intervals from min to max value using a user defined step amplitude.
+
+
+2) User defined intervals (-int). Intervals are defined using the values provided by the user. It start from -oo to first value
+and end with the interval build from last value and +oo.
+
+Example:
+
+> java convert example.atr t -os, -AM3 -out -int0.0,5.0,12.0
+
+ConverT 1.3.2                        (Caren discretization module)
+
+Reading Input file...
+Getting attribute values info...
+ Deriving User defined intervals for attributes...
+M3  Intervals:
+                     ]-oo : 0.00]
+                     ]0.00 : 5.00]
+                     ]5.00 : 12.00]
+                     ]12.00 : +oo[
+
+
+
+Converting dataset into t.csv file...
+
+
+Writing .info and .num files ...
+
+
+
+Total Time spent = 0 hrs 0 mts 0 secs
+
+
+3) Equidepth intervals (-depth). Derives equal density intervals (same number of dataset values per interval i.e. equal support).
+The number of intervals is defined by the user (or a default is used). Equal values are kept in the same interval.
+It starts with interval ]-oo : first atr value] and finish with ]last atr value : +oo[.
+Example:
+
+> java convert example.atr t -os, -AM3 -out -depth
+
+ConverT 1.3.2                        (Caren discretization module)
+
+Reading Input file...
+Getting attribute values info...
+ Deriving EquiDepth intervals for attributes...
+M3
+   (num intervals = 4)
+ Intervals:
+		     ]-oo : -5.0]
+                     ]-5.0 : -2.0]
+                     ]-2.0 : 15.0]
+                     ]15.0 : +oo[
+
+
+
+
+Converting dataset into t.csv file...
+
+
+Writing .info and .num files ...
+
+
+
+Total Time spent = 0 hrs 0 mts 0 secs
+
+
+4) PKI intervals (-pki). Derives Proportional K-Intervals.
+Same as above but where number of intervals = sqrt(#{atribute.values}) (no nulls).
+
+5) Equiwidth intervals (-width). Derives equal size intervals (intervals with the same amplitude).
+Amplitude = (max - min) / num_intervals. The first value for each interval  is derived by value = min + Amplitude * i
+where i = 1,2,...,num_intervals - 1.
+The number of intervals is defined by the user (or a default is used).
+It starts with interval ]-oo : first value] and finish with ]last value : +oo[.
+Example:
+
+> java convert example.atr t -os, -AM3 -out -width
+
+ConverT 1.3.2                        (Caren discretization module)
+
+Reading Input file...
+Getting attribute values info...
+ Deriving EquiWidth intervals for attributes...
+
+ (num intervals = 2)
+M3  Intervals:
+                     ]-oo : 13.50]
+                     ]13.50 : +oo[
+
+
+Converting dataset into t.csv file...
+
+
+Writing .info and .num files ...
+
+
+
+Total Time spent = 0 hrs 0 mts 0 secs
+
+
+
+
+
+The implemented supervised methods are the following:
+
+
+6) Fayyad & Irani method using MDL stopping criteria (-fid). Cut-point are obtained from the average of two values where change of class occurs.
+Example:
+
+> java convert example.atr t -os, -AM3 -out -fid -classCLASS
+
+ConverT 1.3.2                        (Caren discretization module)
+
+Reading Input file...
+Getting attribute values info...
+(Class Attribute is  CLASS )
+
+Deriving MDL-Entropy (Fayyad-Irani) intervals for attributes...
+ M3  intervals:
+
+                     ]-oo : 20.00]
+                     ]20.00 : +oo[
+
+Converting dataset into t.csv file...
+
+
+Writing .info and .num files ...
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs
+
+
+
+7) Same as above but cut-point are defined differently (-fi2). Groups of the same attribute values are aggregated as one. The class that they represent is
+decided through voting. Thus, class alternation occurs differently. Example:
+
+1 2 2 2 3 3 4 4 4 5 6 7 8 8 8 8 8 9
+y y n y y y n n n y n n n y y y y y
+
+The selected cut-point would be = {3.5, 4.5, 5.5, 7.5}, 
+where in option (-fid) would be = {2, 3.5, 4.5, 5.5, 8}.
+
+
+
+8) Implements the ChiMerge discretization procedure (-chi).
+The basic idea is to start with unitary intervals (corresponding to the distinct values in the dataset).
+Then merge adjacent intervals that are class independent (together). The chi^2 test is used to determine
+the independent pairs. The Merging process stops when:
+	a) if a max_intervals parameter is defined (-max) then when the number of derived intervals is < max.
+	b) otherwise whenever the lower chi value (lowest pair) is higher than a predefined alpha significante value (-alfa). 
+	   (the program has a representation of the Chi^2 distribution percentil (several degres of freedom) for
+	    alpha values between 0.5% and 99.5%.)
+
+It implements the adjustment of the statistics for the given alpha for each considered interval.
+This is necessary since degrees of freedom vary for each different interval.
+Note that degrees of freedom vary with the number of classes represented in each processed interval i.e degrees = #classes - 1.
+
+Example:
+
+> java convert example.atr t -os, -AM3 -out -chi -classCLASS
+
+ConverT 1.3.2                        (Caren discretization module)
+
+Reading Input file...
+Getting attribute values info...
+(Class Attribute is  CLASS )
+
+Deriving ChiMerge intervals for attributes...
+(Chi2 signif. value=0.9      Max intervals= off)
+ M3  intervals:
+
+                     ]-oo : -5.0]
+                     ]-5.0 : -2.0]
+                     ]-2.0 : 2.0]
+                     ]2.0 : 3.0]
+                     ]3.0 : 9.0]
+                     ]9.0 : 32.0]
+                     ]32.0 : +oo[
+
+Converting dataset into t.csv file...
+
+
+Writing .info and .num files ...
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs
+
+
+
+
+9) Performs supervised discretization on attributes when the defined class is a numeric attribute  (-tan).
+The defined unsupervised discretization is performed on the target (class) attribute. The supervised method is applied
+to the attributes defined to be discretized.
+In the output file, the original values will be preserved for the target attribute (class).
+Used is, for instance:
+
+> java convert t2.csv t3 -Aatr3,Atr4,Atr5 -tanC -fid -depth 
+
+which will discretized the numeric target attribute C using equi-depth. Then it will
+discretize attributes atr3, atr4, atr5 using Fayyad&Irani and the equi-depth intervals of attribute C as classes.
+
+
+
+
+
+There is a new switch to deal with null values. Switch -rn replaces null in numeric attributes by mean
+inside each class. For categoric attributes it uses the mode value inside class.
+This switch also deletes redundant attributes i.e. attributes with single value (or with only null values).
+
+
+
+$convert$ now generates extra information about the discretized attributes. For each output file
+it writes a file .num with information about derived intervals for the discretized attributes.
+This file is useful for prediction to use discretization information on test datasets.
+The $predict$ module of caren can use these files to treat numeric attributes in test data.
+The $predict$ option to make use of this information is -rn.
+
+
+
+
+A $convert$ run yields a  tex file (extension .info) where the used command line is described.
+It also contains a description of the class attribute and intervals generated for the discretized attributes.
+
+
+
+All the above methods require that a class attribute be defined. Otherwise an error will be reported.
+
+One can also specify the output mask for the numeric values in the discretized attributes using switch -mask.
+The default mask is 0.00.
+
+
+Another interesting feature is the -null switch. One can specify numeric intervals for attributes where 
+the within values are replaced by the  "?" null symbol.
+NOTICE: The char "?" in input datasets is always interpreted as the null symbol. For numeric attributes 
+and in terms of the discretization process, the null value is ignored and is transposed "as such" to the output file.
+
+
+One can used switch -out to output the set of intervals generated for each discretized attribute.
+
+Several datamining tools are very "fussy" about attribute values. For instance, intervals
+can be difficult to digest for tools like C4.5. For this purpose, convert contains 
+the switch -code to replace interval values by range codes. This leads to more compressed and 
+simpler to process datasets.
+
+
+The $convert$ module is now compiled for the Java 1.5 language (using JSDK1.5.0)
+
+
+
+If you find memory problems try increasing the heap size allocated by the java interpreter
+(check java -X, and include it when invoking the java emulator with convert)
+
+
+
+
+For questions, comments, send email to Paulo Azevedo (pja@di.uminho.pt)
+

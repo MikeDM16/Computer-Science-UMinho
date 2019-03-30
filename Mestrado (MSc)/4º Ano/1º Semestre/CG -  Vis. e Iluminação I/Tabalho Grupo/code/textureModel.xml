@@ -1,0 +1,541 @@
+<?xml version="1.0" ?>
+<project name="Texture Model" >
+	
+	<assets>
+		<attributes>
+			<!-- edges parameters -->
+			<attribute type="COLOR" name="edgeSize" data="FLOAT" value=0.050/>
+			<!-- toon parameters -->
+			<attribute type="COLOR" name="toonlevels" data="FLOAT" value=4/>
+			<!-- cross-hatching parameters -->
+			<attribute type="COLOR" name="hatching" data="FLOAT" value=4.0/>
+			<attribute type="COLOR" name="hatchingV" data="FLOAT" value=4.0/>
+			<!-- pixelize parameters -->
+			<attribute type="COLOR" name="pixel_height" data="FLOAT" value=10.0/>
+			<attribute type="COLOR" name="pixel_width" data="FLOAT" value=10.0/>
+			<!-- tech parameters -->
+			<attribute type="COLOR" name="tech_Color" data="FLOAT" value=1.0/>
+		</attributes>
+
+		<viewports>
+			<viewport name="RightViewport" >
+				<ORIGIN x=0.5 y=0.0 />
+				<SIZE width=0.5 height=1 />
+				<CLEAR_COLOR r="0.2" g="0.2" b="0.4" />
+			</viewport>
+			<viewport name="LeftViewport" >
+				<ORIGIN x=0.0 y=0.0 />
+				<SIZE width=0.5 height=1 />
+				<CLEAR_COLOR r="0.2" g="0.2" b="0.4" />
+			</viewport>
+		</viewports>
+
+		<scenes>
+			<scene name="sphere" param="UNITIZE">
+				<file name="models/Sphere.obj"/>
+			</scene>
+			<scene name="geom" param="UNITIZE">
+				<file name="models/geom.obj"/>
+			</scene>
+			<scene name="fries" param="UNITIZE">
+				<file name="models/fries.3ds"/>
+			</scene>
+			<scene name="wall" param="UNITIZE">
+				<file name="models/plane.obj"/>
+			</scene>
+			<scene name="teapot" param="SWAP_YZ">
+				<file name="models/Teapot.3ds"/>
+			</scene>
+			<scene name="bowling" param="UNITIZE">
+				<file name="models/bowling.obj"/>
+			</scene>
+			<scene name="plane" param="SWAP_YZ">
+				<file name="models/plane.obj"/>
+			</scene>
+		</scenes>
+		<sensors>
+			<sensor name="tsensor" class="TimeSensor">
+				<enabled value="1" />
+				<secondsToStart value="0" />
+				<cycleInterval value="20" />
+				<loop value="1" />
+			</sensor>
+		</sensors>
+
+		<interpolators>
+			<interpolator name="Rotation" class="PositionInterpolator">
+				<keyFrames>
+					<keyFrame key=0.0 w=0   y=1.0/>
+					<keyFrame key=0.5 w=180 y=1.0/>
+					<keyFrame key=1.0 w=360 y=1.0/>
+				</keyFrames>
+			</interpolator>
+		</interpolators>
+
+		<routes>
+			<route name="timer2interpol" sender="tsensor" receiver="Rotation" 
+					eventOut="TIMESENSOR_FRACTION_CHANGED"
+					eventIn="SET_INTERPOLATOR_FRACTION" />
+			<route name="interpol2scene1" sender="Rotation" receiver="sphere"
+					eventOut="INTERPOLATOR_POSITION"
+					eventIn="SET_ROTATION" />
+			<route name="interpol2scene2" sender="Rotation" receiver="fries"
+					eventOut="INTERPOLATOR_POSITION"
+					eventIn="SET_ROTATION" />
+			<route name="interpol2scene3" sender="Rotation" receiver="geom"
+					eventOut="INTERPOLATOR_POSITION"
+					eventIn="SET_ROTATION" />
+			<route name="interpol2scene4" sender="Rotation" receiver="teapot"
+					eventOut="INTERPOLATOR_POSITION"
+					eventIn="SET_ROTATION" />
+			<route name="interpol2scene5" sender="Rotation" receiver="bowling"
+					eventOut="INTERPOLATOR_POSITION"
+					eventIn="SET_ROTATION" />
+		</routes>
+		
+		<cameras>
+			<camera name="MainCamera" >
+				<viewport name="RightViewport" />
+				<POSITION x=0 y=0 z=3 />
+				<VIEW x=0 y=0 z=-1.0 />
+				<NEAR value=0.01/>
+			</camera>
+			<camera name="teapotCamara" >
+				<viewport name="RightViewport" />
+				<POSITION x=3.84 y=142.71 z=201.3 />
+				<VIEW x=0.025 y=-0.53 z=-0.85 />
+				<NEAR value=0.001/>
+			</camera>
+			<camera name="planeCamara" >
+				<viewport name="RightViewport" />
+				<POSITION x=30.9 y=-18.7 z=50.9 />
+				<VIEW x=0 y=0 z=-1.0 />
+				<NEAR value=0.01/>
+			</camera>
+		</cameras>
+		
+		<lights>
+			<light name="Sun">
+				<DIRECTION x=-2 y=-2 z=-2 />
+			</light>
+		</lights>
+		
+		<materialLibs>
+			<materialLib filename="textureModel.mlib" />
+		</materialLibs>
+	</assets>
+	
+	<pipelines>
+		<pipeline name="hatching - terra" >
+			<pass class="default" name="hatching" >
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="hatching" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_texture" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="hatching - teapot" >
+			<pass class="default" name="hatchingV" >
+				<scenes>
+					<scene name="teapot" />
+				</scenes>
+				<camera name="teapotCamara" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="hatchingV" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="teapot" />
+				</scenes>
+				<camera name="teapotCamara" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="hatching w/ tex - terra" >
+			<pass class="default" name="hatchingT" >
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="hatchingT" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_texture" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="hatching w/ tex - fries " >
+			<pass class="default" name="hatchingL" >
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="hatchingL" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="hatching - teapot T" >
+			<pass class="default" name="hatchingL" >
+				<scenes>
+					<scene name="teapot" />
+				</scenes>
+				<camera name="teapotCamara" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="hatchingL" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="teapot" />
+				</scenes>
+				<camera name="teapotCamara" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="edges - terra" >
+			<pass class="default" name="edges" >
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="edges" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_texture" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="toon - fries" >
+			<pass class="default" name="toon" >
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="toon" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="toon - bowling" >
+			<pass class="default" name="hatchingL" >
+				<scenes>
+					<scene name="bowling" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="toon" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="bowling" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="tech - fries" >
+			<pass class="default" name="tech-ilustration" >
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="tech-ilustration" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="tech - bowling" >
+			<pass class="default" name="tech-ilustration" >
+				<scenes>
+					<scene name="bowling" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="tech-ilustration" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="bowling" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="toonify - terra" >
+			<pass class="default" name="toonify" >
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="toonify" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_texture" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="toonify - tela" >
+			<pass class="default" name="toonify" >
+				<scenes>
+					<scene name="plane" />
+				</scenes>
+				<camera name="planeCamara" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="toonify" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="plane" />
+				</scenes>
+				<camera name="planeCamara" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_texture" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="textures - pixel" >
+			<pass class="default" name="pixel" >
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="pixel" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="sphere" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_texture" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="silhouette - fries" >
+			<pass class="default" name="silhouette" >
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="silhouette" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="fries" />
+				</scenes>
+				<camera name="MainCamera" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+		<pipeline name="silhouette - teapot" >
+			<pass class="default" name="silhouette" >
+				<scenes>
+					<scene name="teapot" />
+				</scenes>
+				<camera name="teapotCamara" />
+				<lights>
+					<light name="Sun" />
+				</lights>
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="silhouette" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+			<pass class="default" name="normal">
+				<scenes>
+					<scene name="teapot" />
+				</scenes>
+				<camera name="teapotCamara" />
+				<viewport name="LeftViewport" />
+				<materialMaps>
+					<map fromMaterial="*" toMaterial="normal_object" toLibrary="Texture" />
+				</materialMaps>
+			</pass>
+		</pipeline>
+
+	</pipelines>
+
+	<interface>
+		<window label="settings" >
+			<pipelineList label="Parametros" />
+			<var label="Edge Size" type="COLOR" context="Texture::edges" 
+					component="edgeSize" def="min=0.010 max=0.100 step=0.0002" />
+			<var label="Toon levels" type="COLOR" context="Texture::toon" 
+					component="toonlevels" def="min=1 max=4 step=-1" />	
+			<var label="Hatching" type="COLOR" context="Texture::hatching"
+					component="hatching" def="min=1 max=10 step=1" />	
+			<var label="HatchingV" type="COLOR" context="Texture::hatchingV"
+					component="hatching" def="min=1 max=10 step=1" />		
+			<var label="pixel_height" type="COLOR" context="Texture::pixel" 
+					component="pixel_height" def="min=1 max=30 step=0.5" />		
+			<var label="pixel_width" type="COLOR" context="Texture::pixel" 
+					component="pixel_width" def="min=1 max=30 step=0.5" />
+			<var label="tech_Color" type="COLOR" context="Texture::tech-ilustration" 
+					component="tech_Color" def="min=1 max=2 step=1" />
+		</window>
+	</interface>
+
+</project>

@@ -1,0 +1,83 @@
+=== Run information ===
+
+Scheme:       weka.associations.Apriori -N 100 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1
+Relation:     bank-data-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Discretize-B3-M-1.0-Rfirst-last
+Instances:    600
+Attributes:   11
+              age
+              sex
+              region
+              income
+              married
+              children
+              car
+              save_act
+              current_act
+              mortgage
+              pep
+=== Associator model (full training set) ===
+
+
+Apriori
+=======
+
+Minimum support: 0.1 (60 instances)
+Minimum metric <confidence>: 0.9
+Number of cycles performed: 18
+
+Generated sets of large itemsets:
+
+Size of set of large itemsets L(1): 28
+
+Size of set of large itemsets L(2): 232
+
+Size of set of large itemsets L(3): 524
+
+Size of set of large itemsets L(4): 277
+
+Size of set of large itemsets L(5): 33
+
+Best rules found:
+
+  1. income='(43758.136667-inf)' 80 ==> save_act=YES 80    <conf:(1)> lift:(1.45) lev:(0.04) [24] conv:(24.8)
+  2. age='(50.666667-inf)' income='(43758.136667-inf)' 76 ==> save_act=YES 76    <conf:(1)> lift:(1.45) lev:(0.04) [23] conv:(23.56)
+  3. income='(43758.136667-inf)' current_act=YES 63 ==> save_act=YES 63    <conf:(1)> lift:(1.45) lev:(0.03) [19] conv:(19.53)
+  4. age='(50.666667-inf)' income='(43758.136667-inf)' current_act=YES 61 ==> save_act=YES 61    <conf:(1)> lift:(1.45) lev:(0.03) [18] conv:(18.91)
+  5. children=0 save_act=YES mortgage=NO pep=NO 74 ==> married=YES 73    <conf:(0.99)> lift:(1.49) lev:(0.04) [24] conv:(12.58)
+  6. sex=FEMALE children=0 mortgage=NO pep=NO 64 ==> married=YES 63    <conf:(0.98)> lift:(1.49) lev:(0.03) [20] conv:(10.88)
+  7. children=0 current_act=YES mortgage=NO pep=NO 82 ==> married=YES 80    <conf:(0.98)> lift:(1.48) lev:(0.04) [25] conv:(9.29)
+  8. children=0 mortgage=NO pep=NO 107 ==> married=YES 104    <conf:(0.97)> lift:(1.47) lev:(0.06) [33] conv:(9.1)
+  9. income='(43758.136667-inf)' current_act=YES 63 ==> age='(50.666667-inf)' 61    <conf:(0.97)> lift:(3.04) lev:(0.07) [40] conv:(14.31)
+ 10. income='(43758.136667-inf)' save_act=YES current_act=YES 63 ==> age='(50.666667-inf)' 61    <conf:(0.97)> lift:(3.04) lev:(0.07) [40] conv:(14.31)
+ 11. income='(43758.136667-inf)' current_act=YES 63 ==> age='(50.666667-inf)' save_act=YES 61    <conf:(0.97)> lift:(3.85) lev:(0.08) [45] conv:(15.72)
+ 12. children=0 car=NO mortgage=NO pep=NO 62 ==> married=YES 60    <conf:(0.97)> lift:(1.47) lev:(0.03) [19] conv:(7.03)
+ 13. age='(-inf-34.333333]' married=YES car=NO 69 ==> income='(-inf-24386.173333]' 66    <conf:(0.96)> lift:(2.01) lev:(0.06) [33] conv:(9.06)
+ 14. income='(43758.136667-inf)' 80 ==> age='(50.666667-inf)' 76    <conf:(0.95)> lift:(2.98) lev:(0.08) [50] conv:(10.91)
+ 15. income='(43758.136667-inf)' save_act=YES 80 ==> age='(50.666667-inf)' 76    <conf:(0.95)> lift:(2.98) lev:(0.08) [50] conv:(10.91)
+ 16. income='(43758.136667-inf)' 80 ==> age='(50.666667-inf)' save_act=YES 76    <conf:(0.95)> lift:(3.77) lev:(0.09) [55] conv:(11.97)
+ 17. age='(-inf-34.333333]' car=NO mortgage=NO 68 ==> income='(-inf-24386.173333]' 64    <conf:(0.94)> lift:(1.98) lev:(0.05) [31] conv:(7.14)
+ 18. age='(-inf-34.333333]' region=INNER_CITY married=YES 64 ==> income='(-inf-24386.173333]' 60    <conf:(0.94)> lift:(1.97) lev:(0.05) [29] conv:(6.72)
+ 19. age='(-inf-34.333333]' car=NO save_act=YES 64 ==> income='(-inf-24386.173333]' 60    <conf:(0.94)> lift:(1.97) lev:(0.05) [29] conv:(6.72)
+ 20. age='(-inf-34.333333]' save_act=YES current_act=YES pep=NO 64 ==> income='(-inf-24386.173333]' 60    <conf:(0.94)> lift:(1.97) lev:(0.05) [29] conv:(6.72)
+ 21. age='(-inf-34.333333]' car=NO 107 ==> income='(-inf-24386.173333]' 100    <conf:(0.93)> lift:(1.97) lev:(0.08) [49] conv:(7.02)
+ 22. age='(-inf-34.333333]' car=NO current_act=YES 86 ==> income='(-inf-24386.173333]' 80    <conf:(0.93)> lift:(1.96) lev:(0.07) [39] conv:(6.45)
+ 23. age='(-inf-34.333333]' current_act=YES mortgage=NO 95 ==> income='(-inf-24386.173333]' 88    <conf:(0.93)> lift:(1.95) lev:(0.07) [42] conv:(6.23)
+ 24. age='(-inf-34.333333]' married=YES current_act=YES mortgage=NO 67 ==> income='(-inf-24386.173333]' 62    <conf:(0.93)> lift:(1.95) lev:(0.05) [30] conv:(5.86)
+ 25. age='(-inf-34.333333]' car=NO pep=NO 66 ==> income='(-inf-24386.173333]' 61    <conf:(0.92)> lift:(1.95) lev:(0.05) [29] conv:(5.77)
+ 26. age='(-inf-34.333333]' married=YES current_act=YES pep=NO 66 ==> income='(-inf-24386.173333]' 61    <conf:(0.92)> lift:(1.95) lev:(0.05) [29] conv:(5.77)
+ 27. married=YES children=0 save_act=YES current_act=YES 87 ==> pep=NO 80    <conf:(0.92)> lift:(1.69) lev:(0.05) [32] conv:(4.97)
+ 28. age='(-inf-34.333333]' current_act=YES pep=NO 95 ==> income='(-inf-24386.173333]' 87    <conf:(0.92)> lift:(1.93) lev:(0.07) [41] conv:(5.54)
+ 29. age='(-inf-34.333333]' save_act=YES pep=NO 82 ==> income='(-inf-24386.173333]' 75    <conf:(0.91)> lift:(1.93) lev:(0.06) [36] conv:(5.38)
+ 30. age='(-inf-34.333333]' children=0 81 ==> income='(-inf-24386.173333]' 74    <conf:(0.91)> lift:(1.92) lev:(0.06) [35] conv:(5.32)
+ 31. married=YES children=0 save_act=YES mortgage=NO 80 ==> pep=NO 73    <conf:(0.91)> lift:(1.68) lev:(0.05) [29] conv:(4.57)
+ 32. married=YES children=0 current_act=YES mortgage=NO 88 ==> pep=NO 80    <conf:(0.91)> lift:(1.67) lev:(0.05) [32] conv:(4.47)
+ 33. age='(-inf-34.333333]' married=YES current_act=YES 98 ==> income='(-inf-24386.173333]' 89    <conf:(0.91)> lift:(1.91) lev:(0.07) [42] conv:(5.15)
+ 34. age='(-inf-34.333333]' sex=FEMALE current_act=YES 75 ==> income='(-inf-24386.173333]' 68    <conf:(0.91)> lift:(1.91) lev:(0.05) [32] conv:(4.92)
+ 35. age='(-inf-34.333333]' save_act=YES current_act=YES 95 ==> income='(-inf-24386.173333]' 86    <conf:(0.91)> lift:(1.91) lev:(0.07) [40] conv:(4.99)
+ 36. age='(-inf-34.333333]' mortgage=NO 125 ==> income='(-inf-24386.173333]' 113    <conf:(0.9)> lift:(1.9) lev:(0.09) [53] conv:(5.05)
+ 37. age='(-inf-34.333333]' current_act=YES 153 ==> income='(-inf-24386.173333]' 138    <conf:(0.9)> lift:(1.9) lev:(0.11) [65] conv:(5.02)
+ 38. age='(-inf-34.333333]' sex=MALE 102 ==> income='(-inf-24386.173333]' 92    <conf:(0.9)> lift:(1.9) lev:(0.07) [43] conv:(4.87)
+ 39. age='(-inf-34.333333]' save_act=YES mortgage=NO 80 ==> income='(-inf-24386.173333]' 72    <conf:(0.9)> lift:(1.89) lev:(0.06) [34] conv:(4.67)
+ 40. age='(-inf-34.333333]' mortgage=NO pep=NO 80 ==> income='(-inf-24386.173333]' 72    <conf:(0.9)> lift:(1.89) lev:(0.06) [34] conv:(4.67)
+ 41. sex=FEMALE married=YES children=0 mortgage=NO 70 ==> pep=NO 63    <conf:(0.9)> lift:(1.66) lev:(0.04) [24] conv:(4)
+

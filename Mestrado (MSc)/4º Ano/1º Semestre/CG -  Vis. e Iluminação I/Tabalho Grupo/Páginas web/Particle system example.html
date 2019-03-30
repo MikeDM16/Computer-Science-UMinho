@@ -1,0 +1,341 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<link rel="StyleSheet" href="Particle%20system%20example_arquivos/pdbstyle.css" type="text/css" media="all">
+<title>Particle system example</title>
+</head>
+<body bgcolor="#ffffff">
+<!-- Google analytics -->
+<script async="" src="Particle%20system%20example_arquivos/analytics.js"></script><script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-40175012-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+<script language="JavaScript">
+<!--
+   if (self.location.href != top.location.href) {
+      top.location.href = self.location.href;
+   }
+-->
+</script>
+
+
+<center><table width="800"><tbody><tr><td>
+
+<center>
+<h1>Particle System Example</h1>
+See also <a href="http://paulbourke.net/miscellaneous/solver/">
+   Solving systems defined by differential equations</a><p> 
+Written by <a href="http://paulbourke.net/miscellaneous/">Paul Bourke</a><br>
+February 1998
+</p></center>
+<p>
+
+</p><p align="justify">
+The following discusses the requirements of a simple "particle"
+system, that is, a collection of point masses in 3D space possibly connected
+together by springs and acted on by external forces. 
+These particle/spring system will obey the laws of
+physics appropriate to such a configuration, the forces on the particles
+will include gravitation (optionally) and viscous drag (friction). The
+springs will exert forces on the particles according to Hooks law
+including spring damping.
+</p>
+
+<p align="justify">
+We are primarily interested in how the particles move given the
+forces acting on them, this is described by Newtonian mechanics, basically
+</p>
+
+<p></p><center><b>a</b> = d<sup>2</sup><b>x</b> / dt<sup>2</sup> = 
+<b>f</b> / m</center><p>
+
+</p><p align="justify">
+where <b>f</b> is the force on a particle, m its mass, <b>x</b> its position,
+and <b>a</b> the acceleration.
+Note that <b>f</b>, <b>x</b>, and <b>a</b> are vectors in 3 space (x,y,z).
+</p>
+
+<p align="justify">
+The above second order system can be written as two first order 
+differential equations making them easier to solve.
+</p>
+
+<p></p><center>
+<b>v</b> = d<b>x</b> / dt<br>
+<b>a</b> = d<b>v</b> / dt
+</center><p>
+
+</p><p align="justify">
+There are two data structures required, one for the particles and one
+describing the springs. The structure for the particles includes their
+mass (normally constant) and the instantaneous position, velocity and
+force.
+</p>
+
+<pre>typedef struct {
+   double m;   /* Mass     */
+   XYZ p;      /* Position */
+   XYZ v;      /* Velocity */
+   XYZ f;      /* Force    */
+} PARTICLE;
+</pre>
+The structure for a spring includes the two particles it connects,
+and various spring attributes required for the force calculation,
+see later.<p>
+</p><pre>typedef struct {
+   int from;                 /* Particle "a" */
+   int to;                   /* Particle "b" */
+   double springconstant;    
+   double dampingconstant;   
+   double restlength;        
+} PARTICLESPRING;
+</pre>
+
+<p align="justify">
+The key to determining the dynamics of the system is calculating
+the forces acting on a particle given the
+current state of the whole system. Three forces will be considered
+here, they are
+</p>
+
+<ul>
+<li><b>Gravitation</b><p>
+</p><p align="justify">
+This normally acts downwards and is added to
+the force vector of each particle individually. 
+</p>
+<p></p><center><b>f</b> = m <b>g</b></center><p>
+</p><p align="justify">
+where <b>g</b> is normally (0,0,-9.8). Often particle systems don't
+include gravitation unless they are constrained in some way otherwise
+the particles keep "falling".
+</p>
+
+</li><li><b>Viscous Drag</b><p>
+</p><p align="justify">
+This acts to resist motion and like gravitation
+it acts on each particle independently of the others, depending only on
+the current velocity of the particle.
+</p>
+<p></p><center><b>f</b> 
+= -k<sub>d</sub> d<b>x</b> / dt = -k<sub>d</sub> <b>v</b></center><p>
+</p><p align="justify">
+-k<sub>d</sub> is called the drag coefficient, if zero then the particles
+are in a frictionless environment (vacuum), high values simulate drag
+in liquids.
+</p>
+
+</li><li><b>Hooks Spring Law</b><p>
+</p><p align="justify">
+This determines the forces on two particles
+connected by a spring. We only need to work out the force on particle "a"
+due to particle "b", the force on "b" due to "a" is the negative of the
+first force. Each spring has a rest length, if the spring length is
+greater than this length then the force acts to pull the two particles
+together, if the spring length is less than the rest length then the force
+acts to repel the two particles. The spring damping force depends on the
+difference in the velocity of the two particles. 
+Both of these forces act along
+the line defined by the two particles. The force on particle "a" due to
+particle "b" is given by:
+</p>
+<center><img src="Particle%20system%20example_arquivos/particle1.gif"></center><p> 
+</p><p align="justify">
+Where k<sub>s</sub> is known as the spring constant, k<sub>d</sub> is
+the damping constant and r is the rest length.
+</p>
+</li></ul>
+
+<p align="justify">
+The particles might exert a gravitational attraction on each other. 
+The gravitational attraction of one particle "a" due to another
+particle "b" is given by
+</p>
+
+<p></p><center><img src="Particle%20system%20example_arquivos/particle3.gif"></center><p>
+
+</p><p align="justify">
+and is in the direction along the line joining the two particles. G
+is referred to as the universal gravitational constant and equals
+6.672 x 10<sup>-11</sup>N m<sup>2</sup> kg<sup>-2</sup>
+</p>
+
+<p align="justify">
+The particles could have a charge, this very similar in form to the
+gravitational law except that now the particles may repel if the charges
+are the same sign and attract if they are the opposite sign. The exact
+relationship is given by Coulombs law
+</p>
+
+<center><img src="Particle%20system%20example_arquivos/particle4.gif"></center><p> 
+
+</p><p align="justify">
+Where k is known as Coulombs constant equal to 8.9875 x 10<sup>9</sup>
+N m<sup>2</sup> C<sup>-2</sup>.
+As for the gravitational force the electrostatic force acts along the
+line defined by the positions of the two particles.
+</p>
+
+<p align="justify">
+Other forces can be added to this list dependent on requirements,
+it is only necessary to determine the appropriate physical forces
+involved.
+</p>
+
+<p>
+</p><h3>C source</h3>
+<p align="justify">
+The algorithms needed to solve the differential equations are
+described in more detail in the link given in the title. The subroutines
+provided at the end of this discussion implement the Euler and midpoint
+algorithms but could easily be modified for any of the possible
+algorithms such as the Runge-Kutta. Generally, a simple solver is used
+because of the need to solve for a large number of particles and the
+derivative functions are relatively simple.
+</p>
+
+<p align="justify">
+The routines needed to implement the particle system described here
+are found in two files
+</p>
+<a href="http://paulbourke.net/miscellaneous/particle/particlelib.h">particlelib.h</a> and 
+<a href="http://paulbourke.net/miscellaneous/particle/particlelib.c">particlelib.c</a>
+<p align="justify">
+The basic program layout for a particle system implementation
+using the above routines is as follows
+</p>
+<pre>   Create the particles
+   Create the springs between the particles
+   Initialise the particle and spring parameters
+	loop in time {
+      Update the particle positions (solve ODEs)
+      Display the results somehow
+   }
+</pre>
+
+<p>
+<table width="100%"><tbody><tr><td width="50%">
+<p align="justify">
+A more concrete example, again using the functions in the particle
+library above is given below. The system running until it reaches a 
+stable state is shown on the right.
+</p>
+<pre>#include "stdio.h"
+#include "stdlib.h"
+#include "math.h"
+
+void InitialiseSystem(void);
+void SetupParticles(int,int);
+
+int nparticles = 0;
+PARTICLE *particles;
+int nsprings = 0;
+PARTICLESPRING *springs;
+PARTICLEPHYS physical;
+</pre>
+</td><td width="50%">
+<center><img src="Particle%20system%20example_arquivos/particle2.gif"></center>
+</td></tr></tbody></table>
+
+<font color="#ff0000">
+</font></p><pre><font color="#ff0000">int main(int argc,char **argv)
+{
+   int i,p1,p2;
+   double dt = 0.1;
+
+   InitialiseSystem();
+
+   while (TRUE) {
+
+      UpdateParticles(particles,nparticles,physical,springs,nsprings,dt,1);
+
+      for (i=0;i&lt;nparticles;i++)
+         /* Display a particle at particles[i].p */
+
+      for (i=0;i&lt;nsprings;i++) {
+         p1 = springs[i].from;
+         p2 = springs[i].to;
+         /* Display a spring between point p1 and p2 */
+      }
+
+   }
+
+   free(particles);
+   free(springs);
+}
+
+/*
+   Set up the particle system.
+   Initialise all variables to default values
+*/
+void SetupParticles(int np,int ns)
+{
+   int i;
+
+   nparticles = np;
+   nsprings = ns;
+
+   if (particles != NULL)
+      free(particles);
+   particles = (PARTICLE *)malloc(nparticles * sizeof(PARTICLE));
+   if (springs != NULL)
+      free(springs);
+   springs = (PARTICLESPRING *)malloc(nsprings * sizeof(PARTICLESPRING));
+
+   for (i=0;i&lt;np;i++) {
+      particles[i].m = 1;
+      particles[i].fixed = FALSE;
+      particles[i].v.x = 0;
+      particles[i].v.y = 0;
+      particles[i].v.z = 0;
+   }
+   for (i=0;i&lt;ns;i++) {
+      springs[i].springconstant = 0.1;
+      springs[i].dampingconstant = 0.01;
+      springs[i].restlength = 5;
+   }
+
+   physical.gravitational = 0;
+   physical.viscousdrag = 0.1;
+}
+
+/*
+   Create 5 particles
+   The particles are placed randomly on the interval -5 -&gt; 5
+*/
+void InitialiseSystem(void)
+{
+   int i;
+
+   SetupParticles(5,9);
+
+   /* Random positions */
+   for (i=0;i&lt;5;i++) {
+      particles[i].p.x = 10 * (rand() % 1000 - 500) /1000.0;
+      particles[i].p.y = 10 * (rand() % 1000 - 500) /1000.0;
+      particles[i].p.z = 10 * (rand() % 1000 - 500) /1000.0;
+   }
+
+   /* Edges */
+   springs[0].from  = 0; springs[0].to  = 1;
+   springs[1].from  = 0; springs[1].to  = 2;
+   springs[2].from  = 0; springs[2].to  = 3;
+   springs[3].from  = 4; springs[3].to  = 1;
+   springs[4].from  = 4; springs[4].to  = 2;
+   springs[5].from  = 4; springs[5].to  = 3;
+   springs[6].from  = 1; springs[6].to  = 2;
+   springs[7].from  = 2; springs[7].to  = 3;
+   springs[8].from  = 3; springs[8].to  = 1;
+}
+</font></pre><font color="#ff0000">
+</font>
+
+</td></tr></tbody></table></center>
+
+
+
+</body></html>

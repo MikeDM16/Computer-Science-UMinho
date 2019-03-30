@@ -1,0 +1,1924 @@
+Caren 2.5.2
+(10/02/2009)
+
+The CAREN System is a Java based implementation of an Association rules Generator.
+The main purpose for the caren project was to develop an association rules generator target for building prediction models.
+A new depth-first implementation is now available. Version 2.5. provides a full update to the package
+and includes new features, a faster rule generation and itemset mining algorithm and novel data structures to represent rules and
+prediction models. This document provides a brief tutorial on the basics for hands on $caren$.
+
+
+
+
+
+
+
+#DATA FORMAT
+
+The Caren package, in general,  can deal with two different dataset formats. Attribute/Value and basket format.
+In attribute/value format, the first line of the dataset should contain the names of the attributes.
+Example:
+
+	ORIGEM M3 FORN CC CODS CLASS
+	asdsa 32 ze  5 501 A
+	paulo -5 ze  5 909 B
+	asdsa  ? ze  5  ?  A
+... etc.
+
+One should use the switch (-Att) or (-Bas) to declare attribute/value mode or basket mode. Default mode is -Bas.
+In -bas mode the dataset should be of the form:
+
+	TransactionID Items
+
+
+Example an example (notice no label line is included!):
+
+	001            1
+        001            2
+        001            4
+        003            1
+or
+        001            1 2 4
+        003            1
+
+
+Defining the right separator character is vital for obtaining meaningful results. The option is -s
+and should be used as ex: java caren dataset 0.1 0.5 -s, -d.  Notice no space between switch and character!
+In fact, as a standard in this package, values for a switch have no space in between.
+
+
+
+There are several features implemented in the $caren$ module. One can generate a list of options using the command prompt: 
+
+
+>java caren -help.
+
+
+
+
+
+
+
+
+#BASICS
+
+
+The basic parameters to supply to the $caren$ command are the dataset name and two filters; minimal support and confidence.
+One can filter rules using other interest measures. However these three parameters are mandatory. Here's an example:
+
+> java caren example.bas 0.01 0.5
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 174 millis
+
+
+
+$caren$ display information about number of items present in the dataset, number of records (or transactions in basket mode), number
+of frequent items (that satisfy minimal support), minimal support in absolute value and dataset name.
+Since nothing was said no output was given. However, one could ask for frequent itemsets counting using switch -is.
+The output is stored in file 'items.txt'. Example:
+
+> java caren example.bas 0.01 0.5 -is
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+ 178 itemsets written in file 'items.txt'.
+
+yields the file:
+
+(content of items.txt)
+> caren example.bas  0.01  0.5  -is
+
+NumFreqItems = 16 in the dataset example.bas with 1000 transactions using minsup = 0.01
+
+
+
+celery s()=43
+celery onions s()=11
+celery confectionery s()=12
+celery lettuce s()=12
+celery potatoes s()=14
+corn s()=54
+corn confectionery s()=10
+corn apples s()=13
+corn lettuce s()=15
+corn tomatoes s()=17
+corn potatoes s()=20
+beans s()=69
+beans carrots s()=10
+beans bananas s()=10
+beans oranges s()=11
+
+...etc.
+
+To display the extracted rules one uses switch -d:
+
+> java caren example.bas 0.01 0.5 -d
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.01700  Conf = 0.58621   peaches    <--    bananas  &  apples
+Sup = 0.01500  Conf = 0.57692   peaches    <--    bananas  &  oranges
+Sup = 0.01900  Conf = 0.90476   tomatoes    <--    carrots  &  lettuce  &  potatoes
+Sup = 0.03900  Conf = 0.86667   tomatoes    <--    carrots  &  lettuce
+Sup = 0.01000  Conf = 0.76923   tomatoes    <--    carrots  &  onions  &  lettuce
+Sup = 0.01500  Conf = 0.68182   tomatoes    <--    plums  &  carrots
+Sup = 0.01100  Conf = 0.61111   tomatoes    <--    beans  &  lettuce
+Sup = 0.01800  Conf = 0.60000   tomatoes    <--    plums  &  lettuce
+Sup = 0.01500  Conf = 0.60000   tomatoes    <--    carrots  &  onions  &  potatoes
+Sup = 0.01000  Conf = 0.58824   tomatoes    <--    grapes  &  lettuce
+Sup = 0.01800  Conf = 0.58065   tomatoes    <--    peas  &  lettuce
+Sup = 0.04300  Conf = 0.57333   tomatoes    <--    lettuce  &  potatoes
+
+...etc.
+
+
+
+Notice that rules clustered by consequent. For each consequent they are order by confidence, then by support and finally by antecedent size.
+Caren uses the simplistic format for rules with only one consequent. The main reason for this decision is that Caren was developed for prediction purposes
+(one consequent for a one prediction outcome).
+Thus, caren ends up generation more rules than a system deriving classical association rules (i.e. which allows more than one consequent per rule).
+
+One can change the interest measure filtering by declaring a different measure like conviction (and a threshold). Example:
+
+> java caren example.bas 0.01 0.5 -d -conv1.1
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  1.10000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Conviction
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.01700  Conv = 2.10250   peaches    <--    bananas  &  apples
+Sup = 0.01500  Conv = 2.05636   peaches    <--    bananas  &  oranges
+Sup = 0.04000  Conv = 1.27000   peaches    <--    bananas
+Sup = 0.01000  Conv = 1.10514   peaches    <--    potatoes  &  oranges
+Sup = 0.01400  Conv = 1.10423   peaches    <--    potatoes  &  apples
+Sup = 0.01800  Conv = 1.10373   peaches    <--    peas
+Sup = 0.03900  Conv = 1.10240   peaches    <--    oranges
+Sup = 0.01900  Conv = 7.73850   tomatoes    <--    carrots  &  lettuce  &  potatoes
+Sup = 0.03900  Conv = 5.52750   tomatoes    <--    carrots  &  lettuce
+Sup = 0.01000  Conv = 3.19367   tomatoes    <--    carrots  &  onions  &  lettuce
+
+...etc.
+
+
+
+
+
+
+
+
+#SPECIFYING THE ELEMENTS OF A RULE 
+
+$caren$ enables rule filtering by specifying constraints on the consequent and antecedent of rules.
+Switches -h and -H are used to specify items or attribute that can be consequent of a rule.
+In general, capital letter are used to specify attributes names and lower case for items names. Here's an example with -h.
+
+> java caren example.bas 0.01 0.5 -d -hpeaches,potatoes
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.01700  Conf = 0.58621   peaches    <--    bananas  &  apples
+Sup = 0.01500  Conf = 0.57692   peaches    <--    bananas  &  oranges
+Sup = 0.01500  Conf = 0.68182   potatoes    <--    carrots  &  onions  &  tomatoes
+Sup = 0.02500  Conf = 0.60976   potatoes    <--    carrots  &  onions
+Sup = 0.01600  Conf = 0.59259   potatoes    <--    onions  &  lettuce  &  tomatoes
+Sup = 0.01300  Conf = 0.59091   potatoes    <--    peas  &  onions
+Sup = 0.02800  Conf = 0.52830   potatoes    <--    onions  &  lettuce
+Sup = 0.02000  Conf = 0.51282   potatoes    <--    onions  &  confectionery
+Sup = 0.02900  Conf = 0.50000   potatoes    <--    onions  &  tomatoes
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 60 millis
+
+
+Antecedent items can be selected using switches -a, +a and *a. Option -a specifies that rules
+most have in the antecedent at least one item from the supplied list (items in list are separated by commas).
+Example (using -h and -a together):
+
+> java caren example.bas 0.01 0.5 -d -hpeaches,potatoes -aonions,oranges
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.01500  Conf = 0.57692   peaches    <--    bananas  &  oranges
+Sup = 0.01500  Conf = 0.68182   potatoes    <--    carrots  &  onions  &  tomatoes
+Sup = 0.02500  Conf = 0.60976   potatoes    <--    carrots  &  onions
+Sup = 0.01600  Conf = 0.59259   potatoes    <--    onions  &  lettuce  &  tomatoes
+Sup = 0.01300  Conf = 0.59091   potatoes    <--    peas  &  onions
+Sup = 0.02800  Conf = 0.52830   potatoes    <--    onions  &  lettuce
+Sup = 0.02000  Conf = 0.51282   potatoes    <--    onions  &  confectionery
+Sup = 0.02900  Conf = 0.50000   potatoes    <--    onions  &  tomatoes
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 695 millis
+
+
+Switch +a requires that rules contain all specified items:
+
+> java caren example.bas 0.01 0.5 -d -hpeaches,potatoes +aonions,carrots
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.01500  Conf = 0.68182   potatoes    <--    carrots  &  onions  &  tomatoes
+Sup = 0.02500  Conf = 0.60976   potatoes    <--    carrots  &  onions
+
+
+
+Total Time spent = 0 hrs 0 mts 0 secs 936 millis
+
+
+One uses switch *a to specify coverage of a rule. That is, generate rules which antecedent is covered by the specified list.
+Here's an example:
+
+> java caren example.bas 0.01 0.5 -d -hpeaches,potatoes *aonions,carrots,tomatoes
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.50000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 4
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.01500  Conf = 0.68182   potatoes    <--    carrots  &  onions  &  tomatoes
+Sup = 0.02500  Conf = 0.60976   potatoes    <--    carrots  &  onions
+Sup = 0.02900  Conf = 0.50000   potatoes    <--    onions  &  tomatoes
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 104 millis
+
+
+To declare that our dataset is in specify attribute/value format one uses the switch -Att.
+In this mode we can also specify which attributes can occur in consequent and antecedent of a rule.
+Check this example, where only rules with the CLASS attribute in the consequent are derived:
+
+java caren example.atr 0.1 0.8 -Att -HCLASS -d
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.80000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CODS=23  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CC=5  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo  &  CODS=23
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo  &  CC=5
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CODS=23
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CC=5
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.20000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC=5
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC=5  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2  &  ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2
+Sup = 0.12000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga  &  CC=5
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 30 millis
+
+
+The antecedent can also be specified using *A and +A. Switch +A imposes that all attributes
+in the list most occur in rules antecedents.
+
+> java caren example.atr 0.1 0.8 -Att -HCLASS +AORIGEM,M3 -d
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.80000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CODS=23  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CC=5  &  ORIGEM=paulo
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2  &  ORIGEM=olga
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 466 millis
+
+
+Switch *A is equivalent to *a but for attributes. Here's an example:
+
+> java caren example.atr 0.1 0.8 -Att -HCLASS *AORIGEM,M3,FORN -d
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.80000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 4
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2  &  ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2
+
+
+
+In Att mode one can also specifies items in rules and combine constraints of type 'A' with type 'a' and 'h', etc. For instance:
+
+> java caren example.atr 0.1 0.8 -Att -HCLASS *aORIGEM=asdsa,M3=32,FORN=ze -d
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.80000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 4
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+
+
+
+
+
+One can also impose constraints on size of rules. Switches -RS and -rs constraint max and min size of rules.
+Size of rules are measure in number of items (in consequent plus used in antecedent).
+Example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS  -d -RS2
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 2
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+Sup = 0.28000  Conf = 0.77778   CLASS=A    <--    FORN=ze
+Sup = 0.24000  Conf = 0.50000   CLASS=A    <--    CC=5
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2
+Sup = 0.12000  Conf = 0.60000   CLASS=C    <--    CODS=999
+
+
+and
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS  -d -rs3
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6 and min size = 3
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CODS=23  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CC=5  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo  &  CODS=23
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo  &  CC=5
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CODS=23
+Sup = 0.12000  Conf = 1.00000   CLASS=B    <--    M3=-5  &  CC=5
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.20000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC=5
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC=5  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+Sup = 0.20000  Conf = 0.71429   CLASS=A    <--    FORN=ze  &  CC=5
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2  &  ORIGEM=olga
+Sup = 0.12000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga  &  CC=5
+
+
+
+
+
+
+
+
+
+
+#NULL VALUES
+
+In Att mode it is possible to apply a procedure to replace null values. Caren implements a very naive
+nulls replacement procedure. A null value in attribute is replaced by the mode (for categorical attributes) or mean 
+value (for numeric attributes).  The module $convert$ implements a more elaborated nulls treatment procedure.
+To apply nulls replacement one declares the -null switch. This options is also used to declare which char is used 
+in the dataset as the null symbol e.g -null? to use '?' as the null char.
+It is also possible to ignore null values using switch -ignore. In this mode the items, composed out of pairs attribute/null symbol
+are ignored during itemset counting.
+
+
+
+
+
+
+#DEALING WITH NUMERIC ATTRIBUTES
+
+By default, Caren treats all attributes as categorical.
+However, it is possible to declare an attribute as numeric. Association rules are composed of items. In Att mode
+items are pair attribute/value. Thus, numeric attributes tend to give rise to a large number of items.
+A better approach is to lower the number of values in the domain of a numeric attribute by discretization.
+In this way, instead of numeric values an attribute is composed by a set o ranges (intervals).
+Caren implements several discretization procedures (supervised and unsupervised).
+For supervised discretization one must declare which attribute is the target (class attribute). Use switch -class for
+this purpose. There are two procedures implemented within the itemsets mining engine for supervised discretization:
+binarization (-bin) and class intervals (-cin). The first works as a single step of the Fayyiad & Irani procedure, deriving
+two intervals for each numeric attribute. The latter derives intervals with contiguous class attributes values. 
+Check README-log for more details. Check these two examples for -bin and -cin (-null? is used to deal with nulls):
+
+
+> java caren example.atr 0.2 0.9 -Att -HCLASS  -classCLASS -d -binM3,CC -null?
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+Discretizing Attributes...CC M3 ..done
+NumOfAtribs = 6 MinSup = 0.20000    SupAbsValue = 5     MinConf =  0.90000  NumOfRecords = 25   DataSet = example.atr
+Class Attribute = CLASS
+NumItems = 27    NumFrequentItems = 12
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 12 frequent items
+ Performing item:    12.
+
+End of itemsets counting  ......
+
+
+
+Null values Replacement in Attributes:
+       ORIGEM the 2 null values were replaced by the (ORIGEM=olga) value.
+       M3 the 2 null values were replaced by the (M3 > -5.0) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CC the null value was replaced by the (CC =< 34.0) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo  &  CC =< 34.0
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3 =< -5.0  &  ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3 =< -5.0
+Sup = 0.40000  Conf = 0.90909   CLASS=C    <--    ORIGEM=olga  &  M3 > -5.0  &  CC =< 34.0
+Sup = 0.40000  Conf = 0.90909   CLASS=C    <--    ORIGEM=olga  &  CC =< 34.0
+Sup = 0.40000  Conf = 0.90909   CLASS=C    <--    ORIGEM=olga  &  M3 > -5.0
+Sup = 0.40000  Conf = 0.90909   CLASS=C    <--    ORIGEM=olga
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze  &  M3 > -5.0  &  CC =< 34.0
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  M3 > -5.0  &  CC =< 34.0
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze  &  CC =< 34.0
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze  &  M3 > -5.0
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC =< 34.0
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  M3 > -5.0
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 680 millis
+
+
+and:
+
+> java caren example.atr 0.2 0.9 -Att -HCLASS  -classCLASS -d -cinM3,CC -null?
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+Class intervals discretization of attributes...CC M3 ..done
+NumOfAtribs = 6 MinSup = 0.20000    SupAbsValue = 5     MinConf =  0.90000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 27    NumFrequentItems = 15
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 15 frequent items
+ Performing item:    15.
+
+End of itemsets counting  ......
+
+
+
+Null values Replacement in Attributes:
+       ORIGEM the 2 null values were replaced by the (ORIGEM=olga) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3 in [-5.0 : -2.0[  &  ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3 in [-5.0 : -2.0[
+Sup = 0.28000  Conf = 1.00000   CLASS=C    <--    M3 in [-2.0 : 3.0[  &  ORIGEM=olga
+Sup = 0.28000  Conf = 1.00000   CLASS=C    <--    M3 in [-2.0 : 3.0[
+Sup = 0.40000  Conf = 0.90909   CLASS=C    <--    ORIGEM=olga
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : Infinity[  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : Infinity[  &  FORN=ze
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : Infinity[  &  ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : Infinity[
+Sup = 0.20000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC in [5.0 : 8.0[  &  FORN=ze
+Sup = 0.20000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC in [5.0 : 8.0[
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 450 millis
+
+
+Caren also implements the Srikant & Agrawal unsupervised discretization procedure (see README-log for more details).
+This method basically defines a number of intervals using the notion of (partial) K-completeness.
+Then it derives equi-depth intervals. Adjacent intervals can be merged if the resulting intervals does not overcomes 
+the max support threshold.
+Here's an example using attributes M3 and CC and K=4 (Max support is default value i.e equals minsup):
+
+> java caren example.atr 0.2 0.9 -Att -HCLASS -d -SrikM3,CC -null? -K4
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+Srikant discretization of attributes...CC M3 ..done
+NumOfAtribs = 6 MinSup = 0.20000    SupAbsValue = 5     MinConf =  0.90000  NumOfRecords = 25   DataSet = example.atr
+K level = 4.0   Max Supporte = 0.2
+NumItems = 46    NumFrequentItems = 13
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 13 frequent items
+ Performing item:    13.
+
+End of itemsets counting  ......
+
+
+
+Null values Replacement in Attributes:
+       M3 the 2 null values were replaced by the (null) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CC the null value was replaced by the (CC in [9.0 : 34.0]) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : 32.0]  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : 32.0]  &  FORN=ze
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : 32.0]  &  ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000   CLASS=A    <--    M3 in [22.0 : 32.0]
+Sup = 0.20000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC in [5.0 : 8.0]  &  FORN=ze
+Sup = 0.20000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa  &  CC in [5.0 : 8.0]
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo  &  M3 in [-5.0 : -2.0]
+Sup = 0.40000  Conf = 1.11111   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga  &  M3 in [-5.0 : -2.0]
+
+
+
+Total Time spent = 0 hrs 0 mts 0 secs 918 millis
+
+
+
+
+
+
+#RULE PRUNING
+
+Caren implements several techniques to avoid false discoveries. It is important to discard rules
+that represent false discoveries. The most basic one is the chi-squared test (switch -chi). The options performs
+a chi-squared test between the population representing the antecedent and the population representing the consequent.
+A rule is discarded if the resulting statistics shows no evidence to reject the null hypothesis (that antecedent
+and consequent are independent).
+The test is performed with a fixed alpha value of 0.05. With this options the value of the statistics is shown together
+with rules output. Chi Squared is applied when the rules are about to be derived (on-the-fly). Here's an example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -d -chi
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Applying rules filtering using Chi-squared test.
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000  Chi2 = 20.3008   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000  Chi2 = 16.0714   CLASS=B    <--    M3=-5  &  ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000  Chi2 = 16.0714   CLASS=B    <--    M3=-5
+Sup = 0.12000  Conf = 1.00000  Chi2 = 08.7662   CLASS=B    <--    M3=-5  &  CODS=23  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000  Chi2 = 08.7662   CLASS=B    <--    M3=-5  &  CC=5  &  ORIGEM=paulo
+Sup = 0.12000  Conf = 1.00000  Chi2 = 08.7662   CLASS=B    <--    ORIGEM=paulo  &  CODS=23
+Sup = 0.12000  Conf = 1.00000  Chi2 = 08.7662   CLASS=B    <--    ORIGEM=paulo  &  CC=5
+Sup = 0.12000  Conf = 1.00000  Chi2 = 08.7662   CLASS=B    <--    M3=-5  &  CODS=23
+Sup = 0.12000  Conf = 1.00000  Chi2 = 08.7662   CLASS=B    <--    M3=-5  &  CC=5
+Sup = 0.28000  Conf = 1.00000  Chi2 = 20.6597   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000  Conf = 1.00000  Chi2 = 16.7763   CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.20000  Conf = 1.00000  Chi2 = 13.2812   CLASS=A    <--    ORIGEM=asdsa  &  CC=5
+Sup = 0.16000  Conf = 1.00000  Chi2 = 10.1190   CLASS=A    <--    ORIGEM=asdsa  &  CC=5  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000  Chi2 = 10.1190   CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000  Chi2 = 10.1190   CLASS=A    <--    M3=32  &  FORN=ze
+Sup = 0.16000  Conf = 1.00000  Chi2 = 10.1190   CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000  Chi2 = 10.1190   CLASS=A    <--    M3=32
+Sup = 0.28000  Conf = 0.77778  Chi2 = 13.5429   CLASS=A    <--    FORN=ze
+Sup = 0.20000  Conf = 0.71429  Chi2 = 06.9459   CLASS=A    <--    FORN=ze  &  CC=5
+Sup = 0.36000  Conf = 1.00000  Chi2 = 21.0938   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000  Chi2 = 09.3750   CLASS=C    <--    M3=-2  &  ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000  Chi2 = 09.3750   CLASS=C    <--    M3=-2
+Sup = 0.12000  Conf = 1.00000  Chi2 = 05.1136   CLASS=C    <--    ORIGEM=olga  &  CC=5
+
+
+
+
+
+In this run, two rules were discarded.
+
+Rules can be organized in terms of how close they are to represent uncorrelated populations.
+A rule is redundant if a generalization of it has the same support e.g. if s(c<-a & b) = s(c<-a), then c<-a & b is redundant.
+However, non redundant rules can be non productive. Productive rules are rules with positive improvement.
+The improvement of rules is defined as:
+
+	imp(c <- a) = max(forall a' in a: conf(c<-a) - conf(c<-a'))
+
+here, confidence can be replaced by different interest measures. Thus a rule with imp =< 0 is non productive since there is
+a generalization of it with equal or better confidence.
+The notion of improvement captures how much a specialization of rule improves confidence (or other interest measure).
+
+One can use improvement as a rule filter. Caren implements this idea by using a minimal improvement threshold.
+In this version (2.5), minimal improvement must be > 0.
+Example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -d -imp0.001
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Computing Improvement & rules filtering with MinImp = 0.0010
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+Sup = 0.28000  Conf = 0.77778   CLASS=A    <--    FORN=ze
+Sup = 0.24000  Conf = 0.50000   CLASS=A    <--    CC=5
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2
+Sup = 0.12000  Conf = 0.60000   CLASS=C    <--    CODS=999
+
+
+Caren implements two versions of this pruning technique. One (-imp) applies improvement filter on-the-fly, as the rules are derived.
+The procedure is potentially incomplete since one can delete a rule during rule derivation that could be used to delete other rules, derived in the sequel.
+Thus, not all the rules with imp < minimal imp are discarded.
+A complete version of this procedure is implemented post-pruning (-IMP).
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -d -IMP0.001
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+Applying Post-Pruning Improvement filter on 18 rules using MinImp = 0.0010
+Dealing with rule        18.
+Deleting...
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+Sup = 0.28000  Conf = 0.77778   CLASS=A    <--    FORN=ze
+Sup = 0.24000  Conf = 0.50000   CLASS=A    <--    CC=5
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2
+Sup = 0.12000  Conf = 0.60000   CLASS=C    <--    CODS=999
+
+
+Here, the filter is applied after rule derivation. Notice that only non redundant rules are derived (on-the-fly).
+Actually, we got he same result as above. However, -imp tends to derive more rules than -IMP.
+Notice that, in both implementation, a rule satisfies this filter if its improvement >= threshold.
+
+In terms of performance, typically -imp is faster than -IMP. However, in some datasets the opposite occurs.
+
+
+The problem with improvement filtering is that it requires a threshold that in some cases is to sharp, discarding true discoveries,
+and in other cases to loose, yielding false discoveries.
+
+A stronger filter is to use the notion of significant rules. Rule is significant if it is statistical significant in relation 
+to its immediate generalizations.
+The direct generalizations of a rule c <- a & b are  c <- (default rule) and any rule c <- ant where length(ant) = length(a & b) - 1.
+Caren implements the methodology of Webb'06 (Discovering Significant Rules, KDD'06) using an Fisher Exact Test between a rule and its 
+immediate generalizations. If any obtaining p-value is > alpha then rule is discarded. The test evaluate the statistical significance 
+of the improvement of a rule's confidence in relation to the confidence of it's immediate generalizations.
+In other words, the test tries to answer toi the following question:
+  Do the new items added to a rule to obtain a specialized version also contribute to the rule's confidence ?
+
+As in the case of improvement, significant rules can be obtained by two different implementations. Switch -fisher, to apply
+on-the-fly the Fisher Exact Test filtering, and -FISHER to apply it post-pruning.
+For the same reasons stated above for improvement filtering, -fisher can be incomplete. However -FISHER is complete.
+The alpha value (the threshold to reject the null hypothesis: that the population associated to the specialized rule occurs by chance) 
+is defined using switch -Alpha. Default value is 0.05. Example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -d -fisher
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Filtering insignificant rules using Fisher exact Test with alpha  = 0.05
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000  Conf = 1.00000   CLASS=B    <--    M3=-5
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.16000  Conf = 1.00000   CLASS=A    <--    M3=32
+Sup = 0.28000  Conf = 0.77778   CLASS=A    <--    FORN=ze
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+Sup = 0.20000  Conf = 1.00000   CLASS=C    <--    M3=-2
+
+
+Notice that there is a limitation for this Fisher test implementation.
+Caren cannot apply Fisher test to datasets with more than 100 000 records (transactions). This is due to factorial calculation restrictions.
+
+For significant rules Caren implements the Within-search approach of Webb'06. Since multiple test are performed for each rule (and
+multiple p-values are obtained) the given alpha should be adjusted, according to the search space of rules associated to the dataset.
+Caren uses Bonferroni-like procedure to derive the new adjusted alpha value. Switch -bonf implements this adjustment. 
+This is the implementation of Webb08 Layered Critical values adjustment.
+When computing the rules search space associated to the dataset, it takes into consideration the constraints imposed by 
+switches -a, +a and *a and also +A and *A, as well as the constraints on the consequent.
+For this switch, Caren considers an upper limit for search space size (antecedent length), either by taking an user provided limit using switch -RS or
+using the number of frequent items (in basket-format data), or maximal number of attributes used in the antecedent.
+
+Switch -bonf can vbe used with all version of the fisher test (and in the future with all statistical tests).
+This adjustment tends to be conservative, as one can see in the example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -d -FISHER -bonf
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5.2
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+Applying Bonferroni adjustment using Layered Critical Values on alpha = 0.05
+Computed Layered adjusted Critical Values
+         Level  1   Alpha' = 6.944444444444444E-5
+         Level  2   Alpha' = 3.6710719530102793E-6
+         Level  3   Alpha' = 3.956009177941293E-7
+         Level  4   Alpha' = 8.745463290917836E-8
+         Level  5   Alpha' = 5.008765339343852E-8
+
+Applying Post-Pruning Fisher Exact Test to find significant rules on a set of 18 rules using Layered Critical Values adjustment
+Dealing with rule        18.
+Deleting...
+
+
+
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.24000  Conf = 1.00000   CLASS=B    <--    ORIGEM=paulo
+Sup = 0.28000  Conf = 1.00000   CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.36000  Conf = 1.00000   CLASS=C    <--    ORIGEM=olga
+
+
+
+Total Time spent = 0 hrs 0 mts 0 secs 782 millis
+
+
+
+
+Another example now for basket-data.
+
+
+> java caren example.bas 0.01 0.2 -d -FISHER -bonf
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5.2
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.20000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+Applying Bonferroni adjustment using Layered Critical Values on alpha = 0.05
+Computed Layered adjusted Critical Values
+         Level  1   Alpha' = 1.3888888888888883E-5
+         Level  2   Alpha' = 1.9841269841269794E-6
+         Level  3   Alpha' = 4.578754578754575E-7
+         Level  4   Alpha' = 1.5262515262515232E-7
+         Level  5   Alpha' = 6.93750693750693E-8
+         Level  6   Alpha' = 4.1625041625041666E-8
+         Level  7   Alpha' = 3.2375032375032335E-8
+         Level  8   Alpha' = 3.2375032375032394E-8
+         Level  9   Alpha' = 4.1625041625041587E-8
+         Level  10   Alpha' = 6.93750693750693E-8
+         Level  11   Alpha' = 1.5262515262515232E-7
+         Level  12   Alpha' = 4.578754578754575E-7
+         Level  13   Alpha' = 1.984126984126983E-6
+         Level  14   Alpha' = 1.3888888888888883E-5
+         Level  15   Alpha' = 2.0833333333333335E-4
+
+Applying Post-Pruning Fisher Exact Test to find significant rules on a set of 268 rules using Layered Critical Values adjustment
+Dealing with rule       268.
+Deleting...
+
+
+Sorting rules for output...
+
+
+            Association Rules ...
+
+
+Sup = 0.04000  Conf = 0.31496   peaches    <--    bananas
+Sup = 0.03900  Conf = 0.86667   tomatoes    <--    carrots  &  lettuce
+Sup = 0.11100  Conf = 0.51152   tomatoes    <--    lettuce
+Sup = 0.08500  Conf = 0.48571   tomatoes    <--    carrots
+Sup = 0.26300  Conf = 0.26300   tomatoes    <--
+Sup = 0.33600  Conf = 0.33600   confectionery    <--
+Sup = 0.08500  Conf = 0.32319   carrots    <--    tomatoes
+Sup = 0.11100  Conf = 0.42205   lettuce    <--    tomatoes
+Sup = 0.21700  Conf = 0.21700   lettuce    <--
+Sup = 0.04000  Conf = 0.30769   bananas    <--    peaches
+Sup = 0.08200  Conf = 0.43386   potatoes    <--    onions
+Sup = 0.28300  Conf = 0.28300   potatoes    <--
+Sup = 0.22100  Conf = 0.22100   apples    <--
+Sup = 0.08200  Conf = 0.28975   onions    <--    potatoes
+
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 887 millis
+
+
+
+
+
+#CONTRAST SETS Mining
+
+Caren implements a specific method to extract contrast sets. Contrast are derived pairwise in the for of rules.
+For a specific contrast set a rule describe all pairs of groups where the contrast is significant. It also specifies the direction
+of contrast. Significance is determine by using a directional Fisher exact test. It also makes use of the Bonferroni adjustment described before to
+control the report of false discoveries.
+
+An example for attribute-format data:
+
+> java caren example.atr 0.05 0.5 -Att -CS -HCLASS -ovrt -null?
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5.2
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.05000    SupAbsValue = 1     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 46    NumFrequentItems = 24
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving Contrast Sets Rules for groups defined by attributes: CLASS
+ Applying Bonferroni adjustment using Layered Critical Values on alpha = 0.05
+ Deriving rules ...... for max size = 6
+ Depth-First Expansion....
+ Applying on 24 frequent items
+ Performing item:    24.
+
+End of itemsets counting  ......
+
+
+Writing Text file....
+writing 1 rules. Performing rule           1
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 242 millis
+
+
+The contents of file t.txt is:
+
+Mining on dataset example.atr with 24 frequent items and with 25 transactions.
+
+Contrast Sets Rules derived using Fisher exact test to evaluate difference between contrasting groups
+using minsup = 0.05000  and initial alpha value = 0.05
+Used Layered Bonferroni Adjusted Critical Values:
+        Level 1 Alpha' = 7.751937984496124E-5
+        Level 2 Alpha' = 4.591368227731864E-6
+        Level 3 Alpha' = 5.574136008918618E-7
+        Level 4 Alpha' = 1.400560224089636E-7
+        Level 5 Alpha' = 9.25925925925926E-8
+
+   Sum{ Alpha'(i) x S(i) }   = 0.05
+
+
+Number of derived CS rules = 1
+
+
+Null values Replacement in Attributes:
+       ORIGEM the 2 null values were replaced by the (ORIGEM=olga) value.
+       M3 the 2 null values were replaced by the (M3=-5) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CC the null value was replaced by the (CC=5) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+
+
+Obs =  000010 | 000000  Gsup  = 1.00000 | 0.00000  p = 5.1419169066E-005  phi =  1.00000   CLASS=C >> CLASS=B
+Sup(CS) =  0.44000                                                                              <---     ORIGEM=olga
+
+The only rule derived describes the contrast for the subpopulation having ORIGEM=olga where class C contains a significant larger number
+of elements with this characteristic than class B. A measure of association is displayed (phi). Group support for this subpopulation in absolute and relative form is
+also displayed together with the Fisher test p-value. The support of the subgroup (contrast set) is 44% of the population in the given dataset.
+
+
+An example using basket data:
+
+
+> java caren example.bas 0.005 0.2 -s, -htomatoes,bananas,onions -CS -ovrt
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5.2
+Basket-Data mode
+NumItems = 16 minsup = 0.00500 Num_Trans = 1000 SupAbsValue = 5     MinConf =  0.20000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving Contrast Sets Rules for groups defined by items: bananas tomatoes onions
+ Applying Bonferroni adjustment using Layered Critical Values on alpha = 0.05
+ Deriving rules ...... for max size = 16
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+Writing Text file....
+writing 2 rules. Performing rule           2
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 801 millis
+
+
+File t.txt contains:
+
+
+Mining on dataset example.bas with 16 frequent items and with 1000 transactions.
+
+Contrast Sets Rules derived using Fisher exact test to evaluate difference between contrasting groups 
+using minsup = 0.00500  and initial alpha value = 0.05 
+Used Layered Bonferroni Adjusted Critical Values: 
+        Level 1 Alpha' = 9.86193293885602E-5 
+        Level 2 Alpha' = 1.643655489809332E-5 
+        Level 3 Alpha' = 4.4826967903891E-6 
+        Level 4 Alpha' = 1.7930787161556382E-6 
+        Level 5 Alpha' = 9.961548423086863E-7 
+        Level 6 Alpha' = 7.471161317315155E-7 
+        Level 7 Alpha' = 7.471161317315155E-7 
+        Level 8 Alpha' = 9.961548423086874E-7 
+        Level 9 Alpha' = 1.7930787161556382E-6 
+        Level 10 Alpha' = 4.4826967903891E-6 
+        Level 11 Alpha' = 1.6436554898093346E-5 
+        Level 12 Alpha' = 9.86193293885602E-5 
+        Level 13 Alpha' = 0.001282051282051282 
+
+   Sum{ Alpha'(i) x S(i) }   = 0.05
+
+ 
+Number of derived CS rules = 2  
+
+
+
+Obs =  000040 | 000020  Gsup  = 0.31496 | 0.10582  p = 3.9397664760E-006  phi =  0.26144   bananas >> onions 
+Obs =  000040 | 000028  Gsup  = 0.31496 | 0.10646  p = 7.8137714528E-007  phi =  0.25751   bananas >> tomatoes 
+Sup(CS) =  0.13000                                                                              <---     peaches
+
+Obs =  000111 | 000022  Gsup  = 0.42205 | 0.17323  p = 4.8805871874E-007  phi =  0.24597   tomatoes >> bananas 
+Sup(CS) =  0.21700                                                                              <---     lettuce
+
+
+First rule describe two pairs of contrasting groups for the peaches characteristic: group bananas contains a significant larger number of peaches than onions
+and than tomatoes.
+
+
+
+
+
+
+
+#MEASURES
+
+For each rule Caren computes the following interest measures:
+support, confidence, lift, conviction, chi^2 statistics, laplace, leverage, jaccard, cosine, phi, 
+mutual information, weighted relative accuracy, entropy and gini.
+
+They are calculated as follows:
+
+conf(A->C) = s(A-C)/s(A),
+lift(A->C) = conf(A->C)/s(C),
+conv(A->C) = (1 - s(C)/(1 - conf(A->C)),
+chi(A->C) = the chi statistics value for the contingency table A, ~A versus C, ~C. 
+lapl(A->C) = (abs(A->C) + 1)/(abs(A) + 2)     where abs is absolute support,
+leve(A->C) = s(A->C) - (s(A) * s(C)),
+jacc(A->C) = s(A->C) / (s(A) + s(C) - s(A->C))
+cos(A->C) =  s(A->C) / sqrt(s(C) * s(A)),
+phi(A->C) =  leve(A->C) / sqrt( (s(C) * s(A)) * (1 - s(A)) * (1 -s(C)) ), 
+MI(A->C) = ( s(A->C)*log2[s(A->C)/s(A)*s(C)] + s(~A->C)*log2[s(~A->C)/s(~A)*s(C)] +
+                                                s(A->~C)*log2[s(A->~C)/s(A)*s(~C)] + s(~A->~C)*log2[s(~A->~C)/s(~A)*s(~C)] ) /
+                                                min[-s(A)log2(s(A))-s(~A)log2(s(~A))) , -s(C)log2(s(C))-s(~C)log2(s(~C)))]
+
+wra(A->C) =  s(A) * (conf(A->C) - s(C)),
+ent(A->C) = ent(s(C)/n) - s(A)/n * ent(s(A->C)/s(A)) - s(~A)/n * ent(s(~AC)/s(~A)),
+where ent(p) = (-1 * p * log(p)) - ((1 - p) * log(1.0 - p)) 
+gini(A->C)= gini(s(C)/n) - s(A)/n * gini(s(A->C)/s(A)) - s(~A)/n * gini(s(~AC)/s(~A))
+where gine(p) = 1.0 - p^2.
+
+
+Some implementations contain constraints to avoid NaN values (division by zero, etc) e.g. MI and ent.
+
+
+
+
+
+
+
+#OUTPUT FORMATS
+
+Caren provides several formats for rules output. 
+The general switch for writing a file with the derived rules is -o[options]filename where [options] is the specification of the file format.
+For each rule (version 2.5.) the values of 11 different measures are stored. The measures
+calculated for each rule are (at the moment) support, confidence, lift, conviction, chi^2 statistics, laplace, leverage, jaccard, cosine, phi, 
+mutual information, weighted relative accuracy, entropy and gini.
+To output into a text file all the measures values one can use CSV format through switch -ocs. Here's an example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -ocst
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+Sorting rules for output...
+
+
+Writing CSV file....
+writing 25 rules. Performing rule          25
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 570 millis
+
+
+File t.csv contains:
+
+
+Sup;Conf;Lift;Conv;Chi2;Lapl;Leve;Jacc;Cosi;Phi;MI;WRA;Entp;Gini;Cons;Ant
+0.24;1.0;3.571428571428571;  +oo   ;20.300751879699252;0.875;0.17279999999999998;0.8571428571428571;0.9258200997725514;0.9011271137791659;0.8067361055109149;0.17279999999999998;0.43624735896621836;0.1637052631578947;CLASS=B;ORIGEM=paulo
+0.2;1.0;3.571428571428571;  +oo   ;16.07142857142857;0.8571428571428571;0.14400000000000002;0.7142857142857143;0.8451542547285166;0.8017837257372732;0.735874851110783;0.144;0.3328869387343159;0.12959999999999994;CLASS=B;M3=-5  &  ORIGEM=paulo
+0.2;1.0;3.571428571428571;  +oo   ;16.07142857142857;0.8571428571428571;0.14400000000000002;0.7142857142857143;0.8451542547285166;0.8017837257372732;0.735874851110783;0.144;0.3328869387343159;0.12959999999999994;CLASS=B;M3=-5
+0.12;1.0;3.571428571428571;  +oo   ;8.766233766233768;0.8;0.08639999999999999;0.42857142857142855;0.6546536707079772;0.5921565254637919;0.9358471051574132;0.08639999999999999;0.1757107219565775;0.07069090909090903;CLASS=B;M3=-5  &  CODS=23  &  ORIGEM=paulo
+0.12;1.0;3.571428571428571;  +oo   ;8.766233766233768;0.8;0.08639999999999999;0.42857142857142855;0.6546536707079772;0.5921565254637919;0.9358471051574132;0.08639999999999999;0.1757107219565775;0.07069090909090903;CLASS=B;M3=-5  &  CC=5  &  ORIGEM=paulo
+0.12;1.0;3.571428571428571;  +oo   ;8.766233766233768;0.8;0.08639999999999999;0.42857142857142855;0.6546536707079772;0.5921565254637919;0.9358471051574132;0.08639999999999999;0.1757107219565775;0.07069090909090903;CLASS=B;ORIGEM=paulo  &  CODS=23
+0.12;1.0;3.571428571428571;  +oo   ;8.766233766233768;0.8;0.08639999999999999;0.42857142857142855;0.6546536707079772;0.5921565254637919;0.9358471051574132;0.08639999999999999;0.1757107219565775;0.07069090909090903;CLASS=B;ORIGEM=paulo  &  CC=5
+0.12;1.0;3.571428571428571;  +oo   ;8.766233766233768;0.8;0.08639999999999999;0.42857142857142855;0.6546536707079772;0.5921565254637919;0.9358471051574132;0.08639999999999999;0.1757107219565775;0.07069090909090903;CLASS=B;M3=-5  &  CODS=23
+0.12;1.0;3.571428571428571;  +oo   ;8.766233766233768;0.8;0.08639999999999999;0.42857142857142855;0.6546536707079772;0.5921565254637919;0.9358471051574132;0.08639999999999999;0.1757107219565775;0.07069090909090903;CLASS=B;M3=-5  &  CC=5
+0.28;1.0;3.125;  +oo   ;20.65972222222222;0.8888888888888888;0.1904;0.875;0.9354143466934853;0.9090593428863095;0.8095316173798364;0.1904;0.47238686584541467;0.17982222222222222;CLASS=A;ORIGEM=asdsa
+
+
+etc...
+
+
+
+Text (verbose) format is obtained using switch -ovr. For the above example file t.txt would be:
+
+(contents of t.txt)
+> caren example.atr  0.1  0.5  -Att  -HCLASS  -ovrt
+Mining on dataset example.atr with 18 frequent items and with 25 transactions.
+using minsup = 0.10000  minconf = 0.50000
+
+
+Number of derived rules = 25
+
+Sup = 0.24000   Conf = 1.00000     CLASS=B    <--    ORIGEM=paulo
+Sup = 0.20000   Conf = 1.00000     CLASS=B    <--    M3=-5  &  ORIGEM=paulo
+Sup = 0.20000   Conf = 1.00000     CLASS=B    <--    M3=-5
+Sup = 0.12000   Conf = 1.00000     CLASS=B    <--    M3=-5  &  CODS=23  &  ORIGEM=paulo
+Sup = 0.12000   Conf = 1.00000     CLASS=B    <--    M3=-5  &  CC=5  &  ORIGEM=paulo
+Sup = 0.12000   Conf = 1.00000     CLASS=B    <--    ORIGEM=paulo  &  CODS=23
+Sup = 0.12000   Conf = 1.00000     CLASS=B    <--    ORIGEM=paulo  &  CC=5
+Sup = 0.12000   Conf = 1.00000     CLASS=B    <--    M3=-5  &  CODS=23
+Sup = 0.12000   Conf = 1.00000     CLASS=B    <--    M3=-5  &  CC=5
+Sup = 0.28000   Conf = 1.00000     CLASS=A    <--    ORIGEM=asdsa
+Sup = 0.24000   Conf = 1.00000     CLASS=A    <--    ORIGEM=asdsa  &  FORN=ze
+Sup = 0.20000   Conf = 1.00000     CLASS=A    <--    ORIGEM=asdsa  &  CC=5
+Sup = 0.16000   Conf = 1.00000     CLASS=A    <--    ORIGEM=asdsa  &  CC=5  &  FORN=ze
+Sup = 0.16000   Conf = 1.00000     CLASS=A    <--    M3=32  &  ORIGEM=asdsa  &  FORN=ze
+Sup = 0.16000   Conf = 1.00000     CLASS=A    <--    M3=32  &  FORN=ze
+Sup = 0.16000   Conf = 1.00000     CLASS=A    <--    M3=32  &  ORIGEM=asdsa
+
+etc...
+
+
+
+Caren can also derive output files in PMML format (a XML standard format for prediction models)
+The command to derive file t.xml is:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -opmt
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+Sorting rules for output...
+
+
+Writing PMML file....
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 205 millis
+
+
+Caren is also able to output Prolog format files. A Prolog program, containing clauses that represent the derived association rules, is written to an output file. 
+Using switch -opl, for the same example, one obtains file t.pl which content is:
+
+assoc_rule_dataset('example.atr').
+assoc_rule_nitems(18).
+assoc_rule_nrecords(25).
+assoc_rule_minsup( 0.10000).
+assoc_rule_minconf( 0.50000).
+assoc_rule_minimp( -1.0).
+
+
+assoc_rule('CLASS=B',0.24000,1.00000, ['ORIGEM=paulo']).
+assoc_rule('CLASS=B',0.20000,1.00000, ['M3=-5', 'ORIGEM=paulo']).
+assoc_rule('CLASS=B',0.20000,1.00000, ['M3=-5']).
+assoc_rule('CLASS=B',0.12000,1.00000, ['M3=-5', 'CODS=23', 'ORIGEM=paulo']).
+assoc_rule('CLASS=B',0.12000,1.00000, ['M3=-5', 'CC=5', 'ORIGEM=paulo']).
+assoc_rule('CLASS=B',0.12000,1.00000, ['ORIGEM=paulo', 'CODS=23']).
+assoc_rule('CLASS=B',0.12000,1.00000, ['ORIGEM=paulo', 'CC=5']).
+assoc_rule('CLASS=B',0.12000,1.00000, ['M3=-5', 'CODS=23']).
+assoc_rule('CLASS=B',0.12000,1.00000, ['M3=-5', 'CC=5']).
+assoc_rule('CLASS=A',0.28000,1.00000, ['ORIGEM=asdsa']).
+assoc_rule('CLASS=A',0.24000,1.00000, ['ORIGEM=asdsa', 'FORN=ze']).
+assoc_rule('CLASS=A',0.20000,1.00000, ['ORIGEM=asdsa', 'CC=5']).
+assoc_rule('CLASS=A',0.16000,1.00000, ['ORIGEM=asdsa', 'CC=5', 'FORN=ze']).
+assoc_rule('CLASS=A',0.16000,1.00000, ['M3=32', 'ORIGEM=asdsa', 'FORN=ze']).
+assoc_rule('CLASS=A',0.16000,1.00000, ['M3=32', 'FORN=ze']).
+assoc_rule('CLASS=A',0.16000,1.00000, ['M3=32', 'ORIGEM=asdsa']).
+assoc_rule('CLASS=A',0.16000,1.00000, ['M3=32']).
+assoc_rule('CLASS=A',0.28000,0.77778, ['FORN=ze']).
+assoc_rule('CLASS=A',0.20000,0.71429, ['FORN=ze', 'CC=5']).
+assoc_rule('CLASS=A',0.24000,0.50000, ['CC=5']).
+assoc_rule('CLASS=C',0.36000,1.00000, ['ORIGEM=olga']).
+assoc_rule('CLASS=C',0.20000,1.00000, ['M3=-2', 'ORIGEM=olga']).
+assoc_rule('CLASS=C',0.20000,1.00000, ['M3=-2']).
+assoc_rule('CLASS=C',0.12000,1.00000, ['ORIGEM=olga', 'CC=5']).
+assoc_rule('CLASS=C',0.12000,0.60000, ['CODS=999']).
+
+
+#RULES FOR NUMERIC CONSEQUENTS
+
+Caren implements a specific format of association rules to analyse numeric properties (attributes).
+Distribution rules are association rules where the consequent is a numeric property. In this format,
+the consequent represent a distribution. Check README-log for more details.
+This is also the format used to derive regression rules and to build numeric prediction models.
+When deriving distribution rules the aim is to find interesting subgroups. Interest is measured
+by a goodness of fit statistical test (in our case th Kolmogorov-Smirnov two sample test).
+The sub-population that covers the antecedent of a rule is tested agains the apriori population i.e. the
+complete dataset. If the p-value of the KS-test gives enough evidence that the distribution of sub-population is "different"
+from the apriori distribution then the rule is interesting.
+One can apply improvement on the KS-interest value (KS-int = 1 - p-value) using as in classical association rules the switch -imp.
+Switch -G declares the attribute to be used as the numeric property of interest.
+Example (-null? is used to replace null in the numeric property) using alpha=0.05 for the KS-test:
+
+> java caren example.atr 0.1 0.5 -Att -GM3 -null? -d
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2         NumOfRecords = 25   DataSet = example.atr
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Deriving Distribution rules for attribute M3
+ Depth-First Expansion....
+ Applying on 15 frequent items
+ Performing item:    15.
+ Regression rules derived with alpha = 0.05
+
+End of itemsets counting  ......
+
+
+
+Null values Replacement in Attributes:
+       ORIGEM the 2 null values were replaced by the (ORIGEM=olga) value.
+       M3 the 2 null values were replaced by the (M3=-5) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CC the null value was replaced by the (CC=5) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+
+
+
+Sorting rules for output...
+
+
+            Distribution  Rules ...
+
+
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3    <--    ORIGEM=asdsa  &  CLASS=A  &  FORN=ze
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3    <--    ORIGEM=asdsa  &  CLASS=A
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3    <--    ORIGEM=asdsa  &  FORN=ze
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3    <--    ORIGEM=asdsa
+Ant sup = 1.00000  KS = 1.000000000000  Kurt = -0.897290004579  Skew = 0.808576679371  Sd = 13.898800907512
+           M3    <--
+
+A set of statistics is given with each distribution rule, namely antecedent support, p-value of the KS-test (KS), and standard deviation.
+Also some shape distribution description measures are given: Skewness (asymmetry measure) and Kurtosis (peakedness measure).
+Higher kurtosis means more of the variance is due to infrequent extreme deviations, as opposed to frequent modestly-sized deviations.
+Positive skewness means that the right tail is longer; the mass of the distribution is concentrated on the left of the histogram. 
+The distribution is said to be right-skewed.
+Negative skewness represents otherwise: The left tail is longer; the mass of the distribution is concentrated on the right of the histogram. 
+The distribution is said to be left-skewed
+Notice that a rule describing the apriori distribution is always derived (with KS value = 1). That is, a default rule describing the
+distribution of the numeric property in the given dataset.
+In CSV and verbose format more statistics are written about the rules. One can also force to write the distribution of the property for each rule
+using switch -Dist. Rules are then printed as:
+
+         Distribution  Rules ...
+
+
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3={ -5.0/1,22.0/2,32.0/4 }    <--    ORIGEM=asdsa  &  CLASS=A  &  FORN=ze
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3={ -5.0/1,22.0/2,32.0/4 }    <--    ORIGEM=asdsa  &  CLASS=A
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3={ -5.0/1,22.0/2,32.0/4 }    <--    ORIGEM=asdsa  &  FORN=ze
+Ant sup = 0.28000  KS = 0.044355578734  Kurt = 4.385913268626  Skew = -2.043434140795  Sd = 13.569924728710
+           M3={ -5.0/1,22.0/2,32.0/4 }    <--    ORIGEM=asdsa
+Ant sup = 1.00000  KS = 1.000000000000  Kurt = -0.897290004579  Skew = 0.808576679371  Sd = 13.898800907512
+           M3={ -5.0/7,-2.0/5,2.0/2,3.0/1,9.0/1,12.0/1,15.0/1,18.0/1,22.0/2,32.0/4 }    <--
+
+
+Distribution rules can be used for numeric prediction. Caren has a specific switch to define equivalently regression rules.
+Example:
+
+> java caren example.atr 0.1 0.5 -Att -NM3 -null? -d -Alpha0.05
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2         NumOfRecords = 25   DataSet = example.atr
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Deriving Regression rules for numeric attribute M3
+ Depth-First Expansion....
+ Applying on 15 frequent items
+ Performing item:    15.
+ Regression rules derived with alpha = 0.05
+
+End of itemsets counting  ......
+
+
+
+Null values Replacement in Attributes:
+       ORIGEM the 2 null values were replaced by the (ORIGEM=olga) value.
+       M3 the 2 null values were replaced by the (M3=-5) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CC the null value was replaced by the (CC=5) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+
+
+
+Sorting rules for output...
+
+
+            Regression Rules ...
+
+
+Ant sup = 0.28000  Mean = 0023.8571  Var = 0184.1429   M3    <--    ORIGEM=asdsa  &  CLASS=A  &  FORN=ze
+Ant sup = 0.28000  Mean = 0023.8571  Var = 0184.1429   M3    <--    ORIGEM=asdsa  &  CLASS=A
+Ant sup = 0.28000  Mean = 0023.8571  Var = 0184.1429   M3    <--    ORIGEM=asdsa  &  FORN=ze
+Ant sup = 0.28000  Mean = 0023.8571  Var = 0184.1429   M3    <--    ORIGEM=asdsa
+
+
+Notice that we have used alpha=0.05 to select rules using the interest rules mechanism of distribution rules. 
+If no alpha is value is declared then the KS-test is not applied and all rules are selected. 
+The default rule is not shown here. However, it would have been included in the prediction model.
+Check README-predict to read about numeric prediction methods that use these type of rules.
+One can also select rules using improvement (switch -imp). However, in this case, improvement is applied on variance.
+A rule R is discarded using the improvement constraints if, 
+	there exists a rule r' : antecedent(R) contains antecedent(r'),   var(r') < var(R). 
+
+In this case, the threshold value supplied by the user is always ignored.
+
+
+
+
+
+
+#PREDICTION MODELS
+
+Caren can specifically generate prediction models using association rules. Both models for categoric and numeric prediction can be derived.
+These models are stored in a format to be used by the $predict$ module. Switch -p specifies this feature. 
+A prediction model is stored in a .prm file (the rules are stored in a JAVA ObjectStreams format).
+In -Att mode, one must declare the target attribute for which predictions will be derived by $predict$ (switch -class) and generate only rules for
+that consequent (using -H).  When -p is declared, two files are created: an .prm file (the model) and .info file (describing the model).
+The latter contains information about the model, like complete command used to derive it, discretization info, null values info, info about
+the training data, etc.
+Here's an example:
+
+> java caren example.atr 0.1 0.5 -Att -HCLASS -classCLASS -pt
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+Building Prediction Model from derived 28 Association Rules....
+Saving all default rules...
+
+Saving model...
+
+
+Total Time spent = 0 hrs 0 mts 0 secs 702 millis
+
+
+
+File t.prm.info contains:
+
+> caren example.atr  0.1  0.5  -Att  -HCLASS  -classCLASS  -pt
+
+ Classification Model
+
+NumFreqItems = 18 in the dataset t.prm with minsup = 0.1
+NumOfRules = 28 in a dataset with 25 transactions
+NumOfClasses = 3
+
+Total Time spent = 0 hrs 0 mts 1 secs
+
+
+An example for numeric prediction model:
+
+> java caren example.atr 0.1 0.5 -Att -NM3 -null?  -imp0.0 -pt
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2         NumOfRecords = 25   DataSet = example.atr
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering Regression Rules using Variance Improvement
+ Deriving Regression rules for numeric attribute M3
+ Depth-First Expansion....
+ Applying on 15 frequent items
+ Performing item:    15.
+ Regression rules derived with alpha = 1.0
+
+End of itemsets counting  ......
+
+
+
+Building Prediction Model from derived 36 Regression Rules....
+
+Saving model...
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 578 millis
+
+
+File t.prm.info now contains:
+
+> caren example.atr  0.1  0.5  -Att  -NM3  -null?  -imp0.0  -pt
+
+ Regression Model
+
+NumFreqItems = 26 in the dataset t.prm with minsup = 0.1
+NumOfRules = 36 in a dataset with 25 transactions
+
+Total Time spent = 0 hrs 0 mts 1 secs
+
+
+Null values Replacement in Attributes:
+       ORIGEM the 2 null values were replaced by the (ORIGEM=olga) value.
+       M3 the 2 null values were replaced by the (M3=-5) value.
+       FORN the null value was replaced by the (FORN=ze) value.
+       CC the null value was replaced by the (CC=5) value.
+       CODS the null value was replaced by the (CODS=23) value.
+
+
+In -basket mode it is also possible to derive prediction models for recommendations. In this case there no need to specify
+a target. There are two available methods that make use of these models: like a ranking system in a recommendation setting or as normal prediction
+using leave-one-out. Check README-predict for details.
+Here's an example:
+
+> java caren example.bas 0.01 0.2  -pt -fisher
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Basket-Data mode
+NumItems = 16 minsup = 0.01000 Num_Trans = 1000 SupAbsValue = 10     MinConf =  0.20000   DataSet = example.bas
+NumFrequentItems = 16
+ end counting 1-itemsets ....
+ end of bitmaps mounting....
+ Deriving rules ...... for max size = 16
+ Filtering rules using minimal Confidence
+ Filtering insignificant rules using Fisher exact Test with alpha  = 0.05
+ Depth-First Expansion....
+ Applying on 16 frequent items
+ Performing item:    16.
+
+End of itemsets counting  ......
+
+
+
+
+Building Recommendation Model from derived 58 Association Rules....
+Saving all default rules...
+
+Saving model...
+
+
+Total Time spent = 0 hrs 0 mts 1 secs 433 millis
+
+
+
+File t.prm.info now includes:
+
+> caren example.bas  0.01  0.2  -pt  -fisher
+
+ Recommendation Model
+
+NumFreqItems = 16 in the dataset t.prm with minsup = 0.01
+NumOfRules = 58 in a dataset with 1000 transactions
+
+Total Time spent = 0 hrs 0 mts 1 secs
+
+
+
+
+
+
+
+#SYSTEM PARAMETERS
+
+The itemsets mining engine can be tuned with some system variables.
+-max defines the size of a transaction (in number of items) and is also the maximal size 
+of an itemset. Default is 500 items.
+-num defines the number of attributes to consider. Thus, if one defines -num5 then only the first
+five attributes will be read.
+
+
+
+
+
+Notice: the new implementation is for the 1.5 (or higher) Java package. This version was compiled using JSDK1.5.0
+
+
+Write questions, comments or send email to Paulo Azevedo (pja@di.uminho.pt)
+
+

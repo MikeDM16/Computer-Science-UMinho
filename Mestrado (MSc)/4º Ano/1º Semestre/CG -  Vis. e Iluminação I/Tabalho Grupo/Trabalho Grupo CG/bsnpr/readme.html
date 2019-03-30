@@ -1,0 +1,57 @@
+ 
+<html>
+<body>
+
+<h3>Non-Photorealistic Rendering</h3>
+     by Michael Horsch<br>
+www.BonzaiSoftware.com<br>
+
+<p> 
+
+<b>Required Extensions:</b><br>
+GL_ARB_shading_language_100<br>
+GL_EXT_framebuffer_object<br>
+
+<p>
+
+<b>Controls:</b><br>
+
+<table border="0">
+<tr><td>W/A/S/D	</td><td>->	Move Front/Left/Back/Right<br></td></tr>
+<tr><td>1	</td><td>->	Cartoon Shading<br></td></tr>
+<tr><td>2	</td><td>->	Pencil Shading<br></td></tr>
+<tr><td>3	</td><td>->	Ink Shading<br></td></tr>
+<tr><td>9/0	</td><td>->	Stereo-Mode on/off<br></td></tr>
+<tr><td>Q/E	</td><td>->	Increase/Decrease eye distance<br></td></tr>
+<tr><td>F1	</td><td>->	Switch Fullscreen/Windowed<br></td></tr>
+<tr><td>F2	</td><td>->	Hold for free mouse<br></td></tr>
+<tr><td colspan=2>Edit config.cfg to change the screen resolution</td></tr>
+</table>
+
+<p>
+
+<b>Description:</b><br>
+This demo shows non-photorealistic rendering of 3D-scenes using GLSL shaders.
+There are three kinds of non-photorealistic rendering in this demo: Cartoon Shading,
+Pencil Shading and Ink Shading.<br>
+The cartoon shading mode uses cel shading to give the scene the look of a cartoon. 
+In all three modes, edges are drawn as a post-processing effect using a laplace edge
+detection shader. To simulate the shaking hand of an artist, the edges and colors
+are distorted with a perlin noise texture.<br>
+The shadows are generated using shadow mapping. Although this algorithm can lead to
+ugly artifacts, they weren't avoided completely since they blend well with the style
+of a painting. In the pencil and ink shading modes, the shadows are combined with a
+hatch texture.<br>
+The demo also features bone animation and some simple AI.<br>
+As an extra, the demo supports left/right stereo-projections.<br>
+<p>
+
+Please send your feedback, questions<br>
+or bugs to:<br>
+feedback@bonzaisoftware.com<br>
+or visit the forum at:<br>
+<a href="http://forum.bonzaisoftware.com/">http://forum.bonzaisoftware.com/</a>
+
+
+</body>
+</html>

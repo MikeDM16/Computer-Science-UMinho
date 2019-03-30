@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="C:/Users/migue/OneDrive/Universidade/4º Ano/SI - Agentes Inteligentes/Jess71p2/lib/jess.jar"/>
+	<classpathentry kind="lib" path="C:/Users/migue/OneDrive/Universidade/4º Ano/SI - Agentes Inteligentes/Jess71p2/lib/jsr94.jar"/>
+	<classpathentry kind="lib" path="C:/Users/migue/OneDrive/Universidade/4º Ano/SI - Agentes Inteligentes/Jade/lib/commons-codec/commons-codec-1.3.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/migue/OneDrive/Universidade/4º Ano/SI - Agentes Inteligentes/Jade/lib/jade.jar"/>
+	<classpathentry kind="lib" path="C:/Users/migue/OneDrive/Universidade/4º Ano/SI - Agentes Inteligentes/Jade/lib/jadeExamples.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

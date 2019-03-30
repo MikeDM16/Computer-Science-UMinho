@@ -1,0 +1,242 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.SimpleCart -M 2.0 -N 5 -C 1.0 -S 1
+Relation:     soybean
+Instances:    683
+Attributes:   36
+              date
+              plant-stand
+              precip
+              temp
+              hail
+              crop-hist
+              area-damaged
+              severity
+              seed-tmt
+              germination
+              plant-growth
+              leaves
+              leafspots-halo
+              leafspots-marg
+              leafspot-size
+              leaf-shread
+              leaf-malf
+              leaf-mild
+              stem
+              lodging
+              stem-cankers
+              canker-lesion
+              fruiting-bodies
+              external-decay
+              mycelium
+              int-discolor
+              sclerotia
+              fruit-pods
+              fruit-spots
+              seed
+              mold-growth
+              seed-discolor
+              seed-size
+              shriveling
+              roots
+              class
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+CART Decision Tree
+
+canker-lesion=(dk-brown-blk)
+|  plant-growth=(abnorm)
+|  |  area-damaged=(low-areas)
+|  |  |  roots=(galls-cysts): cyst-nematode(2.19/0.01)
+|  |  |  roots!=(galls-cysts)
+|  |  |  |  plant-stand=(lt-normal)
+|  |  |  |  |  external-decay=(firm-and-dry)
+|  |  |  |  |  |  date=(october)|(september)|(august)|(july): anthracnose(2.0/0.02)
+|  |  |  |  |  |  date!=(october)|(september)|(august)|(july): phytophthora-rot(5.0/0.03)
+|  |  |  |  |  external-decay!=(firm-and-dry): phytophthora-rot(82.0/0.65)
+|  |  |  |  plant-stand!=(lt-normal): anthracnose(2.0/0.01)
+|  |  area-damaged!=(low-areas)
+|  |  |  fruit-pods=(dna)|(few-present)
+|  |  |  |  crop-hist=(same-lst-sev-yrs)|(same-lst-two-yrs): cyst-nematode(1.64/1.56)
+|  |  |  |  crop-hist!=(same-lst-sev-yrs)|(same-lst-two-yrs): herbicide-injury(2.19/0.47)
+|  |  |  fruit-pods!=(dna)|(few-present): anthracnose(3.0/0.64)
+|  plant-growth!=(abnorm)
+|  |  leafspots-halo=(no-yellow-halos)|(yellow-halos): frog-eye-leaf-spot(55.0/0.0)
+|  |  leafspots-halo!=(no-yellow-halos)|(yellow-halos)
+|  |  |  leaf-malf=(present): 2-4-d-injury(1.96/0.0)
+|  |  |  leaf-malf!=(present): anthracnose(27.0/0.0)
+canker-lesion!=(dk-brown-blk)
+|  int-discolor=(brown)
+|  |  leaf-malf=(present): 2-4-d-injury(1.09/0.57)
+|  |  leaf-malf!=(present)
+|  |  |  stem=(abnorm): brown-stem-rot(44.0/0.0)
+|  |  |  stem!=(abnorm): cyst-nematode(0.92/0.0)
+|  int-discolor!=(brown)
+|  |  leafspot-size=(gt-1/8)
+|  |  |  date=(october)|(september)|(august)
+|  |  |  |  stem=(abnorm)
+|  |  |  |  |  fruiting-bodies=(present)
+|  |  |  |  |  |  canker-lesion=(tan)|(brown)|(dk-brown-blk): brown-spot(15.0/0.0)
+|  |  |  |  |  |  canker-lesion!=(tan)|(brown)|(dk-brown-blk): diaporthe-pod-&-stem-blight(8.0/1.0)
+|  |  |  |  |  fruiting-bodies!=(present): frog-eye-leaf-spot(9.0/0.0)
+|  |  |  |  stem!=(abnorm)
+|  |  |  |  |  mold-growth=(present): downy-mildew(10.0/0.0)
+|  |  |  |  |  mold-growth!=(present)
+|  |  |  |  |  |  date=(october)|(september)|(april)|(may)|(june)|(july)
+|  |  |  |  |  |  |  temp=(gt-norm)|(lt-norm): alternarialeaf-spot(48.0/0.0)
+|  |  |  |  |  |  |  temp!=(gt-norm)|(lt-norm)
+|  |  |  |  |  |  |  |  germination=(80-89): alternarialeaf-spot(9.0/0.0)
+|  |  |  |  |  |  |  |  germination!=(80-89)
+|  |  |  |  |  |  |  |  |  severity=(pot-severe): frog-eye-leaf-spot(2.0/0.0)
+|  |  |  |  |  |  |  |  |  severity!=(pot-severe): alternarialeaf-spot(13.0/3.0)
+|  |  |  |  |  |  date!=(october)|(september)|(april)|(may)|(june)|(july)
+|  |  |  |  |  |  |  seed-tmt=(other)|(fungicide)
+|  |  |  |  |  |  |  |  leaf-malf=(present): phyllosticta-leaf-spot(2.0/0.11)
+|  |  |  |  |  |  |  |  leaf-malf!=(present)
+|  |  |  |  |  |  |  |  |  germination=(lt-80)|(80-89)
+|  |  |  |  |  |  |  |  |  |  temp=(gt-norm): frog-eye-leaf-spot(3.0/0.17)
+|  |  |  |  |  |  |  |  |  |  temp!=(gt-norm): alternarialeaf-spot(5.0/1.35)
+|  |  |  |  |  |  |  |  |  germination!=(lt-80)|(80-89): frog-eye-leaf-spot(6.0/0.35)
+|  |  |  |  |  |  |  seed-tmt!=(other)|(fungicide)
+|  |  |  |  |  |  |  |  plant-growth=(abnorm): cyst-nematode(1.01/0.0)
+|  |  |  |  |  |  |  |  plant-growth!=(abnorm)
+|  |  |  |  |  |  |  |  |  germination=(80-89)
+|  |  |  |  |  |  |  |  |  |  area-damaged=(whole-field)|(upper-areas): alternarialeaf-spot(3.0/1.0)
+|  |  |  |  |  |  |  |  |  |  area-damaged!=(whole-field)|(upper-areas): frog-eye-leaf-spot(2.0/0.0)
+|  |  |  |  |  |  |  |  |  germination!=(80-89): alternarialeaf-spot(10.0/1.0)
+|  |  |  date!=(october)|(september)|(august)
+|  |  |  |  seed=(abnorm)
+|  |  |  |  |  plant-growth=(abnorm): cyst-nematode(3.64/0.29)
+|  |  |  |  |  plant-growth!=(abnorm): downy-mildew(10.0/0.0)
+|  |  |  |  seed!=(abnorm)
+|  |  |  |  |  precip=(gt-norm)
+|  |  |  |  |  |  area-damaged=(whole-field)|(upper-areas)|(low-areas)
+|  |  |  |  |  |  |  temp=(gt-norm)|(norm)
+|  |  |  |  |  |  |  |  area-damaged=(upper-areas)
+|  |  |  |  |  |  |  |  |  date=(july): frog-eye-leaf-spot(2.0/1.0)
+|  |  |  |  |  |  |  |  |  date!=(july): brown-spot(8.0/0.0)
+|  |  |  |  |  |  |  |  area-damaged!=(upper-areas): brown-spot(58.0/1.0)
+|  |  |  |  |  |  |  temp!=(gt-norm)|(norm): herbicide-injury(1.29/0.0)
+|  |  |  |  |  |  area-damaged!=(whole-field)|(upper-areas)|(low-areas)
+|  |  |  |  |  |  |  leaf-shread=(present): brown-spot(2.0/0.0)
+|  |  |  |  |  |  |  leaf-shread!=(present)
+|  |  |  |  |  |  |  |  hail=(no): frog-eye-leaf-spot(3.0/0.18)
+|  |  |  |  |  |  |  |  hail!=(no)
+|  |  |  |  |  |  |  |  |  crop-hist=(same-lst-sev-yrs)|(same-lst-yr)|(same-lst-two-yrs): frog-eye-leaf-spot(2.0/0.24)
+|  |  |  |  |  |  |  |  |  crop-hist!=(same-lst-sev-yrs)|(same-lst-yr)|(same-lst-two-yrs): alternarialeaf-spot(2.0/0.0)
+|  |  |  |  |  precip!=(gt-norm)
+|  |  |  |  |  |  date=(july)|(june)|(may)|(august)|(september)|(october)
+|  |  |  |  |  |  |  stem=(abnorm): diaporthe-pod-&-stem-blight(1.23/0.44)
+|  |  |  |  |  |  |  stem!=(abnorm)
+|  |  |  |  |  |  |  |  precip=(norm)|(gt-norm)
+|  |  |  |  |  |  |  |  |  hail=(no): brown-spot(3.0/0.0)
+|  |  |  |  |  |  |  |  |  hail!=(no)
+|  |  |  |  |  |  |  |  |  |  plant-stand=(lt-normal): phyllosticta-leaf-spot(9.0/0.0)
+|  |  |  |  |  |  |  |  |  |  plant-stand!=(lt-normal): brown-spot(2.0/0.0)
+|  |  |  |  |  |  |  |  precip!=(norm)|(gt-norm): phyllosticta-leaf-spot(9.0/0.0)
+|  |  |  |  |  |  date!=(july)|(june)|(may)|(august)|(september)|(october): brown-spot(3.0/0.14)
+|  |  leafspot-size!=(gt-1/8)
+|  |  |  stem-cankers=(below-soil)
+|  |  |  |  leaf-malf=(present): 2-4-d-injury(1.35/0.37)
+|  |  |  |  leaf-malf!=(present): rhizoctonia-root-rot(20.0/0.41)
+|  |  |  stem-cankers!=(below-soil)
+|  |  |  |  int-discolor=(black)
+|  |  |  |  |  leaf-malf=(present): 2-4-d-injury(1.35/0.37)
+|  |  |  |  |  leaf-malf!=(present): charcoal-rot(20.0/0.41)
+|  |  |  |  int-discolor!=(black)
+|  |  |  |  |  canker-lesion=(tan)
+|  |  |  |  |  |  leaf-malf=(present): 2-4-d-injury(1.35/0.37)
+|  |  |  |  |  |  leaf-malf!=(present): purple-seed-stain(20.0/0.41)
+|  |  |  |  |  canker-lesion!=(tan)
+|  |  |  |  |  |  fruit-spots=(dna)
+|  |  |  |  |  |  |  leaf-malf=(present): 2-4-d-injury(1.35/0.37)
+|  |  |  |  |  |  |  leaf-malf!=(present): diaporthe-stem-canker(20.0/0.41)
+|  |  |  |  |  |  fruit-spots!=(dna)
+|  |  |  |  |  |  |  leaf-mild=(upper-surf)
+|  |  |  |  |  |  |  |  fruit-pods=(dna)|(few-present)|(diseased): diaporthe-pod-&-stem-blight(1.64/1.01)
+|  |  |  |  |  |  |  |  fruit-pods!=(dna)|(few-present)|(diseased)
+|  |  |  |  |  |  |  |  |  leaf-malf=(present): 2-4-d-injury(1.29/0.0)
+|  |  |  |  |  |  |  |  |  leaf-malf!=(present): powdery-mildew(20.0/0.0)
+|  |  |  |  |  |  |  leaf-mild!=(upper-surf)
+|  |  |  |  |  |  |  |  leafspots-marg=(no-w-s-marg)
+|  |  |  |  |  |  |  |  |  fruit-pods=(few-present)|(diseased): diaporthe-pod-&-stem-blight(1.28/0.38)
+|  |  |  |  |  |  |  |  |  fruit-pods!=(few-present)|(diseased): bacterial-pustule(17.0/0.0)
+|  |  |  |  |  |  |  |  leafspots-marg!=(no-w-s-marg)
+|  |  |  |  |  |  |  |  |  leafspots-halo=(no-yellow-halos)|(yellow-halos)
+|  |  |  |  |  |  |  |  |  |  seed-size=(lt-norm)
+|  |  |  |  |  |  |  |  |  |  |  fruit-pods=(few-present)|(diseased)|(dna): diaporthe-pod-&-stem-blight(1.73/0.51)
+|  |  |  |  |  |  |  |  |  |  |  fruit-pods!=(few-present)|(diseased)|(dna): bacterial-pustule(2.0/0.0)
+|  |  |  |  |  |  |  |  |  |  seed-size!=(lt-norm): bacterial-blight(20.0/1.0)
+|  |  |  |  |  |  |  |  |  leafspots-halo!=(no-yellow-halos)|(yellow-halos)
+|  |  |  |  |  |  |  |  |  |  leaf-malf=(present): 2-4-d-injury(3.65/1.36)
+|  |  |  |  |  |  |  |  |  |  leaf-malf!=(present)
+|  |  |  |  |  |  |  |  |  |  |  leaves=(abnorm): anthracnose(10.0/0.22)
+|  |  |  |  |  |  |  |  |  |  |  leaves!=(abnorm): diaporthe-pod-&-stem-blight(0.75/0.0)
+
+Number of Leaf Nodes: 65
+
+Size of the Tree: 129
+
+Time taken to build model: 2.83 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         622               91.0688 %
+Incorrectly Classified Instances        61                8.9312 %
+Kappa statistic                          0.902 
+Mean absolute error                      0.0157
+Root mean squared error                  0.0898
+Relative absolute error                 16.3401 %
+Root relative squared error             40.9792 %
+Total Number of Instances              683     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     diaporthe-stem-canker
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     charcoal-rot
+                 0,950    0,000    1,000      0,950    0,974      0,974    0,974     0,951     rhizoctonia-root-rot
+                 0,989    0,008    0,946      0,989    0,967      0,962    0,990     0,944     phytophthora-rot
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     brown-stem-rot
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     powdery-mildew
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     downy-mildew
+                 0,913    0,020    0,875      0,913    0,894      0,877    0,984     0,877     brown-spot
+                 1,000    0,005    0,870      1,000    0,930      0,930    0,997     0,850     bacterial-blight
+                 0,850    0,000    1,000      0,850    0,919      0,920    0,946     0,888     bacterial-pustule
+                 1,000    0,000    1,000      1,000    1,000      1,000    1,000     1,000     purple-seed-stain
+                 0,864    0,000    1,000      0,864    0,927      0,925    0,991     0,948     anthracnose
+                 0,850    0,012    0,680      0,850    0,756      0,752    0,970     0,768     phyllosticta-leaf-spot
+                 0,901    0,020    0,872      0,901    0,886      0,869    0,961     0,859     alternarialeaf-spot
+                 0,791    0,020    0,857      0,791    0,823      0,798    0,955     0,867     frog-eye-leaf-spot
+                 0,867    0,000    1,000      0,867    0,929      0,930    1,000     0,983     diaporthe-pod-&-stem-blight
+                 0,929    0,003    0,867      0,929    0,897      0,895    0,997     0,806     cyst-nematode
+                 1,000    0,006    0,800      1,000    0,889      0,892    0,996     0,828     2-4-d-injury
+                 0,000    0,004    0,000      0,000    0,000      -0,007   0,985     0,365     herbicide-injury
+Weighted Avg.    0,911    0,010    0,908      0,911    0,908      0,899    0,981     0,905     
+
+=== Confusion Matrix ===
+
+  a  b  c  d  e  f  g  h  i  j  k  l  m  n  o  p  q  r  s   <-- classified as
+ 20  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 |  a = diaporthe-stem-canker
+  0 20  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 |  b = charcoal-rot
+  0  0 19  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0 |  c = rhizoctonia-root-rot
+  0  0  0 87  0  0  0  0  0  0  0  0  0  0  0  0  0  0  1 |  d = phytophthora-rot
+  0  0  0  0 44  0  0  0  0  0  0  0  0  0  0  0  0  0  0 |  e = brown-stem-rot
+  0  0  0  0  0 20  0  0  0  0  0  0  0  0  0  0  0  0  0 |  f = powdery-mildew
+  0  0  0  0  0  0 20  0  0  0  0  0  0  0  0  0  0  0  0 |  g = downy-mildew
+  0  0  0  0  0  0  0 84  0  0  0  0  5  0  3  0  0  0  0 |  h = brown-spot
+  0  0  0  0  0  0  0  0 20  0  0  0  0  0  0  0  0  0  0 |  i = bacterial-blight
+  0  0  0  0  0  0  0  0  3 17  0  0  0  0  0  0  0  0  0 |  j = bacterial-pustule
+  0  0  0  0  0  0  0  0  0  0 20  0  0  0  0  0  0  0  0 |  k = purple-seed-stain
+  0  0  0  4  0  0  0  0  0  0  0 38  0  0  0  0  0  0  2 |  l = anthracnose
+  0  0  0  0  0  0  0  1  0  0  0  0 17  0  2  0  0  0  0 |  m = phyllosticta-leaf-spot
+  0  0  0  0  0  0  0  1  0  0  0  0  1 82  7  0  0  0  0 |  n = alternarialeaf-spot
+  0  0  0  0  0  0  0  6  0  0  0  0  0 11 72  0  2  0  0 |  o = frog-eye-leaf-spot
+  0  0  0  0  0  0  0  0  0  0  0  0  2  0  0 13  0  0  0 |  p = diaporthe-pod-&-stem-blight
+  0  0  0  0  0  0  0  0  0  0  0  0  0  1  0  0 13  0  0 |  q = cyst-nematode
+  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0  0 16  0 |  r = 2-4-d-injury
+  0  0  0  1  0  0  0  4  0  0  0  0  0  0  0  0  0  3  0 |  s = herbicide-injury
+

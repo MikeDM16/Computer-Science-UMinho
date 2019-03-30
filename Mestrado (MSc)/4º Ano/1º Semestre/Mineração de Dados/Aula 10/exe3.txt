@@ -1,0 +1,818 @@
+> caren adult.data  0.01  0.5  -s,  -ovrexe3  -Att  -hclass=>50K,class=<=50K  -classclass  -fisher  -Discfiage  -CS  
+
+Computation Time = 0 hrs 0 mts 3 secs 860 millis  
+
+
+Mining on dataset adult.data with 94 frequent items and with 32561 transactions.
+
+Contrast Sets Rules derived using Fisher exact test to evaluate difference between contrasting groups 
+using minsup = 0.01000  and initial alpha value = 0.05 
+Used Layered Bonferroni Adjusted Critical Values: 
+        Level 1 Alpha' = 1.6174948240165633E-7 
+        Level 2 Alpha' = 3.788056539562167E-10 
+        Level 3 Alpha' = 2.15588516206563E-12 
+        Level 4 Alpha' = 2.2953805577229933E-14 
+        Level 5 Alpha' = 4.1284863565086206E-16 
+        Level 6 Alpha' = 1.1806327288878753E-17 
+        Level 7 Alpha' = 5.14697379771433E-19 
+        Level 8 Alpha' = 3.3331642647462754E-20 
+        Level 9 Alpha' = 3.1726759382079816E-21 
+        Level 10 Alpha' = 4.4616828872524305E-22 
+        Level 11 Alpha' = 9.500669611342244E-23 
+        Level 12 Alpha' = 3.235529463298804E-23 
+        Level 13 Alpha' = 1.9779413503310707E-23 
+        Level 14 Alpha' = 2.921774692417035E-23 
+
+   Sum{ Alpha'(i) x S(i) }   = 0.05000000000000001
+
+ 
+Number of derived CS rules = 261  
+
+
+Intervals obtained from discretization by attribute: 
+   age : ]-oo : 21.5000], ]21.5000 : 23.5000], ]23.5000 : 27.5000], ]27.5000 : 29.5000], ]29.5000 : 35.5000], ]35.5000 : 43.5000], ]43.5000 : 54.5000], ]54.5000 : 61.5000], ]61.5000 : +oo[. 
+
+
+Obs =  000317 | 000016  Gsup  = 0.01282 | 0.00204  p = 9.5513425022E-022  phi =  0.04583   class=<=50K >> class=>50K 
+Sup(CS) =  0.01023                                                                              <---     education=5th-6th
+
+Obs =  000317 | 000016  Gsup  = 0.01282 | 0.00204  p = 9.5513425022E-022  phi =  0.04583   class=<=50K >> class=>50K 
+Sup(CS) =  0.01023                                                                              <---     education.num=3
+
+Obs =  000347 | 000000  Gsup  = 0.04425 | 0.00000  p = 7.4004312665E-218  phi =  0.18428   class=>50K >> class=<=50K 
+Sup(CS) =  0.01066                                                                              <---     capital.gain=15024
+
+Obs =  000389 | 000015  Gsup  = 0.01574 | 0.00191  p = 7.1272101237E-030  phi =  0.05339   class=<=50K >> class=>50K 
+Sup(CS) =  0.01241                                                                              <---     hours_per_week=15
+
+Obs =  000306 | 000107  Gsup  = 0.03903 | 0.00433  p = 5.2847999372E-103  phi =  0.13257   class=>50K >> class=<=50K 
+Sup(CS) =  0.01268                                                                              <---     education=Doctorate
+
+Obs =  000306 | 000107  Gsup  = 0.03903 | 0.00433  p = 5.2847999372E-103  phi =  0.13257   class=>50K >> class=<=50K 
+Sup(CS) =  0.01268                                                                              <---     education.num=16
+
+Obs =  000384 | 000034  Gsup  = 0.01553 | 0.00434  p = 1.1425097645E-017  phi =  0.04253   class=<=50K >> class=>50K 
+Sup(CS) =  0.01284                                                                              <---     marital.status=Married-spouse-absent
+
+Obs =  000400 | 000033  Gsup  = 0.01618 | 0.00421  p = 1.5801732890E-019  phi =  0.04469   class=<=50K >> class=>50K 
+Sup(CS) =  0.01330                                                                              <---     education=12th
+
+Obs =  000400 | 000033  Gsup  = 0.01618 | 0.00421  p = 1.5801732890E-019  phi =  0.04469   class=<=50K >> class=>50K 
+Sup(CS) =  0.01330                                                                              <---     education.num=8
+
+Obs =  000487 | 000027  Gsup  = 0.01970 | 0.00344  p = 4.2630443555E-031  phi =  0.05577   class=<=50K >> class=>50K 
+Sup(CS) =  0.01579                                                                              <---     education=9th
+
+Obs =  000487 | 000027  Gsup  = 0.01970 | 0.00344  p = 4.2630443555E-031  phi =  0.05577   class=<=50K >> class=>50K 
+Sup(CS) =  0.01579                                                                              <---     education.num=5
+
+Obs =  000423 | 000153  Gsup  = 0.05395 | 0.00619  p = 3.5728498480E-140  phi =  0.15491   class=>50K >> class=<=50K 
+Sup(CS) =  0.01769                                                                              <---     education=Prof-school
+
+Obs =  000324 | 000061  Gsup  = 0.04132 | 0.00247  p = 1.7129834147E-138  phi =  0.15369   class=>50K >> class=<=50K 
+Sup(CS) =  0.01182                                                                              <---     education=Prof-school  &  relationship=Husband
+
+Obs =  000346 | 000066  Gsup  = 0.04413 | 0.00267  p = 2.4258696114E-147  phi =  0.15859   class=>50K >> class=<=50K 
+Sup(CS) =  0.01265                                                                              <---     education=Prof-school  &  marital.status=Married-civ-spouse
+
+Obs =  000423 | 000153  Gsup  = 0.05395 | 0.00619  p = 3.5728498480E-140  phi =  0.15491   class=>50K >> class=<=50K 
+Sup(CS) =  0.01769                                                                              <---     education.num=15
+
+Obs =  000324 | 000061  Gsup  = 0.04132 | 0.00247  p = 1.7129834147E-138  phi =  0.15369   class=>50K >> class=<=50K 
+Sup(CS) =  0.01182                                                                              <---     education.num=15  &  relationship=Husband
+
+Obs =  000346 | 000066  Gsup  = 0.04413 | 0.00267  p = 2.4258696114E-147  phi =  0.15859   class=>50K >> class=<=50K 
+Sup(CS) =  0.01265                                                                              <---     education.num=15  &  marital.status=Married-civ-spouse
+
+Obs =  000610 | 000033  Gsup  = 0.02468 | 0.00421  p = 3.2277679262E-039  phi =  0.06290   class=<=50K >> class=>50K 
+Sup(CS) =  0.01975                                                                              <---     native_country=Mexico
+
+Obs =  000606 | 000040  Gsup  = 0.02451 | 0.00510  p = 2.1218752803E-034  phi =  0.05952   class=<=50K >> class=>50K 
+Sup(CS) =  0.01984                                                                              <---     education=7th-8th
+
+Obs =  000606 | 000040  Gsup  = 0.02451 | 0.00510  p = 2.1218752803E-034  phi =  0.05952   class=<=50K >> class=>50K 
+Sup(CS) =  0.01984                                                                              <---     education.num=4
+
+Obs =  000639 | 000035  Gsup  = 0.02585 | 0.00446  p = 9.5905957615E-041  phi =  0.06422   class=<=50K >> class=>50K 
+Sup(CS) =  0.02070                                                                              <---     hours_per_week=25
+
+Obs =  000323 | 000371  Gsup  = 0.04119 | 0.01501  p = 7.1246697101E-039  phi =  0.07752   class=>50K >> class=<=50K 
+Sup(CS) =  0.02131                                                                              <---     hours_per_week=55
+
+Obs =  000260 | 000165  Gsup  = 0.03316 | 0.00667  p = 3.5975047559E-060  phi =  0.09977   class=>50K >> class=<=50K 
+Sup(CS) =  0.01305                                                                              <---     hours_per_week=55  &  relationship=Husband
+
+Obs =  000270 | 000175  Gsup  = 0.03443 | 0.00708  p = 2.1785812483E-061  phi =  0.10074   class=>50K >> class=<=50K 
+Sup(CS) =  0.01367                                                                              <---     hours_per_week=55  &  marital.status=Married-civ-spouse
+
+Obs =  000244 | 000160  Gsup  = 0.03112 | 0.00647  p = 4.9326914685E-055  phi =  0.09520   class=>50K >> class=<=50K 
+Sup(CS) =  0.01241                                                                              <---     occupation=Tech-support  &  marital.status=Married-civ-spouse
+
+Obs =  000871 | 000062  Gsup  = 0.03523 | 0.00791  p = 2.0144142294E-046  phi =  0.07004   class=<=50K >> class=>50K 
+Sup(CS) =  0.02865                                                                              <---     education=10th
+
+Obs =  000871 | 000062  Gsup  = 0.03523 | 0.00791  p = 2.0144142294E-046  phi =  0.07004   class=<=50K >> class=>50K 
+Sup(CS) =  0.02865                                                                              <---     education.num=6
+
+Obs =  000371 | 000589  Gsup  = 0.04732 | 0.02383  p = 1.8052729263E-024  phi =  0.05937   class=>50K >> class=<=50K 
+Sup(CS) =  0.02948                                                                              <---     workclass=Federal-gov
+
+Obs =  000278 | 000151  Gsup  = 0.03545 | 0.00611  p = 2.8125502648E-072  phi =  0.11004   class=>50K >> class=<=50K 
+Sup(CS) =  0.01318                                                                              <---     workclass=Federal-gov  &  relationship=Husband
+
+Obs =  000304 | 000167  Gsup  = 0.03877 | 0.00676  p = 2.3551874446E-078  phi =  0.11465   class=>50K >> class=<=50K 
+Sup(CS) =  0.01447                                                                              <---     workclass=Federal-gov  &  marital.status=Married-civ-spouse
+
+Obs =  000315 | 000330  Gsup  = 0.04017 | 0.01335  p = 3.5564877484E-043  phi =  0.08231   class=>50K >> class=<=50K 
+Sup(CS) =  0.01981                                                                              <---     workclass=Federal-gov  &  sex=Male
+
+Obs =  000944 | 000037  Gsup  = 0.03819 | 0.00472  p = 1.0024456844E-070  phi =  0.08372   class=<=50K >> class=>50K 
+Sup(CS) =  0.03013                                                                              <---     relationship=Other-relative
+
+Obs =  000908 | 000085  Gsup  = 0.03673 | 0.01084  p = 5.5475168367E-038  phi =  0.06438   class=<=50K >> class=>50K 
+Sup(CS) =  0.03050                                                                              <---     marital.status=Widowed
+
+Obs =  000879 | 000115  Gsup  = 0.03556 | 0.01467  p = 4.1694577919E-024  phi =  0.05192   class=<=50K >> class=>50K 
+Sup(CS) =  0.03053                                                                              <---     occupation=Farming-fishing
+
+Obs =  000836 | 000086  Gsup  = 0.03382 | 0.01097  p = 1.1968879495E-031  phi =  0.05890   class=<=50K >> class=>50K 
+Sup(CS) =  0.02832                                                                              <---     occupation=Farming-fishing  &  capital.gain=0
+
+Obs =  000959 | 000066  Gsup  = 0.03879 | 0.00842  p = 2.3457418482E-052  phi =  0.07439   class=<=50K >> class=>50K 
+Sup(CS) =  0.03148                                                                              <---     marital.status=Separated
+
+Obs =  000927 | 000046  Gsup  = 0.03750 | 0.00587  p = 4.2990197239E-062  phi =  0.07944   class=<=50K >> class=>50K 
+Sup(CS) =  0.02988                                                                              <---     marital.status=Separated  &  capital.gain=0
+
+Obs =  000622 | 000494  Gsup  = 0.07933 | 0.01998  p = 6.2557643958E-118  phi =  0.13947   class=>50K >> class=<=50K 
+Sup(CS) =  0.03427                                                                              <---     workclass=Self-emp-inc
+
+Obs =  000534 | 000252  Gsup  = 0.06810 | 0.01019  p = 7.5413694412E-153  phi =  0.16133   class=>50K >> class=<=50K 
+Sup(CS) =  0.02414                                                                              <---     workclass=Self-emp-inc  &  relationship=Husband
+
+Obs =  000566 | 000271  Gsup  = 0.07218 | 0.01096  p = 1.0358395035E-160  phi =  0.16541   class=>50K >> class=<=50K 
+Sup(CS) =  0.02571                                                                              <---     workclass=Self-emp-inc  &  marital.status=Married-civ-spouse
+
+Obs =  000581 | 000400  Gsup  = 0.07410 | 0.01618  p = 8.2879353129E-126  phi =  0.14487   class=>50K >> class=<=50K 
+Sup(CS) =  0.03013                                                                              <---     workclass=Self-emp-inc  &  sex=Male
+
+Obs =  001066 | 000083  Gsup  = 0.04312 | 0.01059  p = 8.6246236159E-053  phi =  0.07540   class=<=50K >> class=>50K 
+Sup(CS) =  0.03529                                                                              <---     hours_per_week=30
+
+Obs =  001024 | 000061  Gsup  = 0.04142 | 0.00778  p = 1.1370751807E-061  phi =  0.08015   class=<=50K >> class=>50K 
+Sup(CS) =  0.03332                                                                              <---     hours_per_week=30  &  capital.gain=0
+
+Obs =  001115 | 000060  Gsup  = 0.04511 | 0.00765  p = 2.0897254211E-071  phi =  0.08586   class=<=50K >> class=>50K 
+Sup(CS) =  0.03609                                                                              <---     education=11th
+
+Obs =  001082 | 000040  Gsup  = 0.04377 | 0.00510  p = 4.5221622737E-083  phi =  0.09064   class=<=50K >> class=>50K 
+Sup(CS) =  0.03446                                                                              <---     education=11th  &  capital.gain=0
+
+Obs =  001115 | 000060  Gsup  = 0.04511 | 0.00765  p = 2.0897254211E-071  phi =  0.08586   class=<=50K >> class=>50K 
+Sup(CS) =  0.03609                                                                              <---     education.num=7
+
+Obs =  001082 | 000040  Gsup  = 0.04377 | 0.00510  p = 4.5221622737E-083  phi =  0.09064   class=<=50K >> class=>50K 
+Sup(CS) =  0.03446                                                                              <---     education.num=7  &  capital.gain=0
+
+Obs =  001146 | 000078  Gsup  = 0.04636 | 0.00995  p = 4.9161437203E-063  phi =  0.08185   class=<=50K >> class=>50K 
+Sup(CS) =  0.03759                                                                              <---     hours_per_week=20
+
+Obs =  000711 | 000002  Gsup  = 0.02876 | 0.00026  p = 1.0812763344E-082  phi =  0.08329   class=<=50K >> class=>50K 
+Sup(CS) =  0.02190                                                                              <---     hours_per_week=20  &  marital.status=Never-married
+
+Obs =  001102 | 000195  Gsup  = 0.04458 | 0.02487  p = 2.1421137408E-016  phi =  0.04309   class=<=50K >> class=>50K 
+Sup(CS) =  0.03983                                                                              <---     hours_per_week=35
+
+Obs =  001058 | 000148  Gsup  = 0.04280 | 0.01888  p = 8.4234361732E-026  phi =  0.05417   class=<=50K >> class=>50K 
+Sup(CS) =  0.03704                                                                              <---     hours_per_week=35  &  capital.gain=0
+
+Obs =  001284 | 000086  Gsup  = 0.05194 | 0.01097  p = 1.7290564508E-071  phi =  0.08727   class=<=50K >> class=>50K 
+Sup(CS) =  0.04207                                                                              <---     occupation=Handlers-cleaners
+
+Obs =  000694 | 000002  Gsup  = 0.02807 | 0.00026  p = 1.2543304521E-080  phi =  0.08224   class=<=50K >> class=>50K 
+Sup(CS) =  0.02138                                                                              <---     occupation=Handlers-cleaners  &  marital.status=Never-married
+
+Obs =  000648 | 000827  Gsup  = 0.08264 | 0.03345  p = 8.0519687888E-066  phi =  0.10113   class=>50K >> class=<=50K 
+Sup(CS) =  0.04530                                                                              <---     hours_per_week=60
+
+Obs =  000534 | 000412  Gsup  = 0.06810 | 0.01667  p = 7.1698961853E-104  phi =  0.13095   class=>50K >> class=<=50K 
+Sup(CS) =  0.02905                                                                              <---     hours_per_week=60  &  relationship=Husband
+
+Obs =  000550 | 000432  Gsup  = 0.07014 | 0.01748  p = 3.6524636270E-105  phi =  0.13168   class=>50K >> class=<=50K 
+Sup(CS) =  0.03016                                                                              <---     hours_per_week=60  &  marital.status=Married-civ-spouse
+
+Obs =  000600 | 000672  Gsup  = 0.07652 | 0.02718  p = 7.3020814205E-075  phi =  0.10888   class=>50K >> class=<=50K 
+Sup(CS) =  0.03907                                                                              <---     hours_per_week=60  &  sex=Male
+
+Obs =  000745 | 000823  Gsup  = 0.09501 | 0.03329  p = 2.0410758583E-095  phi =  0.12326   class=>50K >> class=<=50K 
+Sup(CS) =  0.04816                                                                              <---     relationship=Wife
+
+Obs =  001617 | 000025  Gsup  = 0.06541 | 0.00319  p = 9.8774926595E-160  phi =  0.12158   class=<=50K >> class=>50K 
+Sup(CS) =  0.05043                                                                              <---     age=]21.5000 : 23.5000]
+
+Obs =  001427 | 000253  Gsup  = 0.05773 | 0.03227  p = 7.8110425617E-021  phi =  0.04921   class=<=50K >> class=>50K 
+Sup(CS) =  0.05160                                                                              <---     age=]27.5000 : 29.5000]
+
+Obs =  001370 | 000209  Gsup  = 0.05542 | 0.02665  p = 3.2316749844E-028  phi =  0.05726   class=<=50K >> class=>50K 
+Sup(CS) =  0.04849                                                                              <---     age=]27.5000 : 29.5000]  &  capital.gain=0
+
+Obs =  000959 | 000764  Gsup  = 0.12231 | 0.03091  p = 2.0292632696E-184  phi =  0.17457   class=>50K >> class=<=50K 
+Sup(CS) =  0.05292                                                                              <---     education=Masters
+
+Obs =  000372 | 000129  Gsup  = 0.04744 | 0.00522  p = 9.2596617837E-126  phi =  0.14668   class=>50K >> class=<=50K 
+Sup(CS) =  0.01539                                                                              <---     education=Masters  &  occupation=Exec-managerial
+
+Obs =  000388 | 000188  Gsup  = 0.04948 | 0.00761  p = 7.8019610639E-109  phi =  0.13584   class=>50K >> class=<=50K 
+Sup(CS) =  0.01769                                                                              <---     education=Masters  &  age=]43.5000 : 54.5000]
+
+Obs =  000680 | 000206  Gsup  = 0.08672 | 0.00833  p = 6.7228153840E-247  phi =  0.20601   class=>50K >> class=<=50K 
+Sup(CS) =  0.02721                                                                              <---     education=Masters  &  relationship=Husband
+
+Obs =  000774 | 000229  Gsup  = 0.09871 | 0.00926  p = 5.2239663148E-285  phi =  0.22135   class=>50K >> class=<=50K 
+Sup(CS) =  0.03080                                                                              <---     education=Masters  &  marital.status=Married-civ-spouse
+
+Obs =  000780 | 000407  Gsup  = 0.09948 | 0.01646  p = 3.4003537135E-211  phi =  0.18938   class=>50K >> class=<=50K 
+Sup(CS) =  0.03645                                                                              <---     education=Masters  &  sex=Male
+
+Obs =  000323 | 000087  Gsup  = 0.04119 | 0.00352  p = 5.7290953935E-122  phi =  0.14447   class=>50K >> class=<=50K 
+Sup(CS) =  0.01259                                                                              <---     education=Masters  &  age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  000959 | 000764  Gsup  = 0.12231 | 0.03091  p = 2.0292632696E-184  phi =  0.17457   class=>50K >> class=<=50K 
+Sup(CS) =  0.05292                                                                              <---     education.num=14
+
+Obs =  000372 | 000129  Gsup  = 0.04744 | 0.00522  p = 9.2596617837E-126  phi =  0.14668   class=>50K >> class=<=50K 
+Sup(CS) =  0.01539                                                                              <---     education.num=14  &  occupation=Exec-managerial
+
+Obs =  000388 | 000188  Gsup  = 0.04948 | 0.00761  p = 7.8019610639E-109  phi =  0.13584   class=>50K >> class=<=50K 
+Sup(CS) =  0.01769                                                                              <---     education.num=14  &  age=]43.5000 : 54.5000]
+
+Obs =  000680 | 000206  Gsup  = 0.08672 | 0.00833  p = 6.7228153840E-247  phi =  0.20601   class=>50K >> class=<=50K 
+Sup(CS) =  0.02721                                                                              <---     education.num=14  &  relationship=Husband
+
+Obs =  000774 | 000229  Gsup  = 0.09871 | 0.00926  p = 5.2239663148E-285  phi =  0.22135   class=>50K >> class=<=50K 
+Sup(CS) =  0.03080                                                                              <---     education.num=14  &  marital.status=Married-civ-spouse
+
+Obs =  000780 | 000407  Gsup  = 0.09948 | 0.01646  p = 3.4003537135E-211  phi =  0.18938   class=>50K >> class=<=50K 
+Sup(CS) =  0.03645                                                                              <---     education.num=14  &  sex=Male
+
+Obs =  000323 | 000087  Gsup  = 0.04119 | 0.00352  p = 5.7290953935E-122  phi =  0.14447   class=>50K >> class=<=50K 
+Sup(CS) =  0.01259                                                                              <---     education.num=14  &  age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  000685 | 001139  Gsup  = 0.08736 | 0.04608  p = 5.0212942643E-040  phi =  0.07676   class=>50K >> class=<=50K 
+Sup(CS) =  0.05602                                                                              <---     hours_per_week=45
+
+Obs =  000528 | 000438  Gsup  = 0.06734 | 0.01772  p = 2.1249478686E-095  phi =  0.12505   class=>50K >> class=<=50K 
+Sup(CS) =  0.02967                                                                              <---     hours_per_week=45  &  relationship=Husband
+
+Obs =  000567 | 000473  Gsup  = 0.07231 | 0.01913  p = 5.7421191140E-102  phi =  0.12931   class=>50K >> class=<=50K 
+Sup(CS) =  0.03194                                                                              <---     hours_per_week=45  &  marital.status=Married-civ-spouse
+
+Obs =  000613 | 000819  Gsup  = 0.07818 | 0.03313  p = 2.4636874188E-057  phi =  0.09394   class=>50K >> class=<=50K 
+Sup(CS) =  0.04398                                                                              <---     hours_per_week=45  &  sex=Male
+
+Obs =  001645 | 000191  Gsup  = 0.06655 | 0.02436  p = 3.4292568602E-053  phi =  0.07820   class=<=50K >> class=>50K 
+Sup(CS) =  0.05639                                                                              <---     workclass=?
+
+Obs =  001569 | 000144  Gsup  = 0.06347 | 0.01837  p = 7.1489883543E-067  phi =  0.08639   class=<=50K >> class=>50K 
+Sup(CS) =  0.05261                                                                              <---     workclass=?  &  capital.gain=0
+
+Obs =  001652 | 000191  Gsup  = 0.06683 | 0.02436  p = 9.9261778772E-054  phi =  0.07858   class=<=50K >> class=>50K 
+Sup(CS) =  0.05660                                                                              <---     occupation=?
+
+Obs =  001576 | 000144  Gsup  = 0.06375 | 0.01837  p = 1.7662815439E-067  phi =  0.08676   class=<=50K >> class=>50K 
+Sup(CS) =  0.05282                                                                              <---     occupation=?  &  capital.gain=0
+
+Obs =  001752 | 000250  Gsup  = 0.07087 | 0.03188  p = 5.9182965347E-041  phi =  0.06940   class=<=50K >> class=>50K 
+Sup(CS) =  0.06148                                                                              <---     occupation=Machine-op-inspct
+
+Obs =  000453 | 000008  Gsup  = 0.01833 | 0.00102  p = 1.4578102587E-043  phi =  0.06263   class=<=50K >> class=>50K 
+Sup(CS) =  0.01416                                                                              <---     occupation=Machine-op-inspct  &  relationship=Not-in-family
+
+Obs =  000530 | 000020  Gsup  = 0.02144 | 0.00255  p = 1.1912708513E-040  phi =  0.06268   class=<=50K >> class=>50K 
+Sup(CS) =  0.01689                                                                              <---     occupation=Machine-op-inspct  &  sex=Female
+
+Obs =  001671 | 000203  Gsup  = 0.06760 | 0.02589  p = 1.0231535738E-050  phi =  0.07657   class=<=50K >> class=>50K 
+Sup(CS) =  0.05755                                                                              <---     occupation=Machine-op-inspct  &  capital.gain=0
+
+Obs =  000617 | 001476  Gsup  = 0.07869 | 0.05971  p = 2.8992523499E-009  phi =  0.03309   class=>50K >> class=<=50K 
+Sup(CS) =  0.06428                                                                              <---     workclass=Local-gov
+
+Obs =  000847 | 001629  Gsup  = 0.10802 | 0.06590  p = 1.9220229235E-032  phi =  0.06795   class=>50K >> class=<=50K 
+Sup(CS) =  0.07604                                                                              <---     age=]54.5000 : 61.5000]
+
+Obs =  000750 | 001035  Gsup  = 0.09565 | 0.04187  p = 2.3370387838E-066  phi =  0.10102   class=>50K >> class=<=50K 
+Sup(CS) =  0.05482                                                                              <---     age=]54.5000 : 61.5000]  &  sex=Male
+
+Obs =  000724 | 001817  Gsup  = 0.09234 | 0.07350  p = 5.7111742299E-008  phi =  0.03002   class=>50K >> class=<=50K 
+Sup(CS) =  0.07804                                                                              <---     workclass=Self-emp-not-inc
+
+Obs =  001276 | 001543  Gsup  = 0.16273 | 0.06242  p = 2.3414505666E-147  phi =  0.15253   class=>50K >> class=<=50K 
+Sup(CS) =  0.08658                                                                              <---     hours_per_week=50
+
+Obs =  000322 | 000215  Gsup  = 0.04107 | 0.00870  p = 2.7139009018E-071  phi =  0.10867   class=>50K >> class=<=50K 
+Sup(CS) =  0.01649                                                                              <---     hours_per_week=50  &  occupation=Prof-specialty
+
+Obs =  000436 | 000239  Gsup  = 0.05561 | 0.00967  p = 1.3388749792E-112  phi =  0.13785   class=>50K >> class=<=50K 
+Sup(CS) =  0.02073                                                                              <---     hours_per_week=50  &  occupation=Exec-managerial
+
+Obs =  000411 | 000281  Gsup  = 0.05242 | 0.01137  p = 3.8219199129E-089  phi =  0.12170   class=>50K >> class=<=50K 
+Sup(CS) =  0.02125                                                                              <---     hours_per_week=50  &  age=]43.5000 : 54.5000]
+
+Obs =  000417 | 000302  Gsup  = 0.05318 | 0.01222  p = 6.5280148832E-086  phi =  0.11920   class=>50K >> class=<=50K 
+Sup(CS) =  0.02208                                                                              <---     hours_per_week=50  &  education.num=13
+
+Obs =  000417 | 000302  Gsup  = 0.05318 | 0.01222  p = 6.5280148832E-086  phi =  0.11920   class=>50K >> class=<=50K 
+Sup(CS) =  0.02208                                                                              <---     hours_per_week=50  &  education=Bachelors
+
+Obs =  000398 | 000322  Gsup  = 0.05076 | 0.01303  p = 1.2244552065E-073  phi =  0.10972   class=>50K >> class=<=50K 
+Sup(CS) =  0.02211                                                                              <---     hours_per_week=50  &  age=]35.5000 : 43.5000]
+
+Obs =  000985 | 000661  Gsup  = 0.12562 | 0.02674  p = 1.8672711229E-222  phi =  0.19299   class=>50K >> class=<=50K 
+Sup(CS) =  0.05055                                                                              <---     hours_per_week=50  &  relationship=Husband
+
+Obs =  001050 | 000704  Gsup  = 0.13391 | 0.02848  p = 3.3339175420E-238  phi =  0.19968   class=>50K >> class=<=50K 
+Sup(CS) =  0.05387                                                                              <---     hours_per_week=50  &  marital.status=Married-civ-spouse
+
+Obs =  001136 | 001218  Gsup  = 0.14488 | 0.04927  p = 1.9137588121E-155  phi =  0.15785   class=>50K >> class=<=50K 
+Sup(CS) =  0.07230                                                                              <---     hours_per_week=50  &  sex=Male
+
+Obs =  002737 | 000387  Gsup  = 0.11072 | 0.04936  p = 5.0196526435E-066  phi =  0.08909   class=<=50K >> class=>50K 
+Sup(CS) =  0.09594                                                                              <---     race=Black
+
+Obs =  001088 | 000086  Gsup  = 0.04401 | 0.01097  p = 3.4194278316E-053  phi =  0.07579   class=<=50K >> class=>50K 
+Sup(CS) =  0.03606                                                                              <---     race=Black  &  education.num=9
+
+Obs =  001088 | 000086  Gsup  = 0.04401 | 0.01097  p = 3.4194278316E-053  phi =  0.07579   class=<=50K >> class=>50K 
+Sup(CS) =  0.03606                                                                              <---     race=Black  &  education=HS-grad
+
+Obs =  001465 | 000090  Gsup  = 0.05926 | 0.01148  p = 1.0652865392E-086  phi =  0.09581   class=<=50K >> class=>50K 
+Sup(CS) =  0.04776                                                                              <---     race=Black  &  sex=Female
+
+Obs =  002648 | 000294  Gsup  = 0.10712 | 0.03750  p = 2.0799118604E-092  phi =  0.10384   class=<=50K >> class=>50K 
+Sup(CS) =  0.09035                                                                              <---     race=Black  &  capital.gain=0
+
+Obs =  001416 | 000066  Gsup  = 0.05728 | 0.00842  p = 3.4131069269E-098  phi =  0.10024   class=<=50K >> class=>50K 
+Sup(CS) =  0.04551                                                                              <---     race=Black  &  sex=Female  &  capital.gain=0
+
+Obs =  003125 | 000005  Gsup  = 0.12642 | 0.00064  p = 0.0000000000E0000  phi =  0.18245   class=<=50K >> class=>50K 
+Sup(CS) =  0.09613                                                                              <---     age=]-oo : 21.5000]
+
+Obs =  003031 | 000228  Gsup  = 0.12261 | 0.02908  p = 2.5910920180E-159  phi =  0.13326   class=<=50K >> class=>50K 
+Sup(CS) =  0.10009                                                                              <---     age=]23.5000 : 27.5000]
+
+Obs =  001116 | 000038  Gsup  = 0.04515 | 0.00485  p = 1.7462334329E-088  phi =  0.09319   class=<=50K >> class=>50K 
+Sup(CS) =  0.03544                                                                              <---     age=]23.5000 : 27.5000]  &  relationship=Not-in-family
+
+Obs =  002031 | 000043  Gsup  = 0.08216 | 0.00548  p = 1.2100142750E-188  phi =  0.13425   class=<=50K >> class=>50K 
+Sup(CS) =  0.06370                                                                              <---     age=]23.5000 : 27.5000]  &  marital.status=Never-married
+
+Obs =  002922 | 000187  Gsup  = 0.11820 | 0.02385  p = 6.8601880353E-173  phi =  0.13728   class=<=50K >> class=>50K 
+Sup(CS) =  0.09548                                                                              <---     age=]23.5000 : 27.5000]  &  capital.gain=0
+
+Obs =  003158 | 000137  Gsup  = 0.12775 | 0.01747  p = 2.3235042501E-234  phi =  0.15635   class=<=50K >> class=>50K 
+Sup(CS) =  0.10119                                                                              <---     occupation=Other-service
+
+Obs =  001629 | 000012  Gsup  = 0.06590 | 0.00153  p = 9.8307974338E-179  phi =  0.12581   class=<=50K >> class=>50K 
+Sup(CS) =  0.05040                                                                              <---     occupation=Other-service  &  marital.status=Never-married
+
+Obs =  003077 | 000114  Gsup  = 0.12447 | 0.01454  p = 3.8789612766E-244  phi =  0.15810   class=<=50K >> class=>50K 
+Sup(CS) =  0.09800                                                                              <---     occupation=Other-service  &  capital.gain=0
+
+Obs =  003228 | 000218  Gsup  = 0.13058 | 0.02780  p = 3.2480892670E-185  phi =  0.14286   class=<=50K >> class=>50K 
+Sup(CS) =  0.10583                                                                              <---     relationship=Unmarried
+
+Obs =  001277 | 000035  Gsup  = 0.05166 | 0.00446  p = 3.5225090113E-109  phi =  0.10262   class=<=50K >> class=>50K 
+Sup(CS) =  0.04029                                                                              <---     relationship=Unmarried  &  education.num=9
+
+Obs =  001277 | 000035  Gsup  = 0.05166 | 0.00446  p = 3.5225090113E-109  phi =  0.10262   class=<=50K >> class=>50K 
+Sup(CS) =  0.04029                                                                              <---     relationship=Unmarried  &  education=HS-grad
+
+Obs =  002542 | 000112  Gsup  = 0.10283 | 0.01428  p = 9.0644295703E-185  phi =  0.13837   class=<=50K >> class=>50K 
+Sup(CS) =  0.08151                                                                              <---     relationship=Unmarried  &  sex=Female
+
+Obs =  003108 | 000154  Gsup  = 0.12573 | 0.01964  p = 1.3236521338E-215  phi =  0.15108   class=<=50K >> class=>50K 
+Sup(CS) =  0.10018                                                                              <---     relationship=Unmarried  &  capital.gain=0
+
+Obs =  002458 | 000081  Gsup  = 0.09943 | 0.01033  p = 2.3445154517E-201  phi =  0.14209   class=<=50K >> class=>50K 
+Sup(CS) =  0.07798                                                                              <---     relationship=Unmarried  &  sex=Female  &  capital.gain=0
+
+Obs =  000895 | 001492  Gsup  = 0.11414 | 0.06036  p = 2.1972763674E-052  phi =  0.08824   class=>50K >> class=<=50K 
+Sup(CS) =  0.07331                                                                              <---     occupation=Sales  &  sex=Male
+
+Obs =  003263 | 000507  Gsup  = 0.13200 | 0.06466  p = 3.5034994886E-066  phi =  0.08999   class=<=50K >> class=>50K 
+Sup(CS) =  0.11578                                                                              <---     occupation=Adm-clerical
+
+Obs =  000793 | 000026  Gsup  = 0.03208 | 0.00332  p = 9.1975947221E-064  phi =  0.07854   class=<=50K >> class=>50K 
+Sup(CS) =  0.02515                                                                              <---     occupation=Adm-clerical  &  marital.status=Divorced
+
+Obs =  001118 | 000045  Gsup  = 0.04523 | 0.00574  p = 7.7644367833E-083  phi =  0.09098   class=<=50K >> class=>50K 
+Sup(CS) =  0.03572                                                                              <---     occupation=Adm-clerical  &  relationship=Not-in-family
+
+Obs =  002512 | 000321  Gsup  = 0.10162 | 0.04094  p = 1.4853596723E-071  phi =  0.09205   class=<=50K >> class=>50K 
+Sup(CS) =  0.08701                                                                              <---     occupation=Adm-clerical  &  workclass=Private
+
+Obs =  003128 | 000407  Gsup  = 0.12654 | 0.05191  p = 8.2414410312E-088  phi =  0.10257   class=<=50K >> class=>50K 
+Sup(CS) =  0.10857                                                                              <---     occupation=Adm-clerical  &  capital.gain=0
+
+Obs =  001968 | 002098  Gsup  = 0.25099 | 0.08487  p = 1.8540448194E-289  phi =  0.21486   class=>50K >> class=<=50K 
+Sup(CS) =  0.12487                                                                              <---     occupation=Exec-managerial
+
+Obs =  000714 | 000442  Gsup  = 0.09106 | 0.01788  p = 6.3686382446E-170  phi =  0.16909   class=>50K >> class=<=50K 
+Sup(CS) =  0.03550                                                                              <---     occupation=Exec-managerial  &  age=]43.5000 : 54.5000]
+
+Obs =  000779 | 000590  Gsup  = 0.09935 | 0.02387  p = 6.6867684362E-156  phi =  0.16082   class=>50K >> class=<=50K 
+Sup(CS) =  0.04204                                                                              <---     occupation=Exec-managerial  &  education.num=13
+
+Obs =  000779 | 000590  Gsup  = 0.09935 | 0.02387  p = 6.6867684362E-156  phi =  0.16082   class=>50K >> class=<=50K 
+Sup(CS) =  0.04204                                                                              <---     occupation=Exec-managerial  &  education=Bachelors
+
+Obs =  001504 | 000683  Gsup  = 0.19181 | 0.02763  p = 0.0000000000E0000  phi =  0.28045   class=>50K >> class=<=50K 
+Sup(CS) =  0.06717                                                                              <---     occupation=Exec-managerial  &  relationship=Husband
+
+Obs =  001666 | 000778  Gsup  = 0.21247 | 0.03147  p = 0.0000000000E0000  phi =  0.29372   class=>50K >> class=<=50K 
+Sup(CS) =  0.07506                                                                              <---     occupation=Exec-managerial  &  marital.status=Married-civ-spouse
+
+Obs =  001688 | 001219  Gsup  = 0.21528 | 0.04931  p = 0.0000000000E0000  phi =  0.24887   class=>50K >> class=<=50K 
+Sup(CS) =  0.08928                                                                              <---     occupation=Exec-managerial  &  sex=Male
+
+Obs =  000628 | 000244  Gsup  = 0.08009 | 0.00987  p = 7.8874863690E-202  phi =  0.18598   class=>50K >> class=<=50K 
+Sup(CS) =  0.02678                                                                              <---     occupation=Exec-managerial  &  age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  000611 | 000161  Gsup  = 0.07792 | 0.00651  p = 2.3245840218E-234  phi =  0.20069   class=>50K >> class=<=50K 
+Sup(CS) =  0.02371                                                                              <---     occupation=Exec-managerial  &  education.num=13  &  relationship=Husband
+
+Obs =  000664 | 000185  Gsup  = 0.08468 | 0.00748  p = 1.3889901382E-249  phi =  0.20714   class=>50K >> class=<=50K 
+Sup(CS) =  0.02607                                                                              <---     occupation=Exec-managerial  &  education.num=13  &  marital.status=Married-civ-spouse
+
+Obs =  000611 | 000161  Gsup  = 0.07792 | 0.00651  p = 2.3245840218E-234  phi =  0.20069   class=>50K >> class=<=50K 
+Sup(CS) =  0.02371                                                                              <---     occupation=Exec-managerial  &  education=Bachelors  &  relationship=Husband
+
+Obs =  000664 | 000185  Gsup  = 0.08468 | 0.00748  p = 1.3889901382E-249  phi =  0.20714   class=>50K >> class=<=50K 
+Sup(CS) =  0.02607                                                                              <---     occupation=Exec-managerial  &  education=Bachelors  &  marital.status=Married-civ-spouse
+
+Obs =  001859 | 002281  Gsup  = 0.23709 | 0.09227  p = 6.6085407833E-220  phi =  0.18587   class=>50K >> class=<=50K 
+Sup(CS) =  0.12715                                                                              <---     occupation=Prof-specialty
+
+Obs =  000598 | 000415  Gsup  = 0.07627 | 0.01679  p = 1.1508054702E-128  phi =  0.14648   class=>50K >> class=<=50K 
+Sup(CS) =  0.03111                                                                              <---     occupation=Prof-specialty  &  age=]43.5000 : 54.5000]
+
+Obs =  000571 | 000476  Gsup  = 0.07282 | 0.01926  p = 8.8818619066E-103  phi =  0.12983   class=>50K >> class=<=50K 
+Sup(CS) =  0.03216                                                                              <---     occupation=Prof-specialty  &  age=]35.5000 : 43.5000]
+
+Obs =  001276 | 000528  Gsup  = 0.16273 | 0.02136  p = 0.0000000000E0000  phi =  0.26424   class=>50K >> class=<=50K 
+Sup(CS) =  0.05540                                                                              <---     occupation=Prof-specialty  &  relationship=Husband
+
+Obs =  001507 | 000619  Gsup  = 0.19219 | 0.02504  p = 0.0000000000E0000  phi =  0.28931   class=>50K >> class=<=50K 
+Sup(CS) =  0.06529                                                                              <---     occupation=Prof-specialty  &  marital.status=Married-civ-spouse
+
+Obs =  001474 | 001151  Gsup  = 0.18799 | 0.04656  p = 6.8501105097E-299  phi =  0.22211   class=>50K >> class=<=50K 
+Sup(CS) =  0.08062                                                                              <---     occupation=Prof-specialty  &  sex=Male
+
+Obs =  000493 | 000184  Gsup  = 0.06287 | 0.00744  p = 4.5816622073E-161  phi =  0.16611   class=>50K >> class=<=50K 
+Sup(CS) =  0.02079                                                                              <---     occupation=Prof-specialty  &  age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  003980 | 000463  Gsup  = 0.16100 | 0.05905  p = 4.6052721047E-135  phi =  0.12699   class=<=50K >> class=>50K 
+Sup(CS) =  0.13645                                                                              <---     marital.status=Divorced
+
+Obs =  001531 | 000082  Gsup  = 0.06193 | 0.01046  p = 1.1573467519E-098  phi =  0.10143   class=<=50K >> class=>50K 
+Sup(CS) =  0.04954                                                                              <---     marital.status=Divorced  &  education.num=9
+
+Obs =  001531 | 000082  Gsup  = 0.06193 | 0.01046  p = 1.1573467519E-098  phi =  0.10143   class=<=50K >> class=>50K 
+Sup(CS) =  0.04954                                                                              <---     marital.status=Divorced  &  education=HS-grad
+
+Obs =  002080 | 000153  Gsup  = 0.08414 | 0.01951  p = 4.7053077165E-109  phi =  0.10934   class=<=50K >> class=>50K 
+Sup(CS) =  0.06858                                                                              <---     marital.status=Divorced  &  hours_per_week=40
+
+Obs =  002493 | 000179  Gsup  = 0.10085 | 0.02283  p = 2.5179496118E-134  phi =  0.12155   class=<=50K >> class=>50K 
+Sup(CS) =  0.08206                                                                              <---     marital.status=Divorced  &  sex=Female
+
+Obs =  003822 | 000333  Gsup  = 0.15461 | 0.04247  p = 5.2956450981E-180  phi =  0.14371   class=<=50K >> class=>50K 
+Sup(CS) =  0.12761                                                                              <---     marital.status=Divorced  &  capital.gain=0
+
+Obs =  001477 | 000055  Gsup  = 0.05975 | 0.00701  p = 1.7701129665E-113  phi =  0.10649   class=<=50K >> class=>50K 
+Sup(CS) =  0.04705                                                                              <---     marital.status=Divorced  &  education.num=9  &  capital.gain=0
+
+Obs =  001477 | 000055  Gsup  = 0.05975 | 0.00701  p = 1.7701129665E-113  phi =  0.10649   class=<=50K >> class=>50K 
+Sup(CS) =  0.04705                                                                              <---     marital.status=Divorced  &  education=HS-grad  &  capital.gain=0
+
+Obs =  002406 | 000130  Gsup  = 0.09733 | 0.01658  p = 1.2120590087E-156  phi =  0.12884   class=<=50K >> class=>50K 
+Sup(CS) =  0.07788                                                                              <---     marital.status=Divorced  &  sex=Female  &  capital.gain=0
+
+Obs =  005001 | 000067  Gsup  = 0.20231 | 0.00854  p = 0.0000000000E0000  phi =  0.22853   class=<=50K >> class=>50K 
+Sup(CS) =  0.15565                                                                              <---     relationship=Own-child
+
+Obs =  004451 | 000034  Gsup  = 0.18006 | 0.00434  p = 0.0000000000E0000  phi =  0.21801   class=<=50K >> class=>50K 
+Sup(CS) =  0.13774                                                                              <---     relationship=Own-child  &  marital.status=Never-married
+
+Obs =  004880 | 000046  Gsup  = 0.19741 | 0.00587  p = 0.0000000000E0000  phi =  0.22856   class=<=50K >> class=>50K 
+Sup(CS) =  0.15129                                                                              <---     relationship=Own-child  &  capital.gain=0
+
+Obs =  002221 | 003134  Gsup  = 0.28325 | 0.12678  p = 7.1853041482E-212  phi =  0.18049   class=>50K >> class=<=50K 
+Sup(CS) =  0.16446                                                                              <---     education=Bachelors
+
+Obs =  000659 | 000464  Gsup  = 0.08405 | 0.01877  p = 2.5079524345E-140  phi =  0.15295   class=>50K >> class=<=50K 
+Sup(CS) =  0.03449                                                                              <---     education=Bachelors  &  age=]43.5000 : 54.5000]
+
+Obs =  000648 | 000605  Gsup  = 0.08264 | 0.02447  p = 5.2389856949E-103  phi =  0.12930   class=>50K >> class=<=50K 
+Sup(CS) =  0.03848                                                                              <---     education=Bachelors  &  age=]35.5000 : 43.5000]
+
+Obs =  001646 | 000787  Gsup  = 0.20992 | 0.03184  p = 0.0000000000E0000  phi =  0.28959   class=>50K >> class=<=50K 
+Sup(CS) =  0.07472                                                                              <---     education=Bachelors  &  relationship=Husband
+
+Obs =  001855 | 000913  Gsup  = 0.23658 | 0.03693  p = 0.0000000000E0000  phi =  0.30607   class=>50K >> class=<=50K 
+Sup(CS) =  0.08501                                                                              <---     education=Bachelors  &  marital.status=Married-civ-spouse
+
+Obs =  001882 | 001854  Gsup  = 0.24002 | 0.07500  p = 1.6593782393E-304  phi =  0.22139   class=>50K >> class=<=50K 
+Sup(CS) =  0.11474                                                                              <---     education=Bachelors  &  sex=Male
+
+Obs =  002015 | 002667  Gsup  = 0.25698 | 0.10789  p = 1.8656779601E-212  phi =  0.18168   class=>50K >> class=<=50K 
+Sup(CS) =  0.14379                                                                              <---     education=Bachelors  &  race=White
+
+Obs =  000586 | 000292  Gsup  = 0.07474 | 0.01181  p = 2.8189261341E-162  phi =  0.16610   class=>50K >> class=<=50K 
+Sup(CS) =  0.02696                                                                              <---     education=Bachelors  &  age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  002221 | 003134  Gsup  = 0.28325 | 0.12678  p = 7.1853041482E-212  phi =  0.18049   class=>50K >> class=<=50K 
+Sup(CS) =  0.16446                                                                              <---     education.num=13
+
+Obs =  000659 | 000464  Gsup  = 0.08405 | 0.01877  p = 2.5079524345E-140  phi =  0.15295   class=>50K >> class=<=50K 
+Sup(CS) =  0.03449                                                                              <---     education.num=13  &  age=]43.5000 : 54.5000]
+
+Obs =  000648 | 000605  Gsup  = 0.08264 | 0.02447  p = 5.2389856949E-103  phi =  0.12930   class=>50K >> class=<=50K 
+Sup(CS) =  0.03848                                                                              <---     education.num=13  &  age=]35.5000 : 43.5000]
+
+Obs =  001646 | 000787  Gsup  = 0.20992 | 0.03184  p = 0.0000000000E0000  phi =  0.28959   class=>50K >> class=<=50K 
+Sup(CS) =  0.07472                                                                              <---     education.num=13  &  relationship=Husband
+
+Obs =  001855 | 000913  Gsup  = 0.23658 | 0.03693  p = 0.0000000000E0000  phi =  0.30607   class=>50K >> class=<=50K 
+Sup(CS) =  0.08501                                                                              <---     education.num=13  &  marital.status=Married-civ-spouse
+
+Obs =  001882 | 001854  Gsup  = 0.24002 | 0.07500  p = 1.6593782393E-304  phi =  0.22139   class=>50K >> class=<=50K 
+Sup(CS) =  0.11474                                                                              <---     education.num=13  &  sex=Male
+
+Obs =  002015 | 002667  Gsup  = 0.25698 | 0.10789  p = 1.8656779601E-212  phi =  0.18168   class=>50K >> class=<=50K 
+Sup(CS) =  0.14379                                                                              <---     education.num=13  &  race=White
+
+Obs =  000586 | 000292  Gsup  = 0.07474 | 0.01181  p = 2.8189261341E-162  phi =  0.16610   class=>50K >> class=<=50K 
+Sup(CS) =  0.02696                                                                              <---     education.num=13  &  age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  002205 | 004346  Gsup  = 0.28121 | 0.17581  p = 7.6389820803E-087  phi =  0.11242   class=>50K >> class=<=50K 
+Sup(CS) =  0.20119                                                                              <---     age=]35.5000 : 43.5000]
+
+Obs =  001641 | 001622  Gsup  = 0.20928 | 0.06561  p = 1.9131463586E-259  phi =  0.20457   class=>50K >> class=<=50K 
+Sup(CS) =  0.10021                                                                              <---     age=]35.5000 : 43.5000]  &  relationship=Husband
+
+Obs =  001907 | 001822  Gsup  = 0.24321 | 0.07371  p = 6.3830000000E-321  phi =  0.22759   class=>50K >> class=<=50K 
+Sup(CS) =  0.11452                                                                              <---     age=]35.5000 : 43.5000]  &  marital.status=Married-civ-spouse
+
+Obs =  001835 | 002755  Gsup  = 0.23403 | 0.11145  p = 2.0238203989E-148  phi =  0.15061   class=>50K >> class=<=50K 
+Sup(CS) =  0.14097                                                                              <---     age=]35.5000 : 43.5000]  &  sex=Male
+
+Obs =  001997 | 003583  Gsup  = 0.25469 | 0.14494  p = 1.4238850066E-104  phi =  0.12452   class=>50K >> class=<=50K 
+Sup(CS) =  0.17137                                                                              <---     age=]35.5000 : 43.5000]  &  race=White
+
+Obs =  002629 | 003948  Gsup  = 0.33529 | 0.15971  p = 2.1639338696E-230  phi =  0.18699   class=>50K >> class=<=50K 
+Sup(CS) =  0.20199                                                                              <---     age=]43.5000 : 54.5000]
+
+Obs =  002080 | 001598  Gsup  = 0.26527 | 0.06464  p = 0.0000000000E0000  phi =  0.27100   class=>50K >> class=<=50K 
+Sup(CS) =  0.11296                                                                              <---     age=]43.5000 : 54.5000]  &  relationship=Husband
+
+Obs =  002274 | 001779  Gsup  = 0.29001 | 0.07197  p = 0.0000000000E0000  phi =  0.28242   class=>50K >> class=<=50K 
+Sup(CS) =  0.12447                                                                              <---     age=]43.5000 : 54.5000]  &  marital.status=Married-civ-spouse
+
+Obs =  002306 | 002369  Gsup  = 0.29410 | 0.09583  p = 0.0000000000E0000  phi =  0.24175   class=>50K >> class=<=50K 
+Sup(CS) =  0.14358                                                                              <---     age=]43.5000 : 54.5000]  &  sex=Male
+
+Obs =  002385 | 003264  Gsup  = 0.30417 | 0.13204  p = 3.6738022980E-245  phi =  0.19436   class=>50K >> class=<=50K 
+Sup(CS) =  0.17349                                                                              <---     age=]43.5000 : 54.5000]  &  race=White
+
+Obs =  005904 | 001387  Gsup  = 0.23883 | 0.17689  p = 9.1232923942E-032  phi =  0.06354   class=<=50K >> class=>50K 
+Sup(CS) =  0.22392                                                                              <---     education=Some-college
+
+Obs =  002609 | 000197  Gsup  = 0.10554 | 0.02512  p = 2.1900058342E-135  phi =  0.12253   class=<=50K >> class=>50K 
+Sup(CS) =  0.08618                                                                              <---     education=Some-college  &  sex=Female
+
+Obs =  002880 | 000053  Gsup  = 0.11650 | 0.00676  p = 6.7602945250E-281  phi =  0.16390   class=<=50K >> class=>50K 
+Sup(CS) =  0.09008                                                                              <---     education=Some-college  &  marital.status=Never-married
+
+Obs =  005690 | 001128  Gsup  = 0.23018 | 0.14386  p = 3.5619750017E-064  phi =  0.09071   class=<=50K >> class=>50K 
+Sup(CS) =  0.20939                                                                              <---     education=Some-college  &  capital.gain=0
+
+Obs =  005733 | 001273  Gsup  = 0.23192 | 0.16235  p = 5.7703002224E-041  phi =  0.07238   class=<=50K >> class=>50K 
+Sup(CS) =  0.21517                                                                              <---     education=Some-college  &  capital.loss=0
+
+Obs =  002807 | 000037  Gsup  = 0.11355 | 0.00472  p = 2.4956698199E-291  phi =  0.16482   class=<=50K >> class=>50K 
+Sup(CS) =  0.08734                                                                              <---     education=Some-college  &  marital.status=Never-married  &  capital.gain=0
+
+Obs =  005519 | 001014  Gsup  = 0.22326 | 0.12932  p = 6.9960616720E-079  phi =  0.10030   class=<=50K >> class=>50K 
+Sup(CS) =  0.20064                                                                              <---     education=Some-college  &  capital.gain=0  &  capital.loss=0
+
+Obs =  005904 | 001387  Gsup  = 0.23883 | 0.17689  p = 9.1232923942E-032  phi =  0.06354   class=<=50K >> class=>50K 
+Sup(CS) =  0.22392                                                                              <---     education.num=10
+
+Obs =  002609 | 000197  Gsup  = 0.10554 | 0.02512  p = 2.1900058342E-135  phi =  0.12253   class=<=50K >> class=>50K 
+Sup(CS) =  0.08618                                                                              <---     education.num=10  &  sex=Female
+
+Obs =  002880 | 000053  Gsup  = 0.11650 | 0.00676  p = 6.7602945250E-281  phi =  0.16390   class=<=50K >> class=>50K 
+Sup(CS) =  0.09008                                                                              <---     education.num=10  &  marital.status=Never-married
+
+Obs =  005690 | 001128  Gsup  = 0.23018 | 0.14386  p = 3.5619750017E-064  phi =  0.09071   class=<=50K >> class=>50K 
+Sup(CS) =  0.20939                                                                              <---     education.num=10  &  capital.gain=0
+
+Obs =  005733 | 001273  Gsup  = 0.23192 | 0.16235  p = 5.7703002224E-041  phi =  0.07238   class=<=50K >> class=>50K 
+Sup(CS) =  0.21517                                                                              <---     education.num=10  &  capital.loss=0
+
+Obs =  002807 | 000037  Gsup  = 0.11355 | 0.00472  p = 2.4956698199E-291  phi =  0.16482   class=<=50K >> class=>50K 
+Sup(CS) =  0.08734                                                                              <---     education.num=10  &  marital.status=Never-married  &  capital.gain=0
+
+Obs =  005519 | 001014  Gsup  = 0.22326 | 0.12932  p = 6.9960616720E-079  phi =  0.10030   class=<=50K >> class=>50K 
+Sup(CS) =  0.20064                                                                              <---     education.num=10  &  capital.gain=0  &  capital.loss=0
+
+Obs =  007449 | 000856  Gsup  = 0.30133 | 0.10917  p = 8.6664651850E-288  phi =  0.18850   class=<=50K >> class=>50K 
+Sup(CS) =  0.25506                                                                              <---     relationship=Not-in-family
+
+Obs =  002403 | 000114  Gsup  = 0.09721 | 0.01454  p = 6.3164743544E-168  phi =  0.13235   class=<=50K >> class=>50K 
+Sup(CS) =  0.07730                                                                              <---     relationship=Not-in-family  &  education.num=9
+
+Obs =  002403 | 000114  Gsup  = 0.09721 | 0.01454  p = 6.3164743544E-168  phi =  0.13235   class=<=50K >> class=>50K 
+Sup(CS) =  0.07730                                                                              <---     relationship=Not-in-family  &  education=HS-grad
+
+Obs =  003563 | 000288  Gsup  = 0.14413 | 0.03673  p = 1.4817820903E-178  phi =  0.14221   class=<=50K >> class=>50K 
+Sup(CS) =  0.11827                                                                              <---     relationship=Not-in-family  &  hours_per_week=40
+
+Obs =  003591 | 000284  Gsup  = 0.14527 | 0.03622  p = 1.5378719682E-183  phi =  0.14400   class=<=50K >> class=>50K 
+Sup(CS) =  0.11901                                                                              <---     relationship=Not-in-family  &  sex=Female
+
+Obs =  007153 | 000608  Gsup  = 0.28936 | 0.07754  p = 0.0000000000E0000  phi =  0.21256   class=<=50K >> class=>50K 
+Sup(CS) =  0.23835                                                                              <---     relationship=Not-in-family  &  capital.gain=0
+
+Obs =  002302 | 000076  Gsup  = 0.09312 | 0.00969  p = 7.1495280496E-188  phi =  0.13710   class=<=50K >> class=>50K 
+Sup(CS) =  0.07303                                                                              <---     relationship=Not-in-family  &  education.num=9  &  capital.gain=0
+
+Obs =  002302 | 000076  Gsup  = 0.09312 | 0.00969  p = 7.1495280496E-188  phi =  0.13710   class=<=50K >> class=>50K 
+Sup(CS) =  0.07303                                                                              <---     relationship=Not-in-family  &  education=HS-grad  &  capital.gain=0
+
+Obs =  003435 | 000199  Gsup  = 0.13896 | 0.02538  p = 1.5562036699E-219  phi =  0.15423   class=<=50K >> class=>50K 
+Sup(CS) =  0.11161                                                                              <---     relationship=Not-in-family  &  hours_per_week=40  &  capital.gain=0
+
+Obs =  003453 | 000195  Gsup  = 0.13968 | 0.02487  p = 2.9763483881E-224  phi =  0.15565   class=<=50K >> class=>50K 
+Sup(CS) =  0.11204                                                                              <---     relationship=Not-in-family  &  sex=Female  &  capital.gain=0
+
+Obs =  008826 | 001675  Gsup  = 0.35704 | 0.21362  p = 1.3686201463E-130  phi =  0.13119   class=<=50K >> class=>50K 
+Sup(CS) =  0.32250                                                                              <---     education=HS-grad
+
+Obs =  003043 | 000046  Gsup  = 0.12310 | 0.00587  p = 8.4041300223E-310  phi =  0.17106   class=<=50K >> class=>50K 
+Sup(CS) =  0.09487                                                                              <---     education=HS-grad  &  marital.status=Never-married
+
+Obs =  003164 | 000226  Gsup  = 0.12799 | 0.02882  p = 8.0493019617E-174  phi =  0.13884   class=<=50K >> class=>50K 
+Sup(CS) =  0.10411                                                                              <---     education=HS-grad  &  sex=Female
+
+Obs =  006661 | 001119  Gsup  = 0.26946 | 0.14271  p = 3.5717800343E-126  phi =  0.12709   class=<=50K >> class=>50K 
+Sup(CS) =  0.23894                                                                              <---     education=HS-grad  &  workclass=Private
+
+Obs =  008446 | 001372  Gsup  = 0.34167 | 0.17498  p = 4.8172837408E-186  phi =  0.15530   class=<=50K >> class=>50K 
+Sup(CS) =  0.30153                                                                              <---     education=HS-grad  &  capital.gain=0
+
+Obs =  008563 | 001535  Gsup  = 0.34640 | 0.19577  p = 4.4353058946E-148  phi =  0.13925   class=<=50K >> class=>50K 
+Sup(CS) =  0.31013                                                                              <---     education=HS-grad  &  capital.loss=0
+
+Obs =  002951 | 000027  Gsup  = 0.11938 | 0.00344  p = 1.5000000000E-323  phi =  0.17196   class=<=50K >> class=>50K 
+Sup(CS) =  0.09146                                                                              <---     education=HS-grad  &  marital.status=Never-married  &  capital.gain=0
+
+Obs =  003055 | 000178  Gsup  = 0.12358 | 0.02270  p = 8.3374595336E-193  phi =  0.14424   class=<=50K >> class=>50K 
+Sup(CS) =  0.09929                                                                              <---     education=HS-grad  &  sex=Female  &  capital.gain=0
+
+Obs =  008183 | 001232  Gsup  = 0.33103 | 0.15712  p = 1.2645186088E-209  phi =  0.16401   class=<=50K >> class=>50K 
+Sup(CS) =  0.28915                                                                              <---     education=HS-grad  &  capital.gain=0  &  capital.loss=0
+
+Obs =  008826 | 001675  Gsup  = 0.35704 | 0.21362  p = 1.3686201463E-130  phi =  0.13119   class=<=50K >> class=>50K 
+Sup(CS) =  0.32250                                                                              <---     education.num=9
+
+Obs =  003043 | 000046  Gsup  = 0.12310 | 0.00587  p = 8.4041300223E-310  phi =  0.17106   class=<=50K >> class=>50K 
+Sup(CS) =  0.09487                                                                              <---     education.num=9  &  marital.status=Never-married
+
+Obs =  003164 | 000226  Gsup  = 0.12799 | 0.02882  p = 8.0493019617E-174  phi =  0.13884   class=<=50K >> class=>50K 
+Sup(CS) =  0.10411                                                                              <---     education.num=9  &  sex=Female
+
+Obs =  006661 | 001119  Gsup  = 0.26946 | 0.14271  p = 3.5717800343E-126  phi =  0.12709   class=<=50K >> class=>50K 
+Sup(CS) =  0.23894                                                                              <---     education.num=9  &  workclass=Private
+
+Obs =  008446 | 001372  Gsup  = 0.34167 | 0.17498  p = 4.8172837408E-186  phi =  0.15530   class=<=50K >> class=>50K 
+Sup(CS) =  0.30153                                                                              <---     education.num=9  &  capital.gain=0
+
+Obs =  008563 | 001535  Gsup  = 0.34640 | 0.19577  p = 4.4353058946E-148  phi =  0.13925   class=<=50K >> class=>50K 
+Sup(CS) =  0.31013                                                                              <---     education.num=9  &  capital.loss=0
+
+Obs =  002951 | 000027  Gsup  = 0.11938 | 0.00344  p = 1.5000000000E-323  phi =  0.17196   class=<=50K >> class=>50K 
+Sup(CS) =  0.09146                                                                              <---     education.num=9  &  marital.status=Never-married  &  capital.gain=0
+
+Obs =  003055 | 000178  Gsup  = 0.12358 | 0.02270  p = 8.3374595336E-193  phi =  0.14424   class=<=50K >> class=>50K 
+Sup(CS) =  0.09929                                                                              <---     education.num=9  &  sex=Female  &  capital.gain=0
+
+Obs =  008183 | 001232  Gsup  = 0.33103 | 0.15712  p = 1.2645186088E-209  phi =  0.16401   class=<=50K >> class=>50K 
+Sup(CS) =  0.28915                                                                              <---     education.num=9  &  capital.gain=0  &  capital.loss=0
+
+Obs =  010192 | 000491  Gsup  = 0.41230 | 0.06262  p = 0.0000000000E0000  phi =  0.31844   class=<=50K >> class=>50K 
+Sup(CS) =  0.32809                                                                              <---     marital.status=Never-married
+
+Obs =  009888 | 000340  Gsup  = 0.40000 | 0.04336  p = 0.0000000000E0000  phi =  0.32853   class=<=50K >> class=>50K 
+Sup(CS) =  0.31412                                                                              <---     marital.status=Never-married  &  capital.gain=0
+
+Obs =  009921 | 000448  Gsup  = 0.40133 | 0.05714  p = 0.0000000000E0000  phi =  0.31590   class=<=50K >> class=>50K 
+Sup(CS) =  0.31845                                                                              <---     marital.status=Never-married  &  capital.loss=0
+
+Obs =  009617 | 000297  Gsup  = 0.38904 | 0.03788  p = 0.0000000000E0000  phi =  0.32628   class=<=50K >> class=>50K 
+Sup(CS) =  0.30447                                                                              <---     marital.status=Never-married  &  capital.gain=0  &  capital.loss=0
+
+Obs =  009592 | 001179  Gsup  = 0.38803 | 0.15036  p = 0.0000000000E0000  phi =  0.21598   class=<=50K >> class=>50K 
+Sup(CS) =  0.33079                                                                              <---     sex=Female
+
+Obs =  007026 | 000726  Gsup  = 0.28422 | 0.09259  p = 4.5300165982E-305  phi =  0.19238   class=<=50K >> class=>50K 
+Sup(CS) =  0.23808                                                                              <---     sex=Female  &  workclass=Private
+
+Obs =  009244 | 000904  Gsup  = 0.37395 | 0.11529  p = 0.0000000000E0000  phi =  0.23878   class=<=50K >> class=>50K 
+Sup(CS) =  0.31166                                                                              <---     sex=Female  &  capital.gain=0
+
+Obs =  009324 | 001078  Gsup  = 0.37718 | 0.13748  p = 0.0000000000E0000  phi =  0.21981   class=<=50K >> class=>50K 
+Sup(CS) =  0.31946                                                                              <---     sex=Female  &  capital.loss=0
+
+Obs =  006799 | 000561  Gsup  = 0.27504 | 0.07155  p = 0.0000000000E0000  phi =  0.20802   class=<=50K >> class=>50K 
+Sup(CS) =  0.22604                                                                              <---     sex=Female  &  workclass=Private  &  capital.gain=0
+
+Obs =  006840 | 000665  Gsup  = 0.27670 | 0.08481  p = 7.4525179700E-316  phi =  0.19482   class=<=50K >> class=>50K 
+Sup(CS) =  0.23049                                                                              <---     sex=Female  &  workclass=Private  &  capital.loss=0
+
+Obs =  008976 | 000803  Gsup  = 0.36311 | 0.10241  p = 0.0000000000E0000  phi =  0.24317   class=<=50K >> class=>50K 
+Sup(CS) =  0.30033                                                                              <---     sex=Female  &  capital.gain=0  &  capital.loss=0
+
+Obs =  005918 | 007275  Gsup  = 0.75475 | 0.29430  p = 0.0000000000E0000  phi =  0.40104   class=>50K >> class=<=50K 
+Sup(CS) =  0.40518                                                                              <---     relationship=Husband
+
+Obs =  006692 | 008284  Gsup  = 0.85346 | 0.33511  p = 0.0000000000E0000  phi =  0.44470   class=>50K >> class=<=50K 
+Sup(CS) =  0.45994                                                                              <---     marital.status=Married-civ-spouse
+
+Obs =  006117 | 007251  Gsup  = 0.78013 | 0.29333  p = 0.0000000000E0000  phi =  0.42312   class=>50K >> class=<=50K 
+Sup(CS) =  0.41055                                                                              <---     marital.status=Married-civ-spouse  &  native_country=United-States
+
+Obs =  011970 | 003247  Gsup  = 0.48422 | 0.41411  p = 9.4111693579E-028  phi =  0.06009   class=<=50K >> class=>50K 
+Sup(CS) =  0.46734                                                                              <---     hours_per_week=40
+
+Obs =  008984 | 002129  Gsup  = 0.36343 | 0.27152  p = 4.3315820693E-052  phi =  0.08288   class=<=50K >> class=>50K 
+Sup(CS) =  0.34130                                                                              <---     hours_per_week=40  &  workclass=Private
+
+Obs =  011479 | 002617  Gsup  = 0.46436 | 0.33376  p = 8.8659278130E-094  phi =  0.11270   class=<=50K >> class=>50K 
+Sup(CS) =  0.43291                                                                              <---     hours_per_week=40  &  capital.gain=0
+
+Obs =  011602 | 002957  Gsup  = 0.46934 | 0.37712  p = 4.2716086574E-047  phi =  0.07930   class=<=50K >> class=>50K 
+Sup(CS) =  0.44713                                                                              <---     hours_per_week=40  &  capital.loss=0
+
+Obs =  008627 | 001736  Gsup  = 0.34899 | 0.22140  p = 6.2583652597E-104  phi =  0.11712   class=<=50K >> class=>50K 
+Sup(CS) =  0.31826                                                                              <---     hours_per_week=40  &  workclass=Private  &  capital.gain=0
+
+Obs =  008735 | 001948  Gsup  = 0.35336 | 0.24844  p = 4.7051612018E-069  phi =  0.09555   class=<=50K >> class=>50K 
+Sup(CS) =  0.32809                                                                              <---     hours_per_week=40  &  workclass=Private  &  capital.loss=0
+
+Obs =  011111 | 002327  Gsup  = 0.44947 | 0.29677  p = 3.2217861371E-130  phi =  0.13262   class=<=50K >> class=>50K 
+Sup(CS) =  0.41270                                                                              <---     hours_per_week=40  &  capital.gain=0  &  capital.loss=0
+
+Obs =  006662 | 015128  Gsup  = 0.84964 | 0.61197  p = 0.0000000000E0000  phi =  0.21598   class=>50K >> class=<=50K 
+Sup(CS) =  0.66921                                                                              <---     sex=Male
+
+Obs =  006089 | 013085  Gsup  = 0.77656 | 0.52933  p = 0.0000000000E0000  phi =  0.21484   class=>50K >> class=<=50K 
+Sup(CS) =  0.58886                                                                              <---     sex=Male  &  race=White
+
+Obs =  006099 | 013389  Gsup  = 0.77783 | 0.54163  p = 2.8570000000E-320  phi =  0.20603   class=>50K >> class=<=50K 
+Sup(CS) =  0.59851                                                                              <---     sex=Male  &  native_country=United-States
+
+Obs =  005740 | 011913  Gsup  = 0.73205 | 0.48192  p = 0.0000000000E0000  phi =  0.21466   class=>50K >> class=<=50K 
+Sup(CS) =  0.54215                                                                              <---     sex=Male  &  race=White  &  native_country=United-States
+
+Obs =  017733 | 004963  Gsup  = 0.71735 | 0.63295  p = 8.7584072241E-045  phi =  0.07853   class=<=50K >> class=>50K 
+Sup(CS) =  0.69703                                                                              <---     workclass=Private
+
+Obs =  017037 | 003927  Gsup  = 0.68920 | 0.50083  p = 4.9199255624E-197  phi =  0.16819   class=<=50K >> class=>50K 
+Sup(CS) =  0.64384                                                                              <---     workclass=Private  &  capital.gain=0
+
+Obs =  017225 | 004489  Gsup  = 0.69680 | 0.57250  p = 6.0283737330E-090  phi =  0.11276   class=<=50K >> class=>50K 
+Sup(CS) =  0.66687                                                                              <---     workclass=Private  &  capital.loss=0
+
+Obs =  016529 | 003453  Gsup  = 0.66865 | 0.44038  p = 6.8779681306E-281  phi =  0.20046   class=<=50K >> class=>50K 
+Sup(CS) =  0.61368                                                                              <---     workclass=Private  &  capital.gain=0  &  capital.loss=0
+
+Obs =  007117 | 020699  Gsup  = 0.90766 | 0.83734  p = 4.5414158736E-058  phi =  0.08522   class=>50K >> class=<=50K 
+Sup(CS) =  0.85427                                                                              <---     race=White
+
+Obs =  006704 | 018917  Gsup  = 0.85499 | 0.76525  p = 2.0704179415E-068  phi =  0.09370   class=>50K >> class=<=50K 
+Sup(CS) =  0.78686                                                                              <---     race=White  &  native_country=United-States
+
+Obs =  007171 | 021999  Gsup  = 0.91455 | 0.88993  p = 1.3161803271E-010  phi =  0.03447   class=>50K >> class=<=50K 
+Sup(CS) =  0.89586                                                                              <---     native_country=United-States
+
+Obs =  023685 | 006164  Gsup  = 0.95813 | 0.78612  p = 0.0000000000E0000  phi =  0.26616   class=<=50K >> class=>50K 
+Sup(CS) =  0.91671                                                                              <---     capital.gain=0
+
+Obs =  022939 | 005391  Gsup  = 0.92795 | 0.68754  p = 0.0000000000E0000  phi =  0.30572   class=<=50K >> class=>50K 
+Sup(CS) =  0.87006                                                                              <---     capital.gain=0  &  capital.loss=0
+
+Obs =  023974 | 007068  Gsup  = 0.96982 | 0.90142  p = 9.6545513362E-119  phi =  0.13869   class=<=50K >> class=>50K 
+Sup(CS) =  0.95335                                                                              <---     capital.loss=0
+

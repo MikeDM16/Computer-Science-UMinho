@@ -1,0 +1,383 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en-US"><head profile="http://gmpg.org/xfn/11">
+<title>   opengl silhouette at The Little Grasshopper</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="description" content="Tips and Tricks from a Graphics Programmer">
+<meta name="generator" content="WordPress 4.9.2"> <!-- leave this for stats please -->
+<link href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/style.css" rel="stylesheet" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="The Little Grasshopper RSS Feed" href="http://prideout.net/blog/?feed=rss2">
+<link rel="shortcut icon" type="image/x-png" href="http://prideout.net/favicon.ico">
+<link rel="pingback" href="http://prideout.net/blog/xmlrpc.php">
+<link rel="dns-prefetch" href="http://s.w.org/">
+<link rel="alternate" type="application/rss+xml" title="The Little Grasshopper » opengl silhouette Tag Feed" href="http://prideout.net/blog/?feed=rss2&amp;tag=opengl-silhouette">
+		<script type="text/javascript" async="" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/ga.js"></script><script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/2.3\/svg\/","svgExt":".svg","source":{"concatemoji":"http:\/\/prideout.net\/blog\/wp-includes\/js\/wp-emoji-release.min.js?ver=4.9.2"}};
+			!function(a,b,c){function d(a,b){var c=String.fromCharCode;l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,a),0,0);var d=k.toDataURL();l.clearRect(0,0,k.width,k.height),l.fillText(c.apply(this,b),0,0);var e=k.toDataURL();return d===e}function e(a){var b;if(!l||!l.fillText)return!1;switch(l.textBaseline="top",l.font="600 32px Arial",a){case"flag":return!(b=d([55356,56826,55356,56819],[55356,56826,8203,55356,56819]))&&(b=d([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]),!b);case"emoji":return b=d([55358,56794,8205,9794,65039],[55358,56794,8203,9794,65039]),!b}return!1}function f(a){var c=b.createElement("script");c.src=a,c.defer=c.type="text/javascript",b.getElementsByTagName("head")[0].appendChild(c)}var g,h,i,j,k=b.createElement("canvas"),l=k.getContext&&k.getContext("2d");for(j=Array("flag","emoji"),c.supports={everything:!0,everythingExceptFlag:!0},i=0;i<j.length;i++)c.supports[j[i]]=e(j[i]),c.supports.everything=c.supports.everything&&c.supports[j[i]],"flag"!==j[i]&&(c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&c.supports[j[i]]);c.supports.everythingExceptFlag=c.supports.everythingExceptFlag&&!c.supports.flag,c.DOMReady=!1,c.readyCallback=function(){c.DOMReady=!0},c.supports.everything||(h=function(){c.readyCallback()},b.addEventListener?(b.addEventListener("DOMContentLoaded",h,!1),a.addEventListener("load",h,!1)):(a.attachEvent("onload",h),b.attachEvent("onreadystatechange",function(){"complete"===b.readyState&&c.readyCallback()})),g=c.source||{},g.concatemoji?f(g.concatemoji):g.wpemoji&&g.twemoji&&(f(g.twemoji),f(g.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script><script src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/wp-emoji-release.js" type="text/javascript" defer="defer"></script>
+		<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+
+
+<link rel="stylesheet" id="floatbox-css" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/floatbox.css" type="text/css" media="screen">
+<link rel="stylesheet" id="floatbox-play-css" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/floatbox-play.css" type="text/css" media="screen">
+<link rel="stylesheet" id="contact-form-7-css" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/styles.css" type="text/css" media="all">
+<link rel="stylesheet" id="sexy-bookmarks-css" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/style_002.css" type="text/css" media="all">
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/jquery_002.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/jquery-migrate.js"></script>
+<link rel="https://api.w.org/" href="http://prideout.net/blog/index.php?rest_route=/">
+<link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://prideout.net/blog/xmlrpc.php?rsd">
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://prideout.net/blog/wp-includes/wlwmanifest.xml"> 
+<meta name="generator" content="WordPress 4.9.2">
+
+<!-- Floatbox Plus Plugin 1.2.20 -->
+<script type="text/javascript">
+fbPageOptions = {
+theme: 'auto',
+doAnimations: false,
+preloadAll: false,
+resizeDuration: 3.5,
+imageFadeDuration: 3.5,
+overlayFadeDuration: 4,
+splitResize: 'no',
+startAtClick: true,
+zoomImageStart: true,
+liveImageResize: false
+};
+</script>
+<!-- FloatBox Plus Plugin 1.2.20 -->
+
+<link rel="stylesheet" type="text/css" media="screen" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/wp_easy_contents.css">
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-19914519-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<link rel="stylesheet" type="text/css" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/shCore.css"><link rel="stylesheet" type="text/css" href="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/shThemeDefault.css"></head>
+
+<body>
+<div id="container" class="group">
+
+<h1><a href="http://prideout.net/blog/"><img alt="The Little Grasshopper" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/LittleGrasshopper.png" style="border:0"></a></h1>
+
+<div id="content">
+
+<h2 class="archive">Archive for the ‘opengl silhouette’ tag</h2>
+
+
+<h2 id="post-54"><a href="http://prideout.net/blog/?p=54" rel="bookmark">Silhouette Extraction</a></h2>
+<p class="comments"><a href="http://prideout.net/blog/?p=54#respond">without comments</a></p>
+
+<div class="main">
+	<p><a href="http://prideout.net/blog/p54/Toon2.png" class="floatbox" rev="group:54"><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/Toon2-Thumb.png" alt="Cel Shader" style="margin-left:5px;margin-bottom:5px;" class="alignright size-medium wp-image-12"></a></p>
+<p>Some of my previous entries used the geometry shader (GS) to 
+highlight certain triangle edges by passing new information to the 
+fragment shader.  The GS can also be used generate long, thin quads 
+along those edges; this lets you apply texturing for sketchy effects.  
+In the case of silhouette lines, you can create an anti-aliased border 
+along the boundary of the model, without the cost of true multisampling.</p>
+<p>In this article, I’ll show how to generate silhouettes using GLSL 
+geometry shaders.  At the end of the article, I provide the complete 
+demo code for drawing the dragon depicted here.  I tested the demo with 
+Ubuntu (gcc), and Windows (Visual Studio 2010).</p>
+<h2 id="classic">Old School Silhouettes</h2>
+<div id="easy_contents" class="easysmallcontents">
+<ol>
+<li><a href="#classic">Old School Silhouettes</a></li>
+<li><a href="#adjacency">Computing Adjacency</a></li>
+<li><a href="#fins">Basic Fins</a></li>
+<li><a href="#antialiased">Antialiased Fins</a></li>
+<li><a href="#spine">The Spine Test</a></li>
+<li><a href="#overhang">Mind the Gap!</a></li>
+<li><a href="#bib">Further Reading</a></li>
+<li><a href="#downloads">Downloads</a></li>
+</ol>
+</div>
+<p>Just for fun, I want to point out a classic two-pass method for 
+generating silhouettes, used in the days before shaders.  I wouldn’t 
+recommend it nowadays; it does not highlight creases and “core” OpenGL 
+no longer supports smooth/wide lines anyway.  This technique can be 
+found in <i>Under the Shade of the Rendering Tree</i> by John Lander:</p>
+<ol>
+<li>Draw front faces:
+<ul>
+<li><b>glPolygonMode(GL_FRONT, GL_FILL)</b></li>
+<li><b>glDepthFunc(GL_LESS)</b></li>
+</ul>
+</li>
+<li>Draw back faces:
+<ul>
+<li><b>glPolygonMode(GL_BACK, GL_LINE)</b></li>
+<li><b>glDepthFunc(GL_LEQUAL)</b></li>
+</ul>
+</li>
+</ol>
+<p>Ah, brings back memories…</p>
+<h2 id="adjacency">Computing Adjacency</h2>
+<p><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/Adjacency.png" style="margin-left:5px" class="alignright size-medium wp-image-12" alt="GL_TRIANGLES_ADJACENCY"></p>
+<p>To detect silhouettes and creases, the GS examines the facet normals 
+of adjacent triangles.  So, we’ll need to send down the verts using <b>GL_TRIANGLES_ADJACENCY</b>:</p>
+<div style="width:450px">
+<div id="highlighter_15587" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_15587_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_15587" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="plain">glDrawElements(GL_TRIANGLES_ADJACENCY, </code><code class="comments">// primitive type</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">triangleCount*6,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="comments">// index count</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">GL_UNSIGNED_SHORT,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="comments">// index type</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">0);&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="comments">// start index</code></td></tr></tbody></table></div></div></div>
+</div>
+<p>Six verts per triangle seems like an egregious redundancy of data, 
+but keep in mind that it enlarges your index VBO, not your attributes 
+VBO.</p>
+<p>Typical mesh files don’t include adjacency information, but it’s easy
+ enough to compute in your application.  A wonderfully simple data 
+structure for algorithms like this is the <i>Half-Edge Table</i>.</p>
+<p>For low-level mesh algorithms, I enjoy using C99 rather than C++.  I 
+find that avoiding STL makes life a bit easier when debugging, and it 
+encourages me to use memory efficiently.  Here’s a half-edge structure 
+in C:</p>
+<div id="highlighter_175528" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_175528_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_175528" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword bold">typedef</code> <code class="keyword bold">struct</code> <code class="plain">HalfEdgeRec</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">unsigned </code><code class="color1 bold">short</code> <code class="plain">Vert;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </code><code class="comments">// Vertex index at the end of this half-edge</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">struct</code> <code class="plain">HalfEdgeRec* Twin; </code><code class="comments">// Oppositely oriented adjacent half-edge</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">struct</code> <code class="plain">HalfEdgeRec* Next; </code><code class="comments">// Next half-edge around the face</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>6</code></td><td class="content"><code class="plain">} HalfEdge;</code></td></tr></tbody></table></div></div></div>
+<p>If you’ve got a half-edge structure for your mesh, it’s a simple 
+linear-time algorithm to expand an index buffer to include adjacency 
+information.  Check out the <a href="#downloads">downloads</a> section to see how I did it.</p>
+<p>By the way, you do need an associative array to build a half-edge 
+table when loading model data from a traditional mesh file.  In C++, 
+this is all too easy because of helpful libraries like <b>std::hash_map</b> and <a href="http://code.google.com/p/google-sparsehash/">Google’s Sparse Hash</a>.  For C99, I find that <a href="http://judy.sourceforge.net/">Judy arrays</a> provide a compelling way of creating associative arrays.</p>
+<h2 id="fins">Basic Fins</h2>
+<p>Now that we’ve got preliminaries out of the way, let’s start on the 
+silhouette extrusion algorithm.  We’ll start simple and  make 
+enhancements in the coming sections.  We’ll use this torus as the demo 
+model.  The image on the left shows the starting point; the image on the
+ right is our goal.<br>
+<a href="http://prideout.net/blog/p54/TorusPlain.png" class="floatbox" rev="group:54" title="Torus, with and without Silhouette"><br>
+	<img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/TorusPlain-Thumb.png" alt=""><br>
+</a></p>
+<p>Silhouette lines occur on the boundary between front-facing triangles
+ and back-facing triangles.  Let’s define a function that takes three 
+triangle corners (in screen space), returning true for front-facing 
+triangles.  To pull this off, we can take the cross product of two 
+sides.  If the Z component of the result is positive, then it’s 
+front-facing.  Since we can ignore the X and Y components of the result,
+ this reduces to:</p>
+<div id="highlighter_947185" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_947185_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_947185" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="plain">bool IsFront(vec2 A, vec2 B, vec2 C)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">return</code> <code class="plain">0 &lt; (A.x * B.y - B.x * A.y) + (B.x * C.y - C.x * B.y) + (C.x * A.y - A.x * C.y);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Incidentally, the length of the cross-product is equal to twice the area of the triangle.  But I digress…</p>
+<p>The next function emits a long, thin quadrilateral between two points.  To do this, we’ll add an <i>extrusion vector</i> to the two endpoints.  In the following snippet, <b>N</b>
+ is the extrusion vector, computed by taking the perpendicular of the 
+normalized vector between the two points, then scaling it by half the 
+desired line width:</p>
+<div id="highlighter_708882" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_708882_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_708882" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="keyword">void</code> <code class="plain">EmitEdge(vec2 P0, vec2 P1)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 V = </code><code class="functions">normalize</code><code class="plain">(P1 - P0);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 N = vec2(-V.y, V.x) * HalfWidth;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 - N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 + N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 - N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 + N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">EndPrimitive();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Next let’s write <b>main()</b> for the geometry shader.  It checks if the current triangle is frontfacing, then emits a quad for each backfacing neighbor:</p>
+<div id="highlighter_381153" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_381153_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_381153" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="plain">layout(triangles_adjacency) </code><code class="keyword">in</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="plain">layout(triangle_strip, max_vertices = 12) </code><code class="keyword">out</code><code class="plain">;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="keyword">void</code> <code class="functions">main</code><code class="plain">()</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 v0 = gl_in[0].gl_Position.xy;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 v1 = gl_in[1].gl_Position.xy;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 v2 = gl_in[2].gl_Position.xy;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 v3 = gl_in[3].gl_Position.xy;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 v4 = gl_in[4].gl_Position.xy;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 v5 = gl_in[5].gl_Position.xy;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code>&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(IsFront(v0, v2, v4)) {</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(!IsFront(v0, v1, v2)) EmitEdge(v0, v2);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(!IsFront(v2, v3, v4)) EmitEdge(v2, v4);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(!IsFront(v0, v4, v5)) EmitEdge(v4, v0);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">} </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Here’s the result:<br>
+<a href="http://prideout.net/blog/p54/TorusFins.png" class="floatbox" rev="group:54" title="Torus with Fins"><br>
+	<img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/TorusFins-Thumb.png" alt=""><br>
+</a></p>
+<p>Not too pretty.  There are three problems with this silhouette:</p>
+<ul>
+<li>The outer edge of the fin needs some antialiasing.</li>
+<li>We’re only seeing the upper half of the fin.</li>
+<li>There’s a gap between neighboring fins.</li>
+</ul>
+<p>We’ll address each of these issues in the coming sections.</p>
+<h2 id="antialiased">Antialiased Fins</h2>
+<p>First let’s add some antialiasing to those fins.  To pull this off, 
+we’ll attach a distance-from-center value to each corner of the quad.  
+In the fragment shader, we can use these values to see how far the 
+current pixel is from the edge.  If it’s less than a couple pixels away,
+ it fades the alpha value.  The <b>EmitEdge</b> function now becomes:</p>
+<div id="highlighter_342334" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_342334_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_342334" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">out</code> <code class="keyword">float</code> <code class="plain">gDist;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">HalfWidth;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="keyword">void</code> <code class="plain">EmitEdge(vec2 P0, vec2 P1)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 V = </code><code class="functions">normalize</code><code class="plain">(P1 - P0);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 N = vec2(-V.y, V.x) * HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = +HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 - N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = -HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 + N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = +HalfWidth; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 - N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = -HalfWidth; </code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 + N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">EndPrimitive();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Next is the fragment shader, which uses the <b>tipLength</b> variable to represent the length of the desired alpha gradient.  We leverage GLSL’s built-in <b>fwidth</b> function to prevent it from looking fuzzy when zoomed in:</p>
+<div id="highlighter_572656" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_572656_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_572656" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">in</code> <code class="keyword">float</code> <code class="plain">gDist;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="keyword">out</code> <code class="keyword">vec4</code> <code class="plain">fColor;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="plain">const </code><code class="keyword">vec3</code> <code class="plain">LineColor = </code><code class="keyword">vec3</code><code class="plain">(0, 0, 0);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="keyword">void</code> <code class="functions">main</code><code class="plain">()</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">alpha = 1.0;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">d = abs(gDist);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">tipLength = 2.0 * </code><code class="functions">fwidth</code><code class="plain">(d);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(d &gt; HalfWidth - tipLength)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">alpha = 1.0 - (d - HalfWidth + tipLength) / tipLength;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fColor = </code><code class="keyword">vec4</code><code class="plain">(LineColor, alpha);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Here’s the result:<br>
+<a href="http://prideout.net/blog/p54/TorusAa.png" class="floatbox" rev="group:54" title="Torus with Antialiased Fins"><br>
+	<img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/TorusAa-Thumb.png" alt=""><br>
+</a></p>
+<h2 id="spine">The Spine Test</h2>
+<p>We extruded in both directions, so why are we seeing only half of the
+ fin?  The issue lies with depth testing.  We could simply disable all 
+depth testing during the silhouette pass, but then we’d see creases from
+ the opposite side of the model.  The correct trick is to perform depth 
+testing along the centerline of the quad, rather than at the current 
+fragment.  This method is called <i>spine testing</i>, and it was introduced by a recent paper from Forrester Cole and Adam Finkelstein.</p>
+<p>In order to perform custom depth testing, we’ll need to do an early Z
+ pass.  An early Z pass is often useful for other reasons, especially 
+for scenes with high depth complexity.  In our demo program, we generate
+ a <i>G-Buffer</i> containing normals and depths:</p>
+<p><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/GBuffer.png" alt="G-Buffer" style="border:0"></p>
+<p>The normals are used for per-pixel lighting while the depths are used
+ for spine testing.  The fragment shader for G-Buffer generation is 
+exceedingly simple; it simply transforms the normals into the [0,1] 
+range and writes them out:</p>
+<div id="highlighter_889709" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_889709_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_889709" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>1</code></td><td class="content"><code class="keyword">in</code> <code class="keyword">vec3</code> <code class="plain">vNormal;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>2</code></td><td class="content"><code class="keyword">out</code> <code class="keyword">vec3</code> <code class="plain">fColor;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>3</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>4</code></td><td class="content"><code class="keyword">void</code> <code class="functions">main</code><code class="plain">()</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>5</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>6</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fColor = (vNormal + 1.0) * 0.5;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>7</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>When rendering silhouette lines, the fragment shader will need 
+texture coordinates for the spine.  The geometry shader comes to the 
+rescue again.  It simply transforms the device coordinates of the quad’s
+ endpoints into texture coordinates, then writes them out to a new 
+output variable:</p>
+<div id="highlighter_74607" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_74607_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_74607" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">out</code> <code class="keyword">float</code> <code class="plain">gDist;</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="keyword">out</code> <code class="plain">vec2 gSpine;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="keyword">void</code> <code class="plain">EmitEdge(vec2 P0, vec2 P1)</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 V = </code><code class="functions">normalize</code><code class="plain">(P1 - P0);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 N = vec2(-V.y, V.x) * HalfWidth;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gSpine = (P0 + 1.0) * 0.5;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = +HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 - N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = -HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 + N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gSpine = (P1 + 1.0) * 0.5;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = +HalfWidth; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 - N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = -HalfWidth; </code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 + N, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">EndPrimitive();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Next we enhance the fragment shader to issue a <b>discard</b> for fragments that fail the custom depth test:</p>
+<div id="highlighter_566175" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_566175_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_566175" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">in</code> <code class="keyword">float</code> <code class="plain">gDist;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="keyword">in</code> <code class="plain">vec2 gSpine;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="keyword">out</code> <code class="keyword">vec4</code> <code class="plain">fColor;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">HalfWidth;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content"><code class="keyword">uniform</code> <code class="plain">sampler2D DepthSampler;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="keyword">uniform</code> <code class="plain">vec2 Size;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="keyword">void</code> <code class="functions">main</code><code class="plain">()</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 texCoord = gSpine;</code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>11</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">depth = texture2D(DepthSampler, texCoord).r;</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(depth &lt; gl_FragCoord.z)</code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">discard;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>14</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">alpha = 1.0;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">d = abs(gDist);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">float</code> <code class="plain">tipLength = 2.0 * </code><code class="functions">fwidth</code><code class="plain">(d);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="keyword">if</code> <code class="plain">(d &gt; HalfWidth - tipLength)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">alpha = 1.0 - (d - HalfWidth + tipLength) / tipLength;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">fColor = </code><code class="keyword">vec4</code><code class="plain">(0, 0, 0, alpha);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>22</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Here’s the result.  Note that the fin now extends below the contour, allowing you to see the AA on both ends.<br>
+<a href="http://prideout.net/blog/p54/TorusSpine.png" class="floatbox" rev="group:54" title="Torus with the Spine Test"><br>
+	<img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/TorusSpine-Thumb.png" alt=""><br>
+</a></p>
+<h2 id="overhang">Mind the Gap!</h2>
+<p>Next let’s fill in those gaps, creating the illusion of a single, 
+seamless line.  Some researchers create new triangles on either end of 
+the fin, using vertex normals to determine the shape of those triangles.
+  In practice I found this tricky to work with, especially since vertex 
+normals are usually intended for 3D lighting, not screen-space effects. 
+ I found it easier to simply extend the lengths of the quads that I’m 
+already generating.  Sure, this causes too much overlap in some places, 
+but it doesn’t seem to hurt the final image quality much.  The 
+percentage by which to extend the fin length is controlled via the <b>OverhangLength</b> shader uniform in the following snippet:</p>
+<div id="highlighter_919607" class="syntaxhighlighter  "><div class="bar"><div class="toolbar"><a href="#viewSource" title="view source" style="width: 16px; height: 16px;" class="item viewSource">view source</a><div class="item copyToClipboard"><embed id="highlighter_919607_clipboard" type="application/x-shockwave-flash" title="copy to clipboard" allowscriptaccess="always" wmode="transparent" flashvars="highlighterId=highlighter_919607" menu="false" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/clipboard.swf" width="16" height="16"></div><a href="#printSource" title="print" style="width: 16px; height: 16px;" class="item printSource">print</a><a href="#about" title="?" style="width: 16px; height: 16px;" class="item about">?</a></div></div><div class="lines"><div class="line alt1"><table><tbody><tr><td class="number"><code>01</code></td><td class="content"><code class="keyword">out</code> <code class="keyword">float</code> <code class="plain">gDist;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>02</code></td><td class="content"><code class="keyword">out</code> <code class="plain">vec2 gSpine;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>03</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>04</code></td><td class="content"><code class="keyword">uniform</code> <code class="keyword">float</code> <code class="plain">OverhangLength;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>05</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>06</code></td><td class="content"><code class="keyword">void</code> <code class="plain">EmitEdge(vec2 P0, vec2 P1)</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>07</code></td><td class="content"><code class="plain">{</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>08</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 E = OverhangLength * (P1 - P0);</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>09</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 V = </code><code class="functions">normalize</code><code class="plain">(E);</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>10</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">vec2 N = vec2(-V.y, V.x) * HalfWidth;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>11</code></td><td class="content">&nbsp;</td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>12</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gSpine = (P0 + 1.0) * 0.5;</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>13</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = +HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>14</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 - N - E, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>15</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = -HalfWidth;</code></td></tr></tbody></table></div><div class="line alt2 highlighted"><table><tbody><tr><td class="number"><code>16</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P0 + N - E, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>17</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gSpine = (P1 + 1.0) * 0.5;</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>18</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = +HalfWidth; </code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>19</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 - N + E, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>20</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gDist = -HalfWidth; </code></td></tr></tbody></table></div><div class="line alt1 highlighted"><table><tbody><tr><td class="number"><code>21</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">gl_Position = </code><code class="keyword">vec4</code><code class="plain">(P1 + N + E, 0, 1); EmitVertex();</code></td></tr></tbody></table></div><div class="line alt2"><table><tbody><tr><td class="number"><code>22</code></td><td class="content"><code class="spaces">&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="plain">EndPrimitive();</code></td></tr></tbody></table></div><div class="line alt1"><table><tbody><tr><td class="number"><code>23</code></td><td class="content"><code class="plain">}</code></td></tr></tbody></table></div></div></div>
+<p>Here’s the final result:<br>
+<a href="http://prideout.net/blog/p54/TorusOverhang.png" class="floatbox" rev="group:54" title="Torus with Extended Fins"><br>
+	<img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/TorusOverhang-Thumb.png" alt=""><br>
+</a></p>
+<h2 id="bib">Further Reading</h2>
+<p>These are some of the resources that gave me ideas for this blog post:</p>
+<ul>
+<li>
+There’s a nice <a href="http://www.gamasutra.com/view/feature/1644/sponsored_feature_inking_the_.php?print=1">article</a> at Gamasutra about silhouette rendering with DirectX 10, written by an old colleague of mine, Josh Doss.
+</li>
+<li>
+Achieving AA by drawing lines on top of the model is called <i>edge overdraw</i>, which was written about in this <a href="http://research.microsoft.com/en-us/um/people/hoppe/overdraw.pdf">2001 paper</a> by Hughes Hoppe and others.
+</li>
+<li>
+My silhouette lines are centered at the boundary, rather than extending 
+only in the outwards direction.  To achieve this, I use the “spine 
+test”, which was introduced in a nice paper entitled <a href="http://www.cs.princeton.edu/gfx/pubs/Cole_2010_TFM/">Two Fast Methods for High-Quality Line Visibility</a>, by Forrester Cole and Adam Finkelstein.
+</li>
+<li>
+To learn how to generate texture coordinates for fins (e.g., sketchy 
+lines), and a different way of dealing with the gap between fins, check 
+out a paper entitled <i>Single Pass GPU Stylized Edges</i>, by Hermosilla and Vázquez.
+</li>
+</ul>
+<h2 id="downloads">Downloads</h2>
+<p>The demo code uses a subset of the <a href="http://prideout.net/blog/?p=36">Pez ecosystem</a>, which is included in the zip below.</p>
+<ul>
+<li><a href="http://prideout.net/blog/p54/Silhouette.zip">Silhouette.zip</a></li>
+<li><a href="http://prideout.net/blog/p54/Silhouette.c">Silhouette.c</a></li>
+<li><a href="http://prideout.net/blog/p54/Silhouette.glsl">Silhouette.glsl</a></li>
+<li><a href="http://prideout.net/blog/p54/Adjacency.c">Adjacency.c</a></li>
+</ul>
+<p>I consider this code to be on the public domain.</p>
+<p><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/Diffuse.png" alt="Chinese Dragon" style="border:0"></p>
+</div>
+
+<div class="meta group">
+<div class="signature">
+    <p>Written by Philip Rideout <span class="edit"></span></p>
+    <p>October 24th, 2010 at 1:10 am</p>
+</div>	
+<div class="tags">
+    <p>Posted in <a href="http://prideout.net/blog/?cat=19" rel="category">C++</a>,<a href="http://prideout.net/blog/?cat=3" rel="category">OpenGL</a></p>
+    <p>Tagged with <a href="http://prideout.net/blog/?tag=opengl-silhouette" rel="tag">opengl silhouette</a></p></div>
+</div>
+
+
+
+<div class="navigation group">
+	<div class="alignleft"></div>
+	<div class="alignright"></div>
+</div>
+
+</div> 
+
+<div id="sidebar">
+<h3>Blog</h3>			<div class="textwidget"><p><a href="http://prideout.net/">Home</a><br>
+<a href="http://prideout.net/blog/?page_id=8">Contact</a><br>
+<a href="http://prideout.net/blog/wp-admin/">Admin</a></p>
+</div>
+		<h3>Links</h3>
+	<ul class="xoxo blogroll">
+<li><a href="http://prideout.net/archive/projects.html" rel="me">Old Stuff</a></li>
+<li><a href="http://vimeo.com/user5152196/videos">Videos</a></li>
+
+	</ul>
+
+<h3>Publications</h3>			<div class="textwidget"><a href="http://amzn.to/do1nHZ">iPhone 3D</a>
+<br>
+<a href="http://amzn.to/fYd5Bq">GPU Pro 2</a></div>
+		<h3>Code</h3>			<div class="textwidget"><a href="http://examples.oreilly.com/9780596804831/">iPhone 3D</a>
+<br>
+<a href="https://github.com/prideout">GitHub</a></div>
+					<div class="textwidget"><br>
+
+<a href="http://www.twitter.com/prideout"><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/bw-twitter.png" style="border:none" alt="Follow prideout on Twitter"></a>
+
+<a href="http://www.linkedin.com/in/prideout"><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/bw-linkedin.png" style="border:none" alt="View Philip Rideout's profile on LinkedIn"></a>
+
+<a href="http://prideout.net/blog/?feed=rss2"><img src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/bw-rss.png" style="border:none" alt="RSS"></a></div>
+		
+
+</div>
+
+</div>
+
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/shCore.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/shBrushCpp.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/shBrushGlsl.js"></script>
+<script type="text/javascript">
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://prideout.net/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shCore.css?ver=2.1.364b";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(corecss);
+		var themecssurl = "http://prideout.net/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/styles/shThemeDefault.css?ver=2.1.364b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		document.getElementsByTagName("head")[0].appendChild(themecss);
+	})();
+	SyntaxHighlighter.config.clipboardSwf = 'http://prideout.net/blog/wp-content/plugins/syntaxhighlighter/syntaxhighlighter/scripts/clipboard.swf';
+	SyntaxHighlighter.config.strings.expandSource = 'show source';
+	SyntaxHighlighter.config.strings.viewSource = 'view source';
+	SyntaxHighlighter.config.strings.copyToClipboard = 'copy to clipboard';
+	SyntaxHighlighter.config.strings.copyToClipboardConfirmation = 'The code is in your clipboard now';
+	SyntaxHighlighter.config.strings.print = 'print';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.all();
+</script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/floatbox.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/options.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/jquery.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/scripts.js"></script>
+<script type="text/javascript" src="opengl%20silhouette%20at%20The%20Little%20Grasshopper_arquivos/wp-embed.js"></script>
+
+
+</body></html>

@@ -1,0 +1,117 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.1 -M 2
+Relation:     segment
+Instances:    1500
+Attributes:   20
+              region-centroid-col
+              region-centroid-row
+              region-pixel-count
+              short-line-density-5
+              short-line-density-2
+              vedge-mean
+              vegde-sd
+              hedge-mean
+              hedge-sd
+              intensity-mean
+              rawred-mean
+              rawblue-mean
+              rawgreen-mean
+              exred-mean
+              exblue-mean
+              exgreen-mean
+              value-mean
+              saturation-mean
+              hue-mean
+              class
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+region-centroid-row <= 155
+|   value-mean <= 91.4444
+|   |   rawred-mean <= 24.6667
+|   |   |   hue-mean <= -1.89048
+|   |   |   |   hue-mean <= -2.22266
+|   |   |   |   |   region-centroid-row <= 146: foliage (102.0/1.0)
+|   |   |   |   |   region-centroid-row > 146: cement (3.0)
+|   |   |   |   hue-mean > -2.22266
+|   |   |   |   |   rawred-mean <= 2.55556
+|   |   |   |   |   |   hue-mean <= -2.09121
+|   |   |   |   |   |   |   region-centroid-row <= 129: foliage (50.0)
+|   |   |   |   |   |   |   region-centroid-row > 129
+|   |   |   |   |   |   |   |   region-centroid-col <= 128
+|   |   |   |   |   |   |   |   |   rawred-mean <= 0.666667: foliage (30.0/4.0)
+|   |   |   |   |   |   |   |   |   rawred-mean > 0.666667: window (5.0)
+|   |   |   |   |   |   |   |   region-centroid-col > 128: window (16.0/2.0)
+|   |   |   |   |   |   hue-mean > -2.09121: window (38.0/1.0)
+|   |   |   |   |   rawred-mean > 2.55556
+|   |   |   |   |   |   region-centroid-row <= 121
+|   |   |   |   |   |   |   exgreen-mean <= -15.4444: brickface (2.0/1.0)
+|   |   |   |   |   |   |   exgreen-mean > -15.4444: window (85.0/2.0)
+|   |   |   |   |   |   region-centroid-row > 121
+|   |   |   |   |   |   |   rawred-mean <= 7.88889
+|   |   |   |   |   |   |   |   region-centroid-col <= 43: brickface (2.0)
+|   |   |   |   |   |   |   |   region-centroid-col > 43: window (13.0/2.0)
+|   |   |   |   |   |   |   rawred-mean > 7.88889: cement (21.0/3.0)
+|   |   |   hue-mean > -1.89048
+|   |   |   |   exgreen-mean <= -4.77778: brickface (205.0/5.0)
+|   |   |   |   exgreen-mean > -4.77778
+|   |   |   |   |   hedge-mean <= 0.833335
+|   |   |   |   |   |   region-centroid-col <= 115: foliage (4.0)
+|   |   |   |   |   |   region-centroid-col > 115: window (42.0)
+|   |   |   |   |   hedge-mean > 0.833335: grass (2.0)
+|   |   rawred-mean > 24.6667
+|   |   |   hue-mean <= -2.17742
+|   |   |   |   vedge-mean <= 5: window (4.0/1.0)
+|   |   |   |   vedge-mean > 5: foliage (18.0)
+|   |   |   hue-mean > -2.17742
+|   |   |   |   rawgreen-mean <= 24.4444: brickface (3.0/1.0)
+|   |   |   |   rawgreen-mean > 24.4444: cement (180.0)
+|   value-mean > 91.4444: sky (220.0)
+region-centroid-row > 155
+|   exgreen-mean <= -2
+|   |   saturation-mean <= 0.385555
+|   |   |   region-centroid-row <= 159
+|   |   |   |   region-centroid-col <= 208: cement (3.0)
+|   |   |   |   region-centroid-col > 208: path (2.0)
+|   |   |   region-centroid-row > 159: path (234.0)
+|   |   saturation-mean > 0.385555: cement (11.0)
+|   exgreen-mean > -2: grass (205.0)
+
+Number of Leaves  : 	26
+
+Size of the tree : 	51
+
+
+Time taken to build model: 0.07 seconds
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0.01 seconds
+
+=== Summary ===
+
+Correctly Classified Instances         781               96.4198 %
+Incorrectly Classified Instances        29                3.5802 %
+Kappa statistic                          0.9582
+Mean absolute error                      0.0138
+Root mean squared error                  0.0968
+Relative absolute error                  5.6391 %
+Root relative squared error             27.6379 %
+Total Number of Instances              810     
+
+=== Confusion Matrix ===
+
+   a   b   c   d   e   f   g   <-- classified as
+ 124   0   0   0   1   0   0 |   a = brickface
+   0 110   0   0   0   0   0 |   b = sky
+   3   0 116   1   2   0   0 |   c = foliage
+   1   0   0 107   2   0   0 |   d = cement
+   2   0  10   3 110   0   1 |   e = window
+   0   0   0   0   0  94   0 |   f = path
+   0   0   1   0   0   2 120 |   g = grass
+

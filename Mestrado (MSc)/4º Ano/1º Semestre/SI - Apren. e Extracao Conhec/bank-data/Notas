@@ -1,0 +1,17 @@
+Pelo facto de existirem tantos IDs quantas instancias, estes serão unicos para cada entreda. 
+Logo nao trazem assim nenhum relevo a nivel de identificação de padrões, porque os mesmos são identificadores apenas de um individuo e nao de um conjunto de indivuduos. 
+
+Nas pessoas mais velhas, a quantidade de casos com concessão de créditos é maior que a quantidade de concessões de créditos no primeiro grupo/faixa etária. 
+
+Discretização: 
+useEqualFrequency false : colunas de alteras diferentes, porque a frequencia dentro da amplitude dos intervalos nao é sempre igual. Os intervalos tem todos a mesma amplitude.
+useEqualFrequency true: colunas com a mesma altura. Cada intervalo tem a mesma frequencia/numero de instancias. A amplitude entre intervalos nao é a mesma entre eles.
+
+
+O ultimo atributo, designado por pep, dá o resultado da atrbuição (yes ou no) do crédito.
+
+5.ii ) abrir o ficheir .arff criado e alterar a linha
+@attribute children numeric para --> @attribute children {0, 1, 2, 3}
+
+6) Quer utilizando number of rules 100 ou 50, o algoritmo define sempre 41 regras de associação.
+

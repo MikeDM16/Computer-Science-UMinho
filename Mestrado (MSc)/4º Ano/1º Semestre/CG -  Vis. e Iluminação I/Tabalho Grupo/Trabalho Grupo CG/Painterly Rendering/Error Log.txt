@@ -1,0 +1,55 @@
+<-> Creating temporary window
+
+<-> Window Class Registered
+<-> DC Created
+<-> Pixel format found
+<-> Pixel format set
+<-> Context Created
+<-> GL rendering context made current
+
+<-> WGL_ARB_extensions_string supported!
+<-> WGL_ARB_pixel_format supported!
+<-> WGL_EXT_swap_control supported!
+<-> WGL_ARB_multisample supported!
+
+<-> Destroying temporary window
+
+<-> Rendering Context made non-current
+<-> Rendering context deleted
+<-> Device Context Released
+<-> Window Destroyed
+<-> Window class unregistered
+
+<-> Replacing with WGL_extension window
+
+<-> Window Class Registered
+<-> DC Created
+<-> Pixel format set
+<-> Context Created
+<-> GL rendering context made current
+
+<-> Window Created!
+
+<-> Window Size: (640, 480)
+<-> Color Buffer Bits (R, G, B, A): (8, 8, 8, 8)
+<-> Depth Buffer Bits: 24
+<-> Stencil Buffer Bits: 8
+
+<-> Font created successfully
+<-> OpenGL Initiation Successful
+<-> Loading circle.tga in LoadUncompressed8BitTGA
+<-> Loaded circle.tga Correctly!
+<-> Loading zebras.tga in LoadCompressedTGA
+<-> Loaded zebras.tga Correctly!
+<-> Loading church.tga in LoadCompressedTGA
+<-> Loaded church.tga Correctly!
+<-> Loading lillies.tga in LoadCompressedTGA
+<-> Loaded lillies.tga Correctly!
+<-> Demo Initiation Successful
+
+<-> Rendering Context made non-current
+<-> Rendering context deleted
+<-> Device Context Released
+<-> Window Destroyed
+<-> Window class unregistered
+<-> Exiting...

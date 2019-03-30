@@ -1,0 +1,22 @@
+> caren adult.data  0.01  0.5  -s,  -ovrexe2  -Att  -heducation=Masters,education=Bachelors,education=Doctorate  -fisher  -classeducation  -Discfiage,education.num  
+
+Computation Time = 0 hrs 0 mts 1 secs 616 millis  
+
+
+Mining on dataset adult.data with 95 frequent items and with 32561 transactions.
+using minsup = 0.01000  minconf = 0.50000
+
+Rule pruning was performed using Fisher Exact test with Alpha = 0.05 
+
+
+Number of derived rules = 3  
+
+
+Intervals obtained from discretization by attribute: 
+   age : ]-oo : 17.5000], ]17.5000 : 18.5000], ]18.5000 : 19.5000], ]19.5000 : 21.5000], ]21.5000 : 23.5000], ]23.5000 : 26.5000], ]26.5000 : 38.5000], ]38.5000 : 48.5000], ]48.5000 : 55.5000], ]55.5000 : +oo[. 
+   education.num : ]-oo : 1.5000], ]1.5000 : 2.5000], ]2.5000 : 3.5000], ]3.5000 : 4.5000], ]4.5000 : 5.5000], ]5.5000 : 6.5000], ]6.5000 : 7.5000], ]7.5000 : 8.5000], ]8.5000 : 9.5000], ]9.5000 : 10.5000], ]10.5000 : 11.5000], ]11.5000 : 12.5000], ]12.5000 : 13.5000], ]13.5000 : 14.5000], ]14.5000 : 15.5000], ]15.5000 : +oo[. 
+
+
+Sup = 0.01268   Conf = 1.00000     education=Doctorate    <--    education.num=]15.5000 : +oo[
+Sup = 0.05292   Conf = 1.00000     education=Masters    <--    education.num=]13.5000 : 14.5000]
+Sup = 0.16446   Conf = 1.00000     education=Bachelors    <--    education.num=]12.5000 : 13.5000]

@@ -1,0 +1,168 @@
+/*
+Theme Name: Material Custom
+Template: material
+Author: Paul Scharf
+Version: 1.0
+Updated: 2015-02-11 08:38:48
+*/
+
+@charset "UTF-8";
+
+
+@import url("../material/stylesheets/styles.css");
+
+body
+{
+	font-family: Roboto, sans-serif;
+	color: rgba(0, 0, 0, 0.87);
+}
+
+article, .navbar-default, .widget, .copyright,
+.page-header, .comment-respond, .no-comments,
+.comments-title, ol.comments
+{
+	border: none;
+	box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+}
+
+
+article ul li, article ol li
+{
+	margin-bottom: 12px;
+}
+
+@media (max-width: 767px)
+{
+	.navbar-mv-up
+	{
+		box-shadow: none;
+	}
+
+	.navbar-mv-up .navbar-collapse.collapsing,
+	.navbar-mv-up .navbar-collapse.in
+	{
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2);
+	}
+}
+
+.widget
+{
+	margin: 0;
+	margin-bottom: 16px;
+	border-bottom: solid 1px #eee;
+}
+
+.widget:last-child
+{
+	border: none;
+}
+
+.widget li
+{
+	margin-bottom: 8px;
+}
+
+
+.sidebar
+{
+	margin-bottom: 20px;
+}
+
+.site-menu
+{
+	font-size: 19px;
+	text-transform: uppercase;
+}
+.site-menu ul
+{
+	padding: 0px;
+}
+
+@media (min-width: 767px)
+{
+	.entry-content p, .entry-content ul,
+	.entry-content ol, .entry-content dd,
+	.entry-content pre, .entry-content hr
+	{
+	    font-size: 17px;
+	    margin-bottom: 16px;
+	    margin-top: 16px;
+	}
+}
+
+.entry-content ul, .entry-content ol
+{
+	margin-top: 24px;
+	margin-bottom: 24px;
+}
+
+.entry-content pre
+{
+	padding: 0;
+	border: none;
+	box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.39);
+}
+
+
+ul.social
+{
+	padding: 0;
+}
+
+ul.social li
+{
+	list-style: none;
+	display: inline-block;
+	font-size: 200%;
+	margin-right: 10px;
+}
+
+header ul.social
+{
+	float: right;
+	margin-top: -7px;
+	margin-bottom: 0;
+}
+
+footer ul.social
+{
+	float: right;
+	margin-top: -3px;
+	margin-bottom: 0;
+	margin-right: -8px;
+	padding-left: 20px;
+}
+
+footer ul.social li
+{
+	font-size: 150%;
+}
+
+@media (max-width: 767px)
+{
+	header ul.social
+	{
+		float: none;
+		margin-top: -7px;
+		margin-left: 10px;
+		text-align: center;
+	}
+
+	.site-menu
+	{
+		padding: 0;
+		margin-bottom: 0;
+		text-align: center;
+	}
+}
+
+span.no-break
+{
+	display: inline-block;
+}
+
+.site-banner
+{
+	min-width: 100%;
+}
+

@@ -1,0 +1,67 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     iris
+Instances:    150
+Attributes:   5
+              sepallength
+              sepalwidth
+              petallength
+              petalwidth
+              class
+Test mode:    user supplied test set:  size unknown (reading incrementally)
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+petalwidth <= 0.6: Iris-setosa (50.0)
+petalwidth > 0.6
+|   petalwidth <= 1.7
+|   |   petallength <= 4.9: Iris-versicolor (48.0/1.0)
+|   |   petallength > 4.9
+|   |   |   petalwidth <= 1.5: Iris-virginica (3.0)
+|   |   |   petalwidth > 1.5: Iris-versicolor (3.0/1.0)
+|   petalwidth > 1.7: Iris-virginica (46.0/1.0)
+
+Number of Leaves  : 	5
+
+Size of the tree : 	9
+
+
+Time taken to build model: 0.02 seconds
+
+=== Predictions on test set ===
+
+    inst#     actual  predicted error prediction
+        1        1:? 1:Iris-setosa       1 
+        2        1:? 3:Iris-virginica       1 
+        3        1:? 2:Iris-versicolor       0.979 
+        4        1:? 3:Iris-virginica       1 
+        5        1:? 1:Iris-setosa       1 
+
+=== Evaluation on test set ===
+
+Time taken to test model on supplied test set: 0 seconds
+
+=== Summary ===
+
+Total Number of Instances                0     
+Ignored Class Unknown Instances                  5     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,000    0,000    0,000      0,000    0,000      0,000    ?         ?         Iris-setosa
+                 0,000    0,000    0,000      0,000    0,000      0,000    ?         ?         Iris-versicolor
+                 0,000    0,000    0,000      0,000    0,000      0,000    ?         ?         Iris-virginica
+Weighted Avg.    NaN      NaN      NaN        NaN      NaN        NaN      NaN       NaN       
+
+=== Confusion Matrix ===
+
+ a b c   <-- classified as
+ 0 0 0 | a = Iris-setosa
+ 0 0 0 | b = Iris-versicolor
+ 0 0 0 | c = Iris-virginica
+

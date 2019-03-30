@@ -1,0 +1,85 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     bank
+Instances:    300
+Attributes:   9
+              age
+              sex
+              region
+              income
+              married
+              children
+              car
+              mortgage
+              pep
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+children = YES
+|   income <= 30099.3
+|   |   car = YES: NO (50.0/15.0)
+|   |   car = NO
+|   |   |   married = YES
+|   |   |   |   income <= 13106.6: NO (9.0/2.0)
+|   |   |   |   income > 13106.6
+|   |   |   |   |   mortgage = YES: YES (12.0/3.0)
+|   |   |   |   |   mortgage = NO
+|   |   |   |   |   |   income <= 18923: YES (9.0/3.0)
+|   |   |   |   |   |   income > 18923: NO (10.0/3.0)
+|   |   |   married = NO: NO (22.0/6.0)
+|   income > 30099.3: YES (59.0/7.0)
+children = NO
+|   married = YES
+|   |   mortgage = YES
+|   |   |   region = INNER_CITY
+|   |   |   |   income <= 39547.8: YES (12.0/3.0)
+|   |   |   |   income > 39547.8: NO (4.0)
+|   |   |   region = RURAL: NO (3.0/1.0)
+|   |   |   region = TOWN: NO (9.0/2.0)
+|   |   |   region = SUBURBAN: NO (4.0/1.0)
+|   |   mortgage = NO: NO (57.0/9.0)
+|   married = NO
+|   |   mortgage = YES
+|   |   |   age <= 39
+|   |   |   |   age <= 28: NO (4.0)
+|   |   |   |   age > 28: YES (5.0/1.0)
+|   |   |   age > 39: NO (11.0)
+|   |   mortgage = NO: YES (20.0/1.0)
+
+Number of Leaves  : 	17
+
+Size of the tree : 	31
+
+
+Time taken to build model: 0.01 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances         206               68.6667 %
+Incorrectly Classified Instances        94               31.3333 %
+Kappa statistic                          0.3576
+Mean absolute error                      0.379 
+Root mean squared error                  0.4816
+Relative absolute error                 76.2791 %
+Root relative squared error             96.6145 %
+Total Number of Instances              300     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0,536    0,185    0,712      0,536    0,612      0,368    0,683     0,611     YES
+                 0,815    0,464    0,673      0,815    0,737      0,368    0,683     0,670     NO
+Weighted Avg.    0,687    0,336    0,691      0,687    0,680      0,368    0,683     0,643     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+  74  64 |   a = YES
+  30 132 |   b = NO
+

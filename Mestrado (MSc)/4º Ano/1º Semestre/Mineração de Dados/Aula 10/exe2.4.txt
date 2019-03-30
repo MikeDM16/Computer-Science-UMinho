@@ -1,0 +1,160 @@
+> caren adult.data  0.01  0.5  -s,  -ovrexe2.4  -Att  -heducation=Masters,education=Bachelors,education=Doctorate  -classeducation  -Discfiage  -CS  
+
+Computation Time = 0 hrs 0 mts 2 secs 391 millis  
+
+
+Mining on dataset adult.data with 95 frequent items and with 32561 transactions.
+
+Contrast Sets Rules derived using Fisher exact test to evaluate difference between contrasting groups 
+using minsup = 0.01000  and initial alpha value = 0.05 
+Used Layered Bonferroni Adjusted Critical Values: 
+        Level 1 Alpha' = 5.394825714760459E-8 
+        Level 2 Alpha' = 1.3023065568165878E-10 
+        Level 3 Alpha' = 7.738081619845396E-13 
+        Level 4 Alpha' = 8.761118872801827E-15 
+        Level 5 Alpha' = 1.7172763900384668E-16 
+        Level 6 Alpha' = 5.497574695733829E-18 
+        Level 7 Alpha' = 2.749356359317223E-19 
+        Level 8 Alpha' = 2.087383876227245E-20 
+        Level 9 Alpha' = 2.3765850710749856E-21 
+        Level 10 Alpha' = 4.0766118379484765E-22 
+        Level 11 Alpha' = 1.0800688813778507E-22 
+        Level 12 Alpha' = 4.668891343486061E-23 
+        Level 13 Alpha' = 3.68374405978854E-23 
+        Level 14 Alpha' = 7.012259261800884E-23 
+
+   Sum{ Alpha'(i) x S(i) }   = 0.05000000000000001
+
+ 
+Number of derived CS rules = 34  
+
+
+Intervals obtained from discretization by attribute: 
+   age : ]-oo : 17.5000], ]17.5000 : 18.5000], ]18.5000 : 19.5000], ]19.5000 : 21.5000], ]21.5000 : 23.5000], ]23.5000 : 26.5000], ]26.5000 : 38.5000], ]38.5000 : 48.5000], ]48.5000 : 55.5000], ]55.5000 : +oo[. 
+
+
+Obs =  000413 | 000000  Gsup  = 1.00000 | 0.00000  p = 0.0000000000E0000  phi =  1.00000   education=Doctorate >> education=Masters 
+Obs =  000413 | 000000  Gsup  = 1.00000 | 0.00000  p = 0.0000000000E0000  phi =  1.00000   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.01268                                                                              <---     education.num=16
+
+Obs =  000089 | 000169  Gsup  = 0.21550 | 0.09808  p = 5.1718928543E-010  phi =  0.14229   education=Doctorate >> education=Masters 
+Obs =  000089 | 000270  Gsup  = 0.21550 | 0.05042  p = 9.3030477682E-028  phi =  0.17617   education=Doctorate >> education=Bachelors 
+Obs =  000169 | 000270  Gsup  = 0.09808 | 0.05042  p = 7.1168654312E-012  phi =  0.08481   education=Masters >> education=Bachelors 
+Sup(CS) =  0.03986                                                                              <---     workclass=State-gov
+
+Obs =  000071 | 000090  Gsup  = 0.17191 | 0.01681  p = 3.0718399575E-040  phi =  0.24278   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.01084                                                                              <---     workclass=State-gov  &  class=>50K
+
+Obs =  000076 | 000121  Gsup  = 0.18402 | 0.02260  p = 4.0912489947E-038  phi =  0.22915   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.01271                                                                              <---     workclass=State-gov  &  occupation=Prof-specialty
+
+Obs =  000057 | 000321  Gsup  = 0.13801 | 0.05994  p = 2.7307470913E-008  phi =  0.08134   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.04530                                                                              <---     hours_per_week=60
+
+Obs =  000271 | 000000  Gsup  = 0.05061 | 0.00000  p = 1.0873415499E-009  phi =  0.06166   education=Bachelors >> education=Doctorate 
+Obs =  000271 | 000005  Gsup  = 0.05061 | 0.00290  p = 3.7322820782E-027  phi =  0.10576   education=Bachelors >> education=Masters 
+Sup(CS) =  0.05043                                                                              <---     age=]21.5000 : 23.5000]
+
+Obs =  001723 | 000000  Gsup  = 1.00000 | 0.00000  p = 0.0000000000E0000  phi =  1.00000   education=Masters >> education=Doctorate 
+Obs =  001723 | 000000  Gsup  = 1.00000 | 0.00000  p = 0.0000000000E0000  phi =  1.00000   education=Masters >> education=Bachelors 
+Sup(CS) =  0.05292                                                                              <---     education.num=14
+
+Obs =  000342 | 000027  Gsup  = 0.19849 | 0.06538  p = 2.1225150747E-012  phi =  0.13906   education=Masters >> education=Doctorate 
+Obs =  000342 | 000477  Gsup  = 0.19849 | 0.08908  p = 6.7824728945E-032  phi =  0.14679   education=Masters >> education=Bachelors 
+Sup(CS) =  0.06428                                                                              <---     workclass=Local-gov
+
+Obs =  000592 | 000001  Gsup  = 0.11055 | 0.00242  p = 3.0743742185E-019  phi =  0.09179   education=Bachelors >> education=Doctorate 
+Obs =  000592 | 000067  Gsup  = 0.11055 | 0.03889  p = 3.6296912680E-022  phi =  0.10584   education=Bachelors >> education=Masters 
+Sup(CS) =  0.07444                                                                              <---     age=]23.5000 : 26.5000]
+
+Obs =  000181 | 000019  Gsup  = 0.03380 | 0.01103  p = 4.7590077670E-008  phi =  0.05898   education=Bachelors >> education=Masters 
+Sup(CS) =  0.10119                                                                              <---     occupation=Other-service
+
+Obs =  000088 | 000533  Gsup  = 0.21308 | 0.09953  p = 5.8746300778E-011  phi =  0.09445   education=Doctorate >> education=Bachelors 
+Obs =  000314 | 000533  Gsup  = 0.18224 | 0.09953  p = 6.8059400747E-019  phi =  0.10936   education=Masters >> education=Bachelors 
+Sup(CS) =  0.10903                                                                              <---     age=]48.5000 : 55.5000]
+
+Obs =  000146 | 000122  Gsup  = 0.08474 | 0.02278  p = 3.3592582937E-027  phi =  0.13930   education=Masters >> education=Bachelors 
+Sup(CS) =  0.01566                                                                              <---     age=]48.5000 : 55.5000]  &  occupation=Prof-specialty
+
+Obs =  000809 | 000008  Gsup  = 0.15107 | 0.01937  p = 7.1902491372E-019  phi =  0.09739   education=Bachelors >> education=Doctorate 
+Obs =  000809 | 000134  Gsup  = 0.15107 | 0.07777  p = 2.0056346387E-016  phi =  0.09257   education=Bachelors >> education=Masters 
+Sup(CS) =  0.11210                                                                              <---     occupation=Sales
+
+Obs =  000506 | 000005  Gsup  = 0.09449 | 0.01211  p = 7.1525274834E-012  phi =  0.07475   education=Bachelors >> education=Doctorate 
+Obs =  000506 | 000068  Gsup  = 0.09449 | 0.03947  p = 4.8900351899E-015  phi =  0.08650   education=Bachelors >> education=Masters 
+Sup(CS) =  0.11578                                                                              <---     occupation=Adm-clerical
+
+Obs =  000501 | 000055  Gsup  = 0.29077 | 0.13317  p = 3.8080788325E-012  phi =  0.14184   education=Masters >> education=Doctorate 
+Obs =  001369 | 000055  Gsup  = 0.25565 | 0.13317  p = 2.6729843557E-009  phi =  0.07323   education=Bachelors >> education=Doctorate 
+Sup(CS) =  0.12487                                                                              <---     occupation=Exec-managerial
+
+Obs =  000098 | 000537  Gsup  = 0.23729 | 0.10028  p = 1.3405683094E-014  phi =  0.11286   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.12558                                                                              <---     age=]55.5000 : +oo[
+
+Obs =  000226 | 000022  Gsup  = 0.04220 | 0.01277  p = 1.6926980346E-010  phi =  0.06870   education=Bachelors >> education=Masters 
+Sup(CS) =  0.12589                                                                              <---     occupation=Craft-repair
+
+Obs =  000321 | 000844  Gsup  = 0.77724 | 0.48984  p = 2.1813493092E-027  phi =  0.22794   education=Doctorate >> education=Masters 
+Obs =  000321 | 001495  Gsup  = 0.77724 | 0.27918  p = 4.5581846633E-090  phi =  0.27648   education=Doctorate >> education=Bachelors 
+Obs =  000844 | 001495  Gsup  = 0.48984 | 0.27918  p = 7.4814530790E-057  phi =  0.19220   education=Masters >> education=Bachelors 
+Sup(CS) =  0.12715                                                                              <---     occupation=Prof-specialty
+
+Obs =  000202 | 000577  Gsup  = 0.48910 | 0.10775  p = 1.4689719365E-074  phi =  0.28768   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.05540                                                                              <---     occupation=Prof-specialty  &  relationship=Husband
+
+Obs =  000233 | 000419  Gsup  = 0.56416 | 0.24318  p = 1.0015025087E-034  phi =  0.27527   education=Doctorate >> education=Masters 
+Obs =  000233 | 000579  Gsup  = 0.56416 | 0.10812  p = 1.9540669064E-100  phi =  0.33808   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.05709                                                                              <---     occupation=Prof-specialty  &  class=>50K
+
+Obs =  000219 | 000695  Gsup  = 0.53027 | 0.12979  p = 2.4718381966E-075  phi =  0.28276   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.06529                                                                              <---     occupation=Prof-specialty  &  marital.status=Married-civ-spouse
+
+Obs =  000523 | 000007  Gsup  = 0.09767 | 0.01695  p = 9.0133479243E-011  phi =  0.07204   education=Bachelors >> education=Doctorate 
+Obs =  000523 | 000056  Gsup  = 0.09767 | 0.03250  p = 6.5407070094E-021  phi =  0.10204   education=Bachelors >> education=Masters 
+Sup(CS) =  0.15565                                                                              <---     relationship=Own-child
+
+Obs =  005355 | 000000  Gsup  = 1.00000 | 0.00000  p = 0.0000000000E0000  phi =  1.00000   education=Bachelors >> education=Doctorate 
+Obs =  005355 | 000000  Gsup  = 1.00000 | 0.00000  p = 0.0000000000E0000  phi =  1.00000   education=Bachelors >> education=Masters 
+Sup(CS) =  0.16446                                                                              <---     education.num=13
+
+Obs =  000629 | 001413  Gsup  = 0.36506 | 0.26387  p = 1.2210476847E-015  phi =  0.09585   education=Masters >> education=Bachelors 
+Sup(CS) =  0.22770                                                                              <---     age=]38.5000 : 48.5000]
+
+Obs =  000306 | 000959  Gsup  = 0.74092 | 0.55659  p = 1.9742223580E-012  phi =  0.14814   education=Doctorate >> education=Masters 
+Obs =  000306 | 002221  Gsup  = 0.74092 | 0.41475  p = 2.2603590566E-038  phi =  0.16949   education=Doctorate >> education=Bachelors 
+Obs =  000959 | 002221  Gsup  = 0.55659 | 0.41475  p = 6.0635152011E-025  phi =  0.12237   education=Masters >> education=Bachelors 
+Sup(CS) =  0.24081                                                                              <---     class=>50K
+
+Obs =  001999 | 000100  Gsup  = 0.37330 | 0.24213  p = 2.7600092711E-008  phi =  0.07029   education=Bachelors >> education=Doctorate 
+Obs =  001999 | 000462  Gsup  = 0.37330 | 0.26814  p = 3.8471578329E-016  phi =  0.09476   education=Bachelors >> education=Masters 
+Sup(CS) =  0.31670                                                                              <---     age=]26.5000 : 38.5000]
+
+Obs =  001795 | 000073  Gsup  = 0.33520 | 0.17676  p = 2.5752271157E-012  phi =  0.08730   education=Bachelors >> education=Doctorate 
+Obs =  001795 | 000404  Gsup  = 0.33520 | 0.23447  p = 7.9263736218E-016  phi =  0.09341   education=Bachelors >> education=Masters 
+Sup(CS) =  0.32809                                                                              <---     marital.status=Never-married
+
+Obs =  000265 | 002433  Gsup  = 0.64165 | 0.45434  p = 1.2647585863E-013  phi =  0.09679   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.40518                                                                              <---     relationship=Husband
+
+Obs =  000286 | 002768  Gsup  = 0.69249 | 0.51690  p = 2.0068156832E-012  phi =  0.09070   education=Doctorate >> education=Bachelors 
+Sup(CS) =  0.45994                                                                              <---     marital.status=Married-civ-spouse
+
+Obs =  002299 | 000122  Gsup  = 0.42932 | 0.29540  p = 4.2817045037E-008  phi =  0.06996   education=Bachelors >> education=Doctorate 
+Sup(CS) =  0.46734                                                                              <---     hours_per_week=40
+
+Obs =  003551 | 000181  Gsup  = 0.66312 | 0.43826  p = 2.0579691121E-019  phi =  0.12131   education=Bachelors >> education=Doctorate 
+Obs =  003551 | 000894  Gsup  = 0.66312 | 0.51886  p = 9.3245644193E-027  phi =  0.12808   education=Bachelors >> education=Masters 
+Sup(CS) =  0.69703                                                                              <---     workclass=Private
+
+Obs =  002056 | 000360  Gsup  = 0.38394 | 0.20894  p = 5.7718735500E-043  phi =  0.15839   education=Bachelors >> education=Masters 
+Sup(CS) =  0.54461                                                                              <---     workclass=Private  &  class=<=50K
+
+Obs =  000764 | 000107  Gsup  = 0.44341 | 0.25908  p = 1.9742223580E-012  phi =  0.14814   education=Masters >> education=Doctorate 
+Obs =  003134 | 000107  Gsup  = 0.58525 | 0.25908  p = 2.2603590566E-038  phi =  0.16949   education=Bachelors >> education=Doctorate 
+Obs =  003134 | 000764  Gsup  = 0.58525 | 0.44341  p = 6.0635152010E-025  phi =  0.12237   education=Bachelors >> education=Masters 
+Sup(CS) =  0.75919                                                                              <---     class=<=50K
+
+Obs =  004766 | 000328  Gsup  = 0.89001 | 0.79419  p = 4.7131618631E-008  phi =  0.07690   education=Bachelors >> education=Doctorate 
+Sup(CS) =  0.89586                                                                              <---     native_country=United-States
+

@@ -1,0 +1,36 @@
+.dsq-widget-user{
+	text-decoration:none;
+	display:block;
+	color:#0EAB2A;
+}
+
+.dsq-widget-comment{
+	display:block;
+}
+
+.dsq-widget-meta a{
+	text-decoration:none;
+}
+
+.dsq-widget-item{
+	border-left:3px solid #16B560;
+	padding-left:10px;
+	transition-property: background-color, color;
+	transition-duration: 1s;
+	transition-timing-function: ease-out;
+}
+
+.dsq-widget-item p a{
+	text-decoration:none;
+	color:#0EAB2A;
+}
+
+.dsq-widget-item:hover{
+	border-left:3px solid #16B560;
+	padding-left:10px;
+	background-color:#EDFAF3;
+}
+
+.dsq-widget-avatar{
+	border-radius:100px;
+}

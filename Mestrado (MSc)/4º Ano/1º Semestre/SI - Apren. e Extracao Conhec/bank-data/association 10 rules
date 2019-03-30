@@ -1,0 +1,52 @@
+=== Run information ===
+
+Scheme:       weka.associations.Apriori -N 10 -T 0 -C 0.9 -D 0.05 -U 1.0 -M 0.1 -S -1.0 -c -1
+Relation:     bank-data-weka.filters.unsupervised.attribute.Remove-R1-weka.filters.unsupervised.attribute.Discretize-B3-M-1.0-Rfirst-last
+Instances:    600
+Attributes:   11
+              age
+              sex
+              region
+              income
+              married
+              children
+              car
+              save_act
+              current_act
+              mortgage
+              pep
+=== Associator model (full training set) ===
+
+
+Apriori
+=======
+
+Minimum support: 0.1 (60 instances)
+Minimum metric <confidence>: 0.9
+Number of cycles performed: 18
+
+Generated sets of large itemsets:
+
+Size of set of large itemsets L(1): 28
+
+Size of set of large itemsets L(2): 232
+
+Size of set of large itemsets L(3): 524
+
+Size of set of large itemsets L(4): 277
+
+Size of set of large itemsets L(5): 33
+
+Best rules found:
+
+ 1. income='(43758.136667-inf)' 80 ==> save_act=YES 80    <conf:(1)> lift:(1.45) lev:(0.04) [24] conv:(24.8)
+ 2. age='(50.666667-inf)' income='(43758.136667-inf)' 76 ==> save_act=YES 76    <conf:(1)> lift:(1.45) lev:(0.04) [23] conv:(23.56)
+ 3. income='(43758.136667-inf)' current_act=YES 63 ==> save_act=YES 63    <conf:(1)> lift:(1.45) lev:(0.03) [19] conv:(19.53)
+ 4. age='(50.666667-inf)' income='(43758.136667-inf)' current_act=YES 61 ==> save_act=YES 61    <conf:(1)> lift:(1.45) lev:(0.03) [18] conv:(18.91)
+ 5. children=0 save_act=YES mortgage=NO pep=NO 74 ==> married=YES 73    <conf:(0.99)> lift:(1.49) lev:(0.04) [24] conv:(12.58)
+ 6. sex=FEMALE children=0 mortgage=NO pep=NO 64 ==> married=YES 63    <conf:(0.98)> lift:(1.49) lev:(0.03) [20] conv:(10.88)
+ 7. children=0 current_act=YES mortgage=NO pep=NO 82 ==> married=YES 80    <conf:(0.98)> lift:(1.48) lev:(0.04) [25] conv:(9.29)
+ 8. children=0 mortgage=NO pep=NO 107 ==> married=YES 104    <conf:(0.97)> lift:(1.47) lev:(0.06) [33] conv:(9.1)
+ 9. income='(43758.136667-inf)' current_act=YES 63 ==> age='(50.666667-inf)' 61    <conf:(0.97)> lift:(3.04) lev:(0.07) [40] conv:(14.31)
+10. income='(43758.136667-inf)' save_act=YES current_act=YES 63 ==> age='(50.666667-inf)' 61    <conf:(0.97)> lift:(3.04) lev:(0.07) [40] conv:(14.31)
+

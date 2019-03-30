@@ -1,0 +1,34 @@
+Shader Validation ID: 0: ¡H¡Ø¡
+
+Shader Validation ID: 1: ¡H¡Ø¡
+
+Shader Validation ID: 2: ¡H¡Ø¡
+
+Shader Validation ID: 3: ¡H¡Ø¡
+
+Shader Validation ID: 4: ¡H¡Ø¡
+
+Shader Validation ID: 5: ¡H¡Ø¡
+
+Framebuffer Complete
+
+Framebuffer Complete
+
+Framebuffer Complete
+
+Framebuffer Complete
+
+Framebuffer Complete
+
+Starting NPR Demo...
+
+Loading Models...
+
+Loading Waypoints...
+
+Initializing Characters...
+
+Loading BSN...
+
+BSN Loaded!
+

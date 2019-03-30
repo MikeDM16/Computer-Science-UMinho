@@ -1,0 +1,612 @@
+
+README-predict
+
+30-1-2008
+(ver. 1.7.2)
+
+
+This is a readme file for the predict module of the CAREN system.
+
+The aim of this module is to provide a simple yet efficient tool for using association rules, derived from the caren engine,
+as prediction models. This program assumes datasets in attribute/value CAREN like format i.e. first line represents 
+attributes names separated by the same symbol as the one used in the data.
+In basket format this comment line should not exist (it would be interpreted as a transaction).
+Switch -Atr defines attribute/value mode and -Bas basket mode. As in CAREN, separator is defined using switch -s.
+
+Predict uses models derived by caren. These models are .prm files which store rules representation and additional 
+information (like null values, classes, etc etc). The basic command to derive predictions is:
+
+> java predict models test-file -classCLASS -Atr
+
+where test-file is a file in caren format. The models file is a .prm file which contains the model to be used for prediction.
+This simple command makes use of the model in models.prm to derive predictions for the test-file using the BestRule 
+strategy with confidence measure. This is the $predict$ module default strategy. The target attribute is defined by the 
+-class switch. Default is the last attribute in test-file.
+Predict assumes that test-file contains the correct values for the target attribute.
+Following this assumption, $predict$ outputs prediction performance for model models.prm on test-file.
+Here's an example of a command (and output) for building a model out of the training set example.atr 
+(t.prm is the model file).
+
+>java caren example.atr 0.1 0.5 -Att -pt -classCLASS -HCLASS
+
+
+CareN - (Depth First Expansion for classification 1.3)   version  2.5
+Attribute/Value mode
+NumOfAtribs = 6 MinSup = 0.10000    SupAbsValue = 2     MinConf =  0.50000  NumOfRecords = 25   DataSet = example.atr
+NumItems = 51    NumFrequentItems = 18
+ end counting 1-itemsets ....
+ end bitmaps mounting....
+ Deriving rules ...... for max size = 6
+ Filtering rules using minimal Confidence
+ Depth-First Expansion....
+ Applying on 18 frequent items
+ Performing item:    18.
+
+End of itemsets counting  ......
+
+
+
+
+Building Prediction Model from derived 28 Association Rules....
+Saving all default rules...
+
+Saving model...
+
+
+Total Time spent = 0 hrs 0 mts 0 secs 907 millis
+
+
+
+
+File t.prm.info contains information on how model t.prm was derived.
+
+
+
+
+
+>java predict t example.atr -Att -classCLASS
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on an Att/value dataset...
+Starting to Classify...
+   (BestRule - Confidence)
+
+
+Accuracy     = 0.960000
+Error        = 0.040000
+
+Dclass Error = 0.600000
+
+
+
+Time spent = 0 hrs 0 mts 0 secs
+
+
+
+Here, accuracy refers to the ratio of correct answers. The error value is defined as: Error = 1 - accuracy.
+Dclass is a reference for measuring how bad a model is. It measures the error for the default classifier 
+(a classifier that always predict the default class). Models with error rate close to the Dclass error are irrelevant and 
+useless. 
+
+Predict implements 10 version of the BestRule strategy (one for each interest rule measure). Do
+
+> java predict -help
+
+to check the corresponding switches. The same number exists for the Voting strategy. Voting collects all firing rules for a 
+new case and predicts the winning voted class. Each rule votes by making use of the associated interest value. The switch 
+for voting is -vote.
+An extra voting strategy exists for measures with ranging values within [0,1]. We call this strategy Class Distribution.
+It is a basic voting strategy but that distributes residual values among the non voted classes. For instance, if a 
+rule r1 with conf=0.8 votes in class c1 then its residual confidence value (0.2) is uniformly distributed among the other 
+classes e.g. 0.1 in c2 and 0.1 in c3. The switch for this strategy is -dist.
+
+One can obtain the scored error rates for a specific model and test file using all strategies by applying the switch -all.
+The results are writing in a file .res. Here's an example:
+
+
+> java predict t example.atr -Att -classCLASS -all
+
+The result file is example.atr.res which contains:
+
+BR_conf;BR_lift;BR_conv;BR_chi;BR_lapl;BR_lev;BR_jacc;BR_cos;BR_phi;BR_MI;BR_WRA;Voting_conf;Voting_lift;Voting_conv;Voting_chi;Voting_lapl;Voting_Lev;Voting_Jacc;Voting_Cos;Voti
+ng_Phi;Voting_MI;Voting_WRA;Class_dist_conf;Class_dist_lapl;Def_error
+0.040000000000000036;0.040000000000000036;0.040000000000000036;0.040000000000000036;0.040000000000000036;0.040000000000000036;0.040000000000000036;0.040000000000000036;0.04000000
+0000000036;0.040000000000000036;0.040000000000000036;0.040000000000000036;0.07999999999999996;0.040000000000000036;0.040000000000000036;0.07999999999999996;0.07999999999999996;0.
+07999999999999996;0.07999999999999996;0.07999999999999996;0.24;0.07999999999999996;0.040000000000000036;0.040000000000000036;0.6
+
+
+
+Predict implements specific prediction strategies that make use of models composition. One of them is Post-bagging. 
+This ensemble strategy has similarities with traditional bagging. However, in Post-bagging bootstrapping aggregation is 
+performed on rules rather than on cases. The switch for Post-bagging is -bag. It makes use of three parameters. The first 
+is a seed for random sampling. Second and third are respectively number of bags that vote and size of each bag in number of 
+rules (a percentage of the total number of available rules). 
+All BestRule and Voting strategies can be applied in Post-bagging. One can also use -all to obtained the error rate results
+for all post-bagging strategies. Here's an example:
+
+> java predict t example.atr -Att -classCLASS -all -bag1,33,0.8  
+
+
+In this example, the seed is 1, the number of bags is 33 and the size of each bag (in number of rules) is 80% of the number 
+of available rules. There is also the possibility to enable bags to vote ''don't know'' in Post-bagging. 
+The associated switch for this feature is -dk.
+For more details on Post-bagging read file README-log.
+
+Another ensembling method recently added to $predict$ is IRE. Iterative Reordering is a boost-like method that reweights 
+rules along the construction of trials (models). Each trial is obtained by performing BestRule on the training set. 
+The weight, opposing to traditional boosting, is the rule interest measure. The interest measure of each rule is adjusted 
+according to rule's prediction performance. Only BestRule using confidence, lift, conviction, laplace, leverage, jaccard, cosine and phi are available for IRE ensembling.
+Trials can vote by using the winning rule interest measure or by using trial's accuracy. The switch for IRE method 
+is -ire and uses two parameters. They are, respectively, the training set path and the number of trials. 
+To apply trial voting using trial accuracy use -vote together with -ire.
+Here's an example of usage:
+
+> java predict t example.atr -Att -classCLASS -ireexample.atr,10
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on an Att/value dataset...
+IRE of rules using an Ensemble of Models....  Filtering is off
+   (Trial Vote using - Confidence)
+ Num_of_trials = 10
+
+ Building trials
+ Reading training data from     example.atr
+
+ Trial  0    NumOfRules = 28
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  1    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  2    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  3    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  4    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  5    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  6    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  7    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  8    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+ Trial  9    NumOfRules = 8
+ Performing instance:     25 Accuracy = 0.920000
+
+Starting to classify...
+ Performing instance:     25
+
+Accuracy     = 0.920000
+Error        = 0.080000
+
+Dclass Error = 0.600000
+
+
+
+Time spent = 0 hrs 0 mts 0 secs
+
+
+There is also available a set of features to work with IRE. One is -filter, to filter out rules without use during trial 
+construction and -noens to not compose models (trials) and used the final trial as the prediction model. One can also 
+use -all to obtain a file .res with all IRE strategies results.
+For more details on the IRE method read file README-log.
+
+
+
+
+
+
+
+
+
+Output options:
+
+Predict offers a set of switches to produced case by case prediction. The basic one is -W which outputs
+the real class and the predicted class.
+The command 
+
+> java predict t example.atr -Att -classCLASS -W
+
+yields
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on an Att/value dataset...
+Starting to Classify...
+   (BestRule - Confidence)
+ Value -> CLASS=A      Predict -> CLASS=A
+ Value -> CLASS=B      Predict -> CLASS=B
+ Value -> CLASS=A      Predict -> CLASS=A
+ Value -> CLASS=A      Predict -> CLASS=A
+ Value -> CLASS=B      Predict -> CLASS=B
+ Value -> CLASS=A      Predict -> CLASS=A
+ Value -> CLASS=C      Predict -> CLASS=C
+ Value -> CLASS=A      Predict -> CLASS=A
+ Value -> CLASS=B      Predict -> CLASS=B
+ Value -> CLASS=C      Predict -> CLASS=C
+ Value -> CLASS=C      Predict -> CLASS=C
+ Value -> CLASS=C      Predict -> CLASS=C
+ Value -> CLASS=C      Predict -> CLASS=C
+ Value -> CLASS=C      Predict -> CLASS=C
+ Value -> CLASS=B      Predict -> CLASS=B
+
+... etc.
+
+On the other hand, -I yields a more complete output where, for each prediction, it also prints the interest measure or 
+voting sum, and number of rules firing. Example:
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on an Att/value dataset...
+Starting to Classify...
+   (BestRule - Confidence)
+reg 1 Value -> CLASS=A    Predict -> CLASS=A   Confidence= 1.0
+Number of covered rules = 14
+reg 2 Value -> CLASS=B    Predict -> CLASS=B   Confidence= 1.0
+Number of covered rules = 12
+reg 3 Value -> CLASS=A    Predict -> CLASS=A   Confidence= 1.0
+Number of covered rules = 10
+reg 4 Value -> CLASS=A    Predict -> CLASS=A   Confidence= 1.0
+Number of covered rules = 14
+reg 5 Value -> CLASS=B    Predict -> CLASS=B   Confidence= 1.0
+Number of covered rules = 9
+reg 6 Value -> CLASS=A    Predict -> CLASS=A   Confidence= 0.7777777777777778
+Number of covered rules = 6
+reg 7 Value -> CLASS=C    Predict -> CLASS=C   Confidence= 1.0
+Number of covered rules = 4
+reg 8 Value -> CLASS=A    Predict -> CLASS=A   Confidence= 1.0
+Number of covered rules = 11
+reg 9 Value -> CLASS=B    Predict -> CLASS=B   Confidence= 1.0
+
+
+... etc.
+
+
+
+
+The command:
+
+> java predict t example.atr -Att -classCLASS -I -vote 
+
+
+yields:
+
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on an Att/value dataset...
+Starting to Classify...
+   (Voting - Confidence)
+reg 1 Value -> CLASS=A   Predict -> CLASS=A  Confidence vote 10.312063492063492
+Number of covered rules = 14  Number of rules voting this class = 12
+reg 2 Value -> CLASS=B   Predict -> CLASS=B  Confidence vote 6.28
+Number of covered rules = 12  Number of rules voting this class = 7
+reg 3 Value -> CLASS=A   Predict -> CLASS=A  Confidence vote 6.312063492063492
+Number of covered rules = 10  Number of rules voting this class = 8
+reg 4 Value -> CLASS=A   Predict -> CLASS=A  Confidence vote 10.312063492063492
+Number of covered rules = 14  Number of rules voting this class = 12
+reg 5 Value -> CLASS=B   Predict -> CLASS=B  Confidence vote 6.28
+Number of covered rules = 9  Number of rules voting this class = 7
+reg 6 Value -> CLASS=A   Predict -> CLASS=A  Confidence vote 2.312063492063492
+Number of covered rules = 6  Number of rules voting this class = 4
+reg 7 Value -> CLASS=C   Predict -> CLASS=C  Confidence vote 1.4
+Number of covered rules = 4  Number of rules voting this class = 2
+
+... etc.
+
+
+
+
+Output of predictions can be done using switch -file. For instance
+
+> java predict t example.atr -Att -classCLASS -file  
+
+would produced file example.atr.pre. Files .pre contain the derived predictions for each case.
+In this case, the .pre file is:
+
+Reg;Prediction;Score
+1;A;1.0
+2;B;1.0
+3;A;1.0
+4;A;1.0
+5;B;1.0
+6;A;0.7777777777777778
+7;C;1.0
+8;A;1.0
+9;B;1.0
+10;C;1.0
+11;C;1.0
+12;C;1.0
+13;C;0.6
+14;C;1.0
+15;B;1.0
+16;C;1.0
+17;C;1.0
+18;A;1.0
+19;A;1.0
+20;A;1.0
+21;B;1.0
+22;C;1.0
+23;C;1.0
+24;B;1.0
+25;C;0.4
+
+
+When the aim is not to evaluate model performance in accuracy terms but to obtain predictions for an unseen test dataset, one can use
+a simple trick to obtain these predictions. In the test dataset fill the target attribute with dummy values.
+Then run $predict$ using the -file switch. Ignore the accuracy performance and use the .pre file as the set of predictions for the
+unseen cases.
+
+
+
+The switch -file for voting strategies yields different information. Mainly, information describing the distribution of 
+votes per class. Example, command:
+
+> java predict t example.atr -Att -classCLASS -file -vote
+
+yields example.atr.pre which contains:
+
+Reg;Prediction;A;B;C
+1;A;10.312063492063492;0.28;0.4
+2;B;2.312063492063492;6.28;0.4
+3;A;6.312063492063492;0.28;0.4
+4;A;10.312063492063492;0.28;0.4
+5;B;0.32;6.28;0.4
+6;A;2.312063492063492;0.28;0.4
+7;C;0.32;0.28;1.4
+8;A;6.312063492063492;0.28;1.0
+9;B;0.32;6.28;0.4
+10;C;0.32;0.28;3.4
+11;C;2.312063492063492;0.28;2.4
+12;C;0.32;0.28;1.4
+13;C;0.32;0.28;1.0
+14;C;0.32;0.28;1.4
+15;B;0.32;1.28;0.4
+16;C;0.32;0.28;4.0
+17;C;0.32;0.28;3.4
+18;A;7.097777777777778;0.28;0.4
+19;A;7.097777777777778;0.28;0.4
+20;A;2.82;0.28;1.0
+21;B;0.8200000000000001;6.28;0.4
+22;C;0.8200000000000001;0.28;4.4
+23;C;0.8200000000000001;0.28;5.0
+24;B;0.8200000000000001;9.28;0.4
+25;C;0.32;0.28;0.4
+
+For ensemble methods, -file also produces file DatasetName_votes.csv which contains the description on trials/bags 
+voting for each case. For instance, command:
+
+> java predict t example.atr -Att -classCLASS -ireexample.atr,10 -file
+
+yields file example.atr_votes.csv which contains:
+
+Reg;1;2;3;4;5;6;7;8;9;10
+1;A;A;A;A;A;A;A;A;A;A
+2;B;B;B;B;B;B;B;B;B;B
+3;A;A;A;A;A;A;A;A;A;A
+4;A;A;A;A;A;A;A;A;A;A
+5;B;B;B;B;B;B;B;B;B;B
+6;A;A;A;A;A;A;A;A;A;A
+7;C;C;C;C;C;C;C;C;C;C
+8;A;A;A;A;A;A;A;A;A;A
+9;B;B;B;B;B;B;B;B;B;B
+10;C;C;C;C;C;C;C;C;C;C
+11;C;C;C;C;C;C;C;C;C;C
+12;C;C;C;C;C;C;C;C;C;C
+13;C;C;C;C;C;C;C;C;C;C
+14;C;C;C;C;C;C;C;C;C;C
+15;B;C;C;C;C;C;C;C;C;C
+16;C;C;C;C;C;C;C;C;C;C
+17;C;C;C;C;C;C;C;C;C;C
+18;A;A;A;A;A;A;A;A;A;A
+19;A;A;A;A;A;A;A;A;A;A
+20;A;A;A;A;A;A;A;A;A;A
+21;B;B;B;B;B;B;B;B;B;B
+22;C;C;C;C;C;C;C;C;C;C
+23;C;C;C;C;C;C;C;C;C;C
+24;B;B;B;B;B;B;B;B;B;B
+25;C;C;C;C;C;C;C;C;C;C
+
+
+Predict has also available information for evaluating prediction for a specific class. Switch -cm outputs the 
+confusion matrix and class oriented accuracy measures, such as F-measure, recall, precision, etc. Command:
+
+
+> java predict t example.atr -Att -classCLASS -cm 
+
+
+yields the output:
+
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on an Att/value dataset...
+Starting to Classify...
+   (BestRule - Confidence)
+
+
+Accuracy     = 0.960000
+Error        = 0.040000
+
+Dclass Error = 0.600000
+
+
+               Accuracy per Class
+
+            ------ Confusion Matrix -------
+
+              0  1  2   <- classified as
+              --------
+              8  0  0 | 0 = A
+              0  6  1 | 1 = B
+              0  0 10 | 2 = C
+
+
+            ------- Detail by Class ------
+
+     TP rate  FP rate  Precision  Recall  F-measure   ROC-AUC  Class
+     1.0000   0.0000    1.0000    1.0000   1.0000     1.0000   A
+     0.8571   0.0000    1.0000    0.8571   0.9231     0.9286   B
+     1.0000   0.0667    0.9091    1.0000   0.9524     1.0000   C
+
+
+
+
+Time spent = 0 hrs 0 mts 0 secs
+
+
+
+Using -file with -cm yields file cm.info (with this information).
+
+
+
+Caren uses a simple method to deal with null values. The nulls replacement values are passed to $predict$ through the 
+information contained in the .prm files. In $predict$ it is possible to specify that null in test cases are to be ignored. 
+Switch -ignore makes use of this feature. 
+Predict is prepared to deal with new cases in transactions of maximal size 500 items. It is possible to increase the 
+maximal expected size of a case to be classified. Option -max enables to perform this memory increase.
+
+
+
+
+
+
+
+Basket data prediction:
+
+Predict can also be used as a recommendation system. In -Bas mode, $predict$ applies a all-but-one strategy to each 
+transaction in a basket format test file. In this case, each transaction gives rise to N cases, being N the number of items 
+in the transaction. For instance,
+
+> java caren example.bas 0.01 0.3 -s, -Bas -pt
+
+
+yields a t.prm model for the basket data example.bas. Then we can use this model for basket prediction:
+
+
+> java predict t example.bas -s,
+
+
+yielding:
+
+
+Predict 1.7                           (CAREN prediction module)
+Loading rules...
+Prediction on a basket dataset...
+Starting to classify ...
+
+
+Accuracy = 0.16802168
+Error    = 0.8319783
+Number of Trans = 1000
+Number of cases = 2583
+
+
+Time spent = 0 hrs 0 mts 0 secs
+
+
+For a real recommendation system, $predict$ implements a basket module that derives the best N prediction for a given 
+transaction (case). The -T switch enables this feature and expects a value to specify the number of recommendations to 
+be derived per transaction. Example:
+
+
+> java predict t example.bas -s, -T3 
+
+
+outputs the top 3 predictions for each transaction. If we combine with switch -file it will yield file  example.bas.pre.
+The content is:
+
+Trans;Pred;Score
+ID001;confectionery;0.336
+ID001;peaches;0.31496062992125984
+ID001;potatoes;0.283
+ID002;potatoes;0.38738738738738737
+ID002;carrots;0.35714285714285715
+ID003;confectionery;0.336
+ID003;potatoes;0.32558139534883723
+ID003;tomatoes;0.263
+ID004;confectionery;0.336
+ID004;potatoes;0.283
+ID004;tomatoes;0.263
+ID005;lettuce;0.5757575757575758
+ID005;onions;0.45454545454545453
+ID006;confectionery;0.336
+ID006;potatoes;0.283
+ID006;tomatoes;0.263
+
+etc...
+
+
+
+The available strategies in basket mode are BestRule and Voting.
+For the top N predictions, only the BestRule strategy is available (using the same interest measures).
+
+
+One can use switch -all to derive prediction for a case using all available interest measures.
+If -file is used (in -T top mode) a set of files is derived (each with a number corresponding to the measure number).
+Thus, each interest measure is considered as a different recommendation model which yields different predictions for each case
+in the test set.
+
+In basket mode -all derives results for all measures indicating its accuracy.
+
+In both modes $predict$ does not derives recommedations of items that occur in the given transaction test e.g if the case is a,b,c then rule
+a,c -> b is not considered.
+
+
+
+
+
+Numeric Prediction:
+
+At the time we are writing this document, we have been developing a sub-module for numeric prediction using association 
+rule models. The plan is to use a BestRule and Voting strategies for numeric models derived by CAREN. 
+The switch -N specifies the numeric target. Post-bagging will be also available for numeric prediction. 
+These numeric prediction rules are based on the distribution rules proposal implemented in the $caren$ module.
+
+
+
+
+New ensemble of BestRule Models:
+
+A new experimental method to derive multiple models out of a set of association rules is implemented.
+The switch -mm implements a method, Multiple interest Measures Models, to derive multiple BestRule models.
+Each model applies BestRule using a specific interest measure using the available association rules.
+Final prediction is obtained by using uniform voting from each model. Default use of -mmm derives an ensemble
+with 11 models (with the 11 available measures). However, one can specify which measures to use.
+Example:
+
+> java predict t example.atr -Att -classCLASS -mmmconf,lap,conv,chi,lev
+
+
+
+
+
+Dealing with numeric data in test sets:
+
+$predict$ now has a feature to use information about intervals obtained from using $convert$ on training data.
+A file .num contains the intervals derived from discretizing numeric attributes. Switch -un forces $predict$ to use this info
+to treat numeric attributes as it reads the test set.
+Notice that if the test set is named test.csv $predict$ will try to read intervals information from file test.csv.num.
+
+
+
+
+
+
+
+
+
+The $predict$ module is now compiled for the Java 1.5 language (using JSDK1.5.0)
+
+
+
+If you find memory problems try increasing the heap size allocated by the java interpreter
+(check java -X, and include it when invoking the java emulator with predict)
+
+
+
+
+For questions, comments, send email to Paulo Azevedo (pja@di.uminho.pt)
+

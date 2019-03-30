@@ -1,0 +1,149 @@
+> caren adult.data  0.01  0.5  -s,  -ovrexe1  -Att  -Heducation  -ovrt  -fisher  -classeducation  -Discfiage,education.num  
+
+Computation Time = 0 hrs 0 mts 1 secs 846 millis  
+
+
+Mining on dataset adult.data with 95 frequent items and with 32561 transactions.
+using minsup = 0.01000  minconf = 0.50000
+
+Rule pruning was performed using Fisher Exact test with Alpha = 0.05 
+
+
+Number of derived rules = 130  
+
+
+Intervals obtained from discretization by attribute: 
+   age : ]-oo : 17.5000], ]17.5000 : 18.5000], ]18.5000 : 19.5000], ]19.5000 : 21.5000], ]21.5000 : 23.5000], ]23.5000 : 26.5000], ]26.5000 : 38.5000], ]38.5000 : 48.5000], ]48.5000 : 55.5000], ]55.5000 : +oo[. 
+   education.num : ]-oo : 1.5000], ]1.5000 : 2.5000], ]2.5000 : 3.5000], ]3.5000 : 4.5000], ]4.5000 : 5.5000], ]5.5000 : 6.5000], ]6.5000 : 7.5000], ]7.5000 : 8.5000], ]8.5000 : 9.5000], ]9.5000 : 10.5000], ]10.5000 : 11.5000], ]11.5000 : 12.5000], ]12.5000 : 13.5000], ]13.5000 : 14.5000], ]14.5000 : 15.5000], ]15.5000 : +oo[. 
+
+
+Sup = 0.03277   Conf = 1.00000     education=Assoc-acdm    <--    education.num=]11.5000 : 12.5000]
+Sup = 0.03609   Conf = 1.00000     education=11th    <--    education.num=]6.5000 : 7.5000]
+Sup = 0.04244   Conf = 1.00000     education=Assoc-voc    <--    education.num=]10.5000 : 11.5000]
+Sup = 0.05292   Conf = 1.00000     education=Masters    <--    education.num=]13.5000 : 14.5000]
+Sup = 0.01023   Conf = 1.00000     education=5th-6th    <--    education.num=]2.5000 : 3.5000]
+Sup = 0.16446   Conf = 1.00000     education=Bachelors    <--    education.num=]12.5000 : 13.5000]
+Sup = 0.01268   Conf = 1.00000     education=Doctorate    <--    education.num=]15.5000 : +oo[
+Sup = 0.22392   Conf = 1.00000     education=Some-college    <--    education.num=]9.5000 : 10.5000]
+Sup = 0.01268   Conf = 0.65348     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  marital.status=Never-married  &  capital.loss=0  &  class=<=50K
+Sup = 0.01296   Conf = 0.65325     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  marital.status=Never-married
+Sup = 0.01232   Conf = 0.65203     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  marital.status=Never-married  &  capital.gain=0  &  capital.loss=0
+Sup = 0.01468   Conf = 0.64247     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  race=White  &  native_country=United-States  &  marital.status=Never-married
+Sup = 0.01081   Conf = 0.64000     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  race=White  &  native_country=United-States
+Sup = 0.01480   Conf = 0.63757     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  race=White  &  native_country=United-States
+Sup = 0.01572   Conf = 0.63524     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  race=White  &  class=<=50K
+Sup = 0.01216   Conf = 0.63462     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  native_country=United-States  &  capital.loss=0
+Sup = 0.01747   Conf = 0.63434     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  marital.status=Never-married
+Sup = 0.01548   Conf = 0.63396     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  race=White  &  capital.gain=0
+Sup = 0.01539   Conf = 0.63338     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  race=White  &  capital.loss=0
+Sup = 0.01235   Conf = 0.63307     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  native_country=United-States  &  class=<=50K
+Sup = 0.01124   Conf = 0.62887     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  race=White  &  capital.loss=0
+Sup = 0.01192   Conf = 0.62885     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  native_country=United-States  &  capital.gain=0
+Sup = 0.01738   Conf = 0.62680     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  capital.gain=0  &  class=<=50K
+Sup = 0.01109   Conf = 0.62674     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  race=White  &  capital.gain=0
+Sup = 0.01299   Conf = 0.62667     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  capital.loss=0  &  class=<=50K
+Sup = 0.01766   Conf = 0.62636     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child
+Sup = 0.01723   Conf = 0.62612     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  capital.loss=0  &  class=<=50K
+Sup = 0.01603   Conf = 0.62590     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  native_country=United-States  &  capital.gain=0
+Sup = 0.01695   Conf = 0.62514     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  capital.loss=0  &  capital.gain=0
+Sup = 0.01327   Conf = 0.62428     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female
+Sup = 0.01591   Conf = 0.62410     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  native_country=United-States  &  capital.loss=0
+Sup = 0.01256   Conf = 0.62348     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  capital.gain=0  &  capital.loss=0
+Sup = 0.01281   Conf = 0.62239     education=Some-college    <--    age=]19.5000 : 21.5000]  &  sex=Female  &  capital.gain=0  &  class=<=50K
+Sup = 0.01941   Conf = 0.58249     education=Some-college    <--    age=]19.5000 : 21.5000]  &  race=White  &  marital.status=Never-married  &  native_country=United-States
+Sup = 0.01858   Conf = 0.58117     education=Some-college    <--    age=]19.5000 : 21.5000]  &  race=White  &  marital.status=Never-married  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.01099   Conf = 0.58023     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  workclass=Private  &  race=White
+Sup = 0.01238   Conf = 0.57736     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  workclass=Private  &  class=<=50K
+Sup = 0.01219   Conf = 0.57703     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  workclass=Private  &  capital.gain=0
+Sup = 0.01133   Conf = 0.57656     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  workclass=Private  &  native_country=United-States
+Sup = 0.01207   Conf = 0.57372     education=Some-college    <--    age=]19.5000 : 21.5000]  &  relationship=Own-child  &  workclass=Private  &  capital.loss=0
+Sup = 0.02334   Conf = 0.56464     education=Some-college    <--    age=]19.5000 : 21.5000]  &  marital.status=Never-married
+Sup = 0.02282   Conf = 0.56459     education=Some-college    <--    age=]19.5000 : 21.5000]  &  marital.status=Never-married  &  capital.loss=0  &  class=<=50K
+Sup = 0.02230   Conf = 0.56366     education=Some-college    <--    age=]19.5000 : 21.5000]  &  marital.status=Never-married  &  capital.loss=0  &  capital.gain=0
+Sup = 0.02181   Conf = 0.54364     education=Some-college    <--    age=]19.5000 : 21.5000]  &  native_country=United-States  &  capital.loss=0  &  class=<=50K
+Sup = 0.02122   Conf = 0.54281     education=Some-college    <--    age=]19.5000 : 21.5000]  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.02233   Conf = 0.54254     education=Some-college    <--    age=]19.5000 : 21.5000]  &  native_country=United-States
+Sup = 0.02171   Conf = 0.54218     education=Some-college    <--    age=]19.5000 : 21.5000]  &  native_country=United-States  &  capital.gain=0  &  class=<=50K
+Sup = 0.02411   Conf = 0.53293     education=Some-college    <--    age=]19.5000 : 21.5000]
+Sup = 0.01330   Conf = 1.00000     education=12th    <--    education.num=]7.5000 : 8.5000]
+Sup = 0.32250   Conf = 1.00000     education=HS-grad    <--    education.num=]8.5000 : 9.5000]
+Sup = 0.01007   Conf = 0.60741     education=HS-grad    <--    occupation=Transport-moving  &  age=]26.5000 : 38.5000]
+Sup = 0.01861   Conf = 0.57880     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  native_country=United-States  &  workclass=Private  &  capital.loss=0
+Sup = 0.01913   Conf = 0.57314     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  native_country=United-States  &  workclass=Private
+Sup = 0.01923   Conf = 0.57274     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  native_country=United-States  &  capital.loss=0
+Sup = 0.01975   Conf = 0.56702     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  native_country=United-States
+Sup = 0.01643   Conf = 0.56080     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  native_country=United-States  &  class=<=50K  &  capital.gain=0
+Sup = 0.02743   Conf = 0.55604     education=HS-grad    <--    occupation=Machine-op-inspct  &  native_country=United-States  &  workclass=Private
+Sup = 0.01010   Conf = 0.55481     education=HS-grad    <--    occupation=Machine-op-inspct  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  workclass=Private
+Sup = 0.01155   Conf = 0.55294     education=HS-grad    <--    occupation=Machine-op-inspct  &  age=]26.5000 : 38.5000]  &  capital.loss=0
+Sup = 0.02844   Conf = 0.54890     education=HS-grad    <--    occupation=Machine-op-inspct  &  native_country=United-States
+Sup = 0.01001   Conf = 0.54790     education=HS-grad    <--    occupation=Machine-op-inspct  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  capital.gain=0
+Sup = 0.01072   Conf = 0.54788     education=HS-grad    <--    occupation=Machine-op-inspct  &  age=]26.5000 : 38.5000]  &  capital.gain=0  &  workclass=Private
+Sup = 0.02558   Conf = 0.54767     education=HS-grad    <--    occupation=Machine-op-inspct  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.02386   Conf = 0.54718     education=HS-grad    <--    occupation=Machine-op-inspct  &  native_country=United-States  &  class=<=50K  &  capital.loss=0
+Sup = 0.01182   Conf = 0.54610     education=HS-grad    <--    occupation=Machine-op-inspct  &  age=]26.5000 : 38.5000]
+Sup = 0.02322   Conf = 0.53961     education=HS-grad    <--    occupation=Machine-op-inspct  &  native_country=United-States  &  class=<=50K  &  capital.gain=0
+Sup = 0.02058   Conf = 0.53772     education=HS-grad    <--    occupation=Transport-moving  &  capital.gain=0  &  native_country=United-States  &  sex=Male  &  capital.loss=0
+Sup = 0.01041   Conf = 0.53639     education=HS-grad    <--    occupation=Handlers-cleaners  &  hours_per_week=40  &  native_country=United-States  &  capital.loss=0
+Sup = 0.02282   Conf = 0.53530     education=HS-grad    <--    occupation=Transport-moving  &  capital.gain=0  &  native_country=United-States
+Sup = 0.02095   Conf = 0.53365     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  workclass=Private  &  capital.loss=0
+Sup = 0.02156   Conf = 0.52861     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  capital.loss=0
+Sup = 0.01056   Conf = 0.52842     education=HS-grad    <--    occupation=Handlers-cleaners  &  hours_per_week=40  &  native_country=United-States
+Sup = 0.02414   Conf = 0.52716     education=HS-grad    <--    occupation=Transport-moving  &  native_country=United-States
+Sup = 0.02171   Conf = 0.52683     education=HS-grad    <--    occupation=Transport-moving  &  native_country=United-States  &  sex=Male  &  capital.loss=0
+Sup = 0.02159   Conf = 0.52620     education=HS-grad    <--    occupation=Transport-moving  &  capital.gain=0  &  sex=Male  &  capital.loss=0
+Sup = 0.02392   Conf = 0.52352     education=HS-grad    <--    occupation=Transport-moving  &  capital.gain=0
+Sup = 0.01932   Conf = 0.51855     education=HS-grad    <--    occupation=Machine-op-inspct  &  hours_per_week=40  &  class=<=50K
+Sup = 0.03037   Conf = 0.51699     education=HS-grad    <--    occupation=Machine-op-inspct  &  workclass=Private
+Sup = 0.02534   Conf = 0.51659     education=HS-grad    <--    occupation=Transport-moving
+Sup = 0.03071   Conf = 0.51546     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States  &  sex=Male  &  capital.gain=0
+Sup = 0.03443   Conf = 0.51257     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States
+Sup = 0.02982   Conf = 0.51213     education=HS-grad    <--    occupation=Craft-repair  &  hours_per_week=40  &  native_country=United-States  &  capital.gain=0  &  sex=Male
+Sup = 0.03001   Conf = 0.51205     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States  &  race=White  &  capital.gain=0
+Sup = 0.03077   Conf = 0.51175     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States  &  sex=Male  &  capital.loss=0
+Sup = 0.03163   Conf = 0.51167     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.03387   Conf = 0.51160     education=HS-grad    <--    occupation=Craft-repair  &  hours_per_week=40  &  native_country=United-States
+Sup = 0.03142   Conf = 0.51099     education=HS-grad    <--    occupation=Machine-op-inspct
+Sup = 0.02936   Conf = 0.51096     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States  &  race=White  &  sex=Male
+Sup = 0.01655   Conf = 0.51090     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  native_country=United-States  &  sex=Male  &  capital.gain=0
+Sup = 0.02982   Conf = 0.51078     education=HS-grad    <--    occupation=Craft-repair  &  hours_per_week=40  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.01658   Conf = 0.50992     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  native_country=United-States  &  sex=Male  &  capital.loss=0
+Sup = 0.01806   Conf = 0.50865     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  native_country=United-States
+Sup = 0.03044   Conf = 0.50768     education=HS-grad    <--    occupation=Craft-repair  &  hours_per_week=40  &  native_country=United-States  &  sex=Male  &  capital.loss=0
+Sup = 0.02982   Conf = 0.50626     education=HS-grad    <--    occupation=Craft-repair  &  class=<=50K  &  workclass=Private  &  native_country=United-States  &  race=White  &  capital.loss=0
+Sup = 0.01072   Conf = 0.50580     education=HS-grad    <--    occupation=Other-service  &  age=]26.5000 : 38.5000]  &  native_country=United-States  &  class=<=50K  &  capital.gain=0  &  capital.loss=0
+Sup = 0.01115   Conf = 0.50557     education=HS-grad    <--    occupation=Other-service  &  age=]26.5000 : 38.5000]  &  native_country=United-States  &  class=<=50K
+Sup = 0.01588   Conf = 0.50538     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  native_country=United-States  &  race=White  &  capital.gain=0
+Sup = 0.02356   Conf = 0.50295     education=HS-grad    <--    occupation=Craft-repair  &  relationship=Husband  &  class=<=50K  &  native_country=United-States
+Sup = 0.01087   Conf = 0.50284     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  relationship=Husband  &  class=<=50K
+Sup = 0.02429   Conf = 0.50254     education=HS-grad    <--    occupation=Craft-repair  &  hours_per_week=40  &  class=<=50K  &  workclass=Private
+Sup = 0.01339   Conf = 0.50230     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  relationship=Husband  &  native_country=United-States
+Sup = 0.02392   Conf = 0.50226     education=HS-grad    <--    occupation=Craft-repair  &  marital.status=Married-civ-spouse  &  class=<=50K  &  native_country=United-States
+Sup = 0.01576   Conf = 0.50196     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  native_country=United-States  &  race=White  &  capital.loss=0
+Sup = 0.02131   Conf = 0.50181     education=HS-grad    <--    occupation=Craft-repair  &  relationship=Husband  &  class=<=50K  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.02122   Conf = 0.50145     education=HS-grad    <--    occupation=Craft-repair  &  relationship=Husband  &  class=<=50K  &  native_country=United-States  &  capital.gain=0  &  race=White
+Sup = 0.02270   Conf = 0.50136     education=HS-grad    <--    occupation=Craft-repair  &  marital.status=Married-civ-spouse  &  class=<=50K  &  native_country=United-States  &  capital.loss=0  &  sex=Male
+Sup = 0.04060   Conf = 0.50133     education=HS-grad    <--    occupation=Craft-repair  &  workclass=Private  &  native_country=United-States  &  capital.gain=0
+Sup = 0.03609   Conf = 0.50107     education=HS-grad    <--    occupation=Craft-repair  &  workclass=Private  &  native_country=United-States  &  capital.gain=0  &  sex=Male  &  capital.loss=0
+Sup = 0.02242   Conf = 0.50103     education=HS-grad    <--    occupation=Craft-repair  &  marital.status=Married-civ-spouse  &  class=<=50K  &  native_country=United-States  &  capital.gain=0  &  sex=Male
+Sup = 0.01637   Conf = 0.50094     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  class=<=50K  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.01010   Conf = 0.50076     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  marital.status=Married-civ-spouse  &  workclass=Private  &  native_country=United-States  &  capital.loss=0
+Sup = 0.01038   Conf = 0.50074     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  marital.status=Married-civ-spouse  &  class=<=50K  &  race=White  &  sex=Male
+Sup = 0.01182   Conf = 0.50065     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  relationship=Husband  &  native_country=United-States  &  capital.gain=0  &  race=White
+Sup = 0.01225   Conf = 0.50063     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  relationship=Husband  &  native_country=United-States  &  capital.gain=0  &  marital.status=Married-civ-spouse
+Sup = 0.01284   Conf = 0.50060     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  relationship=Husband  &  native_country=United-States  &  race=White  &  marital.status=Married-civ-spouse
+Sup = 0.01364   Conf = 0.50056     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  marital.status=Married-civ-spouse  &  native_country=United-States
+Sup = 0.02091   Conf = 0.50037     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  native_country=United-States  &  sex=Male
+Sup = 0.02230   Conf = 0.50034     education=HS-grad    <--    occupation=Craft-repair  &  relationship=Husband  &  class=<=50K  &  native_country=United-States  &  race=White  &  marital.status=Married-civ-spouse
+Sup = 0.02469   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  hours_per_week=40  &  workclass=Private  &  race=White  &  capital.gain=0
+Sup = 0.02156   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  marital.status=Married-civ-spouse  &  class=<=50K  &  native_country=United-States  &  capital.gain=0  &  capital.loss=0
+Sup = 0.02147   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  marital.status=Married-civ-spouse  &  class=<=50K  &  native_country=United-States  &  capital.gain=0  &  race=White
+Sup = 0.01729   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  workclass=Private  &  native_country=United-States
+Sup = 0.01351   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  workclass=Private  &  class=<=50K  &  race=White  &  sex=Male
+Sup = 0.01112   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  marital.status=Married-civ-spouse  &  class=<=50K
+Sup = 0.01056   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  marital.status=Married-civ-spouse  &  class=<=50K  &  capital.loss=0  &  sex=Male
+Sup = 0.01017   Conf = 0.50000     education=HS-grad    <--    occupation=Craft-repair  &  age=]26.5000 : 38.5000]  &  marital.status=Married-civ-spouse  &  workclass=Private  &  native_country=United-States  &  race=White
+Sup = 0.01579   Conf = 1.00000     education=9th    <--    education.num=]4.5000 : 5.5000]
+Sup = 0.01769   Conf = 1.00000     education=Prof-school    <--    education.num=]14.5000 : 15.5000]
+Sup = 0.01984   Conf = 1.00000     education=7th-8th    <--    education.num=]3.5000 : 4.5000]
+Sup = 0.02865   Conf = 1.00000     education=10th    <--    education.num=]5.5000 : 6.5000]

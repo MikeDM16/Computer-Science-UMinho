@@ -1,0 +1,936 @@
+
+
+CAREN - Class Association Rules ENgine
+
+README - June 18, 2001
+
+Welcome to the distribution of CAREN, a JAVA based  application
+for finding association rules in datasets.
+
+This is a JAVA implementation of the classic Apriori algorithm. 
+The original Apriori algorithm is beefed-up with several optimization.
+The most important is the Trie-based structure to represent the itemsets.
+There is a fast function to check itemsets occurrence into transactions i.e. transactions
+are projected into the trie structure. Candidate generation through the $join$ function
+is obtained by a very fast mechanism of inspecting the leaf nodes of the trie structure.
+The implementation is disk-based. That is, there is no internal representation of the 
+dataset and in all passes the data is read from disk.
+
+There are two programs: $aprioriatt$ and $aprioribas$. The first tackles datasets in the 
+attribute/value format.
+The other is target to treat basket-data like datasets 
+i.e. each line is in the form: TRANS-ID    ITEM.
+Note that CAREN is case sensitive on the TRANS-ID identifiers. Make sure that your dataset 
+has this data normalized.
+The format attribute/value requires that the first line in the dataset should be a description 
+with the names of the Attributes.
+
+To check the different options try the command line 
+
+> java aprioriatt -help
+
+CAREN output execution time. Please bear in mind that this value refers to the 
+overall execution time (system + user time)!
+
+
+README - June 14, 2002
+
+This new version (1.6.3) has two forms of attribute discretization.
+One is the Binary Discretization. Here it is implemented following the C4.5 style using
+a measure of entropy to select cut points. A class attribute is assumed and the default
+is the last attribute described in the dataset.
+
+The second form of discretization is Srikant & Agrawal 96 in SIGMOD'96.
+The number of intervals for a discretized attribute is calculated using the following 
+formula:
+
+	num_int = (2 * N)/ (minsup * (K - 1))
+
+where K is the partial completeness level and N is the number of attributes to be discretized. 
+A Maximal support is used to control the process of joining the adjacent equi-depth intervals.
+
+
+Also, check the new options for text output of the derived rules. 
+For the moment we about pure tex, csv format, Prolog format and eventually PMML format in the future.
+
+
+
+README - September 30, 2002
+
+There is a batch file for accessing the java programs called CAREN. Use
+
+> ./caren -help
+
+to obtain usage format. Do not forget to change the paths in the caren file according to 
+your java installation.
+
+
+
+README - January 13, 2003
+
+
+The PMML format is now implemented. Check the output options.
+PMML is a XML format to describe data mining models.
+
+A few improvements had been made on the candidates counting procedure. Thus, one should
+feel slight improvements on the overall execution time.
+
+
+
+README - April 22, 2003
+
+Bug on attributes discretization with negative values solved. Intervals have now format [a,b]
+instead of [a - b].
+
+
+
+README - May 22, 2003
+
+New version (1.6.4).
+
+Caren now deals with null values. The switch "-null" defines the character to be interpreted
+as the null symbol. Null value replacement is done as follows:
+In discrete attributes null values are replaced by the most frequent value in the attribute.
+In continuous attributes nulls are replaced by the attribute value which minimizes the standard deviation.
+That is, the "closest" (in absolute value) to the attribute average value.
+The new switch "-ignore" is used to ignore null values. In this mode, the item obtained from an attribute/value
+pair where the null symbol occurs is not considered and is removed from the transaction (tuple) to be counted.
+
+
+This version also includes a general performance optimization for $aprioriatt$.
+
+The basket version is now replaced by a much faster version called $aprioriGRAPH$.
+This new version can be up to 60% faster than the older one. It is also more efficient in terms of memory 
+consumption.
+
+
+README - September 25, 2003
+
+New version (1.7).
+
+AprioriGraph 1.3.
+
+Includes selection of rules by defining the items that should occur in the 
+antecedent of the rule. Three options: At least one item of the list provided by
+the user, or all the items provided and all rules which antecedent is covered by
+the items provided by the user (suitable for classification purposes).
+
+
+Implements the metrics conviction and lift. Rules can be filtered by these new metrics.
+Lift is calculated as:
+
+		Lift(A -> C) = conf(A -> C) / sup(C)
+
+Conviction is:
+
+		Conv(A -> C) = (1 - sup(C)) / (1 - conf(A -> C))
+
+For conviction, infinity is dealt and is represented by the symbol "+oo".
+Only one specified metric can be used to filter rules.
+
+
+In .csv format all metrics are printed along the rules. This is used for convenience of post-processing.
+
+
+Improvement was updated to cope with the implemented metrics.
+Improvement is calculated according to the user specified metric (which will play the strength measure role).
+Rule's improvement is evaluated against its generalization:
+
+	        imp(A->C) = min(strength(A->C) - strength(As->C): As in A),
+
+where strength() can be confidence, lift or conviction.
+
+
+
+Intervals are now represented in the [a : b] format. The requirement is due to the use of
+comma to separate items in lists.  The use of this symbol as separator could puzzle the parsing of lists 
+where intervals occur.
+
+When referring to discretized items in lists, filtering rules by consequent or antecedent occurrence, write
+item name in between "". Ex: -a"CC in [5.0 : 5.0]".
+
+
+
+The former java programs $apriorigraph$ and $aprioriatt$ are now combined into a single command.
+The caren file includes both versions for dealing with attribute/value and basket data.
+Two switches for declaring the dataset format (-Bas, -Att). Default is -Bas.
+Use:
+
+> java caren -help
+
+to obtain list of options.
+
+
+
+Simple update in null values: Display of null values replacement occurs if the replacement is a frequent item.
+
+Definition of class attribute is by name (formally was by number).
+
+
+Includes a switch (-rs) to define maximal size for rules in number of items (including consequent).
+It basically defines the number of database scanning allowed.
+
+Now option (-H) to filter rules according to consequent attribute. This option can be combined with (-h).
+The several options for selection of rules by consequent and antecedent occurrence are dealt as a conjunction of constraints.
+
+Also included a switch (+A) to specify which attributes should occur in antecedent (along the same line 
+of the switch +a)
+
+
+The confidence and other metrics rule filtering are applied like suport filtering.
+That is the constraint is evaluated as >= rather than >.
+
+
+
+
+
+
+
+
+README - November, 2003
+
+A novel prediction model is generated for building a classifier out of the generated rules.
+In the near future a classifier will be added to the CAREN package.
+
+
+Small optimization on itemset counting when the switch *a is used. Since only candidates and transactions with subsets of the items
+described in the *a switch need to be counted, a considerable performance improvement is obtained.
+
+
+
+
+
+README - February, 2004
+
+Solved a bug in the improvement calculation. A rule satisfies a minimal improvement if its metric is superior than the maximal value
+of the metric among the rules that are more general. If these two values coincide then the specific rule is preserved. 
+Example:   
+
+     c = 1.0  s = 0.55    a <- b & c
+     c = 1.0  s = 0.56    a <- b
+
+In this case the first rule (more specific) is preserved, considering a value of minimp = 0.0
+
+
+
+README - March, 2004			ver 1.7.2.
+
+An important algorithm reformulation was added to improve the implementation resulting in a considerable speedup  
+(more than an order of magnitude).
+
+
+The predict module now includes new classification methods (voting and class distribution).
+Do not forget to specify the class attribute when generating the model at caren.
+
+
+A Chi-squared test for independence was added. A new switch (-chi) is used to filter rules that fail to pass
+test for dependence. Test use standard confidence value (95%) and 1 degree of freedom which is equivalent
+to prune rules that chi^2 test value is less than 3.84.
+
+
+A bug was detected and solved on the Srikant discretization method. Base intervals generated by the equidepth intervals procedure
+are not discarded. Thus, now truly overlapping intervals are generated.
+The general outcome is that in the new version the frequent itemsets counting of discretized attributes is slower and more itemsets
+are generated. Typically, for $n$ values of an attribute, the number of generated intervals is O(n^2)!
+
+
+
+
+
+README - October, 2004			ver 1.7.3.
+
+A new discretization method was implemented. The option (-cin) switch for contiguous class intervals discretization.
+It uses the "cut-points" of binary discretization for deriving intervals. Intervals are contiguous and open on the right-hand side. 
+Tie cases are solved by voting. That is, cases where the same attribute value associates with different classes are solved
+by calculating the most voted class. In example:
+
+		1 2 3 3 3 3 4 5
+                y y y n y y n n
+
+The algorithm derives the intervals  [1-4[, [4-+oo[.
+When voting yields a draw between classes the algorithm picks the class that leads to a larger left-hand side interval.
+Example:
+		1 2 5 5 6 7
+                y y n y n n
+
+The algorithm derives the intervals  [1-6[, [6-+oo[.
+
+Notice that infinity is represented by the value +1.79E+308 (the largest double value!).
+
+
+
+
+A novel switch for itemset filtering is introduced. The switch -X2 applies a chi^2 test to itemsets that contain any item
+(or attribute) specified by the user in options -h or -H.
+The test is only applied in frequent itemsets (that pass the support constraint).
+With this options the system is potentially incomplete since chi^2 does not preserve the downward closure property (like support).
+That is, if itemset ABC is considered independent then itemset ABCD is never derived, although the latter could pass
+the chi^2 test.
+Option -X2 can give different results than option -chi, in terms of derived association rules.
+The latter is a post-processing filter whereas the -X2 is an "on the fly" applied constraint.
+
+
+
+
+
+README - December, 2004			ver 1.7.4.
+
+Novel reformulation in the caren itemsets counting engine. A slight speed-up was obtained.
+This new implementation includes:
+
+* Includes candidate counting inference as in 
+  [Pasquier et al.] "Discovering frequent closed itemsets for association rules" in ICDT'99
+  Basically, the rules says that:  If sup(X) == sup(XY) then sup(XYZ) = sup(XZ).
+  We apply this rule along candidate generation. 
+  If the antecedent of the rule holds then a candidate for that itemset is generated  but 
+  not considered on the counting process. The counting is already known, and at the end of the process
+  the candidate is treated as the others i.e. moved to the itemsets trie. 
+
+* Reformulation of 2-candidate counting. Does not generates candidates for these itemsets. Instead it  makes use
+of a matrice (represented through a flatten array). Counting reduces to a two-level for loop over each transaction.
+
+* Registers transaction that do not contribute to k-cands counting. These transaction are not considered
+when counting (k+1)-cands.
+
+
+
+
+
+
+
+
+If you find memory problems try increasing the heap size allocated by the java interpreter
+(check java -X, and include in the -X caren option)
+
+
+Notice: the implementation is for the 1.2 (or higher) Java package. This version was compiled using JSDK1.4.2
+
+
+For questions, comments, send email to Paulo Azevedo (pja@di.uminho.pt)
+
+
+
+
+
+
+
+CarenDF - Depth_First expansion Caren version  
+
+		and
+
+CarenclASS - carendf for classification
+
+
+
+
+README2 - January 28, 2005
+
+
+This is a novel implementation for the Caren package.
+The main novelty lies on the new frequent itemsets calculation algorithm.
+
+The main idea is to drop the breadth first (bottom-up) approach of the Apriori algorithm
+and move to a depth first construction of the itemsets trie.
+Counting is now performed by representing the cover list of each frequent item through bitmaps.
+Itemset extraction and counting is obtained through itemset expansion (adding a new item to the explored itemset).
+Counting is performed through the use of bitwise operations on the bitmaps.
+The algorithm performs two scan in the dataset. The first is used to find frequent items and to count the number of transactions
+in the dataset. In the second scan, 2-itemsets are counted and the bitmaps representing the frequent items cover are mounted.
+The 2-itemsets counting is useful to restrain itemset expansion (since now one does not have subsets of counting itemsets).
+Counts for 2-itemsets are represented by a flatten matrix (stored in an array of integers).
+In the sequel steps the depth first itemsets expansion is performed.
+Itemset counting is performed by bitcounting in the cover bitmap. The bitcounting algorithm is a standard Precompute 16-bits.
+The order of the frequent items is still crucial for the performance of the algorithm. 
+The algorithm preserves the support ascendant order as in the earlier caren versions.
+This feature drives the expansion process.
+
+The new implementation drastically reduces the memory consumption in comparison with the former Caren system.
+We estimate an 80% performance improvement in relation to the former implementation.
+
+
+The algorithm has some resembles with the ECLAT algorithm [Zaki 2000 in IEEE Transactions on Knowledge and Data Engineering],
+since it is also a depth-first algorithm and uses a vertical-representation of the dataset.
+However, only frequent items have a bitmap representation of the cover.
+During execution, apart the list of bitmaps for the frequent items, the algorithm holds at most a number of bitmaps 
+which is equal to the size of the largest itemset. 
+
+
+To check for the new features try the command line
+
+> java carendf -help
+
+
+There are two new programs: 
+
+	carendf,  
+and 
+	carenclass.
+
+
+
+
+Please note:
+
+* Due to the depth-first expansion and the order of the frequent items 
+(and the fact that chi^2 metric is not downward closure)
+the -X2 switch in this caren version does not give the same results (itemsets or rules) as in the 1.7 version.
+A breath-first approach filters more itemsets since in this approach for each N-itemset one has access to its N-1-subsets.
+
+
+* Theta-improvement. A new algorithm for applying the improvement filter on derived rules is used.
+Improvement now is applied when rules are derived (and not as a post-processing as implemented in caren1.7).
+This approach gives different results from caren1.7. The differences can be illustrated with the following example:
+
+a <-         conf = 0.75
+a <- b       conf = 0.8
+a <- b & c   conf = 0.85
+
+Assumed that rules are derived by this order. If minimp = 0.1 caren1.7 would give the following result:
+
+a <-         conf = 0.75
+
+However carendf gives the result:
+
+a <-         conf = 0.75
+a <- b & c   conf = 0.85
+
+The reason for this output is that since carendf applies improvement along derivation of rules.
+The third rule is eliminated by the presence of the second rule. However the second rule is derived first and is
+eliminated by the first rule. When the third rule is derived there is no rule which ensures a no improvement in the
+interest metric (confidence).
+In light of this characteristics we rename the filter to theta-improvement.
+Consequently the new theta-improvement implementation is faster than the original improvement.
+Note that the procedure for this filter is sound and complete. 
+However the result is uniquely determined by the ordering of the frequent sets. 
+That is different orders give different results.
+
+
+* We now have constraints on the minimal and maximal number of items (including the head of the rule) contained in a rule.
+  (switches -rs and -RS)
+
+* A new switch (*A) exists to filter rules which antecedent is not covered by the user specified list of attributes.
+The filtering occurs during itemset expansion.
+NOTE: switches of type 'a' and 'A' cannot be combined!
+
+* A module $convert$ for pre-processing numeric attributes is included with caren. 
+It contains several different discretization algorithms and features. Try   
+
+> java convert -help.
+
+
+
+
+There are two new programs: 
+
+* Carendf, which includes the new features previously described.
+
+* Carenclass, a caren module for classification and design to optimally interact with the $predict$ module.
+It is a more efficient version of $canredf$ but always requires, from the user, a specification of the consequent.
+Here, unless required, the trie of itemsets is not materialized. Moreover, rules are derived on-the-fly during the
+itemset expansion process, which results in a much faster association rules generator.
+This is achieved by reordering frequent items in such a way that the set of consequent items are allocated 
+in the last positions.
+Again, the switch -X2 gives different results from $carendf$ (due to the new reordering).
+Due to the new reordering, for this module, theta-improvement and standard improvement give the same results.
+Note that if more than a consequente is defined then this module is potentially incomplete.
+That is, a rule with an item/attribute in the antecedent that also occurs in the user defined consequente list,
+is potentially not generated.
+
+
+
+
+
+
+README2 - February, 2005
+
+Carenclass now generates subgroups rules. This is useful to analyse subgroup behaviour in relation to a predefined
+attribute. These rules help characterize attribute values distribution in relation to a specific population (subgroup).
+The rules are of the form:
+
+	{ value_1/#, value_2/#, ..., value_n/# } <-- items defining subgroup.
+
+Here´s an example for dataset 'test' using the attribute CC:
+
+	{ 2/1,34/2,43/1,8/1,9/1 }    <--    M3 in [-2.0 : 3.0[  &  ORIGEM=olga
+
+If a numeric attribute is predefined then one can apply caren discretization methods $cin$ and $Srik$ 
+but not $bin$ on the this attribute.
+Here´s another example for the same dataset but applying $cin$ in attribute CC:
+
+	{ [0.0 : 5.0[/1,[9.0 : 43.0[/3 }    <--    M3 in [-2.0 : 3.0[  &  ORIGEM=olga
+
+A rule expressing the apriori distribution is always generated. This rule has an empty antecedent.
+The defined minsup is now meant to be a filter for antecedent suport. Interest metrics for these rules
+should be ignored. Notice that attribute values in the consequente are exposed in lexicographic order.
+
+
+Use switch -G to defined the attribute to generate subgroup rules for.
+This switch only applies in -Att mode. 
+
+
+
+
+
+
+
+README2 - October, 2005
+
+Predict implements Post-Bagging as described in 
+
+	[Jorge & Azevedo 05] in Proc. of the 8th International Conference on Discovery Science LNAI 3735, Singapore 2005 
+	"An experiment with assocation rules and classification: post-bagging and conviction".
+
+
+The basic idea is to obtain a multi-model strategy by bagging (bootstrap aggregation) rules instead of training examples.
+
+
+
+
+README2 - July, 2006
+
+Carenclass is now release 2.4
+
+Predict received several improvement in the BestRule method. Also Class Distribution was updated and yields better accuracy.
+BestRule follows CMAR specification rather then CBA spec.
+
+Class attribute is defined by name (and not by number as in past versions of predict).
+
+Carenclass now derives distribution rules as described in
+
+	[Jorge & Azevedo & Pereira 06] in Proceedings of the Tenth European Conference on Principles and Practice of Knowledge Discovery in Databases (PKDD2006), 
+	Berlin September, 2006,   "Distribution rules with numeric attributes of interest".
+
+
+
+
+
+README-log - April 2007
+
+In $carenclass$ -X2 no longer filters itemsets through the chi^2 test. It is now
+equivalent to perform -chi i.e it filters rules whose chi^2 test indicates independence
+between antecedent and consequent.
+
+
+Rule generation in $carenclass$ was improved by 5% to 7%. The algorithm 
+considers in a better way the separation between consequent and antecedent items.
+The frequent itemsets counting module was also slightly improved.
+
+
+
+
+New rule measures were included in the Caren system. $carenclass$ now calculates 10 interest 
+measures for each rule. The $predict$ module implements BestRule and Voting prediction for 
+each measure. The measures are:
+
+        1 - conf
+        2 - lift
+        3 - conv
+        4 - chi^2
+        5 - Laplace
+        6 - Leverage (PShapiro)
+        7 - Jaccard
+        8 - Cosine
+        9 - Phi-coefficient
+       10 - Mutual Information (MI)
+
+The predictive performance of these measure were studied in the paper:
+
+
+	[Azevedo & Jorge 07A] in Proc. of the  European Conference on Machine Learning (ECML'07), LNAI, Warsaw 2007 
+	"Comparing Rules Measures for Predictive Association Rules".
+
+
+
+
+$predict$ now includes a mode of considering each transaction as a case. There is no evaluation on this mode.
+The predictions are outputted to a file datasetname.pre in .csv format. Each line contains the following info:
+
+	Trans_id; prediction; score
+
+where Trans_id is the transaction identifier, prediction is the predicted item derived for the transaction and score
+is the score of that prediction. The latter coincides with the value of the metric used in Best Rule prediction.
+Each transaction (case) has associated a set of predictions.
+A switch -T was introduced to define the maximal number of recommendations for each case.
+When no prediction is avaliable the keyword "null" is used instead of a predicted item. In these case, 
+the score is always -1.
+ 
+
+
+
+
+
+The switch -file outputs prediction with scores in case of BestRule (including recommendations mode) and votes in voting strategies. Files with extension .pre
+and _votes.csv (for the case ensemble voting) are the resulting files. The -cm yields the confusion matrix and class oriented accuracy measures.
+Together with -file one obtains the file cm.info which the text version of the above.
+
+
+
+
+
+$predict$ implements now Iterative Reordering Ensambling (IRE). It is a boost like ensembling method without relearning
+that reorders rules along the trials construction. Instead of reweighting training cases, rules interested measures are reevaluated which leads to a new rule's ordering.
+It is implemented for BestRule and Voting strategies that make use of confidence, lift or conviction.
+The method is described in:
+
+	[Azevedo & Jorge 07B] in Proc. of the 10th International Conference on Discovery Science LNAI, Sendai, Japan, 2007 
+	"Iterative Reordering of Rules for Building Ensembles without Relearning".
+
+
+
+
+
+README-log - August 2007
+
+Caren contains now a set of script for performing N-cross validation. Folds are generated using Weka stratified folds
+methods (script faz_folds_class). Cross validation is executed using script $myxval_clas$.
+
+
+
+
+
+README-log - September 2007
+
+Weighted Relative Accuracy (Navrac et al) was added to the list of interest measures for prediction.
+Mutual Information was corrected (NaN values).
+
+
+
+
+
+
+
+README-log - December 2007
+
+Major improvement on the (Frequent itemset mining) FIMI-algorithm. Caren rules engine now includes
+the following algorithmic features: itemset expansion control by rule minsup filter, dynamic items reordering
+and parental equivalence pruning.
+There is also a new rule representation schema. The prediction models are derived on-the-fly.
+The implementation of improvement rule's filtering is faster.
+There exist a new post-processing improvement which is complete. The on-the-fly version is incomplete but sometimes faster.
+The Fisher Exact Test is implemented. The within-search methodology by Webb'06 is used. The number of rules in the search space
+is derived and used to compute the Bonferroni adjustment.
+In this test a rules is compared against all its direct generalizations (including the default rule).
+
+The system is now complete when more than one item is defined in -h or -H (consequent specification).
+That is, rules containing items in the antecedent and consequent from the ones specified in -h or -H are derived.
+
+The prediction module also suffer small tuning yielding a faster version.
+This module has now a switch to use discretization info derived from the convert module to use during test set evaluation.
+That is, the info about derived intervals on the training set is used by $predict$ on evaluating the test set.
+
+Module $convert$ contains a switch for dealing with nulls. It deletes redundant attributes (that only contain one value)
+and replaces null values by mean or mode within class.
+
+The bugs on recommendation systems and class distribution predict were solved.
+
+
+Switch -X2 is discontinued and no longer applies.
+
+
+
+Caren has now a unique command replacing $carenclass$ and $carendf$. Check command $caren$ using
+
+> caren -help
+
+to view options and switches.
+
+
+
+
+
+
+
+
+
+README-log - May 2008
+
+
+Caren derives Frame rules to describe persistence of Association rules along different time series.
+Check switch -T to use frame rules derivation and to indicate which attribute is the timestamp of the time series. 
+
+
+
+Multiple Interest Measures Models added to Predict.
+The new type of prediction strategy is based on an ensemble of models. Each model is derived by applying BestRule
+with a different interest measure to the set of rules. Composition is obtained by uniform voting.
+Try switch -mmm.
+
+
+
+
+
+
+README-log - October 2008
+
+
+New interest measures Entropy gain and Gini index are now calculated for each rule.
+It uses the definitions described in "Trasvering itemset lattices with statistical metric pruning", Morishita & Sese, in PODS2000.
+
+
+
+
+
+Bonferroni adjustment was reimplemented. It now applies the Bonferroni direct adjustment of critical values 
+using Layered Critical Values (Webb'08 "Layered critical values: a powerful direct-adjustment approach to discovering significant patterns").
+The given alpha is adjusted into several different critical values which are applied according to rule's antecedent size.
+For level L the new critical value is:
+
+	alpha' = alpha / (L_max x S_L)
+
+being L_max the maximal possible size for a rule antecedent,
+and S_L the number of rules with antecedent size = L.
+Caren assumes the upper limit for search size to be the number of frequent items  - 1 (L_max = maximal size of an antecedent).
+
+
+
+
+
+
+
+
+README-log - November 2008
+
+Caren derives rules for contrast sets. Significant differences are obtained through a Fisher Exact Test and multiple hypothesis are dealt using
+the Bonferroni adjustment implemented in Caren.
+It implements the RCS approached described in 
+"Rules for Contrast Sets, Paulo J. Azevedo, to appear in Intelligent Data Analysis: An International Journal, Volume 14 (6), IOS Press, 2010".
+
+
+
+Recommendations at $predict$ were corrected to not derive items that are part of the test case e.g. for rule b -> c and case x,b,c this rule
+does not fire!
+
+
+
+
+
+
+
+README-log - March 2009
+
+Post-bagging implementation in $predict$ was improved. There is a new switch to select the best k models before using them on the classification
+of new instances.
+Option -wag{trn,n}  selects the top 'n' bags using accuracy on training set 'trn' before applying Post bagging.
+Accuracy for bags selection is performed using defined strategy (BestRule, Voting, etc) with defined interest measure e.g. confidence.
+
+
+
+
+
+
+README-log - September 2009
+
+
+New Distribution rules algorithm. Is a faster and better memory consumption algorithm. 
+
+
+Now, parental support equivalence is implemented. No rule is derived if its antecedent support is the same as its parent.
+
+A bug was fixed on improvement pruning.
+
+Switch -bonf now can be applied during distribution rules derivation.
+
+Switch -Pr is used to declare an holdout data file. The apriori distribution is computed from these data.
+In this case, caren merge the datapoints of train and holdout data to build the c.d.f. (in the KS-test) for the apriori and rule's distributions.
+
+All these new features also apply to derivation of regression rules.
+Minimal improvement default value in -N switch is  minimp = 0.00000000000000000001.
+With -N the -bonf switch does not apply!
+
+
+
+
+CMAR Implementation.
+
+Caren now includes a CMAR algorithm implementation (CMAR algorithm: Li, Han, Pei 2001, ICDM'01). Use -CMAR on $caren$ to derive a cmar model.
+Use -CMARtrn,delta to apply rules covering procedure on training data 'trn' and using threshold delta i.e. number of times a case
+must be covered by a rule before being retracted.
+To obtain a model according to CMAR algorithm use -imp and -chi at the $caren$ module. CMAR only consideres positively correlated rules.
+Also, general and high confidence rules are used to prune more specific and lower confidence ones.
+CMAR paper referes to "confidence difference" as the minimal improvement threshold.
+
+
+
+
+
+README-log - October 2009
+
+Minimal support class threshold.
+
+A new switch to specify that rule minsup is applied to class support (-MCS) was added.
+When this options is used minsup is applied, as normal, to itemset support.
+However, in realtion to rule support the threshold is applied to rule support within the class i.e. consequent support.
+In classification this enables to better deal with unbalanced datasets. It is now possible to derive rules for rare classes without lowering
+the given minsup.
+Example sup(ab) = 100, sup(c)=20, minsup=10%, in a dataset with 1000 records.
+Then class minsup is 2 (10% of 20), where minsup is 100. sup(ab -> c)=18 which is less than minsup.
+However sup(ab ->) > class minsup. So the rule is derived.
+
+
+
+Pruning Speedup.
+
+Major speed-up on rule filtering: minimal improvement filtering (on-the-fly and post-processing) and fisher exact test 
+(also on-the-fly and post-processing).
+This affects performance on association rules (with and without user defined consequents), distribution rules and regression rules.
+
+
+Post-pruning improvement can now be used when derived distribution and regression rules.
+
+
+A bug was fixed on pruning rules using improvement and fisher test. When a rule just derived can delete rules already saved some were missed.
+This was fixed by using a new data structure to store rules.
+
+
+Caren now takes fully use of the rule based algorithm. New pruning opportunities are used when applying fisher and improvement pruning.
+The search space is reduced by performing testes (of improvement and fisher) to check whether is it worth to expand an itemset.
+Also, itemset expansion carries the set of valid consequents for a rule formed out of this itemset.
+
+
+Jittering Ensembles.
+
+IRE and PostBagging implementation have their performance improved. PostBagging contains a bag evaluation to select the TopN best bags.
+Evaluation is performed on a given validation set (can be training set) using a defined prediction method and measure e.g. BestRule conv.
+Use -wag to obtain this feature.
+
+These methods are described in  
+"Ensembles of jittered association rule classifiers", Paulo J. Azevedo & Alípio M. Jorge, Data Mining and Knowledge Discovery, Springer, 2010".
+
+
+
+
+
+README-log - April 2010
+
+version 2.6 is release (beta version).
+A truly rule based algorithm is now implemented. The discretization methods present in the $convert$ module are now implemented
+in the $caren$ module.
+
+
+
+
+
+README-log - March 2011
+
+Module $predict$ now outputs #rules per class that cover a test case. With -file file names is dataset_name.rules.
+
+Also, predict computes AUC along with error rate. It uses the multi-class proposal of Hand & Till (ML 45) 2001.
+Switch -auc in $predict$ derives the ROC area under curve. If -file is used or -all $predict$ will output a file dataset.res with the computed auc for 
+each used method.
+-file now derives a file dataset.rules which describe the #rules per classe that covers each test case.
+If -auc is used together with -file $predict$ outputs a file dataset.pre with the predictions. For each test case, the scores for each class is written.
+That corresponds to the top rule for each class that fires for this test case.
+If -file alone is used, file dataset.pre only contains the following info: case number, prediction, score of the bestrule.
+
+A bug was fixed on computing AUC for the "detail by class" measures. Here AUC is used following algorithm 2 in Fawcett2006 Pattern Recgnition Letters. 
+That is, it computes the trapezoid areas formed by connecting the TP,FP points on the ROC curve.
+
+
+
+
+README-log - September 2011
+
+Caren now implements label ranking rules. Similarity measures is implemented using a defined rank correlation measure which can be Kendall tau or 
+Spearman rho. 
+A threshold theta is given by the user to filter low correlation between rankings.
+In datasets, the attributes describing the ranking are the last ones. Labels in a ranking are separated using the defined separator.
+e.g where separator is a comma:
+
+A1,A2,A3,A4,L1,L2,L3
+-0.555556,0.25,-0.864407,-0.916667,1,2,3
+-0.666667,-0.166667,-0.864407,-0.916667,1,2,3
+
+Notice number of attributes is 5 (including the rank one).  A label in a ranking is also separated by a comma.
+The name of ranking "attribute" is the name of the first label. Thus in this case is L1. Also, class should be referred as this artificial attribute.
+In this example, in the first data case, the represented ranking is L1>L2>L3. Thus, attributes represent labels and values ranks in a ranking.
+
+Improvement is the regular Caren improvement filter but where compared rules also consider correlation values.
+That is, rules a & b -> L1>L2  and b -> L2>L1 are compared if the used measure between rankings L1>L2 and L2>L1 satisfies the defined threshold theta.
+Thus, not only rules with the same consequent are compared.
+The same applies to the Fisher pruning test.
+Computing support and confidence of a rule also considers ranking correlation.
+
+Predict implements several ranking prediction procedures. Namely, standard BestRule and Voting, Consensus ranking and variants like weighted consensus 
+ranking using the available interest rule measures.
+
+
+
+
+README-log October 2013
+
+Add switch -nodef to disable default rule generation in general (useful in label ranking).
+
+RANK switch now accepts values in [-1,1] interval.
+
+
+
+
+
+README-log  November 2013
+
+Implements a discretization processo to be used in datasets where a numerical class attribute is used 
+(like regression rules and distribution rules).
+
+If a supervised discretization method is enabled and the class attribute is continuous then equidepth discretization is 
+applied to the class attribute. The resulted set of class intervals is passed to the supervised discretization method. 
+Rules are derived using the original numerical class attribute.
+
+Switch -Discbuk defines the number of buckets for the equidepth method. Default is sqrt(#numeric class distinct values).
+
+
+Bug fixed in Chimerge Discretization method. Now, -Discnum defines max number of intervals. That is, joining intervals now 
+persist even if number of max intervals is reached, until chi test yields statistics that do not satisfy alpha constraint.
+More pairs of intervals are tried. In a sequence 1,2,3,4,5 of intervals: 1+2, 3+4 were tried. Now 1+2, 2+3, 3+4, 4+5 are tried.
+
+
+
+New supervised discretization method for numeric class attributes.
+Switch -Discgf implements a Goodness of Fit oriented method. It is a bottom up method that joins adjacent intervals. 
+First intervals are unit values in the attribute to be discretize. Then intervals are joined  when a GoF statistical teste 
+between their joint distribution of the numeric class and the apriori distribution rejects the null hipothesis. 
+
+To play on the safe side regarding memory, a threshold for number of distinct values is used. If that threshold is overcome
+then a equidepth process is applied to the attribute values sequence. This will yield a number of distinct values that 
+is equal to the defined threshold. A similar process is applied in the numeric poi case.
+Default thresholds for MAX_DIST (discretized attribute) and MAX_CLASS (#poi) is respectively 500 and 5000 elements.
+
+
+
+
+
+
+
+README-log  January 2016
+
+Caren implements Pairwise LabelRanking. Switch -Pair{size} triggers rules with pairs of constraints on (rank) labels. 
+'size' is the max size of constraints in the consequent.
+
+In LabelRanking with ranking as consequents, the similarity matrice is normalized e.g. = (1.0 + similarity) / 2.0.
+In that way the interval [-1,1] is shifted to [0,1]. This avoids having negative contributions to a rule support.
+
+Now, ties are considered on rankings. On Pairwise ranking one can get equalities in the set of pairs in the consquent.
+Redundancy will arise but the ranking is now complete.
+
+
+
+
+
+
+
+
+
+
+The package was now compiled for the Java 1.6 language (using JSDK1.6.0_18)
+
+
+
+
+If you find memory problems try increasing the heap size allocated by the java interpreter
+(check java -X, and include it when invoking the java emulator with caren)
+
+
+
+
+For questions, comments, send email to Paulo Azevedo (pja@di.uminho.pt)
+
+

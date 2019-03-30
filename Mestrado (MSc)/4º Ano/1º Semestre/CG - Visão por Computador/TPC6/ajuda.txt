@@ -1,0 +1,38 @@
+1 - Sacar o ficheiro get-pip.py
+https://pip.pypa.io/en/stable/installing/
+
+2 - Correr na prompt : python nome_file.py 
+
+2 - instalar os packages necessários:  pip install nome_package
+https://pip.pypa.io/en/stable/user_guide/#installing-packages
+
+
+
+Para correr a geração das caracteristicas S, S0 e I_inv 
+fazer python nome_file.py "diretoria_input" "diretoria_output" 1 
+ - A opção (1) indica que é para gerar as caracteristicas
+ - diretoria_input deve ter dentro dela as pastas test e training
+   As pastas test e training deve obeceder Às sub pastas e nomes dwe ficheiros da base de dados DRIVE
+ - A diretoria_output pode ser uma qualquer. Dentro dela serão criadas as pastas Treino e Teste.
+   
+exemplo: 
+    python .\main.py "./DRIVE/" "./Caracteristicas/" 1
+
+
+Para realizar segmentação baseada nas imagens S: 
+fazer python nome_file.py "diretoria_input" "diretoria_output" 2 
+ - A opção (2) indica que é para segmentar por S
+ - diretoria_input deve ter dentro dela a pasta com as imagens S, usando os nomes das imagens
+ geradas no passo anterior
+ - A diretoria_output indica a pasta onde serão guardadas as imagens segmentadas 
+exemplo:
+    python .\main.py "./Caracteristicas/Treino/S_img/" "./Segmentacao_S/" 2
+
+Para realizar segmentação baseada em SVM: 
+fazer python nome_file.py "diretoria_input" "diretoria_output" 3 
+ - A opção (3 indica que para utilizar SVM para segmentacao 
+ - diretoria_input deve ter dentro dela a pasta Treino OU Teste geradas pelo passo 1 
+ - A diretoria_output indica a pasta onde serão guardadas os resultados (de momento não há)
+ exemplo:
+EXEMPLO:
+    python .\main.py "./Caracteristicas/Treino/S_img/" "./Segmentacao_S/" 2
